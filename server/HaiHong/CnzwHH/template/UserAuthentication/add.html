@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>银行卡管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="bank.aspx?action=default">银行卡管理</a>
+<a href="bank.aspx?action=add" class="current">添加银行卡</a>
+<a href="bankModel.aspx?action=default">银行管理</a>
+<a href="bankModel.aspx?action=add">添加银行</a>
+<a href="config.aspx?action=bank">参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base">用户绑卡 >> 添加银行卡</td>
+<td class="Base">选择用户</td>
+</tr>
+<tr class="xingmu">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe frameborder="0" width="100%" height="540" id="frm-order-edit" scrolling="yes" src="?action=adddemo&userid={ke.request(userid).toint()/}"></iframe>
+</td>
+<td width="460" style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" scrolling="auto" frameborder="0" height="540" src="user.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindUserCallBack = function(JSON){
+	try{
+		if(JSON!=undefined && typeof(JSON)=='object' && JSON["userid"]!=undefined){
+			$("#frm-order-edit").attr("src","?action=adddemo&userid="+JSON["userid"]);
+		}
+	}catch(err){}
+}
+</script>

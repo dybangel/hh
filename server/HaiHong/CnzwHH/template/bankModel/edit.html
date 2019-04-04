@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户银行卡</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="bank.aspx?action=default">银行卡管理</a>
+<a href="bank.aspx?action=add">添加银行卡</a>
+<a href="bankModel.aspx?action=default">银行管理</a>
+<a href="bankModel.aspx?action=add">添加银行</a>
+<a class="current">编辑银行</a>
+<a href="config.aspx?action=bank">参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="modelid" value="{ke.function.modelid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">用户银行卡 >> 银行管理 >> 编辑银行</td>
+</tr>
+<tr id="frm-bankname-tr" style="{ke.function.dis/}" operate="system" class="hback">
+<td class="tips">银行类型</td>
+<td colspan="3" class="singlebtn">
+{ke.function.isPattern/}
+<span>请选择银行类型,如支付宝或微信请选择网银账户</span>
+</td>
+</tr>
+
+<tr id="frm-bankname-tr" style="{ke.function.dis/}" operate="system" class="hback">
+<td class="tips">银行名称</td>
+<td colspan="3" class="singlebtn">
+<input type="text" name="ModelName" id="frm-ModelName" value="{ke.function.ModelName/}" size="30" notkong="true" class="inputtext" placeholder="请填写银行名称" />
+{ke.function.isDisplay/}
+<span>请填写银行名称,如中国人民银行或支付宝等</span>
+</td>
+</tr>
+
+<tr id="frm-bankname-tr" style="{ke.function.dis/}" operate="system" class="hback">
+<td class="tips">简写代码</td>
+<td colspan="3" class="singlebtn">
+<input type="text" name="ShortName" id="frm-ShortName" value="{ke.function.ShortName/}" size="30" notkong="true" class="inputtext" placeholder="银行名称简写代码" />
+<span>如中国银行(BC)</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips" valign="top">备注信息</td>
+<td colspan="3" class="singlebtn">
+<textarea name="Remark" id="frm-Remark" placeholder="请填写备注内容" class="inputtext" style="width:450px; height:40px;"></textarea>
+<div>备注信息字段长度请限制在200汉字以内</div>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td colspan="3" class="singlebtn">
+<input type="text" name="SortID" id="frm-SortID" value="{ke.function.SortID/}" size="10" isnumeric="true" class="inputtext" placeholder="请填写排序数字" /><span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>选择用户</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#frm-page-bar{ position:fixed; width:100%; height:36px; padding:3px 0px; background:#f0f0f0; bottom:0px;left:0px; text-align:center; border-top:#ccc solid 1px;}
+td{ cursor:pointer;}
+</style>
+</head>
+<body>
+
+{ke.function.list/}
+<div class="clear" style="height:40px; clear:both;"></div>
+<div id="frm-page-bar">
+	<div style="position:absolute;left:8px;top:8px;"><input id="frm-insert" type="button" value="加入选中用户" /></div>
+	<div style="position:absolute;left:130px;top:8px;">{ke.function.pagebar/}</div>
+</div>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("tr[operate=selector]").dblclick(function(){
+		try{
+			queryConvert(this,function(rspJson){
+				if(parent.FindUserCallBack!=undefined 
+				&& parent.FindUserCallBack!=null 
+				&& typeof(parent.FindUserCallBack)=='function')
+				{
+					parent.FindUserCallBack(rspJson);
+				};
+					
+			});
+		}catch(err){}
+	});
+	
+	
+	$("#frm-insert").click(function(){
+		try{
+			$("#frm-tabs").find("input[operate=\"selected\"]").each(function(){
+				
+				try{
+					queryConvert(this,function(rspJson){
+						if(parent.FindUserCallBack!=undefined 
+						&& parent.FindUserCallBack!=null 
+						&& typeof(parent.FindUserCallBack)=='function')
+						{
+							parent.FindUserCallBack(rspJson);
+						};
+							
+					});
+				}catch(err){}
+				
+			});
+		}catch(err){}
+	});
+	
+});
+var queryConvert = function(obj,back)
+{
+	var PutMessage = function(errMessager)
+	{
+		try{
+			ShowMessager({'text':errMessager});
+			return false;
+		}catch(err){}
+	};
+	try{
+		var JSONFormat = {};
+		/*****************************************************************************************************
+		*开始判断数据请求信息
+		******************************************************************************************************/
+		if($(obj).attr("json")==undefined){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if($(obj).attr("json")==null){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if($(obj).attr("json")==''){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		var strFormat = $(obj).attr("json") || "{}";
+		if(strFormat==undefined){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(strFormat==null){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(strFormat==''){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(strFormat=='{}'){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(strFormat.indexOf('{')==-1){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(strFormat.indexOf('}')==-1){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else {try{JSONFormat = $.parseJSON(strFormat) || {};}catch(err){}}
+		if(JSONFormat==undefined){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(JSONFormat==null){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		else if(typeof(JSONFormat)!='object'){PutMessage('获取请求JSON格式错误,请刷新重试！');return false;}
+		/*****************************************************************************************************
+		*返回数据处理结果信息
+		******************************************************************************************************/
+		if(back!=undefined && back!=null && typeof(back)=='function'
+		&& JSONFormat!=undefined && JSONFormat!=null && typeof(JSONFormat)=='object')
+		{
+			try{back(JSONFormat);}catch(err){}
+		}
+	}
+	catch(err){}
+}
+</script>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户诚信</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#frm-page-bar{ position:fixed; width:100%; height:36px; padding:3px 0px; background:#f0f0f0; bottom:0px;left:0px; text-align:center; border-top:#ccc solid 1px;}
+td{ cursor:pointer;}
+td[affairs="0"]{ color:#f00;}
+td[affairs="1"]{ color:#006600;}
+</style>
+</head>
+<body>
+{ke.function.list/}
+<div class="clear" style="height:40px; clear:both;"></div>
+<div id="frm-page-bar">{ke.function.pagebar/}</div>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("tr[operate=selector]").dblclick(function(){
+		if($(this).attr("json")!=undefined && $(this).attr("json")!=""){
+			if(parent.FindBonusCallBack!=undefined && typeof(parent.FindBonusCallBack)=='function'){
+				parent.FindBonusCallBack($.parseJSON($(this).attr("json")));
+			}
+		}
+	});
+});
+</script>

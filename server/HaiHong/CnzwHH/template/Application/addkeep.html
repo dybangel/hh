@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>服务应用</title>
+    <link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a href="?action=default">应用管理</a>
+        <a href="?action=keeplist">留存应用</a>
+        <a href="?action=add">添加应用</a>
+        <a href="?action=addliucun" class="current">添加留存应用</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="FormContianer" action="?" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="action" value="savekeep" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+            <tr operate="system" class="xingmu">
+                <td colspan="4">基本信息(以下内容为广告必填信息)</td>
+            </tr>
+            <tr operate="system" class="hback">
+                <td class="tips">应用名称</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" value="{ke.function.Appname/}" notkong="true" name="Appname" id="Appname" size="20" readonly="readonly" />
+                    <input type="text" hidden="hidden" value="{ke.function.AppID/}" name="AppID" id="AppID" />
+                </td>
+                <td class="tips">分组类型</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" value="{ke.function.TaskerModel/}" notkong="true" name="TaskerModel" id="TaskerModel" size="20" readonly="readonly" />
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td style="width:80px" class="tips">应用分类</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" value="{ke.function.Classname/}" notkong="true" name="Classname" id="Classname" size="20" readonly="readonly" />
+                </td>
+                <td style="width:80px" class="tips">检测类型</td>
+                <td class="singlebtn">
+                    <select id="AppModel" style="width:300px" name="AppModel" >
+                        {ke.function.appmodel/}
+                    </select>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">来源渠道</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="" value="{ke.function.UnionModel/}" name="UnionModel" size="20" id="UnionModel" readonly="readonly" />
+                </td>
+                <td style="width:80px" class="tips">排重方式</td>
+                <td class="singlebtn">
+                    <select name="isWeight" style="width:200px;" id="isWeight">
+                        {ke.function.isweight/}
+                    </select>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">应用包名</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="" value="{ke.function.Packername/}" name="Packername" size="20" id="Packername" readonly="readonly"/>
+                </td>
+                <td class="tips">显示排序</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="请填写纯数字" value="0" name="SortID" size="10" isnumeric="true" id="SortID" />
+                    <span>数字越大显示越靠前</span>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">奖励金额</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(单位元)完成任务奖励" value="{ke.function.Amount/}" name="Amount" size="20" id="Amount" />
+                </td>
+                <td class="tips">试玩时间</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(单位秒)试玩时间" value="{ke.function.TryDate/}" name="TryDate" size="20" id="TryDate" />
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">开始时间</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(yyyy-MM-dd)请选择日期" value="{ke.function.StarDate/}" name="StarDate" size="20" onclick="WdatePicker()" />
+                </td>
+                <td class="tips">结束时间</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(yyyy-MM-dd)请选择日期" value="{ke.function.EndDate/}" name="EndDate" size="20" onclick="WdatePicker()" />
+                </td>
+            </tr>
+
+
+            <tr class="xingmu">
+                <td></td>
+                <td colspan="3">
+                    <input type="submit" operate="submit" value="确认保存" class="button" />
+                    <input type="reset" value="撤销" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

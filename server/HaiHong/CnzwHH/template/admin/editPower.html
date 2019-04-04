@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>编辑角色</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="admin.aspx?action=default">帐号管理</a>
+<a href="admin.aspx?action=add">添加帐号</a>
+<a href="admin.aspx?action=power">角色管理</a>
+<a href="admin.aspx?action=addpower">添加角色</a>
+<a class="current">编辑角色</a>
+<a href="admin.aspx?action=operate">操作日志</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=editpowersave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="PowerID" value="{ke.function.powerid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">帐号管理 >> 角色管理 >> 编辑角色</td>
+</tr>
+<tr class="hback">
+<td class="tips">角色名称</td>
+<td>
+<input type='text' class='inputtext' value="{ke.function.powername/}" placeholder="角色名称,部门职位名称等" name='PowerName' notkong='true' id='PowerName' size='30' />
+<span>填写当前角色名称,如管理员等</span>
+</td>
+</tr>
+<tr class="hback">
+<td colspan="2" class="Base">权限列表</td>
+</tr>
+<tr class="hback">
+<td id="power-frm-td-box" colspan="2" style="padding:0px; line-height:30px;">
+
+</td>
+</tr>
+<tr class="hback">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="保存数据" class="button"/>
+<input type="button" operate="history" value="返回上一页" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+<script language="javascript">var PowerXML='{ke.function.powerxml/}';</script>
+<script language="javascript" src="inc/jQuery.power.js?{timestamp}"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户基本参数设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">应用程序下载配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">iOS系统配置</td>
+</tr>
+<tr class="hback">
+<td class="tips">应用名称</td>
+<td>
+<input type="text" name="iOSName" value="{ke.function.iOSName/}" class='inputtext' size="20"/>
+<span>iOS APP应用名称,请限制在15个汉字以内</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">安装地址</td>
+<td>
+<input type="text" name="iOSDeposit" value="{ke.function.iOSDeposit/}" class='inputtext' size="45"/>
+<span>iOS应用在线安装地址，须支持SSL证书</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">当前版本</td>
+<td>
+<input type="text" name="iOSEdition" value="{ke.function.iOSEdition/}" class='inputtext' size="20"/>
+<span>当前系统应用的版本，方便用户更新</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">占用端口</td>
+<td>
+<input type="text" name="iOSport" value="{ke.function.iOSport/}" class='inputtext' size="8"/>
+<span>当前iOS应用占用本地app端口号</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">访问协议</td>
+<td>
+<input type="text" name="iOSPackerName" value="{ke.function.iOSPackerName/}" class='inputtext' size="20"/>
+<span>iOS系统访问协议</span>
+</td>
+</tr>
+
+<tr class="change">
+<td class="Base" colspan="2">安卓系统配置</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">应用名称</td>
+<td>
+<input type="text" name="AndroidName" value="{ke.function.AndroidName/}" class='inputtext' size="20"/>
+<span>安卓APP应用名称,请限制在15个汉字以内</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">安装地址</td>
+<td>
+<input type="text" name="AndroidDeposit" value="{ke.function.AndroidDeposit/}" class='inputtext' size="45"/>
+<span>安卓应用下载地址,在线下载然后安装</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">当前版本</td>
+<td>
+<input type="text" name="AndroidEdition" value="{ke.function.AndroidEdition/}" class='inputtext' size="20"/>
+<span>当前系统应用的版本，方便用户更新</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">占用端口</td>
+<td>
+<input type="text" name="Androidport" value="{ke.function.Androidport/}" class='inputtext' size="8"/>
+<span>当前iOS应用占用本地app端口号</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">访问协议</td>
+<td>
+<input type="text" name="AndroidPackername" value="{ke.function.AndroidPackername/}" class='inputtext' size="20"/>
+<span>iOS系统访问协议</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td colspan="2">
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

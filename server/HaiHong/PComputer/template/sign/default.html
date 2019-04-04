@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>签到抢红包</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="config.aspx?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+<style type="text/css">
+#PACKERContianer{ display:block; clear:both; width:100%;padding:12px 0px;background:#ff5f5f; overflow:hidden;color:#fff; text-align:center;}
+#SIGNContianer{ display:block; clear:both; width:96%; margin:0px auto;padding:0px; overflow:hidden; position:relative;height:60px;}
+#PROCESSContianer{ display:block; clear:both; width:calc(100% - 60px);width:-webkit-calc(100% - 60px);width:-moz-calc(100% - 60px); position:absolute;left:0px;top:0px;height:60px;}
+#PROCESSContianer div{ position:absolute; width:20%; display:block; clear:both; height:100%;color:#fff;}
+#PROCESSContianer div:nth-child(1){left:0%;top:0px;}
+#PROCESSContianer div:nth-child(2){left:20%;top:0px;}
+#PROCESSContianer div:nth-child(3){left:40%;top:0px;}
+#PROCESSContianer div:nth-child(4){left:60%;top:0px;}
+#PROCESSContianer div:nth-child(5){left:80%;top:0px;}
+#PROCESSContianer span.process{ display:block; clear:both; width:100%; height:30px; border-bottom:#1eae68 solid 4px;}
+#PROCESSContianer span.name{ display:block; clear:both;padding:2px 0px; width:100%;}
+input[operate="ok"]{ background:#ff5f5f; border-radius:8px;}
+input[disabled="disabled"]{ background:#bfbfbf}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="window.location='Index.aspx'"></div>
+	<div id="frm-headerName">签到抢红包</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div style="clear:both; width:100%; font-size:0px; height:0px;"></div>
+<div id="PACKERContianer">
+	<div><h3 style="font-weight: 300;">您已连续签到</h3></div>
+	<div style="clear:both; width:100%; font-size:0px; height:10px;"></div>
+	<div style="color:#fff"><font style="font-size:36px; font-family:Verdana, Arial, Helvetica, sans-serif; margin:0px 5px;">{ke.function.continuous/}</font>天</div>
+	<div style="clear:both; width:100%; font-size:0px; height:6px;"></div>
+	<div style="display:block; clear:both; font-size:12px;">不要忘记每日签到哦！</div>
+	<div id="SIGNContianer">
+		<div id="PROCESSContianer"><img style="width:100%; position:absolute;top:24px;left:0px;" src="template/images/sign{ke.function.continuous/}.png" /></div>
+		<div style="position:absolute;right:0px;top:0px;"><img src="template/images/ico_sign_bonus.png" style="width:60px;height:60px;" /></div>
+	</div>
+</div>
+<div style="clear:both; width:100%; font-size:0px; height:10px;"></div>
+<div style=" display:block;"><img src="template/images/signline.png" style="width:100%" /></div>
+<div style="clear:both; width:100%; font-size:0px; height:10px;"></div>
+<div style="clear:both; width:100%; font-size:0px; height:20px;"></div>
+<div style="display:block; clear:both;padding:4px 10px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="width:54px"><img src="template/images/ico_sign_qhb.png" style="width:46px;" /></td>
+    <td><div style=" display:block;color:#000;padding:2px 0px; font-size:15px;">开启抢红包资格</div><div style=" display:block;color:#999;padding:2px 0px; font-size:11px;">每周五下午16点准时开抢</div></td>
+    <td style="text-align:right;width:90px"><input type="button" style="width:90px;height:36px; line-height:36px;" operate="ok" value="抢红包" onClick="StarRed();" {ke.function.ispacker/} /></td>
+  </tr>
+</table>
+</div>
+<div style="clear:both; width:100%; font-size:0px; height:60px;"></div>
+<div style="display:block; clear:both;padding:4px 10px;">
+<input type="button" operate="ok" onClick="StarButton();" {ke.function.issign/} style="width:200px;" onClick="" value="签到" />
+</div>
+</body>
+</html>
+
+<script language="javascript">
+/****************************************************************************************************
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*点击签到事件
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*****************************************************************************************************/
+var StarButton = function()
+{
+	try{
+		if("{ke.config(SignOpen,signXml)/}"!="1"){ShowMessager({"text":"已关闭签到功能,请联系客服！"});return false;}
+		else if("{ke.function.weekday/}"=="Sunday"){ShowMessager({"text":"今天是星期天,不能签到！"});return false;}
+		else if("{ke.function.weekday/}"=="Saturday"){ShowMessager({"text":"今天是星期六,不能签到！"});return false;}
+		else if("{ke.function.weekday/}"=="Friday" && parseInt("{ke.function.hour/}")>=16){ShowMessager({"text":"已经超过签到时间,请下个礼拜再来吧！"});return false;}
+		else if("{ke.function.datekey/}"=="{ke.function.lastkey/}"){ShowMessager({"text":"您今天已经签到过了！"});return false;}
+		else{
+			try{
+				getResponse({
+					"url":"../api/sign.aspx?action=save",
+					"back":function(rspJson){
+						ToMessager({
+							"text":"签到成功",
+							"type":"success",
+							"url":"sign.aspx"
+						});
+					}
+				});
+			}catch(err){}
+		}
+	}catch(err){}
+};
+/****************************************************************************************************
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*点击抢红包事件
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*****************************************************************************************************/
+var StarRed = function()
+{
+	try{
+		if("{ke.config(SignOpen,signXml)/}"!="1"){ShowMessager({"text":"已关闭抢到抢红包功能,请联系客服！"});return false;}
+		else if("{ke.function.weekday/}"!="Sunday" && "{ke.function.weekday/}"!="Saturday" 
+		&& "{ke.function.weekday/}"!="Friday"){ShowMessager({"text":"还没有到抢红包的时间,请耐心等待！"});return false;}
+		else if("{ke.function.weekday/}"=="Friday" && parseInt("{ke.function.hour/}")<=15){ShowMessager({"text":"抢红包的时间还没有到哦！"});return false;}
+		else if(parseInt("{ke.function.continuous/}")<=4){ShowMessager({"text":"您没有达到抢红包的要求！"});return false;}
+		else{
+			try{
+				getResponse({
+					"url":"../api/sign.aspx?action=starRed",
+					"back":function(rspJson){
+						ToMessager({
+							"text":rspJson["tips"],
+							"type":"success",
+							"url":"sign.aspx"
+						});
+					}
+				});
+			}catch(err){}
+		}
+	}catch(err){}
+}
+</script>

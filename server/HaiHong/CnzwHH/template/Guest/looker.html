@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>反馈详情</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">用户反馈</a>
+<a class="current">反馈详情</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base">用户反馈 >> 反馈详情</td>
+<td class="Base">选择工单</td>
+</tr>
+<tr class="xingmu">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe frameborder="0" width="100%" height="520" id="frm-order-edit" scrolling="yes" src="?action=edit&GuestID={ke.request(GuestID).toint()/}"></iframe>
+</td>
+<td width="520" style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" scrolling="auto" frameborder="0" height="520" src="Guest.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindGuestCallBack = function(JSON){
+	if(JSON!=undefined && typeof(JSON)=='object'){
+		$("#frm-order-edit").attr("src","?action=edit&GuestID="+JSON["guestid"]);
+	}
+}
+</script>

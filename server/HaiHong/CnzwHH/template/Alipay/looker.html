@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>兑换详情</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="Alipay.aspx?action=default">用户提现</a>
+<a href="Alipay.aspx?action=looker" class="current">查看详情</a>
+<a href="Alipay.aspx?action=computer">数据统计</a>
+<a href="config.aspx?action=alipay">参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base">提现记录 >> 提现详情</td>
+<td class="Base">选择记录</td>
+</tr>
+<tr class="xingmu">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe frameborder="0" width="100%" height="520" id="frmContent" scrolling="yes" src="?action=edit&AlipayID={ke.request(AlipayID).toint()/}"></iframe>
+</td>
+<td width="460" style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" scrolling="auto" frameborder="0" height="520" src="Alipay.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindAlipayCallBack = function(JSON){
+	if(JSON!=undefined && typeof(JSON)=='object'){
+		$("#frmContent").attr("src","?action=edit&alipayid="+JSON["alipayid"]);
+	}
+}
+</script>

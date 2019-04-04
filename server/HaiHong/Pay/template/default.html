@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>在线充值-{ke.config(sitetitle)/}</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<link href="{app}/template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="{app}/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/inc/jquery.js"></script>
+<script language="javascript" src="{app}/inc/jquery-ui.js"></script>
+<script language="javascript" src="{app}/inc/jquery.form.js"></script>
+<script language="javascript" src="{app}/inc/forwork.js"></script>
+<script language="javascript" src="{app}/inc/jquery-easyui/jquery.easyui.min.js"></script>
+<style type="text/css">
+#frm-payment-box div.items{ clear:both; width:100%; cursor:pointer; border-bottom:#ccc solid 1px; padding:10px 0px; position:relative; height:50px;}
+#frm-payment-box div.current{ background:#fff7f6;}
+#frm-payment-box div.items div.rdo{ position:absolute;left:12px;top:20px; width:20px; height:20px; line-height:20px; background:#fff; border:#ccc solid 1px; border-radius:20px; display:block;}
+#frm-payment-box div.current div.rdo{ background:#cc0000; border:#cc0000;}
+#frm-payment-box div.current div.rdo:after{ content:'√'; display:block; width:20px; line-height:20px; height:20px; position:absolute;left:0px;top:0px; font-family:"微软雅黑"; color:#fff; text-align:center; font-size:16px; font-weight:bold;}
+#frm-payment-box div.items div.rdo input{ display:none;}
+#frm-payment-box div.items div.thumb{ position:absolute;left:60px;top:12px; width:60px; width:122px; height:44px;}
+#frm-payment-box div.items div.amount{ position:absolute;left:200px;top:12px;width:400px; color:#000; font-size:14px;}
+#frm-payment-box div.items div.descrp{ position:absolute;left:200px;top:40px;width:400px; color:#999;}
+
+#frm-amount-box{ position:absolute;left:0px;top:8px;}
+#frm-amount-box label{ display:block; height:32px; line-height:32px; width:80px; float:left; text-align:center; border:#ccc solid 1px; position:relative; border-radius:4px; margin-right:12px; font-size:16px; font-family:"微软雅黑"}
+#frm-amount-box label.current{ border:#cc0000 solid 1px; color:#cc0000}
+#frm-amount-box label input{ display:none;}
+#frm-amount{ border:#ccc solid 1px; height:32px;font-size:16px; font-family:Geneva, Arial, Helvetica, sans-serif; color:#CC0000; line-height:32px; border-radius:4px;padding-left:12px;}
+#frm-amount-tips{ width:100%; clear:both; height:40px; text-align:left; line-height:40px; color:#3399FF; background:#eef8ff; font-size:16px;}
+#frm-amount-submit{ text-align:left; padding:20px 0px; clear:both;}
+#frm-submit-btns-other{ background:#dc2e2e; height:50px; width:120px; border:0px; color:#fff; font-size:16px; font-family:"微软雅黑"; border-radius:6px;-webkit-box-shadow: 0 5px 0 0px #c10d0d}
+</style>
+</head>
+<body>
+{ke.include({app}/template/include/top.html)/}
+{ke.include({app}/template/include/menu.html?menu=首页)/}
+
+<div id="frm-main" style="border:#ccc solid 1px;padding:12px 0px; background:#fff">
+	<div id="frm-dir-box" style="border-bottom:#ccc solid 1px;padding-bottom:10px;">
+		<span id="frm-dir-this" style="margin-left:12px;">当前位置∶</span>
+		<span id="frm-dir-name" style="margin-left:12px;">首页 > 在线充值</span>
+	</div>
+	<div style="width:96%; margin:0px auto; clear:both; padding:12px;">
+	<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+	<input type="hidden" name="PaymentName" id="frm-payment-txt" value="支付宝" />
+	<div style="font-family:'微软雅黑'; font-size:16px;padding:12px 0px; color:#666">充值方式</div>
+	<div class="clear" style="height:5px;"></div>
+	<div id="frm-payment-box">
+	<div title="支付宝" class="items current">
+		<div class="rdo"></div>
+		<div class="thumb"><img src="{app}/template/images/zhifubao.png" /></div>
+		<div class="amount">使用支付宝在线充值付款</div>
+		<div class="descrp">方便又快捷,快速到账</div>
+	</div>
+	
+	<div title="微信付款" class="items">
+		<div class="rdo"></div>
+		<div class="thumb"><img src="{app}/template/images/wechat.png" /></div>
+		<div class="amount">使用微信扫码付款</div>
+		<div class="descrp">微信扫一扫付款方便快捷安全</div>
+	</div>
+	</div>
+	<div style="font-family:'微软雅黑'; font-size:16px;padding:12px 0px; color:#666">充值金额</div>
+	<div class="clear" style="height:5px;"></div>
+	<div style="padding:8px 0px;color:#999;position:relative;">
+		<div id="frm-amount-box" style="position:absolute;">
+			<label class="current"><input checked="checked" type="radio" name="frmAmount" value="20">20元</label>
+			<label><input type="radio" name="frmAmount" value="30">30元</label>
+			<label><input type="radio" name="frmAmount" value="50">50元</label>
+			<label><input type="radio" name="frmAmount" value="100">100元</label>
+			<label><input type="radio" name="frmAmount" value="">其它金额</label>
+		</div>
+		<div style="position:absolute;left:520px;top:8px; display:none" id="frm-amount-pan">
+		<input type="text" id="frm-amount" name="amount" style="width:120px" value="20" placeholder="请填写充值金额" /> (元)
+		</div>
+	</div>
+	<div class="clear" style="height:40px;"></div>
+	<div id="frm-amount-tips">&nbsp;请确认您的充值金额</div>
+	<div id="frm-amount-submit">
+		<input type="submit" id="frm-submit-btns-other" value="确认充值" class="button"/>
+	</div>
+	</form>
+	</div>
+</div>
+{ke.include({app}/template/include/footer.html)/}
+</body>
+</html>
+
+<script language="javascript">
+$(function(){
+	$("#frm-payment-box").find(".items").click(function(){
+		try{
+			$("#frm-payment-box").find(".items").each(function(){
+				$(this).removeClass("current");
+			});
+			$(this).addClass("current");
+		}catch(err){}
+		try{
+			var PaymentName = $(this).attr("title") || "账户余额";
+			$("#frm-payment-txt").val(PaymentName);
+		}catch(err){}
+	});
+});
+$("#frm-amount-box").find("input[type=radio]").click(function(){
+	$("#frm-amount-box").find("label").each(function(){
+		$(this).removeClass("current");
+	});
+	if(this.checked){
+		$(this).parent().addClass("current");
+		$("#frm-amount").val(parseInt(this.value) || 0);
+		if(parseInt(this.value)!=NaN && this.value!=""){
+			$("#frm-amount-pan").hide('slow');
+		}else{
+			$("#frm-amount-pan").show('slow');
+		}
+	}
+});
+</script>
+

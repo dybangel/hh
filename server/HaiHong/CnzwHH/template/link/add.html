@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>友情链接</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">连接管理</a>
+<a href="?action=add" class="current">添加连接</a>
+<a href="?action=classlist">连接分类</a>
+<a href="?action=addclass">添加分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=addlinksave" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">友情连接 >> 添加连接</td>
+</tr>
+<tr class="hback">
+<td class="tips">站点名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写连接站点名称" name="sitename" notkong="true" id="sitename" size="30" />
+{ke.function.isdisplay/}
+<span>关闭以后该站点将无法在前台显示</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">归属栏目</td>
+<td>
+<select name="classId" style="width:120px;">
+<option value="0">请选择站点分类</option>
+{ke.function.options/}
+</select><span>为该连接站点选择一个分类,方便管理</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">站点域名</td>
+<td>
+<input type="text" name="siteURL" value="" placeholder="请填写完整的网站地址" notkong="true" class="inputtext" size="35"/>
+<span>网站域名请带上http://全名,格式如(http://www.zwang.com.cn)</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">网站LOGO</td>
+<td>{ke.function.file/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">排序</td>
+<td>
+<input type="text" name="isOrder" isnumeric="true" value="0" class="inputtext center" size="8"/>
+<span>排序数字越大，显示的时候越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

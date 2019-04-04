@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>应用分类</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">应用分类</a>
+<a href="?action=add">添加分类</a>
+<a class="current">编辑分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="FormContianer" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="classid" value="{ke.function.classId/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">应用分类 >> 编辑分类</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">分类名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写分类名称30个汉字内" value="{ke.function.Classname/}" notkong="true" name="Classname" style="width:240px" />
+{ke.function.isDisplay/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">上级分类</td>
+<td class="singlebtn">
+<select id="ParentID" style="width:250px" name="ParentID">
+<option value="0">作为一级分类(根目录)</option>
+{ke.function.options/}
+</select>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">描述备注</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写描述备注信息" value="{ke.function.Remark/}" name="Remark" size="50" id="Remark" />
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写纯数字" value="{ke.function.sortid/}" name="SortID" size="10" isnumeric="true" id="SortID" />
+<span>数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

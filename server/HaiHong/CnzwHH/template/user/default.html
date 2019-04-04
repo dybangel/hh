@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js?{datetime}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">用户管理</a>
+<a href="?action=add">添加用户</a>
+<a href="?action=network">网络结构图</a>
+<a href="?action=computer">数据统计</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+<div title="用户信息" class="dialog-box" id="frm-selector-user"></div>
+<script language="javascript">
+$("td[operate=\"looker\"]").click(function(){
+	var url = $(this).attr("url");
+	if(url!=undefined && url!=""){
+		$("#frm-selector-user").html("<iframe frameborder=\"0\" scrolling=\"auto\" width=\"100%\" height=\"430\" src=\""+url+"\"></iframe>").dialog({width:720,height:480,modal:true});
+	}
+});
+var OpenCalendar = function(UserID)
+{
+	if(UserID!=undefined && UserID!=null && UserID!="" && UserID!=0){
+		ShowWindows({
+			"title":"设置分组期限",
+			"url":"User.aspx?action=calendar&userid="+UserID+""
+		});
+	}
+};
+</script>

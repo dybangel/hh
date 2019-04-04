@@ -1,0 +1,23 @@
+﻿<language>
+<zh>
+<zh.委托订单>委托订单</zh.委托订单>
+<zh.委托买入>委托买入</zh.委托买入>
+<zh.卖出订单>卖出订单</zh.卖出订单>
+<zh.买入订单>买入订单</zh.买入订单>
+</zh>
+<en>
+<en.委托订单>Entrust order</en.委托订单>
+<en.委托买入>Add</en.委托买入>
+<en.买入订单>Buy order</en.买入订单>
+<en.卖出订单>Sell orders</en.卖出订单>
+<en.立即预购>Go Buy</en.立即预购>
+<en.预购价格>Unit</en.预购价格>
+<en.预购数量>Quantity</en.预购数量>
+<en.合计总价>Amount</en.合计总价>
+<en.待确认>Wait confirm</en.待确认>
+<en.待付款>Wait payment</en.待付款>
+<en.已付款>Confirm Payment</en.已付款>
+<en.已完成>Complated</en.已完成>
+<en.已作废>Invalid</en.已作废>
+</en>
+</language>

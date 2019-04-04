@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WebChat.aspx.cs" Inherits="Fooke.Web.API.WebChat" %>

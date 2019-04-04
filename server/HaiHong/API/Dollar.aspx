@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dollar.aspx.cs" Inherits="Fooke.Web.API.Dollar" %>

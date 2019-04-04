@@ -1,0 +1,4 @@
+*{margin:0px; padding:0px; list-style-type:none;}
+body{font-size:12px; font-family:"ËÎÌו";}
+.sbutton{background:url(images/picBnt.png) no-repeat left top;width:75px;height:28px; line-height:28px; text-align:center;color:#FFF; font-weight:900; position:absolute;left:0px;top:-1px;}
+#LayerPrompt{position:absolute; z-index:1; left:0px; top: 1px; background-color: #001df5; layer-background-color: #00CCFF;width:75px; height: 28px; color:#FFF; line-height:28px; visibility:hidden; text-align:center;}

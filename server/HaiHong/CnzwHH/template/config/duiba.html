@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>兑吧参数设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">兑吧参数</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 兑吧参数 >> 基本配置</td>
+</tr>
+<tr class="hback">
+<td class="tips">开启兑吧</td>
+<td class="singlebtn">
+{ke.function.isopen/}
+<span>关闭以后用户将无法使用兑吧兑换积分</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">兑换时间</td>
+<td>
+<input type="text" name="startime" onClick="WdatePicker({dateFmt:'HH:mm:00'})" value="{ke.function.startime/}" class='inputtext' size="8"/>
+-
+<input type="text" name="endtime" onClick="WdatePicker({dateFmt:'HH:mm:00'})" value="{ke.function.endtime/}" class='inputtext' size="8"/>
+<span>每天允许用户兑换时间点</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">兑换金额</td>
+<td>
+<input type="text" name="MinNumber" value="{ke.function.MinNumber/}" isnumeric="true" notkong="true" class='inputtext' size="8"/>
+-
+<input type="text" name="MaxNumber" value="{ke.function.MaxNumber/}" isnumeric="true" notkong="true" class='inputtext' size="8"/>
+<span>每天允许用户兑换时间点</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">兑换次数</td>
+<td>
+<input type="text" name="timer" placeholder="请填写纯数字" value="{ke.function.timer/}" class='inputtext' size="10"/>
+<span>单个用户每天允许兑换的次数,0为不限制</span>
+</td>
+</tr>
+
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 兑吧参数 >> 对接令牌</td>
+</tr>
+<tr class="hback">
+<td class="tips">对接AppID</td>
+<td>
+<input type="text" name="appKey" value="{ke.function.appKey/}" class='inputtext' size="40"/>
+<span>兑吧兑换接口使用appId</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">对接令牌</td>
+<td>
+<input type="text" name="appSecret" value="{ke.function.appSecret/}" class='inputtext' size="40"/>
+<span>兑吧对接使用接口令牌appsecret</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td colspan="2">
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 兑吧参数 >> 回调地址</td>
+</tr>
+
+<tr class="hback">
+<td colspan="2" class="attention">
+<font color="red"><strong>兑吧接口说明</strong></font><br/>
+积分消费接口地址∶<font color="#03F">{ke.function.siteurl/}{app}/api/duiba/request.aspx</font><br/>
+结果通知接口地址∶<font color="#03F">{ke.function.siteurl/}{app}/api/duiba/deal.aspx</font><br/>
+违规查询接口地址∶<font color="#03F">{ke.function.siteurl/}{app}/api/duiba/ofline.aspx</font><br/>
+以上三个接口地址再与兑吧对接是配置接口处填写，请勿随意更改！
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>消息推送</title>
+    <link href="template/images/style.css" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+    <script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a class="current">消息推送</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="frm-submit-forms" action="?action=save" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="configname" value="{ke.function.configName/}" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+            <tr class="change">
+                <td class="Base" colspan="2">参数配置 >> 消息推送 >> iOS配置</td>
+            </tr>            
+            <tr class="hback">
+                <td class="tips">对接帐号</td>
+                <td>
+                    <input type="text" name="iOSName" value="{ke.function.iOSName/}" class='inputtext' size="40" />
+                    <span>iOS消息推送系统对接帐号appId</span>
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">对接令牌</td>
+                <td>
+                    <input type="text" name="iOSSecret" value="{ke.function.iOSSecret/}" class='inputtext' size="40" />
+                    <span>iOS消息推送系统应用appsecret</span>
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">推送模板</td>
+                <td>
+                    <input type="text" name="iOSTempID" value="{ke.function.iOSTempID/}" class='inputtext' size="40" />
+                    <span>iOS消息推送内容</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">第三参数</td>
+                <td>
+                    <input type="text" name="iOSother" value="{ke.function.iOSother/}" class='inputtext' size="40" />
+                    <span>对接时需要的第三个接口参数,可无</span>
+                </td>
+            </tr>
+
+            <tr class="change">
+                <td class="Base" colspan="2">参数配置 >> 消息推送 >> 安卓配置</td>
+            </tr>            
+            <tr class="hback">
+                <td class="tips">对接帐号</td>
+                <td>
+                    <input type="text" name="AndroidName" value="{ke.function.AndroidName/}" class='inputtext' size="40" />
+                    <span>安卓消息推送系统对接帐号appId</span>
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">对接令牌</td>
+                <td>
+                    <input type="text" name="AndroidSecret" value="{ke.function.AndroidSecret/}" class='inputtext' size="40" />
+                    <span>安卓消息推送系统应用appsecret</span>
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">推送模板</td>
+                <td>
+                    <input type="text" name="AndroidTempID" value="{ke.function.AndroidTempID/}" class='inputtext' size="40" />
+                    <span>安卓消息推送内容</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">第三参数</td>
+                <td>
+                    <input type="text" name="AndroidOther" value="{ke.function.AndroidOther/}" class='inputtext' size="40" />
+                    <span>对接时需要的第三个接口参数,可无</span>
+                </td>
+            </tr>
+
+            <tr class="xingmu">
+                <td colspan="2">
+                    <input type="submit" id="frm-submit-btns" value="确认保存" class="button" />
+                    <input type="reset" value="撤销" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

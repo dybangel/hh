@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>提现申请</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/ZeroClipboard.js"></script>
+<script language="javascript" src="inc/clipboard.js?{timestamp}"></script>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr style="background:#FFFFCC;" operate="system" class="hback">
+<td colspan="4" style=" border-bottom:#FF6600 solid 2px;">
+<form id="frmForm" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="AlipayID" value="{ke.function.AlipayID/}" />
+<input type="hidden" name="action" id="frmAction" value="" />
+<input type="button" action="confirm" operate="frm-dispose" value="同意提现(是)" class="button"/>
+<input type="button" action="dismiss" operate="frm-dispose" value="同意提现(否)" class="button"/>
+</form>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:80px;" class="tips">订单编号</td>
+<td style="width:260px;">{ke.function.orderKey/}</td>
+<td style="width:80px;" class="tips">订单状态</td>
+<td>{ke.function.affairs/}</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">提现金额</td>
+<td id="thisAmount" operate="copy" style="color:#009933;"><font style="font-size:14px">{ke.function.thisamount/}</font> 元</td>
+<td class="tips">提后余额</td>
+<td style="color:#cd0000"><font style="font-size:14px">{ke.function.thisBalance/}</font> 元</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">提现类型</td>
+<td>{ke.function.nickname/}</td>
+<td class="tips">提现次数</td>
+<td>{ke.function.thisInterval/}</td>
+</tr>
+<tr operate="system" class="hback">
+<td operate="copy" class="tips">提现方式</td>
+<td>{ke.function.FokeMode/}</td>
+<td class="tips">账户信息</td>
+<td operate="copy" id="AccessMode">{ke.function.AccessMode/}</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">收款账号</td>
+<td operate="copy" id="AccessName">{ke.function.AccessName/}</td>
+<td class="tips">真实姓名</td>
+<td operate="copy" id="AccessHolder">{ke.function.AccessHolder/}</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">备注信息</td>
+<td colspan="3">{ke.function.strRemark/}</td>
+</tr>
+<tr operate="system" class="Base">
+<td colspan="4">用户提现 >> 用户资金明细</td>
+</tr>
+<tr class="hback">
+<td colspan="4" style="padding:0px; background:#fff"><iframe src="amount.aspx?action=stor&userid={ke.function.userid/}" scrolling="auto" frameborder="0" style="width:100%;height:290px;"></iframe></td>
+</tr>
+</table>
+<div id="frm-thumb-box" title="查看截图" class="dialog"></div>
+<div id="frm-invest-box" title="交易明细【投资交易】" class="dialog-box"></div>
+<div id="frm-alipay-box" title="交易明细【提现交易】" class="dialog-box"></div>
+</body>
+</html>
+<script language="javascript" src="inc/bufferhelper.js"></script>
+<script language="javascript">
+$("input[operate=\"frm-dispose\"]").click(function(){
+	var thisButton = this;
+	var frmAction=$(thisButton).attr("action") || "";
+	if(frmAction!=undefined && frmAction!=null && frmAction!="" 
+	&& thisButton!=undefined && thisButton!=null 
+	&& thisButton.form!=undefined && thisButton.form!=null)
+	{
+		
+		if($.messager!=undefined && $.messager!=null && typeof($.messager)=='object' 
+		&& $.messager.confirm!=undefined && $.messager.confirm!=null 
+		&& typeof($.messager.confirm)=='function')
+		{
+			$.messager.confirm('系统提示','你确定要执行处理？',function(isOk){
+				if(isOk){
+					try{$("#frmAction").val(frmAction);}catch(err){}
+					try{ajaxSubmit(thisButton.form);}catch(err){}
+				}
+			});
+		};
+	}else{$.messager.alert('系统提示','发生未知错误，请刷新网页重试');return;}
+});
+try{$("#AccessHolder").copy("{ke.function.AccessHolder/}");}catch(err){}
+try{$("#AccessName").copy("{ke.function.AccessName/}");}catch(err){}
+try{$("#AccessMode").copy("{ke.function.AccessMode/}");}catch(err){}
+try{$("#thisAmount").copy("{ke.function.thisAmount/}");}catch(err){}
+</script>

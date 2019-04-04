@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>实名认证</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">实名认证</a>
+<a href="?action=looker" class="current">认证资料</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base">实名认证 >> 认证资料</td>
+<td class="Base">选择其它认证信息</td>
+</tr>
+<tr class="xingmu">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe frameborder="0" width="100%" height="540" id="frmContent" scrolling="yes" src="?action=edit&userid={ke.request(userid).toint()/}"></iframe>
+</td>
+<td width="520" style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" scrolling="auto" frameborder="0" height="540" src="UserAuthentication.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindAuthenticationCallBack = function(JSON){
+	try{
+		if(JSON!=undefined && JSON!=null && typeof(JSON)=='object' 
+		&& JSON["userid"]!=undefined && JSON["userid"]!=null)
+		{
+			$("#frmContent").attr("src","?action=edit&userid="+JSON["userid"]);
+		}
+	}catch(err){}
+}
+</script>

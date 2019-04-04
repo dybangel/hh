@@ -1,0 +1,795 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>{ke.function.sitename/}-后台管理</title>
+<script language="javascript">
+var app = '{app}';
+var siteid = '0';
+var res = '{ke.function.res/}';
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="{app}/favicon.ico" />
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/black/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<style type="text/css">
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent; border:0px;moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}
+body{ font-size:12px; font-family:"宋体";color:#444557; background:#32323a}
+html{width:100%; font-family:"宋体";-webkit-tap-highlight-color:transparent;-webkit-appearance:none;-moz-appearance:none;}
+#HeaderMain{ width:100%; margin:0px auto; display:block; clear:both; overflow:hidden; position:fixed;left:0px;top:0px;height:105px; background:#32323a;} 
+#HeaderMain #TopFrame{ display:block; width:100%; height:105px; position:absolute;left:0px;top:0px; overflow:hidden;}
+#BottomMain{ width:100%; margin:0px auto; display:block; clear:both; overflow:hidden; position:fixed;left:0px;bottom:0px;height:25px; background:#32323a; line-height:25px; text-align:right;color:#fff;}
+#ContextMain{ display:block; clear:both; position:fixed; width:100%; height:calc(100% - 130px);height:-webkit-calc(100% - 130px);height:-moz-calc(100% - 130px);;left:0px;top:105px; background:#f4f4f4; z-index:99;}
+#ContextMain[spread="close"] #LeftMain{ width:0px;height:0px;}
+#ContextMain[spread="close"] #RightMain{ width:100%;left:0px;}
+#ContextMain[spread="close"] #StripMain{ width:100%;left:0px;}
+
+#LeftMain{ display:block; clear:both; width:180px;background:#32323a; position:absolute;left:0px;top:0px;height:100%; }
+#LeftMain #MenuFrame{ display:block;width:100%; height:100%;left:0px;top:0px;position:absolute; overflow:scroll; overflow-x:hidden;}
+#StripMain{display:block; clear:both; height:36px;width:calc(100% - 180px);width:-moz-calc(100% - 180px);width:-webkit-calc(100% - 180px); background:#4f4f58;position:absolute;top:0px;left:180px; z-index:90px; border-bottom:#32323a solid 1px; overflow:hidden;}
+#StripMain label{width:36px; text-align:center;height:36px; display:block; float:left; position:relative;border-right:#32323a solid 1px;cursor:pointer;}
+#StripMain label:hover{background:#32323a;}
+#StripMain label img{color:#FFF; width:20px; height:20px;position:absolute;left:8px;top:8px;;}
+#RightMain{display:block; clear:both; height:calc(100% - 37px);height:-webkit-calc(100% - 37px);height:-moz-calc(100% - 37px); width:calc(100% - 180px);width:-moz-calc(100% - 180px);width:-webkit-calc(100% - 180px); background:#f4f4f4;position:absolute;top:37px;left:180px;}
+#ContentFrame{ display:block; width:100%; position:absolute;left:0px;top:0px;height:100%; overflow:hidden; background:#fff}
+#RightMain[status="loading"]:after{content:'loading'; background:url(template/images/load/load.gif) top center no-repeat #000; background-size:40px; background-position:center 12px; position:absolute;width:145px; height:40px; z-index:100;padding-top:60px;text-align:center;left:calc((100% - 145px) / 2);left:-webkit-calc((100% - 145px) / 2);left:-moz-calc((100% - 145px) / 2);top:calc((100% - 100px) / 2);top:-webkit-calc((100% - 100px) / 2);top:-moz-calc((100% - 100px) / 2); border-radius:8px; color:#fff;}
+#RightMain[status="loading"] #ContentFrame{ display:none; width:0px;height:0px;}
+/**************************************************************************************************************
+*right popup windows contianer
+***************************************************************************************************************/
+#SliderContianer{ display:block; position:fixed;top:87px;right:0px; background:#fff; width:0px; border:#000 solid 4px;height:calc(100% - 95px); height:-webkit-calc(100% - 95px); height:-moz-calc(100% - 95px); display:none; z-index:109;}
+#SliderContianer[maximum="true"]{ width:calc(100% - 248px) !important;width:-webkit-calc(100% - 248px) !important;width:-moz-calc(100% - 248px) !important;}
+#SliderContianer[status="loading"]:after{ content:'loading'; background:url(template/images/load/load.gif) top center no-repeat #000; background-size:40px; background-position:center 12px; position:absolute;width:145px; height:40px; z-index:100;padding-top:60px;text-align:center;left:calc((100% - 145px) / 2);left:-webkit-calc((100% - 145px) / 2);left:-moz-calc((100% - 145px) / 2);top:calc((100% - 100px) / 2);top:-webkit-calc((100% - 100px) / 2);top:-moz-calc((100% - 100px) / 2); border-radius:8px; color:#fff;}
+#SliderContianer[status="loading"]:before{ content:''; background:#efefef; position:absolute;left:0px;top:40px; width:100%; z-index:99;height:calc(100% - 40px);height:-webkit-calc(100% - 40px);height:-moz-calc(100% - 40px)}
+#SliderCloseButton{ display:block; width:24px; height:24px; position:absolute;left:0px;top:0px;;left:0px;top:0px; line-height:22px; text-align:center; font-size:28px; font-family:Arial, Helvetica, sans-serif, Times, serif; color:#fff; border-radius:4px; cursor:pointer;background:#000; border:#fff solid 2px;}
+#SliderZoomButton{ display:block; width:24px; height:24px; position:absolute;left:0px;top:0px;;left:30px;top:0px; line-height:22px; text-align:center; font-size:28px; font-family:Arial, Helvetica, sans-serif, Times, serif; color:#fff; border-radius:4px; cursor:pointer;background:#000; border:#fff solid 2px;}
+#SliderHeaderTitle{ color:#fff; font-size:13px; font-weight:bold; position:absolute;left:70px;top:4px;}
+#SliderCloseButton:hover{ }
+#SliderWindows{ width:100%; height:calc(100% - 44px); height:-webkit-calc(100% - 44px); height:-moz-calc(100% - 40px); background:#fff; position:absolute;left:0px;top:40px;}
+#SliderHeader{ clear:both; width:100%; height:36px; background:#32323a; border:#000 solid 4px; position:absolute;left:0px;top:0px;}
+#SliderFrame{ width:100%; height:100%; overflow:scroll;}
+#FrmEasyUICent{ width:100%; height:100%; background:#fff; overflow:scroll; display:block;}
+</style>
+</head>
+<body>
+<div id="HeaderMain"><iframe id="TopFrame" src="index.aspx?action=header" name="topFrame" scrolling="no"></iframe></div>
+<div spread="open" id="ContextMain">
+	<div id="LeftMain"><iframe id="MenuFrame" src="index.aspx?action=left&menuBar={ke.request(menubar)/}" name="Left" scrolling="no" frameborder="0"></iframe></div>
+	<div id="StripMain">
+		<label id="LeftMenu" title="关闭左栏"><img src="template/images/ico/left.png" /></label>
+		<label id="HomeMenu" title="系统主页"><img src="template/images/ico/home.png" /></label>
+		<label id="HistoryMenu" title="返回上一页"><img src="template/images/ico/hout.png" /></label>
+		<label id="ForwardMenu" title="前进一页"><img src="template/images/ico/qianj.png" /></label>
+		<label id="RefreshMenu" title="刷新网页"><img src="template/images/ico/refreshs.png" /></label>
+	</div>
+	<div id="RightMain"><iframe id="ContentFrame" src="index.aspx?action=right" name="Right" scrolling="yes" frameborder="0" marginheight="0" marginwidth="0" ></iframe></div>
+</div>
+<div id="BottomMain">当前时间{datetime} @Copyrights 多米积分墙 版权所有&nbsp;</div>
+<div id="SliderContianer"></div>
+</body>
+</html>
+
+<script language="javascript">
+$(function(){
+	$("#LeftMenu").click(function(){
+		try{
+			var Spread = $("#ContextMain").attr("1") || "open";
+			if(Spread!="open"){$("#ContextMain").attr("Spread","open");}
+			else{$("#ContextMain").attr("Spread","close");}
+		}catch(err){}
+	});
+	$("#RefreshMenu").click(function(){Right.window.location.reload();});
+	$("#HomeMenu").click(function(){Right.window.location='index.aspx?action=right';});
+	$("#HistoryMenu").click(function(){Right.history.go(-1);});
+	$("#ForwardMenu").click(function(){Right.history.go(1);});
+	
+	
+});
+
+
+</script>
+
+<script language="javascript">
+/*****************************************************************************************
+*Declares the sideslip method delegate type, which is 
+a method group that returns 
+a method to save the sideslip unrolled subpages
+*******************************************************************************************/
+var FrameFunctionOptions = {};
+var FrameFunctionBack = function(FunctionName,Avgs)
+{
+	try{
+		if(window.FrameFunctionOptions!=undefined && window.FrameFunctionOptions!=null 
+		&& typeof(window.FrameFunctionOptions)=='object' && FunctionName!=undefined 
+		&& FunctionName!=null && FunctionName!="" && window.FrameFunctionOptions[FunctionName]!=null 
+		&& window.FrameFunctionOptions[FunctionName]!=null 
+		&& typeof(window.FrameFunctionOptions[FunctionName])=='function')
+		{
+			try{window.FrameFunctionOptions[FunctionName](Avgs);}
+			catch(err){}
+		};
+	}catch(err){}
+};
+/*****************************************************************************************
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*display right contianer context
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+******************************************************************************************/
+var ShowContianer = function(options)
+{
+	var RightFrame = document.querySelector('#ContentFrame');
+	if(RightFrame==undefined){alert('加载框架页面失败,请刷新网页重试!');return false;}
+	else if(RightFrame==null){alert('加载框架页面失败,请刷新网页重试!');return false;}
+	else if(RightFrame.tagName!='IFRAME'){alert('加载框架页面失败,请刷新网页重试!');return false;}
+	var RightContianer = document.querySelector('#RightMain');
+	if(RightContianer==undefined){alert('加载框架页面失败,请刷新网页重试!');return false;}
+	else if(RightContianer==null){alert('加载框架页面失败,请刷新网页重试!');return false;}
+	
+	var statueFrame = function(status)
+	{
+		if(RightContianer!=undefined && RightContianer!=null){
+			try{$(RightContianer).attr('status',status);}
+			catch(err){}
+		}
+	}
+	
+	var LoadWindows = function()
+	{
+		try{statueFrame('loading');}catch(err){}
+		if(options!=undefined && options!=null && typeof(options)=='object' 
+		&& options['width']!=undefined && options['width']!=null && options['width']!="")
+		{
+			try{$(RightContianer).css({"width":options['width']});}
+			catch(err){}
+		};
+		try{
+			if(options!=undefined && options!=null && typeof(options)=='object'
+			&& options['url']!=undefined && options['url']!=null && options['url']!='')
+			{
+				try{$(RightFrame).attr('src',options['url']);}
+				catch(err){}
+				try{
+					var Interval = setInterval(function(){
+						if(RightFrame.document!=undefined 
+							&& RightFrame.document!=null 
+							&& RightFrame.document.readyState != "complete"){}
+						else{
+							try{clearInterval(Interval);}catch(err){}
+							try{statueFrame('complate');}catch(err){}
+							try{$(RightFrame).show();}catch(err){}
+						}
+					},500);
+				}catch(err){}
+			}
+		}catch(err){};
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		*Save the definition method group,
+		*save the current group to the interface
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		try{
+			if(options!=undefined && options!=null && options['function']!=undefined 
+			&& options['function']!="" && options['funName']!=undefined 
+			&& options['funName']!="" && typeof(options["function"])=='function' 
+			&& window.FrameFunctionOptions!=undefined && window.FrameFunctionOptions!=null 
+			&& typeof(window.FrameFunctionOptions)=='object')
+			{
+				SliderFunctionOptions[options['funName']] = options['function'];
+			};
+		}catch(err){};
+	};
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* start right contianer fun!
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	if(options!=undefined && options!=null && typeof(options)=='string' && options=='close')
+	{
+		try{
+			if(RightFrame!=undefined && RightFrame!=null)
+			{
+				try{$(RightFrame).removeAttr('src');}
+				catch(err){}
+			}
+		}catch(err){}
+	}
+	else if(options!=undefined && options!=null && typeof(options)=='object' 
+	&& options['url']!=undefined && options['url']!=null && options['url']!="")
+	{
+		try{LoadWindows();}
+		catch(err){}
+	}
+	
+};
+</script>
+<script language="javascript">
+/*****************************************************************************************
+*Declares the sideslip method delegate type, which is 
+a method group that returns 
+a method to save the sideslip unrolled subpages
+*******************************************************************************************/
+var SliderFunctionOptions = {};
+var SliderFunctionBack = function(FunctionName,Avgs)
+{
+	try{
+		if(window.SliderFunctionOptions!=undefined && window.SliderFunctionOptions!=null 
+		&& typeof(window.SliderFunctionOptions)=='object' && FunctionName!=undefined 
+		&& FunctionName!=null && FunctionName!="" && window.SliderFunctionOptions[FunctionName]!=null 
+		&& window.SliderFunctionOptions[FunctionName]!=null 
+		&& typeof(window.SliderFunctionOptions[FunctionName])=='function')
+		{
+			window.SliderFunctionOptions[FunctionName](Avgs);
+		};
+	}catch(err){}
+};
+/***********************************************************************
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+*Pop-up a windows form on the right
+*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+************************************************************************/
+var SliderOpenWindows = function(options)
+{
+	var options = options || {
+		"width":500
+	};
+	var Operate = {};
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	*close slider windows function
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	var CloseWindows = function()
+	{
+		try{
+			if(Operate!=undefined && Operate!=null 
+			&& Operate['contianer']!=undefined 
+			&& Operate['contianer']!=null)
+			{
+				try{$(Operate['contianer']).hide();}
+				catch(err){}
+				try{$(Operate['contianer']).empty();}
+				catch(err){}
+			}
+		}catch(err){}
+	};
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* close windows contianer
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	var CreateContianer = function()
+	{
+		try{
+			if(document.body!=undefined && document.body!=null){
+				try{$(document.body).append("<div id=\"SliderContianer\"></div>");}
+				catch(err){}
+			};
+			try{Operate['contianer'] = document.querySelector("#SliderContianer");}
+			catch(err){}
+		}catch(err){}
+	};
+	
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* cteare windows contianer nodes
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	var CreateWindows = function()
+	{
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		* get contianer child nodes
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		var FormatFunction = function()
+		{
+			try{
+				Operate['SliderCloseButton'] = document.querySelector("#SliderCloseButton");
+				Operate['SliderZoomButton'] = document.querySelector("#SliderZoomButton");
+				Operate['SliderHeaderTitle'] = document.querySelector("#SliderHeaderTitle");
+				Operate['SliderWindows'] = document.querySelector("#SliderWindows");
+				Operate['SliderHeader'] = document.querySelector("#SliderHeader");
+			}catch(err){}
+			
+			/***********************************************************************
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			* exec contianer child nodes event
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			************************************************************************/
+			try{
+				if(Operate['SliderCloseButton']!=undefined && Operate['SliderCloseButton']!=null)
+				{
+					$(Operate['SliderCloseButton']).click(function(){
+						
+						if(options!=undefined && options!=null && typeof(options)=='object'
+						&& options['Closeing']!=undefined && options['Closeing']!=null 
+						&& typeof(options['Closeing'])=='function')
+						{
+							var isOK = options['Closeing']();
+							if(isOK)
+							{
+								try{CloseWindows();}
+								catch(err){}
+								try{
+									if(options!=undefined && options!=null && typeof(options)=='object'
+									&& options['onClose']!=undefined && options['onClose']!=null 
+									&& typeof(options['onClose'])=='function')
+									{
+										options['onClose']();
+									};
+								}catch(err){}
+							}
+						}
+						else{
+							try{CloseWindows();}
+							catch(err){}
+							try{
+								if(options!=undefined && options!=null && typeof(options)=='object'
+								&& options['onClose']!=undefined && options['onClose']!=null 
+								&& typeof(options['onClose'])=='function')
+								{
+									options['onClose']();
+								};
+							}catch(err){}
+						}
+					});
+				};
+			}catch(err){}
+			
+			try{
+				if(Operate['SliderZoomButton']!=undefined && Operate['SliderZoomButton']!=null)
+				{
+					$(Operate['SliderZoomButton']).click(function(){
+						try{ZoomWindows();}
+						catch(err){}
+					});
+				};
+			}catch(err){}
+		};
+		
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		* cteare windows contianer nodes
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		var strTemplate = "";
+		try{
+			if(!document.getElementById('SliderHeader')){
+				strTemplate += "<div id=\"SliderHeader\">";
+				strTemplate += "<div title=\"close windows\" id=\"SliderCloseButton\">&times;</div>";
+				strTemplate += "<div title=\"max windows\" id=\"SliderZoomButton\">+</div>";
+				strTemplate += "<span id=\"SliderHeaderTitle\">New Windows</span>";
+				strTemplate += "</div>";
+			}
+			if(!document.getElementById('SliderWindows')){
+				strTemplate += "<div id=\"SliderWindows\"></div>"
+			}
+		}catch(err){}
+		try{
+			if(strTemplate!=undefined && strTemplate!=null && strTemplate!=""
+			&& Operate['contianer']!=undefined && Operate['contianer']!=null)
+			{
+				try{$(Operate['contianer']).append(strTemplate);}catch(err){}
+				try{FormatFunction();}catch(err){}
+			};
+		}catch(err){};
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		* get windows contianer nodes
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		try{
+			Operate['SliderCloseButton'] = document.querySelector("#SliderCloseButton");
+			Operate['SliderZoomButton'] = document.querySelector("#SliderZoomButton");
+			Operate['SliderHeaderTitle'] = document.querySelector("#SliderHeaderTitle");
+			Operate['SliderWindows'] = document.querySelector("#SliderWindows");
+			Operate['SliderHeader'] = document.querySelector("#SliderHeader");
+		}catch(err){}
+		
+	};
+	/*********************************************************************************
+	*打开窗体信息
+	**********************************************************************************/
+	var ShowWindows = function()
+	{
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		*check contianer child nodes create!
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		try{
+			if(!document.querySelector("#SliderWindows")){try{CreateWindows();}catch(err){}}
+			else if(!document.querySelector("#SliderHeader")){try{CreateWindows();}catch(err){}}
+			else if(!Operate['SliderHeader']){try{CreateWindows();}catch(err){}}
+			else if(!Operate['SliderWindows']){try{CreateWindows();}catch(err){}}
+		}catch(err){}
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		*show contianer
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		try{$(Operate['contianer']).show();}
+		catch(err){}
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		*create contianer context
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		if(Operate['contianer']!=undefined && Operate['contianer']!=null 
+		&& Operate['SliderWindows']!=undefined && Operate['SliderWindows']!=null 
+		&& Operate['SliderHeader']!=undefined && Operate['SliderHeader']!=null 
+		&& options!=undefined && options!=null && typeof(options)=='object')
+		{
+			try{StatusWindows('loading');}
+			catch(err){}
+			/***********************************************************************
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			*Setting page title information
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			************************************************************************/
+			try{
+				if(options['title']!=undefined && options['title']!=null 
+				&& options['title']!=""){
+					try{$(Operate['SliderHeaderTitle']).html(options['title']);}
+					catch(err){}
+				};
+			}catch(err){}
+			/***********************************************************************
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			*Setting windows width
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			************************************************************************/
+			try{
+				if(options['width']!=undefined && options['width']!=null 
+				&& options['width']!=""){
+					try{SliderWidth(options['width']);}
+					catch(err){}
+				};
+			}catch(err){}
+			/***********************************************************************
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			*Setting windows context
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			************************************************************************/
+			try{
+				if(options!=undefined && options!=null && typeof(options)=='object' 
+				&& options['url']!=undefined && options['url']!=null && options['url']!="")
+				{
+					try{
+						var strTemplate = "";
+						try{
+							strTemplate += "<iframe frameborder=\"0\" allowtransparency=\"transparent\" ";
+							strTemplate += " id=\"SliderFrame\" style=\"display:none\" scrolling=\"auto\"";
+							strTemplate += " title=\"new window\" src=\""+options['url']+"\""
+							strTemplate += "></iframe>"
+						}catch(err){}
+						try{$(Operate['SliderWindows']).html(strTemplate);}
+						catch(err){}
+					}catch(err){}
+					var thisDocument = document.getElementById('SliderFrame');
+					if(thisDocument!=undefined && thisDocument!=null 
+					&& options!=undefined && typeof(options)=="object"
+					&& options["url"]!=undefined && options["url"]!="")
+					{
+						try{
+							var Interval = setInterval(function(){
+								if(thisDocument.document!=undefined 
+									&& thisDocument.document!=null 
+									&& thisDocument.document.readyState != "complete"){}
+								else{
+									try{clearInterval(Interval);}catch(err){}
+									try{StatusWindows('complate');}catch(err){}
+									try{$(thisDocument).show();}catch(err){}
+								}
+							},500);
+						}catch(err){}
+					}
+				}
+				else if(options!=undefined && options!=null && typeof(options)=='object' 
+				&& options['text']!=undefined && options['text']!=null && options['text']!="")
+				{
+					/***********************************************************************
+					*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					*output windows html
+					*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					************************************************************************/
+					try{$(Operate['SliderWindows']).html(options['text']);}
+					catch(err){}
+					/***********************************************************************
+					*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					*loading delay
+					*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+					************************************************************************/
+					try{
+						var Interval = setTimeout(function(){
+							try{clearTimeout(Interval);}catch(err){}
+							try{StatusWindows('complate');}catch(err){}
+						},1500);
+					}catch(err){}
+				};
+			}catch(err){}
+			/***********************************************************************
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			*Save the definition method group,
+			*save the current group to the interface
+			*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+			************************************************************************/
+			try{
+				if(options!=undefined && options!=null && options['function']!=undefined 
+				&& options['function']!="" && options['funName']!=undefined 
+				&& options['funName']!="" && typeof(options["function"])=='function' 
+				&& window.SliderFunctionOptions!=undefined && window.SliderFunctionOptions!=null)
+				{
+					SliderFunctionOptions[options['funName']] = options['function'];
+				}
+			}catch(err){}
+			
+		}
+	};
+	/*********************************************************************************
+	*放大缩小窗体
+	**********************************************************************************/
+	var ZoomWindows = function()
+	{
+		try{
+			if(Operate['contianer']!=undefined && Operate['contianer']!=null 
+			&& Operate['SliderHeader']!=undefined && Operate['SliderHeader']!=null 
+			&& Operate['SliderWindows']!=undefined && Operate['SliderWindows']!=null 
+			&& Operate['SliderZoomButton']!=undefined && Operate['SliderZoomButton']!=null)
+			{
+				var strMaximum = $(Operate['contianer']).attr("Maximum") || "false";
+				if(strMaximum!=undefined && strMaximum!=null 
+				&& strMaximum!="" && strMaximum!="true")
+				{
+					try{$(Operate['contianer']).attr("Maximum","true");}
+					catch(err){}
+					try{$(Operate['SliderZoomButton']).html('-');}catch(err){}
+				}else{
+					try{$(Operate['contianer']).attr("Maximum","false");}
+					catch(err){}
+					try{$(Operate['SliderZoomButton']).html('+');}catch(err){}
+				};
+			}
+		}catch(err){}
+	};
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	*slider width function
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	var SliderWidth = function(width)
+	{
+		try{
+			if(width==undefined){width="600";}
+			else if(width==null){width="600";}
+			try{
+				if(Operate['contianer']!=undefined && Operate['contianer']!=null 
+				&& Operate['SliderHeader']!=undefined && Operate['SliderHeader']!=null 
+				&& Operate['SliderWindows']!=undefined && Operate['SliderWindows']!=null 
+				&& Operate['SliderZoomButton']!=undefined && Operate['SliderZoomButton']!=null)
+				{
+					try{$(Operate['contianer']).css({"width":width});}
+					catch(err){}
+				};
+			}catch(err){}
+		}catch(err){}
+	};
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* update windows status
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	var StatusWindows = function(status)
+	{
+		try{
+			if(Operate['contianer']!=undefined 
+			&& Operate['contianer']!=null)
+			{
+				try{$(Operate['contianer']).attr("status",status);}
+				catch(err){}
+			}
+		}catch(err){}
+	}
+	/***********************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* check contianer
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	try{
+		Operate['contianer'] = document.querySelector("#SliderContianer");
+		if(!document.querySelector("#SliderContianer")){try{CreateContianer();}catch(err){alert(err.message)}}
+		else if(Operate['contianer']==undefined){try{CreateContianer();}catch(err){alert(err.message)}}
+		else if(Operate['contianer']==null){try{CreateContianer();}catch(err){}}
+	}catch(err){}
+	/***********************************************************************
+	*☆start runing fun
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	************************************************************************/
+	if(Operate!=undefined && Operate!=null && Operate['contianer']!=undefined 
+	&& Operate['contianer']!=null && options!=undefined && options!=null 
+	&& typeof(options)=='string' && options=='close')
+	{
+		try{CloseWindows();}
+		catch(err){}
+	}
+	else if(Operate!=undefined && Operate!=null && Operate['contianer']!=undefined 
+	&& Operate['contianer']!=null && options!=undefined && options!=null 
+	&& typeof(options)=='string' && options=='zoom')
+	{
+		try{ZoomWindows();}
+		catch(err){}
+	}
+	else if(Operate!=undefined && Operate!=null && Operate['contianer']!=undefined 
+	&& Operate['contianer']!=null && options!=undefined && options!=null 
+	&& typeof(options)=='object')
+	{
+		try{ShowWindows();}
+		catch(err){}
+	};
+};
+</script>
+<script language="javascript">
+
+/*****************************************************************************************
+*Declares the sideslip method delegate type, which is 
+a method group that returns 
+a method to save the sideslip unrolled subpages
+*******************************************************************************************/
+var LayoutFunctionOptions = {};
+var LayoutFunctionBack = function(FunctionName,Avgs)
+{
+	try{
+		if(window.LayoutFunctionOptions!=undefined && window.LayoutFunctionOptions!=null 
+		&& typeof(window.LayoutFunctionOptions)=='object' && FunctionName!=undefined 
+		&& FunctionName!=null && FunctionName!="" 
+		&& window.LayoutFunctionOptions[FunctionName]!=null 
+		&& window.LayoutFunctionOptions[FunctionName]!=null 
+		&& typeof(window.LayoutFunctionOptions[FunctionName])=='function')
+		{
+			window.LayoutFunctionOptions[FunctionName](Avgs);
+		};
+	}catch(err){}
+};
+
+/*****************************************************************************************
+*弹出网页内容信息
+*******************************************************************************************/
+var DialogOpenWindows = function(options)
+{
+	/*****************************************************************************************
+	*关闭网页插件信息
+	*******************************************************************************************/
+	var CloseOpenWindows = function()
+	{
+		if(document.getElementById('Frm-MaskContaner'))
+		{
+			try{$(document.getElementById('Frm-MaskContaner')).dialog('close');}
+			catch(err){}
+			try{$(document.getElementById('Frm-MaskContaner')).remove();}
+			catch(err){}
+		};
+	};
+	/*****************************************************************************************
+	*打开网页控件信息
+	*******************************************************************************************/
+	var OpenWindows = function(thisOption)
+	{
+		/*****************************************************************************************
+		*创建遮罩控件信息
+		*******************************************************************************************/
+		var MaskContaner = document.getElementById('Frm-MaskContaner');
+		try{
+			if(document.getElementById('Frm-MaskContaner')!=undefined){}
+			else if(document.getElementById('Frm-MaskContaner')!=null){}
+			else if(MaskContaner!=undefined && MaskContaner!=null){}
+			else {
+				try{
+					MaskContaner = document.createElement('div');
+					MaskContaner.id='Frm-MaskContaner';
+					$(document.body).append(MaskContaner);
+				}catch(err){}
+			}
+		}catch(err){}
+		/*****************************************************************************************
+		*设置延时加载网页效果
+		*******************************************************************************************/
+		try{
+			if(MaskContaner!=undefined && MaskContaner!=null && thisOption!=undefined && thisOption!=null
+			&& thisOption['url']!=undefined && thisOption['url']!=null && thisOption['url']!="")
+			{
+				try{$(MaskContaner).attr("status","load");}catch(err){}
+			};
+		}catch(err){}
+		/*****************************************************************************************
+		*开始设置网页内容信息
+		*******************************************************************************************/
+		var thisOption = thisOption || {};
+		try{
+			var strTemplate ="";
+			if(thisOption!=undefined && thisOption!=null && typeof(thisOption)=='object' 
+			&& thisOption['url']!=undefined && thisOption['url']!=null && thisOption['url']!='')
+			{
+				try{strTemplate ="<iframe src=\""+thisOption['url']+"\" id=\"FrmEasyUICent\" scrolling=\"auto\"></iframe>";}
+				catch(err){}
+			}
+			else if(thisOption!=undefined && thisOption!=null && typeof(thisOption)=='object' 
+			&& thisOption['text']!=undefined && thisOption['text']!=null && options['text']!='')
+			{
+				try{strTemplate = thisOption['text'];}catch(err){}
+			};
+			/*****************************************************************************************
+			*开始加载内容
+			*******************************************************************************************/
+			try{
+				if(MaskContaner!=undefined && MaskContaner!=null 
+				&& strTemplate!=undefined && strTemplate!=null){
+					$(MaskContaner).html(strTemplate);
+				};
+			}catch(err){}
+		}catch(err){alert(err.message)};
+		/*****************************************************************************************
+		*将弹出框展示出来
+		*******************************************************************************************/
+		try{
+			if(MaskContaner!=undefined && MaskContaner!=null 
+			&& thisOption!=undefined && thisOption!=null && typeof(thisOption))
+			{
+				try{$(MaskContaner).dialog(thisOption);}
+				catch(err){alert("发生错误:"+err.message+"");return false;}
+			}
+		}catch(err){};
+	};
+	var options = options || {width:700,height:450,modal:true};
+	/*****************************************************************************************
+	*开始加载弹出框内容
+	*******************************************************************************************/
+	if(options!=undefined && options!=null && typeof(options)=='string' && options=='close')
+	{
+		try{CloseOpenWindows();}
+		catch(err){alert('关闭过程中发生未知错误,请重试！');return false;}
+	}
+	else if(options!=undefined && options!=null && typeof(options)=='object')
+	{
+		
+		/***********************************************************************
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		*Save the definition method group,
+		*save the current group to the interface
+		*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+		************************************************************************/
+		try{
+			if(options!=undefined && options!=null && options['function']!=undefined 
+			&& options['function']!="" && options['funName']!=undefined 
+			&& options['funName']!="" && typeof(options["function"])=='function' 
+			&& window.LayoutFunctionOptions!=undefined && window.LayoutFunctionOptions!=null)
+			{
+				LayoutFunctionOptions[options['funName']] = options['function'];
+			}
+		}catch(err){}
+		/*****************************************************************************************
+		*初始化默认数据信息
+		*******************************************************************************************/
+		try{
+			options['modal'] = options['modal'] || true;
+			options['position'] = options['position'] || "center";
+			options['resizable'] = options['resizable'] || false;
+			options['draggable'] = options['draggable'] || false;
+			options['show'] = options['show'] || { effect: "blind",duration: 1000};
+			options['hide'] = options['hide'] || { effect: "explode",duration: 1000};
+		}catch(err){}
+		/*****************************************************************************************
+		*开始调用打开的网页内容
+		*******************************************************************************************/
+		try{OpenWindows(options);}
+		catch(err){}
+	};
+};
+</script>

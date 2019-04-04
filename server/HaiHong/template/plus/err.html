@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link href="/images/style.css" type="text/css" rel="stylesheet" />
+<title>{TS.Fun.config(name="sitetitle")/}</title>
+<style type="text/css">
+*{margin:0px;padding:0px;}
+body{background:#FFF; font-size:12px;}
+err_fot_tips.a{color:#1d53bf;}
+.str_content{ text-decoration:none;width:99%;padding:0px 0px; overflow:hidden;;border:#7bd9f2 solid 1px; background:#e2f9ff;-webkit-border-radius:6px}
+.str_content div.tips_title{height:28px; line-height:28px; font-size:12px; font-weight:900; ;color:#000}
+.str_content div.tips_content{ line-height:250%;padding:12px 8px; background:#eef9ff;border:#b5e6f3 solid 1px;-webkit-border-radius:6px}
+.str_content div.tips_footer{height:28px; font-size:12px; text-align:right; line-height:28px;}
+
+</style>
+</head>
+<body>
+{TS.Label name="头部通用"/}
+<div class="main">
+<div class="str_content">
+	<div style="width:98%; margin:8px auto;">
+    	<div class="tips_title">系统提示</div>
+        <div class="tips_content">{$errMessage}</div>
+        <div class="tips_footer"><a href="/">【网站首页】</a>
+                <a href="javascript:history.go(-1);">【返回上页】</a>
+                <a href="javascript:void()" onclick="window.close();">【关闭窗口】</a></div>
+        </div>
+    </div>
+</div>
+{TS.Label name="底部通用"/}
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>收徒赚钱</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="config.aspx?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<style type="text/css">
+#FRMComputer{ margin:0px;padding:0px; clear:both; border-collapse:separate; border-spacing:10px 10px;}
+#FRMComputer td{ background:#f2f2f2; border-radius:8px;padding:10px 0px;text-align:center;}
+#FRMComputer div.name{ display:block; clear:both; width:100%; text-align:center;padding:4px 0px; color:#333333}
+#FRMComputer div.num{ display:block; clear:both; width:100%; text-align:center;padding:4px 0px; color:#FF5671; font-size:24px; font-family:Geneva, Arial, Helvetica, sans-serif;}
+#FRMRemark{ display:block; clear:both;padding:0px 10px; margin:0px auto;color:#333333; font-size:13px;}
+#FRMRemark div.items{ display:block; clear:both;padding:4px 0px;padding-left:16px; background:url(template/images/list.png) left center no-repeat;background-size:8px 8px;}
+#FRMRemark div.items font{color:#FF5671; margin:0px 4px;}
+#FRMButtons{ display:block; clear:both;padding:0px 10px; margin:0px auto;}
+#FRMButtons div.title{ display:block; clear:both; width:100%;;color:#cccccc;font-size: 21px;height: 60px;line-height: 60px;padding:0px;}
+#FRMButtons table.share{ margin:0px;padding:0px; clear:both; border-collapse:separate; border-spacing:8px 0px; position:relative;left:-8px;}
+#FRMButtons table.share td{padding:0px; min-width:60px;}
+#FRMButtons table.share div{ display:block; clear:both; width:100%;padding:0px; text-align:center;color:#333333; font-size:13px}
+#FRMButtons img.ico{ display:inline; width:60px;}
+</style>
+</head>
+<body style="background:#fff;">
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1);"></div>
+	<div id="frm-headerName">收徒赚钱</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+<table width="100%" id="FRMComputer" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div class="name">累计收益</div><div class="num">{ke.function.shareamount/}</div></td>
+    <td><div class="name">徒弟个数</div><div class="num">{ke.function.ischild/}</div></td>
+  </tr>
+</table>
+<div style="clear:both; width:100%; font-size:0px;height:8px;"></div>
+<div id="FRMRemark">
+	<!--<div class="items">徒弟每完成一次任务,师父会获得<font>{ke.function.scamount/}元</font>的额外奖励</div>
+	<div class="items">成功收徒一名(所有徒弟完成第一次任务后),奖励<font>{ke.function.stamount/}元</font></div>
+	<div class="items">邀请越多,奖励越多,上不封顶</div>-->
+    <div class="items">
+        {ke.function.invitedrule/}
+    </div>
+</div>
+<div style="clear:both; width:100%; font-size:0px;height:0px;"></div>
+<div id="FRMButtons">
+	<div class="title">分享收徒</div>
+	<div style="clear:both; width:100%; font-size:0px;height:0px;"></div>
+	<table border="0" class="share" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td onClick="shareOpen('weixin')"><div><img class="ico" src="template/images/weixin.png" /></div><div>微信分享</div></td>
+		<td onClick="shareOpen('qq')"><div><img class="ico" src="template/images/qq.png" /></div><div>QQ分享</div></td>
+		<td onClick="shareOpen('friend')"><div><img class="ico" src="template/images/wxfriend.png" /></div><div>朋友圈分享</div></td>
+		<td onClick="shareOpen('qqzone')"><div><img class="ico" src="template/images/qqzone.png" /></div><div>QQ空间分享</div></td>
+	  </tr>
+	</table>
+</div>
+<div style="clear:both; width:100%; font-size:0px;height:0px;"></div>
+<div id="FRMButtons">
+	<div class="title">其它方式收徒</div>
+	<div style="clear:both; width:100%; font-size:0px;height:0px;"></div>
+	<table border="0" class="share" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td onClick="window.location='invited.aspx?action=showcode&token={ke.function.strtokey/}'"><div><img class="ico" src="template/images/qr.png" /></div><div>二维码扫描</div></td>
+		<td onClick="window.location='invited.aspx?action=showtext&token={ke.function.strtokey/}'"><div><img class="ico" src="template/images/link.png" /></div><div>分享链接</div></td>
+	  </tr>
+	</table>
+</div>
+</div>
+<div style="clear:both; width:100%; font-size:0px;height:10px;"></div>
+</body>
+</html>
+<script language="javascript">
+var shareOpen = function(shareModel)
+{
+	/*********************************************************************************************
+	*获取并验证系统参数信息
+	**********************************************************************************************/
+	if(window.cfg==undefined){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(window.cfg==null){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(typeof(window.cfg)!='object'){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	/*********************************************************************************************
+	*检查小助手配置是否合法
+	**********************************************************************************************/
+	if(window.cfg["aide"]==undefined){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(window.cfg["aide"]==null){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(typeof(window.cfg["aide"])!='object'){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	try{
+		if(window.cfg["aide"]["devicetype"]=="ios")
+		{
+			window.location=window.cfg["aide"]["packer"]+"/?{\"type\":\"share\",\"sharemodel\":\""+shareModel+"\",\"url\":\"{ke.function.shareurl/}\"}";
+		}
+		else if(window.cfg["aide"]["devicetype"]=="android")
+		{
+			window.location=window.cfg["aide"]["packer"]+"?type=share&shareMode="+shareModel+"&url={ke.function.shareurl/}";
+		}
+	}catch(err){}
+}
+</script>

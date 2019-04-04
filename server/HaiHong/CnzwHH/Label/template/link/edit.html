@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户消息</title>
+<link href="../template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="../template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="../inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="../inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../inc/jquery.js"></script>
+<script language="javascript" src="../inc/jquery-ui.js"></script>
+<script language="javascript" src="../inc/jquery.form.js"></script>
+<script language="javascript" src="../inc/forwork.js"></script>
+<script language="javascript" src="../inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="../inc/WdatePicker.js"></script>
+<script language="javascript" src="../inc/label.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="../Label.aspx?action=default" >标签管理</a>
+<a href="items.aspx?action=add" class="current">通用函数</a>
+<a href="Paging.aspx?action=add" >分页标签</a>
+<a href="list.aspx?action=add" >栏目标签</a>
+<a href="single.aspx?action=add" >单页列表</a>
+<a href="quiescent.aspx?action=add" >静态标签</a>
+<a href="links.aspx?action=add" >友情连接</a>
+<a href="froms.aspx?action=add" >表单列表</a>
+<a href="fromspage.aspx?action=add" >表单分页</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="../label.aspx?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="style" value="6" />
+            <input type="hidden" name="Id" value="{ke.function.id/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+ <td class="Base" colspan="4">标签管理 >> 编辑标签 >> 友情连接</td>
+</tr>
+<tr class="hback">
+<td class="tips">标签名称</td>
+<td colspan="3" class="check_box">
+<select name="FolderID">
+	<option value="0">系统根目录</option>
+	{ke.function.folder/}
+</select>
+<input type='text' placeholder="请填写标签名称" class='inputtext' value="{ke.function.labelName/}" name='LabelName' notkong='true' size='20' />
+{ke.function.attr/}
+<span>标签调用格式{ke.Label(标签名称) 参数名="参数值"/}</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">选择分类</td>
+<td width="40%">
+<select style="width:200px" name="classId">
+<option value="0">所有分类</option>
+{ke.function.linkclass/}
+</select>
+<span>请选择要调用输出的友情连接的栏目</span>
+</td>
+<td class="tips">属性控制</td>
+<td class="singlebtn">
+{ke.function.isMark/}
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">限制条件</td>
+<td class="singlebtn" colspan="3">
+<input placeholder="格式 and 字段=条件,字符串用单引号,变量请使用{@变量名/}" type="text" value="{ke.function,ParameterText/}" size="60" class="inputtext" name="ParameterText" />
+{ke.function.isParameter/}
+<span>限制条件可更灵活的调用指定数据,需要使用时请开启.</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">调用数量</td>
+<td>
+<input type="text" size="10" isnumeric="true" notkong="true" name="topNumber" placeholder="填写纯数字" value="{ke.function.topNumber/}" class="inputtext" />
+<span>请设置调用友情连接的数量0表示不限制数量</span>
+</td>
+<td class="tips">排序方式</td>
+<td>
+<select name="isSort">
+{ke.function.isSort/}
+</select>
+<span>不同的排序方式可控制显示的先后顺序</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">选择字段</td>
+<td class="showcolumns" colspan="3">
+<a onclick="setTxt('{$autoid/}')">行号</a>
+<a onclick="setTxt('{$linkid/}')">站点编号</a>
+<a onclick="setTxt('{$sitename/}')">站点名称</a>
+<a onclick="setTxt('{$siteurl/}')">连接地址</a>
+<a onclick="setTxt('{$thumb/}')">图片地址</a>
+<a onclick="setTxt('{$hits/}')">点击率</a>
+<a onclick="setTxt('{$classname/}')">分类名称</a>
+
+<a onclick="setTxt('{$autoid/}')">行号</a>
+<a onclick="setTxt('{$linkid/}')">站点编号</a>
+<a onclick="setTxt('{$sitename/}')">站点名称</a>
+<a onclick="setTxt('{$siteurl/}')">连接地址</a>
+<a onclick="setTxt('{$thumb/}')">图片地址</a>
+<a onclick="setTxt('{$hits/}')">点击率</a>
+<a onclick="setTxt('{$classname/}')">分类名称</a>
+<a onclick="setTxt('{$autoid/}')">行号</a>
+<a onclick="setTxt('{$linkid/}')">站点编号</a>
+<a onclick="setTxt('{$sitename/}')">站点名称</a>
+<a onclick="setTxt('{$siteurl/}')">连接地址</a>
+<a onclick="setTxt('{$thumb/}')">图片地址</a>
+<a onclick="setTxt('{$hits/}')">点击率</a>
+<a onclick="setTxt('{$classname/}')">分类名称</a>
+<a onclick="setTxt('{$autoid/}')">行号</a>
+<a onclick="setTxt('{$linkid/}')">站点编号</a>
+<a onclick="setTxt('{$sitename/}')">站点名称</a>
+<a onclick="setTxt('{$siteurl/}')">连接地址</a>
+<a onclick="setTxt('{$thumb/}')">图片地址</a>
+<a onclick="setTxt('{$hits/}')">点击率</a>
+<a onclick="setTxt('{$classname/}')">分类名称</a>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips" valign="top">标签内容</td>
+<td class="singlebtn" colspan="3">
+<textarea class="inputtext" name="loopTxt" id="LabelContent">{ke.function.LoopTxt/}</textarea>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

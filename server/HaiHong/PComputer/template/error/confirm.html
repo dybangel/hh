@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<title>系统提醒</title>
+<meta content="{ke.config(siteDescrption)/}" name="description" />
+<meta content="{ke.config(sitekeywords)/}" name="keywords" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<link href="template/images/style.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+#frm-success-box{ width:60px; height:60px; margin:0px auto; position:relative; background:#339933; border-radius:50%;}
+#frm-success-box:after{ content:'√'; font-size:40px; font-family:"华文细黑"; width:100%; height:60px; text-align:center; line-height:60px; color:#fff; position:absolute;left:0px;top:0px;}
+#frm-tips-box{ width:86%; margin:0px auto; clear:both; text-align:center; line-height:24px; padding:20px 5px; border:#ccc solid 1px; background:#fff;}
+#frm-tips-box font{ color:#bc230d; margin:0px 8px; font-weight:900;}
+#frm-buttons-box{ width:86%; margin:0px auto; clear:both;text-align:center;}
+#frm-buttons-box a{padding:12px 18px; border:#bb1d1c solid 1px; background:#ea1414; color:#fff; margin:8px; margin-right:8px; border-radius:3px;}
+#frm-buttons-box a:first-child{ border:#71a235 solid 1px; background:#63b302}
+</style>
+</head>
+<body>
+<div class="clear" style="height:60px;"></div>
+<div id="frm-success-box"></div>
+<div class="clear" style="height:20px;"></div>
+<div id="frm-tips-box">{ke.function.tips/}</div>
+<div class="clear" style="height:40px"></div>
+<div id="frm-buttons-box">
+	<a onClick="{ke.function.trueurl/}">确定</a>
+	<a onClick="{ke.function.falseurl/}">取消</a>
+</div>
+<div class="clear" style="height:60px"></div>
+</body>
+</html>

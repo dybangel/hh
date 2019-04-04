@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js?{datetime}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}
+td[spread="false"] font[class="ico"]{ background:url(template/images/b.gif) center center no-repeat; width:14px; height:14px; display:inline-block; background-size:cover;}
+td[spread="true"] font[class="ico"]{ background:url(template/images/s.gif) center center no-repeat; width:14px; height:14px; display:inline-block; background-size:cover;}
+.table{ border-spacing:0px; border-collapse:collapse; width:99%; margin:0px auto;padding:0px; border:#ccc solid 1px;}
+.table tr td{ border-bottom:#ccc solid 1px;}
+.table tr.contianer td{ border-bottom:0px; background:#fff; border-spacing:0px;}
+.tabs2{ width:100%; margin:0px;padding:0px; border-collapse:collapse; border-spacing:0px;}
+.tabs2 tr.hback td{ border-bottom:#ccc solid 1px;}
+.tabs2 tr.hback td:first-child{ border-left:0px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">用户管理</a>
+<a href="?action=add">添加用户</a>
+<a href="?action=network" class="current">网络结构图</a>
+<a href="?action=computer">数据统计</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+<div title="用户信息" class="dialog-box" id="frm-selector-user"></div>
+<script language="javascript">
+$("td[operate=\"looker\"]").click(function(){
+	var url = $(this).attr("url");
+	if(url!=undefined && url!=""){
+		$("#frm-selector-user").html("<iframe frameborder=\"0\" scrolling=\"auto\" width=\"100%\" height=\"430\" src=\""+url+"\"></iframe>").dialog({width:720,height:480,modal:true});
+	}
+});
+</script>
+<script language="javascript">
+var ShowChd = function(UserID,tar,nLevel)
+{
+	/*************************************************************************
+	*声明插入节点对象信息
+	**************************************************************************/
+	if(tar==undefined){alert('获取请求节点错误,请重试！');return false;}
+	else if(tar==null){alert('获取请求节点错误,请重试！');return false;}
+	else if(typeof(tar)!='object'){alert('获取请求节点错误,请重试！');return false;}
+	var contianer = tar.parentNode || null;
+	if(contianer==undefined){alert('获取请求节点错误,请重试！');return false;}
+	else if(contianer==null){alert('获取请求节点错误,请重试！');return false;}
+	else if(typeof(contianer)!='object'){alert('获取请求节点错误,请重试！');return false;}
+	
+	var spread = $(tar).attr('spread') || 'false';
+	if(spread==undefined){alert('获取配置信息失败,请重试！');return false;}
+	else if(spread==null){alert('获取配置信息失败,请重试！');return false;}
+	else if(spread==''){alert('获取配置信息失败,请重试！');return false;}
+	var loader = $(tar).attr('load') || 'false';
+	if(loader==undefined){alert('获取配置信息失败,请重试！');return false;}
+	else if(loader==null){alert('获取配置信息失败,请重试！');return false;}
+	else if(loader==''){alert('获取配置信息失败,请重试！');return false;}
+	/*************************************************************************
+	*保存用户节点展开数据信息
+	**************************************************************************/
+	var SaveSpread=function(val){
+		try{$(tar).attr('spread',(val || 'false'));}
+		catch(err){}
+	}
+	/*************************************************************************
+	*请求数据的方法函数
+	**************************************************************************/
+	var getRequest = function(back)
+	{
+		var SendOption = {};
+		SendOption["url"]="User.aspx?action=chd";
+		SendOption['type']="get";
+		SendOption["data"] = {
+			"userid":(parseInt(UserID) || 0),
+			"nLevel":(parseInt(nLevel) || 0),
+			"t":new Date().getDate()
+		};
+		SendOption["success"] = function(strResponse){
+			try{$('#contianer'+UserID).find("td").append(strResponse);}
+			catch(err){}
+			try{SaveSpread('true');}catch(err){}
+			try{$(tar).attr('load','true');}catch(err){}
+		};
+		SendOption["error"] = function(){
+			alert("数据请求过程中发生未知错误！");
+			return false;
+		};
+		/*************************************************************************
+		*开始请求数据
+		**************************************************************************/
+		if(window.jQuery!=undefined && window.jQuery!=null 
+		&& typeof(window.jQuery)=='function' && window.jQuery.ajax!=undefined 
+		&& window.jQuery.ajax!=null && typeof(window.jQuery.ajax)=='function')
+		{
+			try{window.jQuery.ajax(SendOption);}
+			catch(err){}
+		}
+	};
+	if(spread=='false' && loader=='false'){getRequest();}
+	else if(spread=='false' && loader=='true'){
+		try{$('#contianer'+UserID).show();}
+		catch(err){}
+		try{SaveSpread('true');}catch(err){}
+	}
+	else{
+		try{$('#contianer'+UserID).hide();}
+		catch(err){}
+		try{SaveSpread('false');;}catch(err){}
+	}
+}
+</script>

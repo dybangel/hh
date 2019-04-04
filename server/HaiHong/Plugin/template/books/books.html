@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{ke.config(sitetitle)/}-{ke.function.title/}-评论</title>
+</head>
+<script language="javascript" src="{app}/inc/jquery.js"></script>
+<script language="javascript" src="{app}/inc/jquery.form.js"></script>
+<style type="text/css">
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent;}
+body{ font-size:12px; font-family:"宋体"; color:#444557;}
+#frm-books-warp{ width:60%; margin:0px auto; clear:both;}
+#frm-books-goto{ width:100%; height:32px; line-height:32px; clear:both;}
+#frm-books-goto a{ color:#444557; text-decoration:none;}
+#frm-books-goto a font{ margin:0px 8px; font-size:14px; color:#f00;}
+#frm-books-panel{ width:100%; position:relative; height:200px; background:#e0e0e0; overflow:hidden;}
+#frm-books-area{ position:absolute;left:0px;top:0px; width:90%;left:8%; height:145px; background:#fff; border:#ccd4d9 solid 2px; border-radius:3px; overflow:hidden;}
+#frm-books-area-text{ width:100%; height:105px; position:absolute;left:0px;top:0px; font-size:14px; line-height:20px; color:#333; overflow:hidden; overflow-x:hidden;padding:0px;}
+#frm-books-box{ width:98%;padding:5px 0px; line-height:20px; font-size:14px; color:#333; height:94px; resize:none; margin:0px auto; clear:both; position:absolute;left:2%;}
+#frm-books-area-strip{ position:absolute; width:100%; height:40px; background:#fafafa; border-top:#ccd4d9 solid 1px;left:0px;bottom:0px; z-index:1}
+#frm-books-area-btn{ width:80px; background:#e74851; color:#fff; height:40px; position:absolute;right:0px;top:0px; text-align:center; line-height:40px; font-size:16px; font-weight:bold; font-family:Arial, Helvetica, sans-serif; cursor:pointer;}
+#frm-books-area-btn:hover{ background:#b5151e;}
+#frm-books-face-area{ display:block; width:40px;height:40px; line-height:40px; text-align:center; position:absolute;left:12px;top:0px;}
+#frm-books-face-area #frm-books-face-lo{ width:40px;height:40px;position:absolute;left:0px;top:0px; background:url(template/images/biaoqing.png) no-repeat center center #fafafa; background-size:24px; border:#fafafa solid 1px; border-top:0px; border-bottom:0px;}
+#frm-books-face-area:hover{}
+#frm-books-face-area:hover #frm-books-face-lo{ position:absolute;top:-0px; z-index:999; border:#ccd4d9 solid 1px; border-top:0px; border-bottom:0px; cursor:pointer;}
+#frm-books-face-area:hover #frm-books-face-list{ display:block; background:#fafafa;top:-101px;}
+#frm-books-face-list{ position:absolute; width:300px; height:100px; border:#ccd4d9 solid 1px; background:#fff;top:-101px;left:0px;z-index:99; display:none; cursor:pointer;}
+#frm-books-error{ position:absolute;left:100px;height:40px; width:200px;top:0px; line-height:40px; color:#000;}
+/***************************************************************************
+显示正在请求的延时操作
+*****************************************************************************/
+#frm-dealy-submit-box{ position:absolute;top:40px;left:40%; width:145px; border-radius:3px; height:80px; background:rgba(0,0,0,0.85); z-index:999;}
+#frm-dealy-submit-box:before{ background:url(template/images/load/load.gif) center center no-repeat; position:absolute; width:100%;top:8px; height:40px; text-align:center; content:""; background-size:40px;}
+#frm-dealy-submit-box:after{width:100%; background:#000; height:24px; line-height:24px; text-align:center; color:#fff; content:"正在加载数据,请稍后..."; position:absolute;left:0px;bottom:0px;}
+</style>
+<body>
+<div id="frm-books-warp">
+<div id="frm-books-goto"><a href="books.aspx?itemsId={ke.function.itemsid/}">点击这里查看全部评论<font>{ke.function.booktimer/}</font>条</a></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="ItemsID" value="{ke.function.itemsId/}" />
+<div id="frm-books-panel">
+	<div id="frm-books-area">
+		<div id="frm-books-area-text"><textarea name="booksText" placeholder="这里发表牛评...." id="frm-books-box"></textarea></div>
+		<div id="frm-books-area-strip">
+			<a id="frm-books-face-area"><div id="frm-books-face-list"></div><div id="frm-books-face-lo"></div></a>
+			<div id="frm-books-error"></div>
+			<div onClick="SaveBooks({ke.function.itemsId/})" id="frm-books-area-btn">发表</div>
+		</div>
+	</div>
+</div>
+</form>
+</div>
+</body>
+</html>
+<script language="javascript">
+var SaveBooks = function(){
+var booksText = $("#frm-books-box").val();
+if(booksText==""){$("#frm-books-error").html("发表评论内容不能为空!");return false;}
+if(booksText.length>500){$("#frm-books-error").html("发表评论内容长度请限制在500汉字以内!");return false;}
+if(document.getElementById('frm-submit-forms')){
+	ajaxSubmit($("#frm-submit-forms")[0],function(){});
+}
+
+}
+</script>

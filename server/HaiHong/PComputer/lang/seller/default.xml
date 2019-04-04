@@ -1,0 +1,21 @@
+﻿<language>
+<zh>
+<zh.订单>订单</zh.订单>
+<zh.卖出订单>卖出订单</zh.卖出订单>
+<zh.买入订单>买入订单</zh.买入订单>
+<zh.委托订单>委托订单</zh.委托订单>
+</zh>
+<en>
+<en.订单>Order</en.订单>
+<en.买入订单>Buy order</en.买入订单>
+<en.卖出订单>Sell orders</en.卖出订单>
+<en.委托订单>Entrust order</en.委托订单>
+<en.出售单价>Unit</en.出售单价>
+<en.出售数量>Sell</en.出售数量>
+<en.成交单数>Trans</en.成交单数>
+<en.剩余数量>Surplus</en.剩余数量>
+<en.进行中>Have in hand</en.进行中>
+<en.已完成>Completed</en.已完成>
+<en.已撤回>Reclaimed</en.已撤回>
+</en>
+</language>

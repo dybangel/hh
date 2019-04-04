@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户充值</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">充值记录</a>
+<a href="?action=add" class="current">手动充值</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="3">用户积分 >> 资金充值</td>
+</tr>
+<tr operate="system" class="hback">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+	<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+	<input type="hidden" id="frm-true-name" name="truename" value="无员工"/>
+	<input type="hidden" id="frm-employe-id" name="EmployeID" value="0"/>
+	<input type="hidden" id="frm-employe-workno" name="EmployeWorkNo" value="0"/>
+	<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+	<tr>
+	<td style="background:#ffc; color:#f00;" colspan="4">当前功能可直接为用户账户充值金额,用于购买资料.或用户在线充值金额不到账时手动充值</td>
+	</tr>
+	
+	<tr operate="system" class="hback">
+	<td class="tips">充值用户</td>
+	<td colspan="3" class="singlebtn">
+	<input type="text" class="inputtext" placeholder="请填写用户ID" value="{ke.function.UserID/}" notkong="true" name="UserID" size="30" id="frm-user" /><span>请在右手边选择要充值的用户</span>
+	</td>
+	</tr>
+	<tr operate="system" class="hback">
+	<td class="tips">充值金额</td>
+	<td colspan="3" class="singlebtn">
+	<select name="affairs">
+	<option value="1">增加</option>
+	<option value="0">扣除</option>
+	</select>
+	<input type="text" class="inputtext" placeholder="单位(元)" notkong="true" name="number" size="30" />
+	<span>请填写要给用户充值的金额</span>
+	</td>
+	</tr>
+	
+	<tr>
+	<td class="Base" colspan="4">描述备注</td>
+	</tr>
+	
+	<tr operate="system" class="hback">
+	<td valign="top" class="tips">备注信息</td>
+	<td colspan="3" class="singlebtn">
+	<textarea name="intro" class="inputtext" style="width:550px;height:60px;" placeholder="这里填写充值备注信息,长度100个汉字以内"></textarea>
+	</td>
+	</tr>
+	
+	<tr class="xingmu">
+	<td></td>
+	<td colspan="3">
+	<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+	<input type="reset" value="撤销" class="button"/>
+	</td>
+	</tr>
+	</table>
+	</form>
+</td>
+<td valign="top" width="500" style="padding:0px; background:#f0f0f0">
+<iframe width="100%" id="frm-alipay-net" scrolling="auto" frameborder="0" height="560" src="user.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindUserCallBack = function(json){
+	try{
+		if(json!=undefined && typeof(json)=='object'){
+			$("#frm-user").val(json["userid"]);
+		}
+	}catch(err){}
+}
+</script>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>顶部页面</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+@font-face { font-family: XINGSHU; src: url('template/images/font/xingshu.ttf'); } 
+.header{ width:100%; height:65px; background:#32323a;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#32323a), to(#32323a));background: -moz-linear-gradient(top, #32323a, #32323a 8%);}
+.header div.logo{position:absolute;;left:12px;top:8px;width:508px; height:80px;}
+.header div.logo h2{ font-size:24px; font-weight:bold; color:#fff; font-family:XINGSHU; display:block;padding:4px 0px;}
+.header div.logo span{ display:block; font-size:16px; color:#fff; font-family:XINGSHU}
+.header div.right_links{ position:absolute;right:12px;top:3px;}
+.header div.right_links a{ color:#FFF; display:block; width:56px;height:48px;padding:2px; text-align:center; overflow:hidden; font-size:12px; font-weight:100; float:left;margin-left:8px; line-height:12px;}
+.header div.right_links a:hover{ background:rgba(20,20,20,0.72); border-radius:3px;}
+.header div.right_links a img{ width:32px; height:32px;}
+#header-menu-box-frm a:hover,#header-menu-box-frm a:active{background:#d2dadb;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#096495), to(#03517b));background: -moz-linear-gradient(top, #096495, #03517b 8%); color:#fff;}
+#frm-footer-borders{ position:absolute; bottom:0px;height:5px; background:#32323a; width:100%; left:0px;}
+#frm-menu-box{ width:100%; margin:0px auto; position:relative; height:35px; background:#5c8cd9}
+#frm-menu-bar{ display:block; clear:both;position:absolute;left:0px; bottom:0px;height:35px; background:#f0f0f0; width:100%;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fefefe), to(#f0f0f0));background: -moz-linear-gradient(top, #fefefe, #f0f0f0 8%);background:linear-gradient(top, #fefefe, #f0f0f0 8%); text-align:left;}
+#frm-menu-bar a{display:inline-block;cursor:pointer;position:relative; text-align:center;padding:0px 12px;height:30px; line-height:30px;top:2px;;border-radius:4px 4px; margin-left:12px;}
+#frm-menu-bar a.current{color:#fff; background:#df4a39}
+</style>
+<base target="Right" />
+</head>
+<body>
+<div class="header">
+<div class="logo">
+	<h2>{ke.config(sitename)/}</h2>
+	<span>后台管理系统</span>
+</div>
+<div class="right_links">
+<a href="Index.aspx?action=right" target="Right"><img src="template/images/home.png"/><br/>管理主页</a>
+<a href="admin.aspx?action=password" target="Right"><img src="template/images/password.png"/><br/>修改密码</a>
+<a href="{app}/" target="_blank"><img src="template/images/index.png"/><br/>网站首页</a>
+<a href="Login.aspx?action=exit" target="_top"><img src="template/images/loginout.png"/><br/>安全退出</a>
+</div>
+</div>
+<div id="frm-menu-box">
+	<div id="spacing-frm"></div>
+    <div id="frm-menu-bar"></div>
+</div>
+<div id="frm-footer-borders"></div>
+<audio autoplay="true" id="frm-mp3-player"></audio>
+</body>
+</html>
+<script id="frm-msg-template" type="text/template" language="javascript">
+<div id="frm-box-tips-message">
+	<div id="frm-box-close-btns">×</div>
+	<div id="frm-box-show-content">{strXml}</div>
+</div>
+</script>
+<script language="javascript">
+    window.onload = function () {
+	try{
+		var menus = $.cookies("fooke_site_menubar") || "content";
+		if(menus==undefined || menus==""){menus="content";}
+		try{$("#frm-menu-bar").find("a[operate="+menus+"]").addClass("current");}
+		catch(err){}
+	}catch(err){
+		try{$("#frm-menu-bar").find("a[operate=content]").addClass("current");}
+		catch(err){}
+	}		
+	/*************************************************************************
+	*加载用户提醒消息
+	**************************************************************************/
+	try{thisMessage();}catch(err){}
+};
+var thisMessage = function(){
+	var strTemplate = $("#frm-msg-template").html();
+	var url = "?action=message&math="+Math.random();
+		$.get(url,function(strReader){
+			if(strReader!=''){
+				strTemplate = strTemplate.format({"strXml":strReader});
+				if($(parent.Right.document)[0]!=undefined && $(parent.Right.document)[0]!=null){
+					var RightDocument = $(parent.Right.document)[0];
+				}
+				try{
+					if(RightDocument.getElementById('frm-box-tips-message')){
+						$(RightDocument).find("#frm-box-tips-message").remove();
+					}
+				}catch(err){}
+				try{
+					$("#frm-mp3-player").attr("src","inc/alert.mp3");
+				}catch(err){}
+				try{
+					if(RightDocument.getElementById('frm-box-tips-message')==null){
+						$(RightDocument.body).append(strTemplate);
+					}
+				}catch(err){}
+				$(RightDocument).find("#frm-box-close-btns").click(function(){
+					$(RightDocument).find("#frm-box-tips-message").remove();
+				});
+				jQuery.Interval(20,function(){
+					try{
+						if(RightDocument.getElementById('frm-box-tips-message')){
+							$(RightDocument).find("#frm-box-tips-message").remove();
+						}
+					}catch(err){}
+				});
+			}else{
+				try{
+					if(RightDocument.getElementById('frm-box-tips-message')){
+						$(RightDocument).find("#frm-box-tips-message").remove();
+					}
+				}catch(err){}
+			}
+			jQuery.Interval(120,function(){thisMessage();});
+		});
+}
+</script>
+
+

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加栏目</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+<script language="javascript" src="inc/class.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">模版管理</a>
+<a class="current">添加目录</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form action="?action=adddsave" method="post" onSubmit="return _doPost(this)" />
+<input type='hidden' class='inputtext center' value="{ke.function.thisdir/}" name='dir' notkong='true' size='18' />
+<input type="hidden" name="target" value="{ke.function.target/}" />
+<table width="99%" cellpadding="3" class="table" cellspacing="1" border="0">
+<tr class="hback">
+<td colspan="4" class="Base">模版管理 >> 添加目录</td>
+</tr>
+<tr class="hback">
+<td class="tips">上级目录</td>
+<td><strong>{ke.function.thisdir/}</strong><span>新建目录存放位置</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">目录名称</td>
+<td>
+<input type='text' class='inputtext center' value="" placeholder="请填写文件夹名称" name='Name' notkong='true' size='20' />
+<span>请输入文件夹目录名称，不允许存在特殊字符</span>
+</td>
+</tr>
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</body>
+</html>

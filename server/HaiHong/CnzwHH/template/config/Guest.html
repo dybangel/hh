@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>留言反馈参数配置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">留言反馈</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">留言反馈 >> 参数配置</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">开启反馈</td>
+<td class="singlebtn">{ke.function.isopen/}<span>关闭以后用户将无法提交反馈功能</span></td>
+</tr>
+
+<tr class="hback">
+<td class="tips">反馈时间</td>
+<td>
+<input type="text" name="startimer" placeholder="请填写时间格式" value="{ke.function.startimer/}" class="inputtext" notkong="true" onClick="WdatePicker({dateFmt:'HH'})" size="8" />
+-
+<input type="text" name="endtimer" placeholder="请填写时间格式" value="{ke.function.endtimer/}" class="inputtext" notkong="true" onClick="WdatePicker({dateFmt:'HH'})" size="8" />
+<span>同一天只允许用户在指定的时间段以内反馈</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">单日限量</td>
+<td>
+<input type="text" name="timer" placeholder="纯数字" value="{ke.function.timer/}" class="inputtext" notkong="true" isnumeric="true" size="8" />
+<span>同一天同用户允许反馈的数量条数,0为不限制</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips" valign="top">反馈类型</td>
+<td>
+<textarea style="width:600px; height:50px;" name="titleList" placeholder="我怎么提现不了?|我的投资订单为什么不见了？" class="inputtext">{ke.function.titleList/}</textarea>
+<div>用户提交反馈列表类型,如无法提现,怎么使用等,不同类型之间用竖线分开</div>
+</td>
+</tr>
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit"  id="frm-submit-btns"  value="保存配置" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

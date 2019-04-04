@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加用户</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/city-picker.data.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">用户管理</a>
+<a href="?action=add">添加用户</a>
+<a class="current">编辑用户</a>
+<a href="?action=network">网络结构图</a>
+<a href="?action=computer">数据统计</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForm" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="userid" value="{ke.function.userid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">用户管理 >> 编辑用户</td>
+</tr>
+<tr class="hback">
+<td style="width:80px" class="tips">登陆账号</td>
+<td style="width:430px" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写用户登录帐号" value="{ke.function.username/}" name="UserName" notkong="true" size="16" />
+{ke.function.isdisplay/}
+</td>
+<td style="width:80px" class="tips">直推上级</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请设置当前用户的上级帐号" id="frm-parent-box" value="{ke.function.parentid/}" name="ParentID" size="20" />
+<input type="button" id="frm-selector-btns" value="选择用户" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">用户昵称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="用户帐号姓名或者昵称" value="{ke.function.nickname/}" name="Nickname" notkong="true" size="30" /><span>12个汉字内</span>
+</td>
+<td class="tips">用户头像</td>
+<td>{ke.function.file/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">登录密码</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="不修改请留空" value="" name="Password" size="20" />
+<span>6-16位字母数字下划线组成</span>
+</td>
+<td class="tips">安全密码</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="不修改请留空" value="" name="PasswordTo" size="20" />
+</td>
+</tr>
+
+
+<tr class="hback">
+<td class="Base" operate="shrink" shrink="true" text="other" colspan="4">用户资料 >> 其它信息</td>
+</tr>
+
+
+<tr operate="other" class="hback">
+<td class="tips">微信昵称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="绑定微信账号昵称" value="{ke.function.strWeChat/}" name="strWeChat" size="20" />
+</td>
+<td class="tips">真实姓名</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" id="Fullname" placeholder="用户真实姓名" value="{ke.function.Fullname/}" name="Fullname" size="20" />
+</td>
+</tr>
+
+<tr operate="other" class="hback">
+<td class="tips">支付宝账号</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="用户绑定支付宝账号" value="{ke.function.AlipayChar/}" name="AlipayChar" size="20" />
+</td>
+<td class="tips">支付宝名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" id="Alipayname" placeholder="绑定支付宝昵称" value="{ke.function.Alipayname/}" name="Alipayname" size="20" />
+</td>
+</tr>
+
+<tr operate="other" class="hback">
+<td class="tips">手机号码</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写用户手机号码" value="{ke.function.strMobile/}" name="strMobile" size="20" />
+</td>
+<td class="tips">电子邮箱</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写用户电子邮箱" value="{ke.function.strEmail/}" name="strEmail" size="20" />
+</td>
+</tr>
+
+<tr operate="other" class="hback">
+<td class="tips">管理备注</td>
+<td colspan="3" style="width:450px">
+<input type="text" class="inputtext" placeholder="请填写备注信息" value="{ke.function.strRemark/}" name="strRemark" size="45" />
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+<div title="选择用户【双击选择】" class="dialog-box" id="frm-selector-user"></div>
+</body>
+</html>
+<script language="javascript" src="inc/bufferhelper.js"></script>
+<script language="javascript">
+window.onload = function(){
+	try{
+		$("#frmProvince").cityPicker({
+			"province":"strProvince",
+			"city":"strCity",
+			"default":"{ke.function.strProvince/}"
+		});
+	}catch(err){}
+}
+$(function(){
+	$("#frm-selector-btns").click(function(){
+		 $("#frm-selector-user").SelectorUser(function(thisJson){
+		 	if(thisJson!=undefined && typeof(thisJson)=='object'){
+				$("#frm-parent-box").val(thisJson["userid"]);
+				$("#frm-selector-user").dialog('close');
+			}
+		 });
+	});
+});
+</script>

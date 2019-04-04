@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>微信回复设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=demo" class="current">默认回复</a>
+<a href="?action=Follow">关注回复</a>
+<a href="?action=image">图片回复</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">回复设置 >> 关注回复</td>
+</tr>
+<tr class="hback">
+<td class="tips">自动回复</td>
+<td class="singlebtn">{ke.function.isOpen/}<span>自动回复开启以后用户关注公众号将自动发送一条消息</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">回复类型</td>
+<td id="frm-restore-btn" class="singlebtn">{ke.function.RestoreMode/}<span>文本回复只能回复纯文字，图文回复可带图片连接</span>
+</td>
+</tr>
+<tr style="display:none" id="frm-stuff-tr" class="hback">
+<td class="tips">选择素材</td>
+<td class="singlebtn">
+<select name="MaterID">
+<option value="0">请选择一个回复素材</option>
+{ke.function.materList/}
+</select>
+<span>没有素材？点击这里<a href="wechatmater.aspx?action=add">添加</a></span>
+</td>
+</tr>
+<tr style="display:none" id="frm-text-tr" class="hback">
+<td class="tips" valign="top">回复内容</td>
+<td class="singlebtn">
+<textarea name="Remark" class="inputtext" style="width:450px;height:60px;" placeholder="这里填写回复的文本内容
+超链接回复模式<a href='连接地址'>文本</a>">{ke.function.Remark/}</textarea>
+<br/>回复内容请限制在200个汉字以内
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("#frm-restore-btn").find("input[name=\"RestoreMode\"]").click(function(){
+		if(this.value=="1"){$("#frm-text-tr").show();$("#frm-stuff-tr").hide();}
+		else{$("#frm-text-tr").hide();$("#frm-stuff-tr").show();}
+	});
+	$(document.body).ready(function(){
+		if("{ke.function.mode/}"=="1"){$("#frm-text-tr").show();$("#frm-stuff-tr").hide();}
+		else{$("#frm-text-tr").hide();$("#frm-stuff-tr").show();}
+	});
+});
+</script>

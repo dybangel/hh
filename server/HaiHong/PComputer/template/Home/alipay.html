@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>绑定支付宝</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">绑定支付宝</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+<form id="frm-formContianer" method="post" action="../api/user.aspx" onSubmit="return _doPost(this)">
+<input type="hidden" name="action" value="SaveAlipay" />
+<table id="frm-input" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr class="hback">
+<td class="spacing"></td>
+<td style="width:60px" class="name">支付宝账号</td>
+<td class="value"><input type="text" notkong="true" class="inputtext" placeholder="请填写支付宝账号" id="AlipayChar" name="AlipayChar" value="{ke.function.alipaychar/}" /></td>
+</tr>
+
+<tr class="hback">
+<td></td>
+<td style="width:60px" class="name">支付宝昵称</td>
+<td class="value"><input type="text" notkong="true" class="inputtext" placeholder="请填写支付宝昵称" id="Alipayname" name="Alipayname" value="{ke.function.alipayname/}" /></td>
+</tr>
+
+<tr class="operback">
+<td colspan="3">
+<input type="button" value="立即绑定" operate="submit" id="frm-submit" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+<script language="javascript">
+var SaveBack = function(){
+	window.location.reload();
+}
+</script>

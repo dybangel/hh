@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>充值平台</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="payment.aspx?action=default">充值平台</a>
+<a class="current" href="payment.aspx?action=add">添加平台</a>
+<a href="config.aspx?action=pay">支付参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">充值平台 >> 添加配置</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">平台名称</td>
+<td colspan="3" class="check_box">
+<select onChange="$('#frm-PaymentName-box').val(this.value)" name="Model">
+<option value="">请选择平台</option>
+<option value="支付宝">支付宝</option>
+<option value="微信付款">微信付款</option>
+<option value="快汇宝微信">快汇宝微信</option>
+<option value="快汇宝支付宝">快汇宝支付宝</option>
+<option value="快汇宝工行">快汇宝工行</option>
+</select>
+<input type="text" class="inputtext" placeholder="请填写充值平台名称" notkong="true" name="PaymentName" size="30" id="frm-PaymentName-box" />
+{ke.function.isDefault/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">支付图标</td>
+<td colspan="3" class="singlebtn">
+{ke.function.thumb/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">商户帐号</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写商户ID,请咨询平台客服" notkong="true" name="BusinessID" size="30" />
+<span>请填写要给用户充值的金额</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">对接密钥</td>
+<td colspan="3" class="singlebtn">
+<textarea class="inputtext" style="width:660px;height:40px;" name="BusinessKey" placeholder="这里填写商户对接密钥,RSA加密请填写加密私钥" id="frm-BusinessKey"></textarea>
+<br/>这里填写商户对接密钥,RSA加密请填写加密私钥
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">其它参数</td>
+<td colspan="3" class="singlebtn">
+<textarea class="inputtext" style="width:660px;height:30px;" name="Other" placeholder="这里填写第三个参数,如果有,否则不用理会" id="frm-Other"></textarea>
+<br/>这里填写第三个参数,如果有,否则不用理会
+</td>
+</tr>
+
+<tr>
+<td class="Base" colspan="4">描述备注</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td valign="top" class="tips">备注信息</td>
+<td colspan="3" class="singlebtn">
+<textarea name="Remark" class="inputtext" style="width:550px;height:60px;" placeholder="这里填写充值备注信息,长度1000个汉字以内"></textarea>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="排序数字越大显示越靠前" value="0" notkong="true" name="SortID" isnumeric="true" size="10" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+<div title="选择用户【双击选择】" class="dialog-box" id="frm-selector-user"></div>
+</body>
+</html>
+<script language="javascript" src="inc/bufferhelper.js"></script>
+<script language="javascript">
+$(function(){
+	$("#frm-selector-btns").click(function(){
+		 $("#frm-selector-user").SelectorUser(function(thisJson){
+		 	if(thisJson!=undefined && typeof(thisJson)=='object'){
+				$("#frm-userid-box").val(thisJson["userid"]);
+				$("#frm-selector-user").dialog('close');
+			}
+		 });
+	});
+});
+</script>

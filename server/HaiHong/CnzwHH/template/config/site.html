@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户基本参数设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+    <a href="?action=base" class="current">系统参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configname/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="4">参数配置 >> 系统基本参数</td>
+</tr>
+<tr class="hback">
+<td style="width:80px;" class="tips">系统名称</td>
+<td style="width:460px;">
+<input type="text" class="inputtext" value="{ke.function.sitename/}" name="sitename" notkong="true" size="30" />
+</td>
+<td style="width:80px;" class="tips">系统图标</td>
+<td>{ke.function.icon/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">网站标题</td>
+<td colspan="3">
+<input type="text" class="inputtext" value="{ke.function.sitetitle/}" name="sitetitle" notkong="true" size="45" />
+<span>好的网站标题有利于搜索引擎优化</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">网站关键词</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.sitekeywords/}" name="sitekeywords" notkong="true" size="45" />
+</td>
+<td class="tips">网站描述</td>
+<td>
+<input type="text" value="{ke.function.siteDescrption/}" size="45" name="siteDescrption" class="inputtext"/>
+<span>系统内容描述存放于Descrption区域,利于搜索引擎优化</span>
+</td>
+</tr>
+
+
+<tr class="hback">
+<td class="tips">网站域名</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.siteurl/}" name="SiteUrl" notkong="true" size="30" />
+</td>
+<td class="tips">首页模版</td>
+<td>
+<input type="text" placeholder="{@dir}/Index.html" class="inputtext" value="{ke.function.IndexTemplate/}" name="IndexTemplate" id="IndexTemplate" notkong="true" size="35" />
+<input type="button" class="button" operate="chooseTemp" id="frm-selector-template" value="选择模版" />
+<span>网站首页模版地址</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="Base" colspan="4">系统参数设置 >> 文件上传</td>
+</tr>
+
+<tr class="hback">
+<td  style="width:80px" class="tips">上传文件存放地址</td>
+<td  style="width:460px">
+<input type="text" class="inputtext" value="{ke.function.FileDirectory/}" name="FileDirectory" notkong="true" size="10" />
+<span>上传文件保存地址,如UploadFile，文件夹前方不需要带"/"</span>
+</td>
+<td style="width:80px"  class="tips">允许上传文件格式</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.FileFlter/}" name="FileFlter" notkong="true" size="50" />
+<span>文件格式不需要带"."号,不同文件名请用"|"分割</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">检测文件木马</td>
+<td class="singlebtn">
+{ke.function.isViral/}
+<span>上传文件是否要检测存在的可疑代码,选择是表示检测</span>
+</td>
+<td class="tips">是否生成缩略图</td>
+<td class="singlebtn">
+{ke.function.isMap/}
+<span>上传文件是否需要生成缩略图,只支持图片格式文件</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">添加水印</td>
+<td class="singlebtn">
+{ke.function.isMark/}
+<span>是否需要为新上传的文件打上水印,只支持图片格式文件</span>
+</td>
+<td class="tips">水印文字</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.WaterStringText/}" name="WaterStringText" notkong="true" size="20" />
+<span>为图片打上水印的文字</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="Base" colspan="4">系统参数设置 >> 邮件参数设置</td>
+</tr>
+<tr class="hback">
+<td style="width:80px" class="tips">邮箱服务器</td>
+<td style="width:460px" >
+<input type="text" placeholder="请配置邮箱服务器" class="inputtext" value="{ke.function.MailSiteServer/}" name="MailSiteServer" notkong="true" size="20" />
+<span>发送邮件的邮箱服务器地址</span>
+</td>
+<td style="width:80px"  class="tips">邮箱地址</td>
+<td>
+<input type="text" placeholder="请输入您的邮箱地址" class="inputtext" value="{ke.function.EmailAddress/}" name="EmailAddress" notkong="true" size="20" />
+<span>发送邮件的邮箱地址</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">登录帐号</td>
+<td>
+<input type="text" placeholder="请输入您的邮箱帐号" class="inputtext" value="{ke.function.EmailName/}" name="EmailName" notkong="true" size="20" />
+<span>发送邮件的邮箱登录帐号</span>
+</td>
+<td class="tips">登录密码</td>
+<td>
+<input type="text" placeholder="请输入您的邮箱密码" class="inputtext" value="{ke.function.EmailPassword/}" name="EmailPassword" notkong="true" size="20" />
+<span>发送邮件的邮箱地址</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="保存配置" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

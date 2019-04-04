@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>帮助中心</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+table td{ line-height:22px; font-size:12px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">彩票系统</a>
+<a href="?action=content" class="current">内容管理</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">帮助中心 >> 内容管理 >> 标签的使用</td>
+</tr>
+<tr operate="system" class="hback">
+<td>
+1、系统函数标签｛ke.function.funName/｝，模版中定义函数标签,使用function.funName模式标签调用当页请求页面中的系统函数<br/>
+2、｛ke.config(strName,[configName])/｝获取系统参数配置数据,strName=参数名称,configName=配置名称,如调用网站标题｛ke.config(sitetitle)/｝<font style="color:#f00; font-weight:bold;">注:configName默认为系统基本参数配置,可省略</font><br/>
+3、｛ke.request(strName)/｝获取网页传递参数,包含get与post传参,该方法继承Fooke.String对象<br/>
+4、｛ke.include(filepath)/｝引入公用模版<br/>
+5、｛ke.label(标签名称) 参数名="参数值"/｝系统函数标签<br/>
+6、｛ke.sql="Sqlserver查询语句"/｝循环体内容{/ke.sql},自定义查询语句标签,示例如｛ke.sql="select * from fooke_items"/｝{/ke.sql}<br/>
+7、｛ke.item channelid="10000" classid="10000" keywords="中国" top="8" params="" ispage="1"｝
+<a href="{$linkurl/}">{$title/}</a>
+｛/ke.item｝ 自定义模型内容查询语句<br/>
+
+8、｛ke.find tablename="fooke_items as item,fooke_class as class" columns="item.*,class.isoper" top="2" params=" and item.classid=class.classid" ispage="1" key="item.itemsid" sort="item.itemsid desc"}
+<div style="clear:both; width:100%;">
+[loop={$num}]
+<a>{$title/}</a>
+[/loop]
+</div>
+{$pagebar/}
+{/ke.find} 自定义查找语句
+
+</td>
+</tr>
+</table>
+</body>
+</html>
+

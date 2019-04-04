@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>投资等级</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">用户分享</a>
+<a href="?action=add">添加分享</a>
+<a class="current">编辑分享</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" value="{ke.function.shareid/}" name="shareid" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">用户分享 >> 添加分享</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">分享标题</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" id="frm-shareTitle" placeholder="请填写分享标题" value="{ke.function.sharetitle/}" notkong="true" name="shareTitle" size="40" />
+{ke.function.isdisplay/}
+</td>
+</tr>
+
+
+<tr operate="system" class="hback">
+<td class="tips">奖励积分</td>
+<td colspan="3" class="singlebtn">
+<input type="text" name="Points" id="frm-Points" value="{ke.function.Points/}" notkong="true" class="inputtext" placeholder="填写纯数字" />
+<span>用户完成分享后获得积分奖励</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">上传截图</td>
+<td colspan="3">
+{ke.function.thumb/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">跳转地址</td>
+<td colspan="3" class="singlebtn">
+<input type="text" name="strUrl" id="frm-strUrl" value="{ke.function.strUrl/}" class="inputtext" placeholder="完整的URL地址" style="width:240px" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips" valign="top">备注说明</td>
+<td colspan="3">
+<textarea name="shareText" notkong="true" placeholder="请填写分享描述内容,300汉字以内" class="inputtext" style="width:550px; height:30px;">{ke.function.shareText/}</textarea>
+</td>
+</tr>
+
+
+<tr operate="system"  class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">分享内容</div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveBeyondPic" />远程存图</label></div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveThumbPic" />抓缩略图</label></div>
+<div style=" clear:both; line-height:28px;">
+第 <input type="number" name="PicIndex" id="PicIndex" class="inputtext center" min="1" max="10" style="width:22px" value="1" /> 张<br/>
+</div>
+</td>
+<td colspan="3" class="editorBox">
+<textarea name="content" style="display:none;width:720px;height:145px;" Id="content">{ke.function.sharecontent/}</textarea><iframe operate="editor" instance="content" src="{app}/editor/editor/fckeditor.html?InstanceName=content&amp;Toolbar=Simple" width="720" height="220" frameborder="0" scrolling="no"></iframe>
+<div class="losthtmlbox">
+<input type="checkbox" name="ConStrLostRule" value="html"/>html
+<input type="checkbox" name="ConStrLostRule" value="css"/>css
+<input type="checkbox" name="ConStrLostRule" value="script"/>javascript
+<input type="checkbox" name="ConStrLostRule" value="div"/>div
+<input type="checkbox" name="ConStrLostRule" value="img"/>img
+<input type="checkbox" name="ConStrLostRule" value="iframe" checked/>iframe
+<input type="checkbox" name="ConStrLostRule" value="object" checked/>object
+<input type="checkbox" name="ConStrLostRule" value="link"/>a
+<input type="checkbox" name="ConStrLostRule" value="span"/>span
+<input type="checkbox" name="ConStrLostRule" value="psp"/>p
+<input type="checkbox" name="ConStrLostRule" value="h2"/>h2
+</div>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">显示排序</td>
+<td colspan="3">
+<input type="text" name="SortID" size="8" id="frm-SortID" isnumeric="true" notkong="true" class="inputtext" placeholder="填写纯数字" value="{ke.function.SortID/}" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

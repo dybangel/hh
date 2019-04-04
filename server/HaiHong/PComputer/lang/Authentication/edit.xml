@@ -1,0 +1,29 @@
+﻿<language>
+<zh>
+<zh.身份认证>身份认证</zh.身份认证>
+<zh.证件类型>证件类型</zh.证件类型>
+<zh.{ke.function.IDCategory>{ke.function.IDCategory</zh.{ke.function.IDCategory>
+<zh.身份证>身份证</zh.身份证>
+<zh.护照>护照</zh.护照>
+<zh.证件编号>证件编号</zh.证件编号>
+<zh.请填写您的证件编号>请填写您的证件编号</zh.请填写您的证件编号>
+<zh.真实姓名>真实姓名</zh.真实姓名>
+<zh.请填写您的真实姓名>请填写您的真实姓名</zh.请填写您的真实姓名>
+<zh.请上传证件正面照>请上传证件正面照</zh.请上传证件正面照>
+<zh.请上传证件手持照>请上传证件手持照</zh.请上传证件手持照>
+<zh.上传认证>上传认证</zh.上传认证>
+</zh>
+<en>
+<en.身份认证>Authentication</en.身份认证>
+<en.证件类型>Certificate type</en.证件类型>
+<en.身份证>ID Cards</en.身份证>
+<en.护照>Passport</en.护照>
+<en.证件编号>Certificate number</en.证件编号>
+<en.请填写您的证件编号>Please fill in your document number</en.请填写您的证件编号>
+<en.真实姓名>Real Name</en.真实姓名>
+<en.请填写您的真实姓名>Please fill in your real name</en.请填写您的真实姓名>
+<en.请上传证件正面照>Please upload a positive photo of your document</en.请上传证件正面照>
+<en.请上传证件手持照>Please upload a photo of your holding a document</en.请上传证件手持照>
+<en.上传认证>Upload certification</en.上传认证>
+</en>
+</language>

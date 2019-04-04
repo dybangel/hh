@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>交易平台参数设置</title>
+    <link href="template/images/style.css" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+    <script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a class="current">交易平台参数设置</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="frm-submit-forms" action="?action=save" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="configname" value="{ke.function.configName/}" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+            <tr class="change">
+                <td class="Base" colspan="2">参数配置 >> 短信接口</td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">短信服务商</td>
+                <td>
+                    <select name="ServerName" style="width:120px;">
+                        {ke.function.servername/}
+                    </select>
+                    <span>短信平台短信服务商</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">短信发送接口地址</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.SendUrl/}" name="SendUrl" size="50" />
+                    <span>系统将短信发送到第三方接口地址，由第三方平台转发短信</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">发送短信提交模式</td>
+                <td>
+                    <select name="SubmitMethod" style="width:120px;">
+                        {ke.function.method/}
+                    </select>
+                    <span>提交方式具体咨询第三方短信平台</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">发送短信编码格式</td>
+                <td>
+                    <select name="encoding" style="width:120px;">
+                        {ke.function.encoding/}
+                    </select>
+                    <span>提交方式具体咨询第三方短信平台</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">短信发送内容变量</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.DefineName/}" name="DefineName" size="20" />
+                    <span>第三方短信接口接收短信内容的变量名</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">发送手机号码变量</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.defineMobile/}" name="defineMobile" size="20" />
+                    <span>接收短信的手机号码的变量名</span>
+                </td>
+            </tr>
+
+
+            <tr class="hback">
+                <td class="tips">接口其它常用参数</td>
+                <td>
+                    <input type="text" class="inputtext" name="DefineOther" value="{ke.function.DefineOther/}" size="80" />
+                    <span>第三方短信平台必须要接收的必要参数，如接口用户名或者密钥等！</span>
+                </td>
+            </tr>
+
+
+            <tr class="hback">
+                <td class="tips">发送成功返回信息</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.DefineResult/}" name="DefineResult" size="20" />
+                    <span>短信发送成功后，第三方平台返回的状态信息</span>
+                    <!--<input type="button" value="查看短信余额" onclick="window.open('http://120.55.195.125:8888/sms.aspx?action=overage&userid=530&account=17320507030&password=17320507030abc')" />-->
+                </td>
+            </tr>
+
+            <!--<tr class="hback">
+                <td class="tips">查看短信余额</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.selectUrl/}" name="selectUrl" size="80" />
+                    <span>查看短信余额Url</span>
+                    <input type="button" value="查看短信余额" onclick="window.open('{ke.function.selectUrl/}')" />
+                </td>
+            </tr>-->
+
+            <tr class="hback">
+                <td class="tips">发送短信签名设置</td>
+                <td>
+                    <input type="text" class="inputtext" value="{ke.function.Signature/}" name="Signature" size="20" />
+                    <span>第三方平台短信发送必须带有签名设置,如【智网互联】</span>
+                </td>
+            </tr>
+            <tr class="xingmu">
+                <td colspan="2">
+                    <input type="submit" id="frm-submit-btns" value="保存配置" class="button" />
+                    <input type="reset" value="撤销" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

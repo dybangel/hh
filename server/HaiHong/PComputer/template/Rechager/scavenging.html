@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>扫码支付</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+<style type="text/css">
+#BODYContianer{ display:block; clear:both;width:260px; margin:0px auto; clear:both; position:absolute;top:50%; left:50%; transform: translate(-50%,-50%);}
+#BODYContianer:after{ content:''; height:36px; background:url(template/images/SCodebg.png) center center no-repeat; width:280px; position:absolute;top:-18px;left:-10px; z-index:0;}
+#MAINContianer{ display:block; clear:both; width:240px; margin:0px auto;padding:0px; background:#fff; border-radius:0px 0px 12px 12px;position:relative; z-index:1; overflow:hidden;}
+#QRThumb{ display:block; clear:both; width:100%; margin:0px;padding:0px; overflow:hidden;}
+#QRThumb img{ display:block; clear:both;width:200px; height:200px; margin:0px auto; border:#eee solid 1px;padding:3px; background:#fff; border-radius:3px;}
+#DOLine{ display:block; clear:both; width:100%; margin:0px;padding:0px; font-size:0px; height:0px; border-top:dashed #cdcdcd 1px; position:relative;}
+#DOLine:after{ content:''; width:32px; height:32px; background:#423884; position:absolute;left:-16px;top:-16px; border-radius:50%; z-index:2}
+#DOLine:before{ content:''; width:32px; height:32px; background:#423884; position:absolute;right:-16px;top:-16px; border-radius:50%; z-index:2}
+#TEXTContianer{ display:block; clear:both; width:100%;padding:0px; text-align:center; color:#4d83b8}
+</style>
+</head>
+<body>
+<div style="display:block; clear:both; width:100%; font-size:0px; height:120px;"></div>
+<div id="BODYContianer">
+	<div id="MAINContianer">
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:15px;"></div>
+		<div id="QRThumb"><img src="rechager.aspx?action=qrcode&qrcode={ke.function.token/}&key={ke.function.key/}" /></div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:15px;"></div>
+		<div style="display:block; clear:both; width:100%; text-align:center;">￥<font style=" font-weight:bold; font-family:Geneva, Arial, Helvetica, sans-serif; font-size:24px; margin:0px 8px;">{ke.function.amount/}</font>元</div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:15px;"></div>
+		<div id="DOLine"></div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:15px;"></div>
+		<div id="TEXTContianer">扫一扫二维码支付购买<br/><font style="font-size:12px;color:#999">微信端可直接长按识别二维码</font></div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:15px;"></div>
+	</div>
+</div>
+</body>
+</html>
+<script language="javascript">
+var CHKRechager = function()
+{
+	/*************************************************************************
+	*阻塞模式请求
+	**************************************************************************/
+	var doReset = function()
+	{
+		var timer = 10;
+		var obj = setInterval(function(){
+			if(timer>=0){timer=timer-1;}
+			else{clearInterval(obj);GetRequest();}
+		},1000);
+	}
+	/*************************************************************************
+	*获取数据请求信息
+	**************************************************************************/
+	var GetRequest = function()
+	{
+		var SendOption = {};
+		SendOption["url"]="Rechager.aspx?action=finish&rechid={ke.function.rechid/}";
+		SendOption['type']="get";
+		SendOption['async'] = false;
+		SendOption["success"] = function(strResponse){
+			if(strResponse=="success"){
+				window.location='Rechager.aspx?action=success&rechid={ke.function.rechid/}';
+			}
+			else{doReset();}
+		};
+		SendOption["error"] = function(){doReset();};
+		/*************************************************************************
+		*开始请求数据
+		**************************************************************************/
+		if(window.jQuery!=undefined && window.jQuery!=null 
+		&& typeof(window.jQuery)=='function' && window.jQuery.ajax!=undefined 
+		&& window.jQuery.ajax!=null && typeof(window.jQuery.ajax)=='function')
+		{
+			try{window.jQuery.ajax(SendOption);}
+			catch(err){}
+		}
+	};
+	/*************************************************************************
+	*开始执行数据查询
+	**************************************************************************/
+	try{doReset();}
+	catch(err){}
+};
+window.onload= function(){
+	CHKRechager();	
+}
+</script>

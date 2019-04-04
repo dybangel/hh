@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>审核认证</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+<tr class="xingmu">
+<td style="background:#FFFFCC" colspan="4">
+<form id="frmForms" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="userid" value="{ke.function.userid/}" />
+<input type="hidden" name="affairs" id="frm-affairs" value="0" />
+<input type="text" class="inputtext" size="30" id="frmRemark" placeholder="拒绝后填写拒绝原因" name="Remark" />
+<input type="button" affairs="1" operate="frm-dispose" value="审核通过(是)" class="button"/>
+<input type="button" affairs="100" operate="frm-dispose" value="审核通过(否)" class="button"/>
+</form>
+</td>
+</tr>
+<tr class="xingmu">
+<td colspan="4">审核认证 >> 审核用户({ke.function.nickname/},ID:{ke.function.userid/})</td>
+</tr>
+<tr operate="unionpay" class="hback">
+<td style="width:80px;" class="tips">证件类型</td>
+<td style="width:320px;">{ke.function.IDcategory/}</td>
+<td style="width:80px;" class="tips">证件编号</td>
+<td>{ke.function.IDnumber/}</td>
+</tr>
+
+<tr operate="unionpay" class="hback">
+<td style="width:80px;" class="tips">真实姓名</td>
+<td style="width:320px;">{ke.function.Fullname/}</td>
+<td style="width:80px;" class="tips">认证结果</td>
+<td>{ke.function.isAuthentication/}</td>
+</tr>
+
+<tr operate="unionpay" class="hback">
+<td valign="top" style="width:80px;" class="tips">正面照片<div style="color:#999;; line-height:22px;">点击图片查看大图,清晰的照片</div></td>
+<td valign="top" style="width:320px;"><img onClick="window.open('{ke.function.FaceThumb/}')" src="{ke.function.FaceThumb/}" style="max-width:300px;border:#ccc solid 1px;padding:2px; background:#fff; border-radius:3px; max-height:300px" /></td>
+<td valign="top" style="width:80px;" class="tips">认证结果<div style="color:#999;; line-height:22px;">点击图片查看大图,清晰的照片</div></td>
+<td valign="top"><img onClick="window.open('{ke.function.SideThumb/}')"  src="{ke.function.SideThumb/}" style="max-width:300px;border:#ccc solid 1px;padding:2px; background:#fff; border-radius:3px; max-height:300px" /></td>
+</tr>
+</table>
+
+<br/>
+</body>
+</html>
+<script language="javascript">
+$("input[operate=\"frm-dispose\"]").click(function(){
+	var thisButton = this;
+	$.messager.confirm('系统提示','你确定要执行处理？',function(isOk){
+		if(isOk){
+			var affairs=parseInt($(thisButton).attr("affairs"));
+			if(affairs!=undefined && !isNaN(affairs)){
+				$("#frm-affairs").val(affairs);
+				if(thisButton.form!=undefined && thisButton.form!=null){
+					ajaxSubmit(thisButton.form)
+				}
+			}	
+			else{$.messager.alert('系统提示','发生未知错误，请刷新网页重试');return;}
+		}
+	});
+});
+</script>

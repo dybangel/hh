@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户公告</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+#frm-user-contianer{padding:8px; background:#f8f8f8;moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#frm-user-contianer label{ border:#e0e0e0 solid 1px; background:#fff; border-radius:3px; margin-right:8px; position:relative; display:block; width:100px; cursor:pointer; height:30px; float:left; margin-bottom:8px; text-align:left; line-height:30px;padding-left:5px; color:#666;}
+#frm-user-contianer label:hover{color:#666; border:#cd0000 solid 1px;}
+#frm-user-contianer label span{ position:absolute; width:16px; line-height:16px; text-align:center; height:16px;background:#cd0000; color:#fff; font-family:"Times New Roman", Times, serif; font-size:18px; font-weight:bold; display:block;top:7px;right:5px;padding:0px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">用户公告</a>
+<a href="?action=add">添加公告</a>
+<a class="current">编辑公告</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForms" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="notificationId" value="{ke.function.notificationId/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr><td class="Base" colspan="2">编辑公告 >> 消息内容</td></tr>
+
+<tr operate="system" class="hback">
+<td valign="top" style="color:#666; line-height:20px;" class="tips">
+<div>公告内容</div>
+<div>公告内容长度请限制在500个汉字内</div>
+</td>
+<td class="singlebtn">
+<textarea name="strContext" class="inputtext" style="width:550px;height:100px;" placeholder="这里填写充值备注信息,长度600个汉字以内">{ke.function.strContext/}</textarea>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">立即显示</td>
+<td class="singlebtn">{ke.function.isDisplay/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">字段排序</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.SortID/}" name="SortID" notkong="true" size="8" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

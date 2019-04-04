@@ -1,0 +1,97 @@
+C:\www\haihong\CnzwHH\template\Application
+
+add.html
+edit.html 增加唤醒任务option
+C:\www\haihong\PComputer\template\app\showup.html
+C:\www\haihong\PComputer\Inc\showup.js
+C:\www\haihong\PComputer\App.aspx.cs
+C:\www\haihong\PComputer\template\default.html
+
+用这个地址传参数可以检索出任务
+http://localhost/PComputer/app.aspx?action=default&taskerModel=唤醒任务&token=133292EF159E4D1082CDA02F
+
+PComputer/app.aspx负责处理任务列表
+
+用这个地址显示任务详情,开始任务
+http://localhost/PComputer/app.aspx?action=show&token=133292EF159E4D1082CDA02F&appid=100068
+
+任务详情页面需要修改
+将开始任务StartDownload();和开始试玩TryApplication()合并
+C:\www\haihong\PComputer\template\app\show.html
+++++++++++++++++++++++++++++++++++++++++++++++
+C:\www\haihong\CnzwHH\Index.aspx.cs 关键文件
+token值决定了用户
+http://192.168.31.56/PComputer/index.aspx?token=133292EF159E4D1082CDA02F
+
+ where UserID='30013648'邀请马召用户
+
+
+
+1、添加系统公告++++++++++
+SELECT notificationId, strContext, Addtime, isDisplay, SortID
+FROM Fooke_UserNotification
+海虹APP系统正式上线啦！提现请绑定支付宝账号，并填写支付宝昵称，请谨慎填写和检查账号，以免因为账号原因，造成收款不及时！ 请在日常工作时间完成任务点击，客服工作时间：9:00AM---18:00PM
+
+系统将于12:00分进行日常维护，预计12:30恢复正常，维护期间系统将暂停服务！
+
+
+2、拷贝weihu文件夹到pcomputer下
+
+到点开始
+2、index.aspx.cs 添加 Server.Transfer("weihu/index.html"); 
+   app.aspx.cs 同上
+
++++++++++++++++
+3、修改启动MSSQL SERVER 2008，选择菜单 工具-〉选项-〉左侧有个 设计器-〉表设计器和数据库设计器。然后去掉“ 阻止保存要求重新创建表的更改”前面的勾。重新启动MSSQL SERVER 2008即可。如下图所示：
+记录fooke_user表的信息 标示增量 标示种子
+136
+30001136
+
+4、替换
+脚本
+SELECT UserID, ParentID, AuthorizationType, AuthorizationKey, DeviceType, DeviceCode, 
+      DeviceIdentifier, DeviceModel, DeviceChar, MacChar, strTokey, GroupID, Groupname, 
+      UserName, Password, PasswordTo, Thumb, Nickname, Amount, Points, SessionCode, 
+      SessionDate, strEmail, strMobile, strWeChat, Fullname, AlipayChar, Alipayname, 
+      strIP, strCity, BonusTimer, BonusAmount, AlipayTimer, AlipayAmount, ShareAmount, 
+      strRemark, Addtime, LastDate, isOnline, isDisplay, isBreak, shareCancel
+FROM Fooke_User
+WHERE (strTokey LIKE '%1b7bc3%') OR
+      (strTokey LIKE '%d02f0f%')
+
+SELECT UserID, ParentID, AuthorizationType, AuthorizationKey, DeviceType, DeviceCode, 
+      DeviceIdentifier, DeviceModel, DeviceChar, MacChar, strTokey, GroupID, Groupname, 
+      UserName, Password, PasswordTo, Thumb, Nickname, Amount, Points, SessionCode, 
+      SessionDate, strEmail, strMobile, strWeChat, Fullname, AlipayChar, Alipayname, 
+      strIP, strCity, BonusTimer, BonusAmount, AlipayTimer, AlipayAmount, ShareAmount, 
+      strRemark, Addtime, LastDate, isOnline, isDisplay, isBreak, shareCancel
+FROM Fooke_User
+WHERE (strTokey LIKE '%c3d9f2%') OR
+      (strTokey LIKE '%afdae6%')
+
+
+
+SELECT UserID, ParentID, AuthorizationType, AuthorizationKey, DeviceType, DeviceCode, 
+      DeviceIdentifier, DeviceModel, DeviceChar, MacChar, strTokey, GroupID, Groupname, 
+      UserName, Password, PasswordTo, Thumb, Nickname, Amount, Points, SessionCode, 
+      SessionDate, strEmail, strMobile, strWeChat, Fullname, AlipayChar, Alipayname, 
+      strIP, strCity, BonusTimer, BonusAmount, AlipayTimer, AlipayAmount, ShareAmount, 
+      strRemark, Addtime, LastDate, isOnline, isDisplay, isBreak, shareCancel
+FROM Fooke_User
+WHERE (strTokey LIKE '%d6ccba%') OR
+      (strTokey LIKE '%6c702e%')
+
+userid
+parentid
+nickname
+username
+amount
+bonusamount
+alipaychar
+
+旧书据parentid 100088
++++++++++++++++++++++++
+数据表标示
+公告还原
+300031760 11111111
+++++++++++++++

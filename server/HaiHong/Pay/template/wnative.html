@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>在线充值-{ke.config(sitetitle)/}</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<link href="{app}/template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="{app}/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/inc/jquery.js"></script>
+<script language="javascript" src="{app}/inc/jquery-ui.js"></script>
+<script language="javascript" src="{app}/inc/jquery.form.js"></script>
+<script language="javascript" src="{app}/inc/forwork.js"></script>
+<script language="javascript" src="{app}/inc/jquery-easyui/jquery.easyui.min.js"></script>
+<style type="text/css">
+#frm-content-box{ width:98%; background:#fff; clear:both; border:#ccc solid 1px; margin:0px auto;}
+#frm-showbox{ width:96%; margin:0px auto; clear:both; font-size:14px;}
+#frm-showbox-tips{ padding:10px 0px; color:#888888;}
+#frm-showbox-tips font{ font-size:16px; font-weight:bold; font-family:"微软雅黑"; color:#cc0000}
+#frm-showbox-points{ padding:10px 0px; color:#888;}
+#frm-payment-box{ width:96%; margin:0px auto; clear:both;}
+#frm-payment-tabs{ width:100%; clear:both; margin:0px auto;border-collapse:collapse;}
+#frm-payment-tabs tr.hback{}
+#frm-payment-tabs tr.hback:hover{ background:#f4f4f4;}
+#frm-payment-tabs tr.hback td{ border-bottom:#ccc solid 1px;padding:12px 8px; height:70px;}
+#frm-buttons{ width:145px; height:46px; background:#cc0000; color:#fff; font-size:14px; font-family:"微软雅黑"}
+#frm-payment-box div.items{ clear:both; width:100%; cursor:pointer; border-bottom:#ccc solid 1px; padding:10px 0px; position:relative; height:50px;}
+#frm-payment-box div.current{ background:#fff7f6;}
+#frm-payment-box div.items div.rdo{ position:absolute;left:12px;top:20px; width:20px; height:20px; line-height:20px; background:#fff; border:#ccc solid 1px; border-radius:20px; display:block;}
+#frm-payment-box div.current div.rdo{ background:#cc0000; border:#cc0000;}
+#frm-payment-box div.current div.rdo:after{ content:'√'; display:block; width:20px; line-height:20px; height:20px; position:absolute;left:0px;top:0px; font-family:"微软雅黑"; color:#fff; text-align:center; font-size:16px; font-weight:bold;}
+#frm-payment-box div.items div.rdo input{ display:none;}
+#frm-payment-box div.items div.thumb{ position:absolute;left:60px;top:12px; width:60px; width:122px; height:44px;}
+#frm-payment-box div.items div.amount{ position:absolute;left:200px;top:12px;width:400px; color:#000; font-size:14px;}
+#frm-payment-box div.items div.descrp{ position:absolute;left:200px;top:40px;width:400px; color:#999;}
+#frm-image-qrcode{ padding:12px 0px;}
+#frm-main{ width:100% !important;}
+</style>
+<script language="javascript">
+    $(function () {
+        $("#frm-payment-box").find(".items").click(function () {
+            try {
+                $("#frm-payment-box").find(".items").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            } catch (err) { }
+            try {
+                var PaymentName = $(this).attr("title") || "账户余额";
+                $("#frm-payment-txt").val(PaymentName);
+            } catch (err) { }
+        });
+    });
+</script>
+</head>
+<body>
+<div id="frm-main">
+	<div class="clear" style="height:10px;"></div>
+	<div id="frm-content-box">
+		<div id="frm-showbox">
+			<div id="frm-showbox-tips"><font>请识别下面二维码</font></div>
+			<div id="frm-showbox-points">支付金额为∶<font style="color:#ff4200; ">￥</font><font style="color:#ff4200; font-size:20px; font-family:Arial, Helvetica, sans-serif">{ke.function.number/}</font></div>
+		</div>
+		<div class="clear" style="height:10px;"></div>
+		
+		<div id="frm-payment-box">
+			<div style="padding:12px 0px; text-align:center; color:#666;">请识别下面二维码，或者保存下来使用微信扫描</div>
+			<div style="padding:2px 0px; text-align:center;  color:#666;">请在2小时内完成付款,否则图中二维码将失效</div>
+			<div id="frm-image-qrcode" style="text-align:center;">
+				<img style="width:200px; height:200px; border:#ccc solid 1px;padding:5px;" src="redirect.aspx?action=qrcode&token={ke.function.char/}&key={ke.function.key/}" />
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

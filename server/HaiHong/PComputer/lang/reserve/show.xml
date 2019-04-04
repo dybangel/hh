@@ -1,0 +1,32 @@
+﻿<language>
+<zh>
+<zh.订单详情>订单详情</zh.订单详情>
+<zh.委托数量>委托数量</zh.委托数量>
+<zh.委托价格>委托价格</zh.委托价格>
+<zh.合计总价>合计总价</zh.合计总价>
+<zh.订单状态>订单状态</zh.订单状态>
+<zh.撤回订单>撤回订单</zh.撤回订单>
+<zh.回收提示>回收提示</zh.回收提示>
+<zh.请上传支付截图>请上传支付截图</zh.请上传支付截图>
+</zh>
+<en>
+<en.订单详情>Order details</en.订单详情>
+<en.委托数量>Commissioned quantity</en.委托数量>
+<en.委托价格>Commission price</en.委托价格>
+<en.合计总价>Total price</en.合计总价>
+<en.订单状态>Order Status</en.订单状态>
+<en.撤回订单>Withdraw orders</en.撤回订单>
+<en.回收提示>Recycling tips</en.回收提示>
+<en.请上传支付截图>Please upload payment screenshot</en.请上传支付截图>
+<en.待确认>Wait confirm</en.待确认>
+<en.待付款>Wait payment</en.待付款>
+<en.已付款>Confirm Payment</en.已付款>
+<en.已完成>Complated</en.已完成>
+<en.已作废>Invalid</en.已作废>
+<en.上传支付凭证>Upload voucher</en.上传支付凭证>
+<en.未上传支付凭证>Non - uploaded payment voucher</en.未上传支付凭证>
+<en.交易付款凭证>Transaction payment voucher</en.交易付款凭证>
+<en.确认付款>Confirm payment</en.确认付款>
+<en.等待收款>Wait receipt</en.等待收款>
+</en>
+</language>

@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>收益明细</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/Refresh/minirefresh.js?{timestamp}"></script>
+<script language="javascript" src="inc/datepacker/laydate.js"></script>
+<style type="text/css">
+#frmContianer{width:94%; margin:0px auto;padding:0px; border-collapse:collapse; border-spacing:0px 0px; font-size:13px;word-wrap:break-word;}
+#frmContianer tr.hback{border-radius:5px;padding:0px;overflow:hidden; background:#fff; border-bottom:#f0f0f0 solid 1px;}
+#frmContianer tr.hback td{padding:4px 4px;color:#333333;}
+#frmContianer tr.hback td.ico{ width:40px; text-align:center; height:60px; background:url(template/images/amount_mode_01.png) center center no-repeat; background-size:40px 36px;}
+#frmContianer tr.hback td.amt{ width:60px; text-align:center; height:60px;color:#31c37c}
+#frmContianer tr.hback td.remark{word-break:break-all}
+#frmContianer tr.hback td.remark b{ color:#ff0000; margin:0px 4px;}
+#frmContianer div.num{ color:#8a82e7;padding:3px 0px; width:100%; font-family:"Courier New", Courier, monospace; color:#31c37c; font-size:16px;}
+#frmContianer div.model{ color:#202020;padding:3px 0px; width:100%;}
+#frmContianer div.textor{font-family:"Courier New", Courier, monospace;padding:3px 0px;color:#696969}
+#frmContianer div.date{ font-size:12px; font-family:"Courier New", Courier, monospace;padding:3px 0px;color:#a1a1a1}
+#frmContianer tr.hback td.img{ width:46px;height:46px;padding:3px; text-align:center;}
+#frmContianer tr.hback td.img img{ width:36px; height:36px; border-radius:50%; border:rgba(255,255,255,0.15) solid 1px;padding:2px; background:#fff;}
+
+#MENUContianer{ display:block; clear:both; width:100%;padding:0px;height:40px;background:#efeff1; position:absolute;top:46px;left:0px; overflow-x:scroll; overflow-y:hidden;color:#8e8e90; z-index:90}
+#MENUContianerTabs{ margin:0px;padding:0px; border-collapse:separate; border-spacing:0px;text-align:center; height:40px; position:absolute;top:0px;left:0px; z-index:99;}
+#MENUContianerTabs td{ border-bottom:#bbbbbd solid 1px;border-left:#bbbbbd solid 1px;}
+#MENUContianerTabs td:first-child{ border-left:0px;}
+#MENUContianerTabs td:last-child{ border-right:0px;}
+#MENUContianerTabs td.current{ background:#fff;border-bottom:0px;color:#232323;}
+
+#frm-transfer-box{ width:100%; background:#fff;padding:3px 0px; overflow:hidden;}
+#frm-transfer-box div.nofind{ width:100%;text-align:center; overflow:hidden;color:#cbcbcb; position:fixed;top:180px;}
+#frm-transfer-box div.nofind a{background:#f6503c; color:#FFF;margin:0px auto; width:80px;height:40px;padding:20px 0px; display:block; border-radius:50%; z-index:999;}
+
+</style>
+</head>
+<body style="background:#fff;">
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">收益明细</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MENUContianer">
+<table id="MENUContianerTabs" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td onClick="menuChange(this,'default')" {ke.function.default/}>全部</td>
+    <td onClick="menuChange(this,'duty')" {ke.function.duty/}>任务</td>
+    <td onClick="menuChange(this,'share')" {ke.function.share/}>学徒</td>
+    <td onClick="menuChange(this,'alipay')" {ke.function.alipay/}>兑换</td>
+  </tr>
+</table>
+</div>
+<div style="position:fixed;width:100%;height:calc(100% - 50px);height:-webkit-calc(100% - 50px);height:-moz-calc(100% - 50px);left:0px;top:90px;-webkit-overflow-scrolling:touch" id="minirefresh" class="minirefresh-wrap">
+	<div class="minirefresh-scroll">
+		<table border="0" cellpadding="0" cellspacing="0" id="frmContianer"></table>
+	</div>
+</div>
+</body>
+</html>
+
+<script language="javascript">
+/**********************************************************************************
+*鼠标点击网页获取事件信息
+***********************************************************************************/
+var menuChange = function(obj,type)
+{
+	try{
+		try{$("#MENUContianerTabs").find("td").removeClass("current");}
+		catch(err){}
+		try{$(obj).addClass("current");}
+		catch(err){}
+		
+	}catch(err){}
+	/*******************************************************************
+	*开始加载请求数据
+	********************************************************************/
+	try{OpenFrame("amount.aspx?token={ke.function.strtokey/}&type="+type);}
+	catch(err){}
+};
+var ConvertInt = function(amt)
+{
+	return parseFloat(amt).toFixed(2);
+};
+
+/******************************************************************************
+*获取用户账户明细信息
+*******************************************************************************/
+var getTransfer = function(url)
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+		&& rspJson['result']!=undefined && rspJson['result']!=null){
+			$(rspJson['result']).each(function(j,json){
+				strTemplate+='<tr class=\"hback\">';
+				strTemplate+='<td valign=\"top\" class=\"img\">';
+				strTemplate+='<img class=\"img\" src=\"'+json["thumb"]+'\" />';
+				strTemplate+='</td>';
+				strTemplate+='<td class=\"remark\">';
+				strTemplate+='<div class=\"model\">'+json['formname']+'</div>';
+				strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+				strTemplate+='<div class=\"textor\">'+json['remark']+'</div>';
+				strTemplate+='</td>';
+				strTemplate+='</tr>';
+			});
+		};
+		if(isAppend){$('#frmContianer').append(strTemplate);}
+		else{$('#frmContianer').html(strTemplate);}
+	};
+	/******************************************************************************
+	*未找到请求数据记录
+	*******************************************************************************/
+	var NotFind = function()
+	{
+		var strTemplate='';
+		try{
+			strTemplate+='<div id="frm-transfer-box">';
+			strTemplate+='<div class="nofind">';
+			strTemplate+='<div>您的收益记录为空哦</div>';
+			strTemplate+='<div class="clear" style="height:10px;"></div>';
+			strTemplate+='<div>';
+			strTemplate+='<a href="app.aspx?token={ke.function.strtokey/}">做任务<br>得收益</a>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+		}catch(err){}
+		try{$('#frmContianer').html(strTemplate);}
+		catch(err){}
+	};
+	/******************************************************************************
+	*开始执行请求数据查询
+	*******************************************************************************/
+	try{
+		$("#minirefresh").JSONRefresh({
+			"url":url,
+			'success':function(rspJson,isAppend){
+				if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+				&& rspJson['result']!=undefined && rspJson['result']!=null 
+				&& rspJson['result'].length>=1){showRender(rspJson,isAppend);}
+				else if(!isAppend){NotFind();}
+			}
+		});
+	}catch(err){}
+};
+/******************************************************************************
+*获取用户任务奖励信息
+*******************************************************************************/
+var getDuty = function(url)
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+		&& rspJson['result']!=undefined && rspJson['result']!=null){
+			$(rspJson['result']).each(function(j,json){
+				strTemplate+='<tr class=\"hback\">';
+				strTemplate+='<td valign=\"top\" class=\"img\">';
+				strTemplate+='<img class=\"img\" src=\"{ke.function.thumb/}\" />';
+				strTemplate+='</td>';
+				strTemplate+='<td class=\"remark\">';
+				strTemplate+='<div class=\"model\">我</div>';
+				strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+				strTemplate+='<div class=\"textor\">完成任务<b>'+json['appname']+'</b>获得<b>'+json['amount']+'</b>元</div>';
+				strTemplate+='</td>';
+				strTemplate+='</tr>';
+			});
+		};
+		if(isAppend){$('#frmContianer').append(strTemplate);}
+		else{$('#frmContianer').html(strTemplate);}
+	};
+	/******************************************************************************
+	*未找到请求数据记录
+	*******************************************************************************/
+	var NotFind = function()
+	{
+		var strTemplate='';
+		try{
+			strTemplate+='<div id="frm-transfer-box">';
+			strTemplate+='<div class="nofind">';
+			strTemplate+='<div>您现在的记录为空</div>';
+			strTemplate+='<div class="clear" style="height:10px;"></div>';
+			strTemplate+='<div>';
+			strTemplate+='<a href="app.aspx?token={ke.function.strtokey/}">立即<br>做任务</a>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+		}catch(err){}
+		try{$('#frmContianer').html(strTemplate);}
+		catch(err){}
+	}
+	/******************************************************************************
+	*开始执行请求数据查询
+	*******************************************************************************/
+	try{
+		$("#minirefresh").JSONRefresh({
+			"url":url,
+			'success':function(rspJson,isAppend){
+				if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+				&& rspJson['result']!=undefined && rspJson['result']!=null 
+				&& rspJson['result'].length>=1){showRender(rspJson,isAppend);}
+				else if(!isAppend){NotFind();}
+			}
+		});
+	}catch(err){}
+};
+/******************************************************************************
+*获取用户任务奖励信息
+*******************************************************************************/
+var getAlipay = function(url)
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		try{
+			if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+			&& rspJson['result']!=undefined && rspJson['result']!=null 
+			&& rspJson['result'].length>=1){
+				$(rspJson['result']).each(function(j,json){
+					strTemplate+='<tr class=\"hback\">';
+					strTemplate+='<td valign=\"top\" class=\"img\">';
+					strTemplate+='<img class=\"img\" src=\"{ke.function.thumb/}\" />';
+					strTemplate+='</td>';
+					strTemplate+='<td class=\"remark\">';
+					strTemplate+='<div class=\"model\">我</div>';
+					strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+					strTemplate+='<div class=\"textor\">提现<b>'+json['thisamount']+'</b>元</div>';
+					strTemplate+='</td>';
+					strTemplate+='</tr>';
+				});
+			};
+			if(isAppend){$('#frmContianer').append(strTemplate);}
+			else{$('#frmContianer').html(strTemplate);}
+		}catch(err){}
+	};
+	/******************************************************************************
+	*未找到请求数据记录
+	*******************************************************************************/
+	var NotFind = function()
+	{
+		var strTemplate='';
+		try{
+			strTemplate+='<div id="frm-transfer-box">';
+			strTemplate+='<div class="nofind">';
+			strTemplate+='<div>您现在的记录为空</div>';
+			strTemplate+='<div class="clear" style="height:10px;"></div>';
+			strTemplate+='<div>';
+			strTemplate+='<a href="Alipay.aspx?token={ke.function.strtokey/}">立即<br>兑换</a>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+		}catch(err){}
+		try{$('#frmContianer').html(strTemplate);}
+		catch(err){}
+	}
+	/******************************************************************************
+	*开始执行请求数据查询
+	*******************************************************************************/
+	try{
+		$("#minirefresh").JSONRefresh({
+			"url":url,
+			'success':function(rspJson,isAppend){
+				if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+				&& rspJson['result']!=undefined && rspJson['result']!=null 
+				&& rspJson['result'].length>=1){showRender(rspJson,isAppend);}
+				else if(!isAppend){NotFind();}
+			}
+		});
+	}catch(err){}
+};
+
+/******************************************************************************
+*获取用户任务奖励信息
+*******************************************************************************/
+var getShare = function(url)
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		try{
+			if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+			&& rspJson['result']!=undefined && rspJson['result']!=null 
+			&& rspJson['result'].length>=1){
+				$(rspJson['result']).each(function(j,json){
+					strTemplate+='<tr class=\"hback\">';
+					strTemplate+='<td valign=\"top\" class=\"img\">';
+					strTemplate+='<img class=\"img\" src=\"{ke.function.thumb/}\" />';
+					strTemplate+='</td>';
+					strTemplate+='<td class=\"remark\">';
+					strTemplate+='<div class=\"model\">我</div>';
+					strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+					strTemplate+='<div class=\"textor\">'+json['remark']+'</div>';
+					strTemplate+='</td>';
+					strTemplate+='</tr>';
+				});
+			};
+			if(isAppend){$('#frmContianer').append(strTemplate);}
+			else{$('#frmContianer').html(strTemplate);}
+		}catch(err){}
+	};
+	/******************************************************************************
+	*未找到请求数据记录
+	*******************************************************************************/
+	var NotFind = function()
+	{
+		var strTemplate='';
+		try{
+			strTemplate+='<div id="frm-transfer-box">';
+			strTemplate+='<div class="nofind">';
+			strTemplate+='<div>您现在的记录为空</div>';
+			strTemplate+='<div class="clear" style="height:10px;"></div>';
+			strTemplate+='<div>';
+			strTemplate+='<a href="invited.aspx?token={ke.function.strtokey/}">立即<br>邀请</a>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+			strTemplate+='</div>';
+		}catch(err){}
+		try{$('#frmContianer').html(strTemplate);}
+		catch(err){}
+	}
+	/******************************************************************************
+	*开始执行请求数据查询
+	*******************************************************************************/
+	try{
+		$("#minirefresh").JSONRefresh({
+			"url":url,
+			'success':function(rspJson,isAppend){
+				if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+				&& rspJson['result']!=undefined && rspJson['result']!=null 
+				&& rspJson['result'].length>=1){showRender(rspJson,isAppend);}
+				else if(!isAppend){NotFind();}
+			}
+		});
+	}catch(err){}
+};
+
+var starContext=function(type)
+{
+	if(type=="default"){
+		try{getTransfer("../api/amount.aspx?action=default&token={ke.function.strtokey/}");}
+		catch(err){}
+	}else if(type=="duty"){
+		try{getDuty("../api/amount.aspx?action=duty&token={ke.function.strtokey/}");}
+		catch(err){}
+	}else if(type=="alipay"){
+		try{getAlipay("../api/alipay.aspx?action=default&token={ke.function.strtokey/}");}
+		catch(err){}
+	}else if(type=="share"){
+		try{getShare("../api/amount.aspx?action=share&token={ke.function.strtokey/}");}
+		catch(err){}
+	}
+};
+
+window.onload = function(){
+	starContext("{ke.request(type).toString(default)/}");
+};
+</script>

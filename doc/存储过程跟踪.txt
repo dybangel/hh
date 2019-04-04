@@ -1,0 +1,48 @@
+任务列表exec [Stored_FindApplicationList] @UserID=N'300022240',@DeviceModel=N'安卓系统'
+返回用户信息 exec [Stored_FindUserLogin] @strKey=N'133292EF159E4D1082CDA02F'
+???exec [Stored_FindUserTodayComputer] @UserID=N'300022240',@DateKey=N'20190404'
+公告exec [Stored_FindUserNotificationList] 
+看所有徒弟数量exec [Stored_FindUserChildrenAll] @NodeID=N'100088'
+
+?已完成任务
+select top 1 count(0) from Fooke_UserDuty where 1=1  and UserID=300022240
+select * from (select row_number() over(order by DutyID desc) as rowNumber,* from Fooke_UserDuty where 1=1  and UserID=300022240) as newtTable where rowNumber >0 and rowNumber <=10
+
+徒弟信息
+select top 1 count(0) from (    select List.Id,List.strKey,List.Mode,List.UserID,List.Nickname,List.FormID,List.Formname,    List.Amount,List.Balance,List.Remark,List.Addtime,List.Affairs,    ISNULL(Foke.Thumb,'/file/user/default.png') as thumb    from Fooke_Amount as List left join Fooke_User as Foke on     Foke.UserID = List.FormID) as FokeApps where 1=1  and UserID=300022240 and Mode in ('邀请奖励','任务提成')
+
+select * from (select row_number() over(order by Id desc) as rowNumber,* from (    select List.Id,List.strKey,List.Mode,List.UserID,List.Nickname,List.FormID,List.Formname,    List.Amount,List.Balance,List.Remark,List.Addtime,List.Affairs,    ISNULL(Foke.Thumb,'/file/user/default.png') as thumb    from Fooke_Amount as List left join Fooke_User as Foke on     Foke.UserID = List.FormID) as FokeApps where 1=1  and UserID=300022240 and Mode in ('邀请奖励','任务提成')) as newtTable where rowNumber >0 and rowNumber <=10
+
+看兑换
+select top 1 count(0) from Fooke_Alipay where 1=1  and UserID=300022240
+select * from (select row_number() over(order by  AlipayID Desc) as rowNumber,AlipayID,OrderKey,FokeMode,BizKey,UserID,Nickname,thisAmount,thisBalance,thisInterval,Addtime,LastDate,AccessMode,AccessName,AccessHolder,strRemark,Affairs from Fooke_Alipay where 1=1  and UserID=300022240) as newtTable where rowNumber >0 and rowNumber <=10
+
+任务详情
+看有没有已经开始的任务
+exec [Stored_FindApplicationSession] @UserID=N'300022240'
+
+取消某个用户的某个任务
+exec [Stored_AbortApplicationSession] @UserID=N'300022240',@AppID=N'100063'
+
+查看任务详情
+exec [Stored_FindApplication] @AppID=N'100068'
+
+？？？？？
+exec [Stored_FindApplicationKey] @appKey=N'7345E0A42F5086A8E7D1A16E'
+
+
+保存用户正在做这个任务的状态
+exec [Stored_SaveApplicationSession] @UserID=N'300022240',@AppID=N'100068',@AppKey=N'7345E0A42F5086A8E7D1A16E'
+
+
+
+？？？？？？？？？？？？
+exec [Stored_FindMember] @DeviceType=N'iOS',@DeviceIdentifier=N'6032b4cb4ef976e26a9e98d7cf443a7695242ceb'
+exec [Stored_FindAppDown] @appKey=N'D32F7951E210C50F98B09033'
+exec [Stored_SaveFinishDown] @UserID=N'30005080',@Nickname=N'HH16534324',@AppID=N'100121',@Appname=N'犀**说',@AppKey=N'D32F7951E210C50F98B09033',@DeviceType=N'iOS',@DeviceCode=N'B6F36419-9622-40B8-B4C5-A639005C081A',@MacChar=N'00:00:00:00:00',@Amount=N'1.8',@strIP=N'1.86.121.253',@cityname=N'陕西省西安市'
+exec [Stored_FindUserParent] @NodeID=N'30004944',@NodeLevel=15
+exec [Stored_FindAmount] @UserID=N'30004944',@Mode=N'任务提成',@strKey=N'35154A32D57491449FCD2FAB'
+exec [Stored_SaveAmount] @strKey=N'35154A32D57491449FCD2FAB',@UserID=N'30004944',@Nickname=N'HH91634458',@FormID=N'30005080',@Formname=N'HH16534324',@Affairs=N'1',@Mode=N'任务提成',@Amount=N'0.04',@Remark=N'下级好友完成任务获得奖励提成0.04元'
+exec [Stored_SaveAppDown] @strToken=N'F6BB954F26566C84C4779C2E',@UserID=N'30005080',@Nickname=N'HH16534324',@AppID=N'100135',@Appname=N'懂*帝',@AppKey=N'F6BB954F26566C84C4779C2E',@AppModel=N'1',@UnionModel=N'无渠道',@DeviceType=N'iOS',@DeviceCode=N'B6F36419-9622-40B8-B4C5-A639005C081A',@MacChar=N'00:00:00:00:00',@Amount=N'1.8',@strIP=N'1.86.121.253',@cityname=N'陕西省西安市',@strInstall=N'1',@strEdition=N'12.1.4',@strNetwork=N'2',@isBreak=N'0'
+exec [Stored_FindApplicationWaiting] @UserID=N'30010248'
+exec [Stored_FindUserChildrenAll] @NodeID=N'30003584'

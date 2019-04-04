@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>站点设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=wechat" class="current">微信公众号</a>
+<a href="?action=to">更新授权标识</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configName" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">参数配置</td>
+</tr>
+<tr class="hback">
+<td class="tips">帐号名称</td>
+<td>
+<input type="text" class="inputtext" placeholder="请填写公众号名称" value="{ke.function.wechatname/}" name="wechatname" notkong="true" size="20" />
+<span>微信公众号名称</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">微信帐号</td>
+<td>
+<input type="text" class="inputtext" placeholder="微信公众号帐号" value="{ke.function.wechat/}" name="wechat" notkong="true" size="20" />
+<span>微信公众账号的帐号名称</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">原始编号</td>
+<td>
+<input type="text" class="inputtext" placeholder="微信系统为公众号分发的原始ID" value="{ke.function.FirstNumber/}" name="FirstNumber" notkong="true" size="20" />
+<span>微信公众号原始ID，用户各种消息接收发送,请在微信平台公众号设置中查看</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">对接令牌</td>
+<td>
+<input type="text" class="inputtext" placeholder="请填写公众号AppId" value="{ke.function.AppID/}" name="AppID" notkong="true" size="36" />
+<span>微信公众号AppID，请在微信公众平台开发者中心查看</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">对接密钥</td>
+<td>
+<input type="text" class="inputtext" placeholder="请填写对接密钥" value="{ke.function.AppSecret/}" name="AppSecret" notkong="true" size="36" />
+<span>微信公众号AppSecret对接密钥，请在微信公众平台开发者中心查看</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="Base" colspan="2">微信二维码</td>
+</tr>
+<tr class="hback">
+<td class="tips">二维码地址</td>
+<td>{ke.function.dimensional/}</td>
+</tr>
+
+<tr class="hback">
+<td class="Base" colspan="2">接口配置</td>
+</tr>
+<tr class="hback">
+<td class="tips">服务地址</td>
+<td>{ke.function.siteurl/}{app}/api/wechat.aspx?token={ke.function.strkey/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">对接令牌</td>
+<td>
+<input type="text" class="inputtext" placeholder="请填写对接密钥" value="{ke.function.strkey/}" name="strkey" notkong="true" size="36" />
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

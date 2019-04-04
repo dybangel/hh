@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>投票系统</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">投票系统</a>
+<a href="?action=add">添加投票</a>
+<a class="current">编辑项目</a>
+<a href="?action=code">代码调用</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="iptforms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="id" value="{ke.function.id/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">投票系统 >> 编辑项目</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">项目名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext title" placeholder="请填写投票项目的主题" value="{ke.function.votename/}" name="VoteName" notkong="true" size="60" />
+{ke.function.isdisplay/}
+<span>2-20个汉字以内</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">有效期限</td>
+<td class="singlebtn">
+{ke.function.isExpire/}
+<span>有效期表示用户只能在规定的日期内对表单进行填写！</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">有效日期</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请选择日期" onClick="WdatePicker()" name="StarDate" value="{ke.function.stardate/}" id="StarDate" size="12" />
+-
+<input type="text" class="inputtext" placeholder="请选择日期"  onClick="WdatePicker()" name="EndDate" value="{ke.function.enddate/}" id="EndDate" size="12" />
+<span>有效期表示用户只能在规定的日期内对表单进行填写！</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">项目描述</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.descrption/}" placeholder="描述内容请限制在300个汉字以内" class="inputtext" name="descrption" />
+<span>请用简要的名称说明投票项目!</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="Base" colspan="2">投票选项</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">最多选项</td>
+<td class="singlebtn"><input type="text" isnumeric="true" notkong="true" class="inputtext" name="maxOptions" size="5" placeholder="最多选择投票项" value="{ke.function.maxOptions/}" />
+{ke.function.ischoose/}
+<span>最多选项表示用户每次投票最多可以选择多少个选项,0为不限制</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">投票选项1</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options1/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options1" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote1/}" class="inputtext" name="vote1" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项2</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options2/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options2" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote2/}" class="inputtext" name="vote2" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项3</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options3/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options3" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote3/}" class="inputtext" name="vote3" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项4</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options4/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options4" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote4/}" class="inputtext" name="vote4" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项5</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options5/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options5" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote5/}" class="inputtext" name="vote5" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项6</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options6/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options6" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote6/}" class="inputtext" name="vote6" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项7</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options7/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options7" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote7/}" class="inputtext" name="vote7" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项8</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options8/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options8" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote8/}" class="inputtext" name="vote8" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项9</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options9/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options9" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote9/}" class="inputtext" name="vote9" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">投票选项10</td>
+<td class="singlebtn">
+<input type="text" size="60" value="{ke.function.options10/}" placeholder="选项说明请限制在120个汉字以内" class="inputtext" name="options10" />
+<input type="text" size="10" placeholder="请填写初始票数" isnumeric="true" value="{ke.function.vote10/}" class="inputtext" name="vote10" />
+<span>选项初始票数</span>
+</td>
+</tr>
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

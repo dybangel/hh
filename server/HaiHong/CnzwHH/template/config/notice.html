@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>系统公告</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">系统公告</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base">系统公告 >> 编辑公告</td>
+</tr>
+
+
+<tr class="hback">
+<td>
+<textarea class="inputtext" name="notice" placeholder="这里填写公告内容,长度请限制在500字以内" style="width:98%; height:145px;">{ke.function.notice/}</textarea><br/>
+<div>系统公告长度请限制在500字以内</div>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td>
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

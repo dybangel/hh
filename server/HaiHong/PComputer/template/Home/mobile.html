@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>绑定手机</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">绑定手机</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+<form id="frm-formContianer" method="post" action="../api/user.aspx" onSubmit="return _doPost(this)">
+<input type="hidden" name="action" value="SaveMobile" />
+<table id="frm-input" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr class="hback">
+<td class="spacing"></td>
+<td style="width:60px" class="name">手机号码</td>
+<td class="value"><input type="tel" notkong="true" class="inputtext" placeholder="请填写要绑定的手机号码" id="strMobile" name="strMobile" value="" /></td>
+</tr>
+
+<tr class="hback">
+<td></td>
+<td style="width:60px;" class="name">图形验证码</td>
+<td class="value" style="padding:0px;">
+<div style="position:relative;width:100%;top:0px; height:32px;">
+<input type="text" notkong="true" style="width:80px;left:4px;position:absolute;right:8px;" placeholder="填写验证码" name="SessionCode" id="SessionCode" value="" /><img src="{app}/plugin/vCode.aspx?{timestamp}" onClick="this.src='{app}/plugin/vCode.aspx?'+Math.random()" style="position:absolute;right:8px;" />
+</div>
+</td>
+</tr>
+
+<tr class="hback">
+<td></td>
+<td style="width:60px;" class="name">短信验证码</td>
+<td class="value" style="padding:0px;">
+<div style="position:relative;width:100%;top:0px; height:32px;">
+<input type="tel" notkong="true" style="width:80px;left:4px;position:absolute;right:8px;" placeholder="填写验证码" name="captcha" value="" /><input type="button" notkong="true" id="frmCaptcha" style="position:absolute;right:8px;top:4px; border-radius:4px;padding:3px 4px; background:#81b8f1;color:#fff;" value="获取验证码" onClick="getCaptcha(this)" />
+</div>
+</td>
+</tr>
+
+<tr class="operback">
+<td colspan="3">
+<input type="button" value="立即绑定" operate="submit" id="frm-submit" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+<div style="display:block; clear:both; font-size:0px;height:0px;"></div>
+</body>
+</html>
+<script language="javascript">
+var getCaptcha = function(contianer)
+{
+	/********************************************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* get member mobile phone code
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	*********************************************************************************************/
+	var strMobile = $("#strMobile").val() || "";
+	if(strMobile==undefined){ShowMessager({'text':'请填写您的手机号'});return false;}
+	else if(strMobile==null){ShowMessager({'text':'请填写您的手机号'});return false;}
+	else if(strMobile==""){ShowMessager({'text':'请填写您的手机号'});return false;}
+	var SessionCode = $("#SessionCode").val() || "";
+	if(SessionCode==undefined){ShowMessager({'text':'请填写短信验证码'});return false;}
+	else if(SessionCode==null){ShowMessager({'text':'请填写短信验证码'});return false;}
+	else if(SessionCode==""){ShowMessager({'text':'请填写短信验证码'});return false;}
+	/********************************************************************************************
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	* Ready to send text messages
+	*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+	*********************************************************************************************/
+	try{
+		if(!contianer){contianer = event.target;}
+		if(contianer!=undefined && contianer!=null 
+		&& strMobile!=undefined && strMobile!="")
+		{
+			$(contianer).captcha({
+				"url":"../api/user.aspx?action=SendMobile&strMobile="+strMobile+""
+			});
+		}
+	}catch(err){}
+};
+</script>

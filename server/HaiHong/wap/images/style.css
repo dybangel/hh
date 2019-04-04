@@ -1,0 +1,11 @@
+@charset "utf-8";
+/**************************************************************************
+*用户数据提示信息
+****************************************************************************/
+#frm-alert-mask-box{ position:fixed; width:100%; height:100%; top:0px;left:0px; z-index:997; background:rgba(0,0,0,0.75);}
+#frm-alert-tips-box{ width:80%; text-align:center; position:fixed;top:40%;left:10%; background:#fff;border:#7aaae9 solid 4px; overflow:hidden;z-index:1;border-radius:5px;padding-top:24px; z-index:999; }
+#frm-alert-tips-box:before{ width:100%; height:24px; line-height:24px; content:'系统提示'; position:absolute;left:0px;top:0px; background:#f0f0f0; text-align:left;padding:2px 2px;padding-left:8px; background:#eef4ff; color:#0e2d5f; font-size:14px; font-weight:900;}
+#frm-alert-con-box{padding:20px 12px; border-top:#95b8e7 solid 1px; width:100%; overflow:hidden;left:0px; margin-top:4px; clear:both; color:#222; font-family:"Times New Roman", Times, serif; line-height:24px;}
+#frm-alert-tips-footer{background:#f4f4f4; width:100%; text-align:center;;border-top:#95b8e7 solid 1px;padding:5px 5px; clear:both;}
+#frm-alert-tips-footer button{padding:6px 20px;background:#017ebc;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fbfbfb), to(#f0f0f0));background: -moz-linear-gradient(top, #fbfbfb, #f0f0f0 8%); border-radius:2px; border:#afafba solid 1px; margin-left:5px; margin-right:5px;z-index:999; }
+#frm-alert-tips-footer button:first-child{background:#017ebc;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#eef4ff), to(#e3eeff));background: -moz-linear-gradient(top, #eef4ff, #e3eeff 8%); border-radius:2px; border:#95b8e7 solid 1px; color:#0e2d5f}

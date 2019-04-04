@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>操作连接</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+#frm-strip-books{width:100%; border-bottom:#32323a solid 1px; height:29px;background:#e1e1e1; position:absolute;top:0px;left:0px;}
+#thisMenu{width:200px; position:absolute;left:0px;top:0px;}
+#thisMenu label{width:30px; text-align:center;height:29px; display:block; float:left; position:relative;border-right:#cee1ff solid 1px;cursor:pointer;}
+#thisMenu label:hover{background:#c0dfff;}
+#thisMenu label img{color:#FFF; width:16px; height:16px;position:absolute;left:6px;top:6px;;}
+</style>
+</head>
+<body>
+<div id="frm-strip-books">
+	<div id="thisMenu">
+		<label id="LeftMenu" title="关闭左栏"><img src="template/images/ico/left.png" /></label>
+		<label id="HomeMenu" title="系统主页"><img src="template/images/ico/home.png" /></label>
+		<label id="HistoryMenu" title="返回上一页"><img src="template/images/ico/hout.png" /></label>
+		<label id="ForwardMenu" title="前进一页"><img src="template/images/ico/qianj.png" /></label>
+		<label id="RefreshMenu" title="刷新网页"><img src="template/images/ico/refreshs.png" /></label>
+	</div>
+</div>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("#LeftMenu").click(function(){
+		var isClosed = false;
+		if($(top.document).find("#MainFrame").attr("cols")!='undefined' && $(top.document).find("#MainFrame").attr("cols")=='180,*'){isClosed=true;}
+		if(isClosed){
+			$(top.document).find("#MainFrame").attr("cols","0,*");
+			$(this).find("img").attr("src","template/images/ico/right.png");
+		}else{
+			$(top.document).find("#MainFrame").attr("cols","180,*");
+			$(this).find("img").attr("src","template/images/ico/left.png");
+		};
+		jQuery.cookies("leftClosed",isClosed);
+		
+	});
+	$("#RefreshMenu").click(function(){top.Right.window.location.reload();});
+	$("#HomeMenu").click(function(){top.Right.window.location='index.aspx?action=right';});
+	$("#HistoryMenu").click(function(){top.Right.history.go(-1);});
+	$("#ForwardMenu").click(function(){top.Right.history.go(1);});
+});
+</script>
+
+
+<script language="javascript">
+$(function () {
+$("img[operate=ajaxLoading]").each(function(){
+var strRequest = $(this).attr("action");
+if(strRequest=="" || strRequest==undefined){return true};
+switch(strRequest.toLowerCase()){
+	case "winusertips":GetWinUserTips();break;
+}
+})
+})
+var GetWinUserTips = function(){
+var Url = $.BaseUrl()+"/api/lottery.aspx?action=winusertips&math="+Math.random();
+$.get(Url,function(strReader){
+$("#user_win_lottery_slider").html(strReader);
+})}
+</script>

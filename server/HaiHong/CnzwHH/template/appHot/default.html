@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>下载记录</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+.img{ width:40px; height:40px; border:#ccc solid 1px;padding:2px; border-radius:3px; background:#fff; margin-right:4px;}
+div.name{ display:block; clear:both; width:100%;padding:3px 0px; color:#8a0000}
+div.remark{ display:block; clear:both; width:100%;padding:3px 0px; color:#787878}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">截图审核</a>
+<a href="?action=excel">数据导出</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+
+<div title="查看图片" class="dialog-box" id="frm-selector-user" style="position:absolute; top:7%;"></div>
+</body>
+</html>
+<script language="javascript">
+var ConfirmHot = function(hotId)
+{
+	try{
+		if($.messager!=undefined && $.messager!=null && typeof($.messager)=='object'
+		&& $.messager.confirm!=undefined && $.messager.confirm!=null
+		&& typeof($.messager.confirm)=="function")
+		{
+			$.messager.confirm('系统提示','你确定要通过当前的截图审核吗?',function(isConfirm){
+				if(isConfirm){window.location='appHot.aspx?action=confirm&hotId='+hotId+'';}
+			});	
+		}
+		else if(window.confirm!=undefined && window.confirm!=null 
+		&& typeof(window.confirm)=='function' 
+		&& window.confirm('你确定要通过当前的截图审核吗'))
+		{
+			window.location='appHot.aspx?action=confirm&hotId='+hotId+'';
+		}
+	}
+	catch(err){}
+};
+var DismissHot = function(hotId)
+{
+	try{
+		if($.messager!=undefined && $.messager!=null && typeof($.messager)=='object'
+		&& $.messager.confirm!=undefined && $.messager.confirm!=null
+		&& typeof($.messager.confirm)=="function")
+		{
+			$.messager.confirm('系统提示','你确定要驳回当前的截图审核吗?',function(isConfirm){
+				if(isConfirm){window.location='appHot.aspx?action=dismiss&hotId='+hotId+'';}
+			});	
+		}
+		else if(window.confirm!=undefined && window.confirm!=null 
+		&& typeof(window.confirm)=='function' 
+		&& window.confirm('你确定要驳回当前的截图审核吗'))
+		{
+			window.location='appHot.aspx?action=dismiss&hotId='+hotId+'';
+		}
+	}
+	catch(err){}
+};
+var ShowThumb = function()
+{
+	try {
+		var strTemplate = "<div onclick=\"if(this==event.target){$(this).remove();}\" style=\"display:block; clear:both; position:fixed; width:100%; height:100%; margin:0px;padding:0px; top:0px; left:0px; background:rgba(0,0,0,0.10); overflow:hidden;z-Index:999\"><div style=\"display:block; clear:both;padding:8px; position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%); z-index:999; text-align:center;border:#cd0000 solid 1px;background:#fff;border-radius:8px;cursor:pointer\"><img style=\"max-width:560px;max-height:520px;\" src=\"" + $(event.target).attr("src") + "\" /></div></div>";
+		try{$(document.body).append(strTemplate);}
+		catch(err){}
+	} catch (err) { };
+}
+</script>

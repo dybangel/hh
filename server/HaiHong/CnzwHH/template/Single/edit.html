@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>编辑单页面</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.config.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.all.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js?{timestamp}"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">单页管理</a>
+<a href="?action=add">添加单页</a>
+<a class="current">编辑单页</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<form id="frm-submit-forms" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="Id" value="{ke.function.id/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">单页管理 >> 编辑单页</td>
+</tr>
+<tr class="hback">
+<td class="tips">页面标题</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext title" size="40" placeholder="请填写页面标题" value="{ke.function.title/}" name="title" notkong="true"/>
+{ke.function.isdisplay/}
+<span>标题长度请限制在1-50个汉字以内</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td style="width:80px" class="tips">页面归属</td>
+<td style="width:340px">
+<select style="width:160px;" name="ParentID">
+<option value="0">作为一级单页</option>
+{ke.function.options/}
+</select>
+<span>一级分类为文档根目录</span>
+</td>
+<td class="tips">页面标识</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.identify/}" id="identify" placeholder="字母/数字/下划线" name="identify" notkong="true" size="20" />
+<select name="ishtml">
+<option value="0">动态运行</option>
+<option {ke.function.ishtml/} value="1">生成静态</option>
+</select>
+<span>单页存放路径,如关于我们可设置成gywm</span>
+</td>
+</tr>
+
+<tr class="hback">
+
+<td class="tips">选择模版</td>
+<td>
+<input type="text" notkong="true" name="cTemplate" size="30" id="cTemplate" class="inputtext" value="{ke.function.ctemplate/}" placeholder="请选择内容页模版" />
+<input type="button" class="button" operate="chooseTemp" id="frm-selector-template" value="选择模版" />
+</td>
+<td class="tips">封面图片</td>
+<td>{ke.function.file/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">页面描述</td>
+<td colspan="3">
+<input type="text" class="inputtext" value="{ke.function.strdesc/}" placeholder="请填写单页描述,200个汉字以内" name="intro" notkong="true" size="80" />
+<span>简短的文字描述单页内容</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">页面内容</div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveBeyondPic" />远程存图</label></div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveThumbPic" />抓缩略图</label></div>
+<div style=" clear:both; line-height:28px;">
+第 <input type="number" name="PicIndex" id="PicIndex" class="inputtext center" min="1" max="10" style="width:22px" value="1" /> 张<br/>
+</div>
+</td>
+<td colspan="3" class="editorBox">
+<textarea operate="ueditor" name="content" style=" display:none;width:650px;height:145px; border:#ccc solid 1px;" Id="content">{ke.function.content/}</textarea>
+<div style="width:760px;height:240px;" id="editor"></div>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认编辑" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+window.editor = new UE.getEditor("editor");
+editor.ready(function() {
+   try{ editor.setContent(document.getElementById('content').value);}
+   catch(err){} 
+});
+</script>

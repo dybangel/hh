@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>计划任务</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">计划任务</a>
+<a href="?action=add" class="current">添加计划</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="3">计划任务 >> 添加计划</td>
+</tr>
+<tr operate="system" class="hback">
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" id="AddContext" scrolling="auto" frameborder="0" height="500"></iframe>
+</td>
+<td valign="top" width="480" style="padding:0px; background:#f0f0f0">
+<iframe width="100%" id="ListContext" scrolling="auto" frameborder="0" height="500" src="application.aspx?action=stor"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindAppCallBack = function(rspJson)
+{
+	try{
+		if(rspJson!=undefined && rspJson!=null 
+		&& typeof(rspJson)=='object' && rspJson["appid"]!=undefined 
+		&& rspJson["appid"]!=null && rspJson["appid"]!="")
+		{
+			try{
+				$("#AddContext").attr({
+					"src":"appTasker.aspx?action=adddemo&appid="+rspJson["appid"]
+				});
+			}catch(err){}
+		}
+	}catch(err){}
+}
+</script>

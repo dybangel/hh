@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>消息详情</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<link rel="shortcut icon" href="{app}/favicon.ico" type="/image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="template/images/icon58.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="template/images/icon72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="template/images/icon120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="template/images/icon144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="512x512" href="template/images/icon512.png" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/frmCenter.js"></script>
+<style type="text/css">
+#frmTitle{ text-align:center; width:100%;padding:5px 0px;}
+#frmContent{ width:96%; margin:0px auto; clear:both;padding:12px; line-height:150%; display:block; overflow:hidden;}
+#frmDate{ display:block; width:96%; clear:both; text-align:right; color:#999;}
+</style>
+<body>
+<div style="clear:both; font-size:0px; height:12px;"></div>
+<h3 id="frmTitle">{ke.function.title/}</h3 >
+<div id="frmContent">{ke.function.remark/}</div>
+<div id="frmDate">{ke.function.addtime/}</div>
+</body>
+</html>

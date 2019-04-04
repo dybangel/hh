@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>留言反馈</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">留言反馈</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+<form id="frm-formContianer" action="../api/guest.aspx" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="save" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" id="frm-input">
+<tr class="hback">
+<td class="spacing"></td>
+<td style="width:60px;" class="name">反馈类型</td>
+<td class="value">
+<select id="frm-strTitle" name="strTitle">
+<option value="">请选择反馈主题</option>
+{ke.function.strTitle/}
+</select>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="spacing"></td>
+<td class="name">电话号码</td>
+<td class="value"><input type="tel" name="strMobile" placeholder="方便及时联系" class="inputtext" id="frm-strMobile"/></td>
+</tr>
+
+<tr class="operback">
+<td class="spacing"></td>
+<td colspan="2">反馈内容</td>
+</tr>
+
+<tr class="hback">
+<td class="spacing"></td>
+<td colspan="2"><textarea name="strContent" placeholder="请填写您遇到的问题,400个汉字以内" style="width:94%;margin:0px auto;padding:8px 1%; height:100px; border-radius:0px; font-size:16px;"></textarea></td>
+</tr>
+
+
+<tr class="line"><td colspan="3"></td></tr>
+<tr class="operback">
+<td colspan="3"><input type="button" style="width:96%" operate="submit" value="提交反馈" class="buttons" /></td>
+</tr>
+<tr class="line"><td colspan="3"></td></tr>
+<tr class="operback">
+<td style="line-height:24px; text-align:left;" colspan="3">
+<div style="font-weight:bold; color:#cd0000">说明：</div>
+<div>为避免重复工作,反馈内容请清楚表达你需要反馈的问题</div>
+<div>系统工作人员将在48小时内处理您的反馈意见</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<div style="display:block; clear:both; font-size:0px;height:10px;"></div>
+{ke.include(template/menu/footer.html?menu=user)/}
+</body>
+</html>
+<script language="javascript">
+/***************************************************************************************
+*返回处理结果数据信息
+****************************************************************************************/
+var SaveBack = function(rspJson)
+{
+	try{
+		ShowResponse({
+			"type":"altRedirect",
+			"success":"true",
+			"tips":"保存成功,感谢您提出的宝贵意见!",
+			"url":"guest.aspx"
+		});	
+	}catch(err){}
+};
+</script>

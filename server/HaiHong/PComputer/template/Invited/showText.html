@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>分享链接</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+<style type="text/css">
+#frmContianer{ display:block; clear:both;margin:0px auto;padding:12px; overflow:hidden;}
+#frmContianer div.text{ display:block; clear:both; text-align:center;color:#9b9b9b;padding:0px 0px; margin:0px auto;}
+#FRMKeywords{ display:block; clear:both;padding:12px 0px; margin:0px auto; text-align:center;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1);"></div>
+	<div id="frm-headerName">分享链接</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="frmContianer">
+	<div id="FRMKeywords">
+		<textarea id="shareText" style=" text-align:left; padding:12px 0px; width:100%; font-size:14px;color:#666; background:transparent; overflow:visible;height:66px; font-family:Courier New, Courier, monospace;" readonly="readonly">{ke.function.shareurl/}</textarea>
+	</div>
+	<div><input type="button" id="COPYButton" operate="ok" value="复制邀请地址" /></div>
+</div>
+
+<div style="clear:both; width:100%; font-size:0px;height:10px;"></div>
+</body>
+</html>
+<script language="javascript">
+var clipboard = new ClipboardJS(document.querySelector('#COPYButton'), {
+	text: function() {
+		return "{ke.function.shareurl/}";
+	},
+	target:function() {
+		return document.getElementById('shareText');
+	}
+});
+clipboard.on('success', function(e) {
+	try{$('#frm-alert').tips({'tips':'地址复制成功'});}
+	catch(err){}
+});
+clipboard.on('error', function(e) {
+	try{ShowMessager({"text":"邀请链接地址复制失败,您可以选择长按复制邀请地址"});}
+	catch(err){}
+});
+</script>

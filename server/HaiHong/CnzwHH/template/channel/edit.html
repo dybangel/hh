@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>编辑模型</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">模型管理</a>
+<a href="?action=add">添加模型</a>
+<a class="current">编辑模型</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="channelid" value="{ke.function.channelid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">模型管理 >> 编辑模型</td>
+</tr>
+<tr class="hback">
+<td class="tips">模型名称</td>
+<td class="singlebtn">
+<select disabled="disabled" style="width:80px;" name="BaseName">
+{ke.function.options/}
+</select>
+<input type="text" class="inputtext title" size="40" placeholder="请填写模型名称" value="{ke.function.channelname/}" name="ChannelName" notkong="true"/>
+{ke.function.isdisplay/}
+<span>模型名称长度请限制在2-12个汉字之间</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">模型简称</td>
+<td>
+<input type="text" class="inputtext" size="12" placeholder="模型的简要缩写" value="{ke.function.unitname/}" name="UnitName" notkong="true"/>
+<span>请限制在1-5个汉字以内</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">数据表名</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.tablename/}" disabled="disabled" id="Tablename" placeholder="字母/数字/下划线" name="Tablename" notkong="true" size="20" />
+<span>模型数据表名称不允许再编辑</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">模型描述</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.intro/}" placeholder="请填写单页描述,200个汉字以内" name="intro" notkong="true" size="80" />
+<span>简短的文字描述单页内容</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">模型排序</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.sortid/}" isnumeric="true" name="SortID" notkong="true" size="6" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

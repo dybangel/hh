@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>{ke.config(sitename).toString(多米)/}</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<link href="{app}/pcomputer/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/pcomputer/inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.js"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/response.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/scroll.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/fingerprint.js?{timestamp}"></script>
+</head>
+<body style="position:fixed;width:100%; height:100%; margin:0px;padding:0px;top:0px;left:0px; background:#f5f5f5">
+	<div style="display:block; clear:both; width:200px;position:fixed;left:50%;top:50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%); z-index:998; font-size:14px; text-align:center;color:#787878"><img src="{app}/pcomputer/template/images/load/load.gif" style="width:46px;background:transparent" /><br/><br/>正在加载....</div>
+</body>
+</html>
+
+<script language="javascript">
+var gotoMessage = function(){
+	try{window.location='index.aspx?token={ke.function.strTokey/}&Fingerprint=false';}
+	catch(err){}
+	return false;
+};
+var getFingerprint = function()
+{
+	try{
+		var strFingerprint = new Fingerprint({canvas: true}).get();
+		if(strFingerprint==undefined){gotoMessage();return false;}
+		else if(strFingerprint==null){gotoMessage();return false;}
+		else if(strFingerprint==''){gotoMessage();return false;}
+		else if(strFingerprint.length<=0){gotoMessage();return false;}
+		else if(strFingerprint.length<=5){gotoMessage();return false;}
+		else if(strFingerprint.length>=30){gotoMessage();return false;}
+		else{
+			try{window.location = 'index.aspx?action=saveFinger&token={ke.function.strTokey/}&strFinger='+strFingerprint;}
+			catch(err){}
+		}
+	}catch(err){}
+};
+/*************************************************************************************
+*加载网页指纹数据信息
+**************************************************************************************/
+window.onload = function(){
+	try{getFingerprint();}
+	catch(err){}
+};
+</script>

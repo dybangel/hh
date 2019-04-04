@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>数据导出</title>
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/jQuery.pagebar.js"></script>
+<style type="text/css">
+#frm-conputer{ width:98%; margin:0px auto; clear:both; overflow:hidden;padding-bottom:20px;}
+#frm-conputer div.items{ display:block; width:20%; background:#f8f8f8; float:left; height:120px; text-align:center; position:relative; border:#ccc solid 1px; border-radius:8px; margin-left:20px; margin-top:20px; overflow:hidden;}
+#frm-conputer div.items div.name{ position:absolute;height:50px; position:absolute;left:0px;top:0px; text-align:center; line-height:50px; font-size:20px; color:#000; width:100%;}
+#frm-conputer div.items div.number{ position:absolute;height:70px; position:absolute;left:0px;top:50px; text-align:center; line-height:70px; font-size:28px; font-weight:bold; color:#000; width:100%; border-top:#ccc solid 1px; background:#fff; color:#cd0000}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">任务记录</a>
+<a href="?action=excel" class="current">数据导出</a>
+<a href="?action=computer">数据统计</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForms" onSubmit="return _doPost(this);" action="userDuty.aspx" method="post">
+<input type="hidden" name="action" value="savexport" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr><td colspan="4" class="Base">任务记录 >> 导出数据</td></tr>
+<tr class="hback">
+<td style="width:80px" class="tips">开始时间</td>
+<td style="width:200px">
+<input placeholder="请选择开始日期" size="20" onClick="WdatePicker()" type="text" value="{ke.function.StarDate/}" name="StarDate" class="inputtext" />
+</td>
+<td valign="top" style="width:80px" rowspan="5" class="tips">
+<div>导出字段</div>
+<div style="color:#999; line-height:20px;">选择需要导出的数据字段信息,按住(ctrl+鼠标)可多选</div>
+</td>
+<td rowspan="5" valign="top">
+<select style="width:240px; height:190px;" name="strColumns" id="strColumns" multiple="multiple">
+<option value="DutyID as 任务记录ID">任务记录ID</option>
+<option value="DutyKey as 记录标识">记录标识</option>
+<option value="UnionID as 联盟ID">联盟ID</option>
+<option value="strUnion as 联盟名称">联盟名称</option>
+<option value="UserID as 用户ID">用户ID</option>
+<option value="Nickname as 用户昵称">用户昵称</option>
+<option value="DeviceType as 设备类型">设备类型</option>
+<option value="DeviceCode as 设备编号(IDFA)">设备编号(IDFA)</option>
+<option value="AppID as 应用ID">应用ID</option>
+<option value="Appname as 应用名称">应用名称</option>
+<option value="strIP as IP地址">IP地址</option>
+<option value="strCity as 归属城市">归属城市</option>
+<option value="Points as 奖励积分">奖励积分</option>
+<option value="Amount as 奖励金额">奖励金额</option>
+<option value="Addtime as 完成时间">完成时间</option>
+</select>
+</td>
+</tr>
+</tr>
+
+<tr class="hback">
+<td class="tips">结束时间</td>
+<td>
+<input placeholder="请选择开始日期" size="20" onClick="WdatePicker()" type="text" value="{ke.function.EndDate/}" name="EndDate" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">选择渠道</td>
+<td>
+<input type="text" value="{ke.function.strUnion/}" placeholder="不填写表示所有渠道" size="20" name="strUnion" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">应用名称</td>
+<td>
+<input type="text" value="{ke.function.Appname/}" placeholder="导出app应用名称" size="20" name="Appname" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">所在城市</td>
+<td>
+<input type="text" value="{ke.function.strCity/}" placeholder="筛选任务完成城市" size="20" name="strCity" class="inputtext" />
+</td>
+</tr>
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" id="frmSubmit" value="导出数据" class="button" />
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

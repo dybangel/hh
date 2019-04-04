@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>上传文件</title>
+<link href="{app}/inc/images/jquery-ui.css" type="text/css" rel="stylesheet" />
+<script language="javascript" src="{app}/Inc/jQuery.js"></script>
+<script language="javascript" src="{app}/Inc/jQuery-ui.js"></script>
+<script language="javascript" src="{app}/Inc/jQuery.form.js"></script>
+<script language="javascript" src="{app}/Inc/jQuery.forwork.js"></script>
+<style type="text/css">
+*{ margin:0px;padding:0px; list-style-type:none;}
+#frm-file-btn-box{ display:block; width:80px; height:28px;border-radius:2px;-moz-border-radius:2px; position:relative;}
+#frm-file-btn-box input[type="file"]{ display:block; width:100%; height:28px;filter:alpha(opacity=0);-moz-opacity:0;opacity:0.0; position:absolute;left:0px;top:0px; z-index:999;}
+#frm-file-btn-box #frm-file-btn{ position:absolute;width:100%;height:28px; color:#fff; text-align:center; font-size:12px; line-height:28px;top:0px;left:0px;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#9d2216), to(#7c0616));background: -moz-linear-gradient(top, #ac2235, #7c0616 8%); background:#d91d37;-webkit-box-shadow:1px 2px #910115;}
+</style>
+</head>
+<body>
+<form action="uploadhelper.aspx" method="post" enctype="multipart/form-data">
+<input type="hidden" name="SiteID" value="{ke.function.siteId/}" />
+<a id="frm-file-btn-box">
+<input type="file" name="fileName" id="frm-file" accept="image/*,application/*" multiple="multiple" />
+<div id="frm-file-btn">选择文件</div>
+</a>
+</form>
+<input type="button" id="frm-btns" value="点我试试" />
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("#frm-file").change(function(evt){
+		// 如果浏览器不支持FileReader，则不处理  
+		if (!window.FileReader) return;  
+		var files = evt.target.files;  
+		for (var i = 0, f; f = files[i]; i++) {  
+			if (!f.type.match('image.*')) {continue; }  
+			var reader = new FileReader();  
+			reader.onload = (function(theFile) {  
+				return function(e) {
+					alert(111);
+					//$(document.getElementById('img_box')).attr('src',e.target.result);  
+				}; })(f);  
+			reader.readAsDataURL(f);  
+		}
+	});
+	$("#frm-btns").click(function(){
+		$.error("sssdf",function(){})
+	});
+});
+</script>

@@ -1,0 +1,24 @@
+﻿<language>
+<zh>
+<zh.用户设置>用户设置</zh.用户设置>
+<zh.上传说明>头像大小请限制在1M以内</zh.上传说明>
+<zh.手机号码>手机号码</zh.手机号码>
+<zh.用户昵称>用户昵称</zh.用户昵称>
+<zh.登陆密码>登陆密码</zh.登陆密码>
+<zh.交易密码>交易密码</zh.交易密码>
+<zh.语言版本>语言版本</zh.语言版本>
+<zh.退出登陆>退出登陆</zh.退出登陆>
+<zh.退出提示>你确定要退出当前账号吗?</zh.退出提示>
+</zh>
+<en>
+<en.用户设置>Setting</en.用户设置>
+<en.上传说明>File max size 1M</en.上传说明>
+<en.手机号码>Phone number</en.手机号码>
+<en.用户昵称>User's nickname</en.用户昵称>
+<en.登陆密码>Login password</en.登陆密码>
+<en.交易密码>Transaction password</en.交易密码>
+<en.语言版本>Language</en.语言版本>
+<en.退出登陆>Sign out</en.退出登陆>
+<en.退出提示>Are you sure you want to quit your current login account?</en.退出提示>
+</en>
+</language>

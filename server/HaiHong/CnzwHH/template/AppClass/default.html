@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>应用分类</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">应用分类</a>
+<a href="?action=add">添加分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+
+
+<script language="javascript">
+$("input[operate=edit]").change(function(){
+	try{
+		var value = parseInt($(this).val()) || 0;
+		var url = $(this).attr("url");
+		if(value!=undefined && !isNaN(value) && url!=""){
+			$.ajax({url:url+"&value="+value+"",get:"get",success:function(strResponse){
+				if(strResponse!="success"){
+					$.messager.show({title:'系统提示',msg:strResponse});
+				}else{
+					$.messager.show({title:'系统提示',msg:'排序设置成功'});
+				}
+			}});
+		}
+	}catch(err){}
+});
+</script>
+

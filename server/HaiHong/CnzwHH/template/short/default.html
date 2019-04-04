@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户消息</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">用户消息</a>
+<a href="?action=add">添加消息</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+<div title="阅读消息" class="dialog-box" id="frm-selector-view"></div>
+<script language="javascript">
+$("input[operate=\"view\"]").click(function(){
+	var url = $(this).attr("url");
+	if(url!=undefined && url!=""){
+		$("#frm-selector-view").html("<iframe frameborder=\"0\" scrolling=\"auto\" width=\"100%\" height=\"420\" src=\""+url+"\"></iframe>").dialog({width:720,height:460,modal:true});
+	}
+});
+</script>

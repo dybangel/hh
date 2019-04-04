@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户消息</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+#frm-user-contianer{padding:8px; background:#f8f8f8;moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#frm-user-contianer label{ border:#e0e0e0 solid 1px; background:#fff; border-radius:3px; margin-right:8px; position:relative; display:block; width:100px; cursor:pointer; height:30px; float:left; margin-bottom:8px; text-align:left; line-height:30px;padding-left:5px; color:#666;}
+#frm-user-contianer label:hover{color:#666; border:#cd0000 solid 1px;}
+#frm-user-contianer label span{ position:absolute; width:16px; line-height:16px; text-align:center; height:16px;background:#cd0000; color:#fff; font-family:"Times New Roman", Times, serif; font-size:18px; font-weight:bold; display:block;top:7px;right:5px;padding:0px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">消息列表</a>
+<a href="?action=add" class="current">添加消息</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<table width="99%" border="0" cellspacing="1" class="table" cellpadding="3">
+  <tr class="Base">
+    <td valign="top">发送消息 >> 消息内容</td>
+    <td width="500">筛选用户</td>
+  </tr>
+  <tr class="xingmu">
+    <td valign="top" style="padding:0px;">
+		<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+			<input type="hidden" name="targetName" value="" id="frm-user" />
+			<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+				<tr operate="system" class="hback">
+					<td class="tips">消息名称</td>
+					<td colspan="3" class="check_box">
+					<input type="text" class="inputtext" placeholder="请填写消息名称" notkong="true" name="title" size="50" id="frm-title" /><span>消息名称长度请限制在50个汉字以内</span>
+					</td>
+				</tr>
+				<tr operate="system" class="hback">
+					<td class="tips">接收对象</td>
+					<td colspan="3" class="singlebtn">
+					<select name="targetMode" id="frm-targetMode">
+					<option value="0">为指定用户发送消息</option>
+					<option value="2">为所有用户发送消息</option>
+					</select>
+					<span>请筛选短消息接收对象</span>
+					</td>
+				</tr>
+				<tr operate="system" id="frm-user-tr" class="hback">
+					<td class="tips">用户列表</td>
+					<td colspan="3" id="frm-user-contianer"></td>
+				</tr>
+				<tr>
+					<td class="Base" colspan="4">消息内容</td>
+				</tr>
+				
+				<tr operate="system" class="hback">
+					<td valign="top" style="color:#666; line-height:20px;" class="tips">
+							<div>消息内容</div>
+							<div>{uname}=手机号</div>
+							<div>{name}=昵称</div>
+					</td>
+					<td colspan="3" class="singlebtn">
+					<textarea name="Remark" class="inputtext" style="width:550px;height:100px;" placeholder="这里填写充值备注信息,长度600个汉字以内"></textarea>
+					</td>
+				</tr>
+				
+				<tr class="xingmu">
+					<td></td>
+					<td colspan="3">
+					<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+					<input type="reset" value="撤销" class="button"/>
+					</td>
+				</tr>
+			</table>
+			</form>
+	</td>
+    <td valign="top" style="padding:0px;">
+		<iframe width="100%" scrolling="auto" frameborder="0" height="520" src="user.aspx?action=stor"></iframe>
+	</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+<script language="javascript">
+$("#frm-targetMode").change(function(){
+	try{
+		switch(parseInt(this.value) || 0){
+			case 0:
+				$("#frm-user-tr").show("slow");
+			break;
+			case 2:
+				$("#frm-user-tr").hide("slow");
+			break;
+		}
+	}catch(err){}
+});
+
+var FindUserCallBack = function(jsn){
+	try{
+		if(jsn!=undefined && typeof(jsn)=='object'
+		&& jsn['username']!=undefined && jsn['username']!=""){
+			try{
+				var username = jsn["username"] || "";
+				var userid = jsn["userid"] || 0;
+				if(username!=undefined && username!="" 
+				&& userid!=undefined && userid!=0){
+					try{
+						var strId = $("#frm-user").val();
+						if(strId.indexOf(userid)==-1){
+							if(strId==""){strId=userid;}
+							else{strId=strId+","+userid;}
+							$("#frm-user").val(strId);
+							$("#frm-user-contianer").append("<label value=\""+userid+"\" operate=\"items\">"+username+"<span>&times;</span></label>");
+							$("#frm-user-contianer").find("label[operate=\"items\"]").find("span").click(function(){
+								try{
+									var sid = $(this.parentNode).attr("value");
+									if(sid!=undefined && sid!=""){
+										var strId = $("#frm-user").val();
+										if(strId.indexOf(userid)!=-1){
+											strId = strId.replace(","+sid,"");
+											strId = strId.replace(sid+",","");
+											strId = strId.replace(sid,"");
+											strId = strId.replace(',,',",");
+											$("#frm-user").val(strId);
+										}
+									}
+									$(this.parentNode).remove();
+								}catch(err){}
+							});		
+						};
+					}catch(err){}
+				}
+			}catch(err){}
+		}
+	}catch(err){}
+}
+</script>

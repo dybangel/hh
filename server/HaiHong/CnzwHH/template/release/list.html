@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户账变记录</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+select{width:100%;padding:0px; border:#c3d6f6 solid 1px; border-radius:0px; background:#fefefe}
+select option{ display:block;padding:6px 6px; background:#FFF; border-bottom:#f4f4f4 solid 1px;}	
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">生成首页</a>
+<a href="?action=list" class="current">生成栏目</a>
+<a href="?action=single">生成单页</a>
+<a href="?action=context">生成内容</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">发布管理 >> 生成栏目</td>
+</tr>
+<form action="?action=refreList" method='post'>
+<tr class="hback">
+<td class='xingmu' colspan='2'>
+<input type='submit' class='button' value='生成所有栏目' />
+</td>
+</tr>
+</form>
+
+<tr class="Base">
+<td class='Base'>按模型生成</td>
+<td class='Base'>生成指定栏目</td>
+</tr>           
+<tr class="operback">
+<td style="width:300px;" valign="top">
+<form action="?action=refreList" method='post'>
+<select multiple="multiple" style="width:300px;height:240px" name="ChannelID">
+<option disabled="disabled" value="">请选择要生成的模型</option>
+{ke.function.channel/}
+</select>
+<br/>
+<input type='submit' class='button' value='生成选中的模型' />
+<br/>
+选择单页面时可以按住Ctrl+鼠标或Shift+鼠标多选
+</form>
+</td>
+<td valign="top">
+<form action="?action=refreList" method='post'>
+<select multiple="multiple" style="width:300px;height:240px" name="ClassID">
+<option disabled="disabled" value="">请选择要生成的分类</option>
+{ke.function.class/}
+</select>
+<br/>
+<input type='submit' class='button' value='生成选中的栏目' />
+<br/>
+选择单页面时可以按住Ctrl+鼠标或Shift+鼠标多选
+</form>
+</td>
+</tr>            
+</table>
+</body>
+</html>

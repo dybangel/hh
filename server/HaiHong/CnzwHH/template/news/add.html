@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加资讯</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">文章管理</a>
+<a href="?action=add" class="current">添加文章</a>
+<a href="newsClass.aspx?action=default">分类管理</a>
+<a href="newsClass.aspx?action=add">添加分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">添加文章</td>
+</tr>
+<tr class="hback">
+<td class="tips">文章标题</td>
+<td class="singlebtn">
+<input type="text" class="inputtext title" style="width:300px" placeholder="请填写文章标题" value="{ke.function.title/}" name="title" notkong="true" size="20" />
+<input type="color" name="titleColor" class="inputtext" value="{ke.function.titlecolor/}" />
+<span>好的文章标题更容易吸引人</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">父级栏目</td>
+<td class="check_box">
+<select style="width:160px;" name="classId">
+<option value="0">请选择文章分类</option>
+{ke.function.options/}
+</select>
+{ke.function.attr/}
+</td>
+</tr>
+<tr id="frm-tourl-show" style="display:none" class="hback">
+<td class="tips">跳转地址</td>
+<td><input type="text" value="{ke.function.strurl/}" name="toUrl" class="inputtext" size="45" /><span>请填写完整的Url地址,如http://www.my.com/</span></td>
+</tr>
+<tr class="hback">
+<td class="tips">文章图片</td>
+<td>{ke.function.file/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">文章描述</td>
+<td class="check_box"><input type="text" name="strdesc" value="{ke.function.strdesc/}" class="inputtext" size="60" /><label><input type="checkbox" name="AutoDescrption" value="1" />自动抓取内容</label><span>描述内容请限制在200个汉字以内</span></td>
+</tr>
+<tr class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">资讯内容</div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveBeyondPic" />远程存图</label></div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveThumbPic" />抓缩略图</label></div>
+<div style=" clear:both; line-height:28px;">
+第 <input type="number" name="PicIndex" id="PicIndex" class="inputtext center" min="1" max="10" style="width:22px" value="1" /> 张<br/>
+</div>
+</td>
+<td class="editorBox">
+<textarea name="content" style="display:none;width:96%;height:145px;" Id="content">{ke.function.content/}</textarea><iframe src="{app}/editor/editor/fckeditor.html?InstanceName=content&amp;Toolbar=NewsTool" width="100%" height="260" frameborder="0" scrolling="no"></iframe>
+<div class="losthtmlbox">
+<input type="checkbox" name="ConStrLostRule" value="html"/>html
+<input type="checkbox" name="ConStrLostRule" value="css"/>css
+<input type="checkbox" name="ConStrLostRule" value="script"/>javascript
+<input type="checkbox" name="ConStrLostRule" value="div"/>div
+<input type="checkbox" name="ConStrLostRule" value="img"/>img
+<input type="checkbox" name="ConStrLostRule" value="iframe" checked/>iframe
+<input type="checkbox" name="ConStrLostRule" value="object" checked/>object
+<input type="checkbox" name="ConStrLostRule" value="link"/>a
+<input type="checkbox" name="ConStrLostRule" value="span"/>span
+<input type="checkbox" name="ConStrLostRule" value="psp"/>p
+<input type="checkbox" name="ConStrLostRule" value="h2"/>h2
+</div>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("input[name=\"isTo\"]").click(function(){
+		if(this.checked){$("#frm-tourl-show").show("slow");}
+		else{$("#frm-tourl-show").hide("slow");}
+	});
+});
+</script>

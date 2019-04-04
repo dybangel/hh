@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>微信素材</title>
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.config.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.all.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js?{timestamp}"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">微信素材</a>
+<a href="?action=add&parentid={ke.function.parentid/}" class="current">添加素材</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="ParentID" value="{ke.function.parentid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">素材管理 >> 添加素材</td>
+</tr>
+<tr class="hback">
+<td notkong="true" class="tips">素材标题</td>
+<td class="singlebtn">
+<input type="text" class="inputtext title" style="width:300px" placeholder="请填写素材标题" value="{ke.function.title/}" name="title" notkong="true" size="20" />
+{ke.function.isdisplay/}
+<span>好的文章标题更容易吸引人</span>
+</td>
+</tr>
+
+<tr id="frm-tourl-show" class="hback">
+<td class="tips">跳转地址</td>
+<td><input type="text" value="{ke.function.strurl/}" placeholder="当前素材要跳转的网址,不跳转请留空" name="toUrl" class="inputtext" size="45" /><span>请填写完整的Url地址,如http://www.my.com/</span></td>
+</tr>
+<tr class="hback">
+<td notkong="true" class="tips">素材图片</td>
+<td>{ke.function.file/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">描述内容</td>
+<td class="check_box"><input type="text" placeholder="描述内容尽量精辟，更容易吸引粉丝眼球" name="Remark" value="{ke.function.Remark/}" class="inputtext" size="60" /><span>描述内容请限制在200个汉字以内</span></td>
+</tr>
+<tr class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">素材内容</div>
+</td>
+<td class="editorBox">
+<textarea name="strContent" operate="ueditor" style=" display:none;width:650px;height:145px; border:#ccc solid 1px;" Id="content">{ke.function.strContent/}</textarea>
+<div style="width:760px;height:240px;" id="editor"></div>
+</td>
+</tr>
+
+<tr id="frm-tourl-show" class="hback">
+<td class="tips">显示排序</td>
+<td><input type="text" value="0" placeholder="请填写纯数字" name="SortID" class="inputtext" size="10" isnumeric="true" notkong="true" /><span>数字越大显示越靠前</span></td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="button" operate="submit" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+window.editor = new UE.getEditor("editor");
+editor.ready(function() {
+   try{ editor.setContent(document.getElementById('content').value);}
+   catch(err){} 
+});
+</script>

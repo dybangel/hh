@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>个人资料</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="config.aspx?{timestamp}"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">个人资料</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div class="clear" style="height:10px;"></div>
+<div style="width:100%; height:110px; text-align:center; overflow:hidden; clear:both; position:relative;">
+	<input type="file" id="file" onChange="doThumb(this)" name="fileName" style=" display:none;"/>
+	<img src="{ke.function.thumb/}" id="img_box" style="width:78px;height:78px; border-radius:39px;" onClick="document.querySelector('#file').click()" />
+	<div class="clear" style="height:4px;"></div>
+	<div style="font-size:12px;color:#999">头像图片大小不能超过2M</div>
+</div>
+</form>
+<form id="formContianer" method="post" action="Home.aspx" onSubmit="return _doPost(this)">
+<input type="hidden" name="action" value="saveprofile" />
+<table id="frm-input" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr class="line">
+<td colspan="4"></td>
+</tr>
+
+<tr class="hback">
+<td class="spacing"></td>
+<td style="width:60px" class="name">用户ID</td>
+<td colspan="2" class="value"><input type="text" notkong="true" class="inputtext" placeholder="赚钱号,UID" id="Nickname" readonly="readonly" name="DeviceIdentifier" value="{ke.function.user/}" /></td>
+</tr>
+
+<tr class="hback">
+<td class="spacing"></td>
+<td style="width:60px" class="name">用户昵称</td>
+<td colspan="2" class="value"><input type="text" notkong="true" class="inputtext" placeholder="请填写您的昵称" id="Nickname" name="Nickname" value="{ke.function.nickname/}" /></td>
+</tr>
+
+<tr class="hback">
+<td class="spacing"></td>
+<td class="name">电子邮箱</td>
+<td colspan="2" class="value">
+<input type="text" name="strEmail" class="inputtext" id="strEmail" value="{ke.function.strEmail/}" placeholder="请填写您的邮箱" />
+</td>
+</tr>
+
+<tr class="line">
+<td style="border:0px;height:10px;" colspan="3"></td>
+</tr>
+<tr class="operback">
+<td colspan="4">
+<input type="button" value="保存设置" operate="submit" id="frm-submit" />
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+var doThumb = function(tar)
+{
+	/***********************************************************************************************
+	*开始上传图片
+	************************************************************************************************/
+	var upload = function()
+	{
+ 		var FormerData = new FormData();
+		FormerData.append("Filename","blob.png");
+        FormerData.append("File",tar.files[0]);
+		var SendOptions = {};
+		SendOptions['url'] = "Home.aspx?action=filesave";
+		SendOptions['type'] = 'POST';
+		SendOptions['dataType'] = 'json';
+		SendOptions['data'] = FormerData;
+		SendOptions['async'] = false;
+		SendOptions['cache'] = false;
+		SendOptions['contentType'] = false;
+		SendOptions['processData'] = false;
+		SendOptions['success'] = function(rspJson)
+		{
+			if(rspJson==undefined){putMessager('数据返回格式不合法,请重试！');return false;}
+			else if(rspJson==null){putMessager('数据返回格式不合法,请重试！');return false;}
+			else if(typeof(rspJson)!='object'){putMessager('数据返回格式不合法,请重试！');return false;}
+			else if(rspJson['success']==undefined){putMessager('数据返回格式不合法,请重试！');return false;}
+			else if(rspJson['success']==null){putMessager('数据返回格式不合法,请重试！');return false;}
+			else if(rspJson['success']!='true'){putMessager('数据返回格式不合法,请重试！');return false;}
+			else{
+				try{
+					ToMessager({
+						"text":'头像上传成功',
+						"type":"success",
+						"url":"home.aspx?action=profile&token={ke.function.strtokey/}"
+					});
+				}
+				catch(err){}
+			}
+		};
+		SendOptions['error'] = function(errJson)
+		{
+			putMessager('上传过程中发生错误,请重试！');
+			return false;
+		};
+		/********************************************************************************************
+		*开始上传数据
+		*********************************************************************************************/
+		if(SendOptions!=undefined && SendOptions!=null && typeof(SendOptions)=='object'
+		&& window.jQuery!=undefined && window.jQuery!=null && typeof(window.jQuery)=='function' 
+		&& window.jQuery.ajax!=undefined && window.jQuery.ajax!=null 
+		&& typeof(window.jQuery.ajax)=='function')
+		{
+			try{window.jQuery.ajax(SendOptions);}
+			catch(err){}
+		}
+		 
+	};
+	/********************************************************************************************
+	*输出错误处理数据信息
+	*********************************************************************************************/
+	var putMessager = function(errMessager)
+	{
+		try{ShowMessager({'text':errMessager});}
+		catch(err){}
+	};
+	/******************************************************************************
+	*验证上传文件列表合法性多个,所有文件
+	*******************************************************************************/
+	var VerificationFiles = function(arrFormat)
+	{
+		var errMessager = 'success';
+		/**************************************************************************
+		*开始执行数据处理
+		***************************************************************************/
+		try{
+			$(arrFormat).each(function(k,arrJson){
+				try{
+					if(arrJson['type']==undefined){errMessager='获取文件格式失败';return false;}
+					else if(arrJson['type']==null){errMessager='获取文件格式失败';return false;}
+					else if(arrJson['type']==''){errMessager='获取文件格式失败';return false;}
+					else if(!arrJson['type'].match('image.*')){errMessager='必须上传图片格式文件';return false;}
+				}
+				catch(err){}
+				try{
+					var Filesize = parseInt(arrJson['size']) || 0;
+					if(Filesize<=0){errMessager='获取文件大小失败,请重试!';return false;}
+					else if(Filesize<=512){errMessager='图片不能小于512B字节!';return false;}
+					else if(Filesize>=(1024*1024*5)){errMessager='单张图片大小不能超过2M!';return false;}
+				}catch(err){}
+			});
+		}
+		catch(err){errMessager=err.message;}
+		/**************************************************************************
+		*返回数据处理结果
+		***************************************************************************/
+		return errMessager;
+	};
+	/******************************************************************************
+	*开始验证上传文件基本信息
+	*******************************************************************************/
+	if(tar.files==undefined){putMessager('请选择需要上传的文件！');return false;}
+	else if(tar.files==null){putMessager('请选择需要上传的文件！');return false;}
+	else if(typeof(tar.files)!='object'){putMessager('请选择需要上传的文件！');return false;}
+	else if(tar.files.length==undefined){putMessager('请选择需要上传的文件！');return false;}
+	else if(tar.files.length==null){putMessager('请选择需要上传的文件！');return false;}
+	else if(tar.files.length<=0){putMessager('请选择需要上传的文件！');return false;}
+	else if(tar.files.length>=2){putMessager('单次最多只能上传1张图片！');return false;}
+	else if(tar.files[0]==undefined){putMessager('获取上传文件信息失败,请重试！');return false;}
+	else if(tar.files[0]==null){putMessager('获取上传文件信息失败,请重试！');return false;}
+	else if(typeof(tar.files[0])!='object'){putMessager('获取上传文件信息失败,请重试！');return false;}
+	/******************************************************************************
+	*验证图片格式以及尺寸信息
+	*******************************************************************************/
+	var errMessager = VerificationFiles(tar.files);
+	if(errMessager==undefined){putMessager('获取文件验证信息失败！');return false;}
+	else if(errMessager==null){putMessager('获取文件验证信息失败！');return false;}
+	else if(errMessager==''){putMessager('获取文件验证信息失败！');return false;}
+	else if(errMessager!="success"){putMessager(errMessager);return false;}
+	/******************************************************************************
+	*开始上传图片信息
+	*******************************************************************************/
+	try{upload();}
+	catch(err){}
+}
+</script>

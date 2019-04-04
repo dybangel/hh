@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户信息</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="xingmu">
+<td colspan="4">当前位置:{ke.function.dir/}</td>
+</tr>
+<tr class="hback">
+<td style="width:80px" class="tips">登录帐号</td>
+<td style="width:200px" class="singlebtn">{ke.function.username/}</td>
+<td style="width:80px" class="tips">账户昵称</td>
+<td class="singlebtn">{ke.function.nickname/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">支付宝账号</td>
+<td>{ke.function.AlipayChar/}({ke.function.Alipayname/})</td>
+<td class="tips">真实姓名</td>
+<td>{ke.function.Fullname/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">手机号码</td>
+<td>{ke.function.strMobile/}</td>
+<td class="tips">电子邮箱</td>
+<td>{ke.function.strEmail/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">设备类型</td>
+<td>{ke.function.DeviceType/}</td>
+<td class="tips">设备编号</td>
+<td>{ke.function.DeviceCode/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">唯一识别码</td>
+<td>{ke.function.DeviceIdentifier/}</td>
+<td class="tips">系统版本</td>
+<td>{ke.function.DeviceModel/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">手机型号</td>
+<td>{ke.function.DeviceChar/}</td>
+<td class="tips">MAC地址</td>
+<td>{ke.function.MacChar/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">任务次数</td>
+<td>{ke.function.BonusTimer/}</td>
+<td class="tips">奖励金额</td>
+<td>{ke.function.BonusAmount/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">提现次数</td>
+<td>{ke.function.AlipayTimer/}</td>
+<td class="tips">提现金额</td>
+<td>{ke.function.AlipayAmount/}</td>
+</tr>
+
+
+<tr class="hback">
+<td class="Base" operate="shrink" shrink="false" text="account"  colspan="4">用户资料 >> 其它信息</td>
+</tr>
+<tr style="display:none" operate="account" class="hback">
+<td class="tips">登陆地址</td>
+<td>{ke.function.strip/}</td>
+<td class="tips">所在城市</td>
+<td>{ke.function.strcity/}</td>
+</tr>
+<tr style="display:none" operate="account" class="hback">
+<td class="tips">注册日期</td>
+<td>{ke.function.addtime/}</td>
+<td class="tips">最后登录日期</td>
+<td>{ke.function.lastdate/}</td>
+</tr>
+</table>
+</body>
+</html>

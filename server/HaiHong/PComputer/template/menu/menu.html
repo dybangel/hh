@@ -1,0 +1,56 @@
+﻿<div id="frmCenterMaster">
+	<div id="frmCenterMenu">
+		
+		<div onclick="window.location='home.aspx'" id="frmCenterMenuThumb"><img style="width:66px;height:66px;" src="{ke.function.thumb/}" /></div>
+		<div id="frmCenterMenuName" style="color:#fff">{ke.function.username/}</div>
+		<div style="clear:both; width:100%; clear:both; font-size:0px; height:0px;"></div>
+		<div id="frmMenuContianer">
+			<div onclick="window.location='Index.aspx'" class="items">
+				<div class="ico"><img src="template/images/wallethome.png" /></div>
+				<div class="name">{lang.钱包主页/}</div>
+			</div>
+			<div onclick="window.location='Wallet.aspx'" class="items">
+				<div class="ico"><img src="template/images/walletadd.png" /></div>
+				<div class="name">{lang.钱包地址/}</div>
+			</div>
+			<div onclick="window.location='Transfer.aspx'" class="items">
+				<div class="ico"><img src="template/images/mx.png" /></div>
+				<div class="name">{lang.钱包明细/}</div>
+			</div>
+			<div onclick="window.location='FeeAmount.aspx'" class="items">
+				<div class="ico"><img src="template/images/energy.png" /></div>
+				<div class="name">{lang.能量管理/}</div>
+			</div>
+			<div onclick="window.location='Wallet.aspx?action=transfer'" class="items">
+				<div class="ico"><img src="template/images/blocksend.png" /></div>
+				<div class="name">{lang.区块发送/}</div>
+			</div>
+			<div onclick="window.location='Stress.aspx'" class="items">
+				<div class="ico"><img src="template/images/transfers.png" /></div>
+				<div class="name">{lang.算力账单/}</div>
+			</div>
+			<div onclick="window.location='home.aspx'"  class="items">
+				<div class="ico"><img src="template/images/setting.png" /></div>
+				<div class="name">{lang.用户设置/}</div>
+			</div>
+		</div>
+		<div onclick="Language(this)" value="hide" id="frmLanguage" text="{ke.function.lang/}">
+			<div id="frmLanguagebox">
+				<div onclick="window.location='Language.aspx?action=lang&lang=zh'">简体中文</div>
+				<div onclick="window.location='Language.aspx?action=lang&lang=en'">English</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script language="javascript">
+var Language = function(contianer){
+	try{
+		if(!$("#frmLanguagebox").is(":visible")){
+			$("#frmLanguagebox").show();
+		}else{
+			$("#frmLanguagebox").hide();
+		}
+	}catch(err){}
+};
+</script>

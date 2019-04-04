@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>联盟任务</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/Refresh/minirefresh.js?{timestamp}"></script>
+<script language="javascript" src="config.aspx?{timestamp}"></script>
+<script language="javascript" src="inc/datepacker/laydate.js"></script>
+<style type="text/css">
+#FRMContianer{width:100%; margin:0px auto;padding:0px; border-collapse:separate; border-spacing:0px 0px; font-size:13px;word-wrap:break-word; background:#f4f4f4}
+#FRMContianer tr.hback{border-radius:5px;padding:0px;overflow:hidden; background:#fff;}
+#FRMContianer tr.hback td{padding:4px 4px;color:#333333;}
+#FRMContianer tr.hback td.ico{ width:40px; text-align:center; height:60px; background:url(template/images/amount_mode_01.png) center center no-repeat; background-size:40px 36px;}
+#FRMContianer tr.hback td.amt{ width:60px; text-align:center; height:60px;color:#31c37c}
+#FRMContianer tr.hback td.remark{word-break:break-all; background:url(template/images/FrmNext.png) right center no-repeat; background-size:12px 16px; background-position:96%;}
+#FRMContianer div.num{ color:#8a82e7;padding:3px 0px; width:100%; font-family:"Courier New", Courier, monospace; color:#31c37c; font-size:16px;}
+#FRMContianer div.mode{ color:#8a82e7;padding:3px 0px; width:100%;}
+#FRMContianer div.textor{font-family:"Courier New", Courier, monospace;padding:3px 0px;}
+#FRMContianer div.date{ font-size:12px; font-family:"Courier New", Courier, monospace;padding:3px 0px;color:#999999}
+#FRMContianer tr.hback td.img{ width:60px;height:60px;padding:3px; text-align:center;}
+#FRMContianer tr.hback td.img img{ width:46px; height:46px; border-radius:50%; border:rgba(255,255,255,0.15) solid 1px;padding:2px; background:#fff;}
+
+</style>
+</head>
+<body style="background:#f5f5f5">
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">联盟任务</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+	<table id="FRMContianer"></table>
+</div>
+</body>
+</html>
+
+<script language="javascript">
+var toRedirect = function(unionid,strunion)
+{
+	/*********************************************************************************************
+	*获取并验证系统参数信息
+	**********************************************************************************************/
+	if(window.cfg==undefined){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(window.cfg==null){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(typeof(window.cfg)!='object'){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	/*********************************************************************************************
+	*检查小助手配置是否合法
+	**********************************************************************************************/
+	if(window.cfg["aide"]==undefined){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(window.cfg["aide"]==null){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	else if(typeof(window.cfg["aide"])!='object'){ShowMessager({"text":"获取系统参数配置错误!"});return false;}
+	/*********************************************************************************************
+	*开始执行数据跳转
+	**********************************************************************************************/
+	try{
+		if(window.cfg["aide"]["deviceType"]=="ios")
+		{
+			window.location=window.cfg["aide"]["packer"]+"?{\"type\":\"app\",\"channelid\":\""+unionid+"\",\"name\":\""+strunion+"\"}";
+		}
+		else if(window.cfg["aide"]["deviceType"]=="android")
+		{
+			window.location=window.cfg["aide"]["packer"]+"?type=app&channelid="+unionid+"&name="+strunion+"";
+		}
+	}catch(err){}
+};
+var getChannel = function(deviceType)
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		try{
+			if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+			&& rspJson['result']!=undefined && rspJson['result']!=null){
+				$(rspJson['result']).each(function(j,json){
+					if(deviceType==json["devicemodel"] || json["devicemodel"]=="双系统")
+					{
+						strTemplate+='<tr class=\"hback\"';
+						strTemplate+=' onclick="toRedirect(\''+json["unionid"]+'\',\''+json["unionmodel"]+'\')" >';
+						strTemplate+='<td class=\"img\">';
+						strTemplate+='<img class=\"img\" src=\"'+json["strthumb"]+'\" />';
+						strTemplate+='</td>';
+						strTemplate+='<td class=\"remark\">';
+						strTemplate+='<div class=\"textor\">'+json['strunion']+'</div>';
+						strTemplate+='<div class=\"date\">'+json['strremark']+'</div>'
+						strTemplate+='</td>';
+						strTemplate+='</tr>';
+						strTemplate+='<tr><td colspan=\"3\" style=\"background:#f5f5f5;height:8px\">';
+						strTemplate+='</td></tr>';
+					}
+				});
+			};
+		}catch(err){}
+		try{$('#FRMContianer').html(strTemplate);}
+		catch(err){}
+	};
+	/******************************************************************************
+	*开始执行请求数据查询
+	*******************************************************************************/
+	getResponse({
+		"url":"../api/unionChannel.aspx",
+		"back":function(rspJson)
+		{
+			if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=='object'
+			&& rspJson['result']!=undefined && rspJson['result']!=null)
+			{
+				showRender(rspJson);
+			}
+		}
+	});
+}
+window.onload = function()
+{
+	if("{ke.function.deviceType/}"=="android"){
+		try{getChannel("安卓系统");}
+		catch(err){}
+	}else if("{ke.function.deviceType/}"!="android"){
+		try{getChannel("苹果系统");}
+		catch(err){}
+	}
+	
+};
+</script>

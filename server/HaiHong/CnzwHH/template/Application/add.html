@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>服务应用</title>
+    <link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a href="?action=default">应用管理</a>
+        <a href="?action=add" class="current">添加应用</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="FormContianer" action="?" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="action" value="save" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+            <tr class="operback">
+                <td class="Base" operate="chContianer" colspan="4">
+                    <span class="current" text="system" operate="change">基本信息</span>
+                    <span text="mode" operate="change">机型控制</span>
+                    <span text="other" operate="change">其他选项</span>
+                    <span text="step" operate="change">操作步骤</span>
+                </td>
+            </tr>
+            <tr operate="system" class="xingmu">
+                <td colspan="4">基本信息(以下内容为广告必填信息)</td>
+            </tr>
+            <tr operate="system" class="hback">
+                <td class="tips">应用名称</td>
+                <td class="singlebtn">
+                    <select name="DeviceModel" id="DeviceModel">
+                        <option value="苹果系统">苹果系统</option>
+                        <option value="安卓系统">安卓系统</option>
+                    </select>
+                    <input type="text" class="inputtext" placeholder="应用名称(24汉字内)" value="{ke.function.Appname/}" notkong="true" name="Appname" id="Appname" style="width:160px" />
+
+                </td>
+                <td style="width:80px" class="tips">应用审核</td>
+                <td class="check_box">
+                    {ke.function.Property/}
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">应用类型</td>
+                <td class="singlebtn">
+                    <select name="AdvModel" id="AdvModel">
+                        <option value="普通广告">普通广告</option>
+                        <option value="评论广告">评论广告</option>
+                        <option value="截图广告">截图广告</option>
+                    </select><span>评论与截图为审核型任务</span>
+                </td>
+                <td style="width:80px" class="tips">分组类型</td>
+                <td class="check_box">
+                    <select name="TaskerModel" id="TaskerModel">
+                        <option value="快速任务">快速任务</option>
+                        <option value="截图任务">截图任务</option>
+                        <option value="高额任务">高额任务</option>
+                    </select><span>分组区别任务</span>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td style="width:80px" class="tips">应用分类</td>
+                <td style="width:400px" class="singlebtn">
+                    <select id="ClassID" style="width:200px" name="ClassID">
+                        <option value="0">请选择应用分类</option>
+                        {ke.function.options/}
+                    </select>
+                </td>
+                <td style="width:80px" class="tips">检测类型</td>
+                <td class="singlebtn">
+                    <select id="AppModel" style="width:300px" name="AppModel">
+                        {ke.function.appmodel/}
+                    </select>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">来源渠道</td>
+                <td class="singlebtn">
+                    <select name="UnionModel" style="width:200px;" id="UnionModel">
+                        {ke.function.unionmodel/}
+                    </select>
+                </td>
+                <td style="width:80px" class="tips">排重方式</td>
+                <td class="singlebtn">
+                    <select name="isWeight" style="width:200px;" id="isWeight">
+                        {ke.function.isweight/}
+                    </select>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">任务数量</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="纯数字(个)" value="{ke.function.Kucun/}" name="Kucun" size="20" id="Kucun" /><span>任务允许下载数量</span>
+                </td>
+
+                <td class="tips">奖励金额</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(单位元)完成任务奖励" value="{ke.function.Amount/}" name="Amount" size="20" id="Amount" />
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">应用包名</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="BundleID或Package" value="{ke.function.Packername/}"  name="Packername" size="20" id="Packername" />
+                </td>
+                <td class="tips">进程名称</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="应用进程名称" value="{ke.function.Processname/}" name="Processname" size="20" id="Processname" />
+                </td>
+            </tr>
+
+
+            <tr operate="system" class="hback">
+                <td class="tips">应用图标</td>
+                <td class="singlebtn">
+                    {ke.function.thumb/}
+                </td>
+                <td class="tips">显示排序</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="请填写纯数字" value="0" name="SortID" size="10" isnumeric="true" id="SortID" />
+                    <span>数字越大显示越靠前</span>
+                </td>
+            </tr>
+
+            <tr operate="system" class="hback">
+                <td class="tips">安装地址</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="App下载或安装地址" value="{ke.function.strInstall/}" name="strInstall" size="40" id="strInstall" />
+                </td>
+                <td class="tips">关键字搜索</td>
+                <td class="check_box">
+                    <input type="text" class="inputtext" placeholder="appStore搜索关键字" value="{ke.function.strKeyword/}" name="strKeyword" size="20" id="strKeyword" />
+                    {ke.function.isKeyword/}
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="mode" class="xingmu">
+                <td colspan="4">选择机型(指定系统版本手机型号)</td>
+            </tr>
+
+            <tr style="display:none" operate="mode" class="hback">
+                <td style="width:80px" valign="top" class="tips">手机型号<div style="color:#999; line-height:22px;">控制指定型号的手机做任务,不满足型号的手机用户将无法做任务(该功能主要针对iOS手机用户)</div></td>
+                <td style="width:400px;background:#fff">
+                    <div style="height:240px;" id="strColums">
+                        {ke.function.modeChar/}
+                    </div>
+                </td>
+                <td valign="top" style="width:80px" class="tips">系统版本<div style="color:#999; line-height:22px;">针对iOS用户手机系统版本投放任务,不在选定范围内容的用户将无法做任务</div></td>
+                <td style="background:#fff">
+                    <div style="height:240px;" id="strColums">
+                        {ke.function.sysChar/}
+                    </div>
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="other" class="xingmu">
+                <td colspan="4">其他选项(选填数据或特殊应用必填)</td>
+            </tr>
+
+            <tr style="display:none" operate="other" class="hback">
+                <td style="width:80px" class="tips">渠道APPID</td>
+                <td style="width:400px" class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="第三方平台应用ID" value="{ke.function.ThirdID/}" name="ThirdID" size="20" id="ThirdID" />
+                </td>
+                <td style="width:80px" class="tips">应用别名</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="第三方平台应用名称" value="{ke.function.Thirdname/}" name="Thirdname" size="20" id="Thirdname" />
+                </td>
+            </tr>
+
+
+            <tr style="display:none" operate="other" class="hback">
+                <td class="tips">试玩时间</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(单位秒)试玩时间" value="{ke.function.Trydate/}" name="Trydate" size="20" id="Trydate" />
+                </td>
+                <td class="tips">软件大小</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="(单位M)应用安装包大小" value="{ke.function.Softsize/}" name="Softsize" size="20" id="Softsize" />
+                </td>
+            </tr>
+
+
+            <tr style="display:none" operate="other" class="hback">
+                <td class="tips">应用ID</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="纯数字(AppstoreID)" value="{ke.function.SoftID/}" name="SoftID" size="20" id="SoftID" />
+                </td>
+                <td class="tips">应用排名</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="苹果商店同类排名" value="{ke.function.SoftRank/}" name="SoftRank" size="20" id="SoftRank" />
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="other" class="hback">
+                <td class="tips">评论标题</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="评论广告评价标题信息" value="{ke.function.DiscussTitle/}" name="DiscussTitle" size="30" id="DiscussTitle" />
+                </td>
+                <td class="tips">评论内容</td>
+                <td class="singlebtn">
+                    <input type="text" class="inputtext" placeholder="评论广告评价内容" value="{ke.function.DiscussRemark/}" name="DiscussRemark" size="45" id="DiscussRemark" />
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="step" class="xingmu">
+                <td colspan="4">任务步骤(任务详情页展示数据内容)</td>
+            </tr>
+
+            <tr style="display:none" operate="step" class="hback">
+                <td style="width:80px" valign="top" class="tips">
+                    <div style="color:#CD0000">开始任务</div>
+                    <div style="color:#999; line-height:20px">提示用户下载或复制关键词步骤说明</div>
+                </td>
+                <td style="width:400px">
+                    <textarea placeholder="主要任务步骤之一,用户通过当前步骤下载APP" id="starContext" name="starContext" style="width:360px;height:60px;"></textarea>
+                </td>
+                <td style="width:80px" valign="top" class="tips">
+                    <div style="color:#CD0000">应用排名</div>
+                    <div style="color:#999; line-height:20px">显示用户图标与排位可在上方添加描述信息</div>
+                </td>
+                <td>
+                    <textarea placeholder="关键词搜索任务说明内容" id="SortContext" name="SortContext" style="width:360px;height:60px;"></textarea>
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="step" class="hback">
+                <td valign="top" class="tips">
+                    <div style="color:#CD0000">开始试玩</div>
+                    <div style="color:#999; line-height:20px">用户点击试玩按钮提示描述信息</div>
+                </td>
+                <td>
+                    <textarea placeholder="主要任务步骤,提示用户通过小助手打开APP" id="TryContext" name="TryContext" style="width:360px;height:60px;"></textarea>
+                </td>
+                <td valign="top" class="tips">
+                    <div style="color:#CD0000">领取奖励</div>
+                    <div style="color:#999; line-height:20px">用户领取奖励描述内容说明信息</div>
+                </td>
+                <td>
+                    <textarea placeholder="非截图任务主要步骤之一,用户试玩成功后点击领取获得奖励" id="FishContext" name="FishContext" style="width:360px;height:60px;"></textarea>
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="step" class="hback">
+                <td valign="top" class="tips">
+                    <div style="color:#CD0000">截图示例</div>
+                    <div style="color:#999; line-height:20px">上传三张示例图片(截图任务必要)</div>
+                </td>
+                <td valign="top" style="padding:0px; background:#fcfcfc" colspan="3">
+                    <table class="table1" border="0" cellspacing="1" cellpadding="3">
+                        <tr class="xingmu">
+                            <td>示例图片1</td>
+                            <td>示例图片2</td>
+                            <td>示例图片3</td>
+                        </tr>
+                        <tr class="hback">
+                            <td>{ke.function.SAMPThumb1/}</td>
+                            <td>{ke.function.SAMPThumb2/}</td>
+                            <td>{ke.function.SAMPThumb3/}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr style="display:none" operate="step" class="hback">
+                <td valign="top" class="tips">
+                    <div style="color:#CD0000">截图要求</div>
+                    <div style="color:#999; line-height:20px">用户上传截图示例说明文档,最多可允许上传三张截图</div>
+                </td>
+                <td>
+                    <textarea placeholder="截图任务展示用户截图须知或截图要求信息,注截图任务否是通过管理员后端审核以后才给奖励" id="HotContext" name="HotContext" style="width:360px;height:60px;"></textarea>
+                </td>
+                <td valign="top" class="tips">
+                    <div style="color:#CD0000">上传截图</div>
+                    <div style="color:#999; line-height:20px">提示用户上传审核截图说明信息</div>
+                </td>
+                <td>
+                    <textarea placeholder="截图审核任务要求上传,普通任务可忽略。用户上传审核包含三张截图以及姓名和手机号" id="ULDContext" name="ULDContext" style="width:360px;height:60px;"></textarea>
+                </td>
+            </tr>
+
+            <tr class="xingmu">
+                <td></td>
+                <td colspan="3">
+                    <input type="submit" operate="submit" value="确认保存" class="button" />
+                    <input type="reset" value="撤销" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

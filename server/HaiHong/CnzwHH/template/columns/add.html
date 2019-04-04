@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加字段</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default&tableName={ke.function.tableName/}&chName={ke.function.chName/}">字段管理</a>
+<a href="?action=add&tableName={ke.function.tableName/}&chName={ke.function.chName/}" class="current">添加字段</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="chName" value="{ke.function.chName/}" />
+<input type="hidden" name="Tablename" value="{ke.function.tableName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="4">{ke.function.chName/} >> 字段管理 >> 添加字段</td>
+</tr>
+<tr class="hback">
+<td colspan="2" style="background:#FFFFCC; border:#FF3300 solid 1px;">
+当前字段属于<font color="#F00"><strong>{ke.function.chName/}</strong></font><span>该字段将添加进{ke.function.chName/}的数据表{ke.function.tableName/}中</span>
+</td>
+<td class="tips" rowspan="9" valign="top">
+<div style="color:#FF0000; font-weight:bold;">选项列表</div>
+<div style="color:#666;padding:3px 0px; line-height:24px;">当选择字段类型为下拉菜单,单选复选框时使用，一个选项对应一个结果,请根据实际情况填写选项信息</div>
+</td>
+<td valign="top" rowspan="9" style="padding:0px;width:460px">
+<table id="frm-tabs" width="100%" style="margin:0px" border="0" cellspacing="1" class="table" cellpadding="3">
+  <tr class="xingmu">
+    <td style="width:200px">选项值</td>
+    <td style="width:200px">选项文本</td>
+    <td><img src="template/images/ico/add.png" operate="add" /></td>
+  </tr>
+  <tr class="hback">
+    <td><input type="text" value="" style="width:200px" placeholder="请填写选项值" name="opValue" class="inputtext" /></td>
+    <td><input type="text" value="" style="width:200px" placeholder="请填写选项显示文本" name="opText" class="inputtext" /></td>
+    <td><img src="template/images/ico/jian.png" operate="remove" /></td>
+  </tr>
+</table>
+</td>
+</tr>
+
+<tr class="hback">
+<td style="width:80px;" class="tips">字段类型</td>
+<td>
+<select name="ColumnsType">
+<option value="">请选择字段类型</option>
+<option value="int">数字型(int)</option>
+<option value="float">小数型(float)</option>
+<option value="datetime">日期(datetime)</option>
+<option value="nvarchar">普通文本(nvarchar)</option>
+<option value="varchar[max]">长文本(nvarchar[max])</option>
+<option value="checkbox">复选按钮(checkbox)</option>
+<option value="options">下拉菜单(select)</option>
+<option value="radio">单选按钮(radio)</option>
+<option value="file">文件上传(file)</option>
+<option value="ntext">文本域(编辑器)</option>
+</select>
+<span>字段类型确定以后将无法修改</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">字段名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" value="" placeholder="字母/数字/下划线" name="ColumnsName" notkong="true" size="20" />
+{ke.function.isdisplay/}
+<span>自定义字段以Define_开头</span>
+</td>
+
+</tr>
+<tr class="hback">
+<td class="tips">中文名字</td>
+<td>
+<input type="text" class="inputtext" value="" placeholder="描述字段作用形容词" name="ColumnsText" notkong="true" size="20" />
+<span>请输入自定义字段的中文名称</span>
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">备注说明</td>
+<td>
+<input type="text" class="inputtext" value="" placeholder="简要说明字段规范等"  name="ColumnsTips" size="30" />
+<span>请用简要的文字说明字段作用</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">默认数据</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请按照字段类型填写默认数据" value="" name="DefaultTxt" size="30" />
+{ke.function.isnull/}
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">长度限制</td>
+<td>
+<input type="text" class="inputtext" placeholder="字段内容最小长度" value="0" isnumeric="true" name="MinLength" notkong="true" size="8" />
+<input type="text" class="inputtext" placeholder="字段内容最大长度" value="60" isnumeric="true" name="MaxLength" notkong="true" size="8" />
+<span>字段允许的内容长度,0为不限制</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips" valign="top">拓展属性
+<div style="color:#999">允许执行jsvascript,css额外代码</div>
+</td>
+<td>
+<textarea class="inputtext" placeholder="可添加标签事件或者标签额外属性" style="width:450px;height:50px;" name="ExtendCode"></textarea>
+<br/>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">字段排序</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" value="0" name="SortID" notkong="true" size="8" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
+<script language="javascript">
+$(function(){
+  $("select[name=\"ColumnsType\"]").change(function(){
+	var value = this.value;
+	if(value!="checkbox" && value!="options" && value!="radio"){$("#optiostr").hide();}else{$("#optiostr").show();}
+  });	   
+});
+</script>
+<script id="frm-Template" type="text/template">
+<tr class="hback">
+<td><input type="text" value="" style="width:200px" placeholder="请填写选项值" name="opValue" class="inputtext" /></td>
+<td><input type="text" value="" style="width:200px" placeholder="请填写选项显示文本" name="opText" class="inputtext" /></td>
+<td><img src="template/images/ico/jian.png" operate="remove" /></td>
+</tr>
+</script>
+<script language="javascript">
+$("#frm-tabs").find("img[operate=\"add\"]").click(function(){
+	var strTemplate = $("#frm-Template").html();
+	if(strTemplate!=undefined && strTemplate!=""){
+		$("#frm-tabs").append(strTemplate);
+		$("#frm-tabs").find("img[operate=\"remove\"]").click(function(){
+			$(this.parentNode.parentNode).remove();
+		});
+	}
+});
+$("#frm-tabs").find("img[operate=\"remove\"]").click(function(){
+	$(this.parentNode.parentNode).remove();
+});
+</script>

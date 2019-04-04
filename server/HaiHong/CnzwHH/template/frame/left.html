@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>系统首页</title>
+<base target="Right" />
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+body{font-family:"宋体";-webkit-font-smoothing:antialiased;-webkit-font-smoothing: subpixel-antialiased;-moz-osx-font-smoothing:grayscale; text-shadow:inherit;;color:#444557; font-size:12px;-webkit-overflow-scrolling: touch;-webkit-overflow-scrolling:auto;width:100%;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;-moz-appearance:none; border:0px;background-size:cover;}
+#frm-admin-author{width:100%; background:#32323a; height:82px; position:relative; overflow:hidden;}
+#frm-admin-author div.thumb{ position:absolute;top:8px;left:12px;}
+#frm-admin-author div.thumb img{ width:60px;height:60px;border:#f0f0f0 solid 1px;padding:2px; background:#fcfcfc}
+#frm-admin-author div.txt{ position:absolute;left:88px;top:10px; color:#FFF; line-height:20px;}
+#frm-admin-author div.txt span.name{font-weight:900; color:#F00; font-family:"微软雅黑";}
+#frm-admin-author div.txt a{ color:#FFF;}
+#left-frm-selector{ width:5px; z-index:99; background:#32323a;position:fixed;height:100%;;right:0px;top:0px; height:100%;}
+#right-frm-selector{ width:5px; position:fixed;left:0px;top:80px;background:#32323a; height:100%;}
+#frm-menu-box{ width:100%; position:fixed;background:#fff;left:5px; color:#444557}
+.MenusBar{ width:100%; overflow:hidden; clear:both; margin:0px auto;}
+.MenusBar div.titles{margin-top:0px;height:30px;font-size:12px;font-weight:bold;color:#444557;line-height:30px;padding:3px 5px !important; background:#f0f0f0;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fefefe), to(#f0f0f0));background: -moz-linear-gradient(top, #fefefe, #f0f0f0 8%);border-bottom:#c0c9cf solid 1px; position:relative; cursor:pointer;background: -ms-linear-gradient(top, #fefefe, #f0f0f0 8%);}
+.MenusBar div.titles span.ico{position:absolute;left:20px;top:10px;width: 0; height: 0;border-top: 8px solid transparent;border-left: 10px solid #444557;border-bottom: 8px solid transparent;}
+.MenusBar div.current{}
+.MenusBar div.current span.ico{ transform:rotate(90deg);-ms-transform:rotate(90deg);-moz-transform:rotate(90deg);-webkit-transform:rotate(90deg);transition: All 0.4s ease-in-out;;}
+.MenusBar div.titles span.name{ position:absolute;left:40px; font-size:14px; font-weight:900;}
+.MenusList{ clear:both;width:100%; display:none;background:#fff; border-bottom:#c0c9cf solid 1px;}
+.MenusList ul{ width:96%; margin:0px auto; clear:both;}
+.MenusList ul li{height:30px; line-height:30px; border-bottom:#f8f8f8 solid 1px; position:relative;left:0px;}
+.MenusList ul li a{ margin-left:24px; position:relative;}
+.MenusList ul li a img{ position:absolute;top:-3px;left:0px;}
+.MenusList ul li a.frm-add{ position:absolute;right:50px;top:8px;}
+.MenusList ul li:before{ content:'·'; position:absolute;left:12px;}
+</style>
+</head>
+<body>
+<div id="left-frm-selector"></div>
+<div id="right-frm-selector"></div>
+<div id="frm-admin-author">
+	<div class="thumb"><img src="{ke.function.thumb/}" /></div>
+	<div class="txt">
+	欢迎您回来<br/><span class="name">{ke.function.adminname/}</span>
+	<br/><a href="Login.aspx?action=exit" target="_top">安全退出</a>
+	</div>
+</div>
+<div id="frm-menu-box">
+{ke.function.menubar/}
+</div>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+$("div.titles").click(function(){
+	$("div.titles").each(function(){
+		$(this).removeClass("current");	
+		$(this).parents(".MenusBar").find(".MenusList").hide();
+	});
+	$(this).addClass("current");
+	$(this).parents(".MenusBar").find(".MenusList").show();
+})		   
+})
+</script>

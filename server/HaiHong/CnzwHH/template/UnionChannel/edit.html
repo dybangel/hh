@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>服务分类</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/unionChannel.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">渠道管理</a>
+<a href="?action=add">添加渠道</a>
+<a class="current">编辑渠道</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="FormContianer" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="editsave" />
+<input type="hidden" name="unionid" value="{ke.function.unionid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr><td class="Base" colspan="4">渠道管理 >> 基础信息</td></tr>
+<tr operate="system" class="hback">
+<td style="width:80px" class="tips">渠道名称</td>
+<td style="width:460px">
+<select name="DeviceModel" id="DeviceModel">
+<option value="{ke.function.DeviceModel/}">{ke.function.DeviceModel/}</option>
+<option value="苹果系统">苹果系统</option>
+<option value="安卓系统">安卓系统</option>
+<option value="双系统">双系统</option>
+</select>
+<select name="UnionModel" onChange="DoUnionModel(this)" id="UnionModel">
+<option value="">渠道类型</option>
+{ke.function.UnionModel/}
+</select>
+<input type="text" class="inputtext" placeholder="请填写联盟渠道名称" value="{ke.function.strUnion/}" notkong="true" name="strUnion" id="strUnion" style="width:160px" />
+</td>
+<td class="tips">审核推荐</td>
+<td class="check_box">
+{ke.function.Property/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+
+<td class="tips">渠道图标</td>
+<td class="singlebtn">
+{ke.function.thumb/}
+</td>
+<td style="width:80px" class="tips">描述信息</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写描述说明信息60个汉字内" value="{ke.function.strRemark/}" name="strRemark" id="strRemark" style="width:340px" />
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写纯数字" value="{ke.function.SortID/}" name="SortID" size="10" isnumeric="true" id="SortID" />
+<span>数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+
+<tr><td operate="shrink" shrink="true" text="cfg" class="Base" colspan="4">渠道管理 >> 接入配置</td></tr>
+<tr operate="cfg" class="hback">
+<td valign="top" class="tips">
+<div style="color:#999; line-height:20px;">当前选项为接入渠道联盟的配置参数,请按照联盟渠道的接入文档填写</div>
+</td>
+<td valign="top" colspan="3" style="padding:0px;">
+<table style="margin:0px;padding:0px;" border="1" class="table" cellspacing="1" cellpadding="3">
+  <tr class="xingmu">
+    <td style="width:200px">设备类型</td>
+    <td style="width:200px">应用名称</td>
+    <td style="width:200px">应用编号</td>
+    <td style="width:200px">对接密钥</td>
+    <td style="width:200px">其他选项</td>
+  </tr>
+  <tr class="hback">
+    <td>苹果设备</td>
+    <td><input type="text" class="inputtext" value="{ke.function.iosAppname/}" name="iosAppname" placeholder="渠道建应用名称" id="iosAppname" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.iosAppID/}" name="iosAppID" placeholder="渠道建应用APPID" id="iosAppID" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.iosAppSecret/}" name="iosAppSecret" placeholder="渠道建应用AppSecret" id="iosAppSecret" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.iosOther/}" name="iosOther" placeholder="渠道建应用其它选项" id="iosOther" /></td>
+  </tr>
+  <tr class="hback">
+    <td>安卓设备</td>
+    <td><input type="text" class="inputtext" value="{ke.function.adAppname/}" name="adAppname" placeholder="渠道建应用名称" id="adAppname" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.adAppID/}" name="adAppID" placeholder="渠道建应用APPID" id="adAppID" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.adAppSecret/}" name="adAppSecret" placeholder="渠道建应用AppSecret" id="adAppSecret" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.adOther/}" name="adOther" placeholder="渠道建应用其它选项" id="adOther" /></td>
+  </tr>
+</table>
+</td>
+</tr>
+
+<tr><td operate="shrink" shrink="true" text="back" class="Base" colspan="4">渠道管理 >> 回调参数</td></tr>
+<tr operate="back" class="hback">
+<td valign="top" class="tips">
+<div style="color:#999; line-height:20px;">当前接入渠道回调参数名称,请根据指定的渠道填写</div>
+</td>
+<td valign="top" colspan="3" style="padding:0px;">
+<table style="margin:0px;padding:0px;" border="1" class="table" cellspacing="1" cellpadding="3">
+  <tr class="xingmu">
+    <td style="width:200px">用户参数</td>
+    <td style="width:200px">积分参数</td>
+    <td style="width:200px">应用标识</td>
+    <td style="width:200px">应用参数</td>
+    <td style="width:200px">请求地址</td>
+  </tr>
+  <tr class="hback">
+    <td><input type="text" class="inputtext" value="{ke.function.OpenName/}" name="OpenName" placeholder="确定用户ID参数" id="OpenName" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.NumberName/}" name="NumberName" placeholder="确定获得积分数量参数" id="NumberName" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.ApplicationID/}" name="ApplicationID" placeholder="确定应用ID参数" id="ApplicationID" /></td>
+    <td><input type="text" class="inputtext" value="{ke.function.ApplicationName/}" name="ApplicationName" placeholder="确定应用名称参数" id="ApplicationName" /></td>
+	<td><input type="text" class="inputtext" value="{ke.function.strIP/}" name="strIP" placeholder="接收渠道回调验证IP" id="strIP" /></td>
+  </tr>
+</table>
+</td>
+</tr>
+
+<tr><td operate="shrink" shrink="true" text="execute" class="Base" colspan="4">渠道管理 >> 返回结果</td></tr>
+<tr operate="execute" class="hback">
+<td class="tips">成功返回</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.trueBack/}" placeholder="success" value="" id="trueBack" name="trueBack" size="30">
+<span>渠道回调成功以后返回字符串</span>
+</td>
+<td class="tips">失败返回</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.falseBack/}" placeholder="false" value="" id="falseBack" name="falseBack" size="30">
+<span>渠道回调成功以后返回字符串</span>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

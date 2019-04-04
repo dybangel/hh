@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>用户绑定银行卡设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="bank.aspx?action=default">银行卡管理</a>
+<a href="bank.aspx?action=add">添加银行卡</a>
+<a href="bankModel.aspx?action=default">银行管理</a>
+<a href="bankModel.aspx?action=add">添加银行</a>
+<a href="config.aspx?action=bank" class="current">参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base"  colspan="4">参数配置 >> 银行卡参数设置</td>
+</tr>
+
+<tr operate="base"  class="hback">
+<td style="width:80px" class="tips">修改收款卡号</td>
+<td style="width:320px" class="singlebtn">
+{ke.function.isEdit/}
+</td>
+<td class="tips">修改时间间隔</td>
+<td class="singlebtn">
+<input type="text" name="EditDate" class="inputtext" value="{ke.function.EditDate/}" notkong="true" isnumeric="true" placeholder="纯数字" size="10" /><span>(单位天)</span>
+</td>
+</tr>
+
+<tr operate="base"  class="hback">
+<td style="width:80px" class="tips">银行卡卡重复</td>
+<td style="width:320px" class="singlebtn">
+{ke.function.isRepeat/}
+</td>
+<td class="tips">银行卡绑卡数</td>
+<td class="singlebtn">
+<input type="text" name="MaxLimit" class="inputtext" value="{ke.function.MaxLimit/}" notkong="true" isnumeric="true" placeholder="纯数字" size="10" /><span>(用户同时允许绑卡上限)</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

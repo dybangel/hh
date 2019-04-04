@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>首页</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.event.drag-1.5.min.js"></script>
+<script language="javascript" src="inc/jquery.touchSlider.min.js"></script>
+<script language="javascript" src="inc/Highcharts/js/highcharts.js"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+<style type="text/css">
+#BODYContianer{ display:block; clear:both; position:absolute; width:100%; height:100%; margin:0px auto; overflow:scroll; background:#fff;left:0px;top:0px;}
+#HEADContianer{ display:block; clear:both; width:100%;margin:0px auto;padding:0px; overflow:hidden;}
+#BARContianer{ display:block; clear:both; margin:0px;padding:0px 12px;overflow:hidden; height:52px; position:relative;}
+#UCContianer{ display:block; clear:both; width:104px; height:36px; position:absolute;left:12px;top:6px; background:url(template/images/ico_index_logo.png) left center no-repeat;background-size:100%;}
+#ALTContianer{ display:block; clear:both; width:36px; height:36px; position:absolute;right:12px;top:6px; background:url(template/images/ico_index_process.png) center center no-repeat; background-size:36px;}
+#SYContianer{ display:block; clear:both;margin:0px auto; padding:0px 12px; overflow:hidden;}
+    #SYContianerbox
+    {
+        display: block;
+        clear: both;
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px;
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+        background: url(template/images/bghead.png) center center no-repeat;
+    }
+    #SYContianerInfo
+    {
+        display: block;
+        clear: both;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 50%;
+        position: absolute;
+        left: 12px;
+        top: 19px;
+    }
+#SYContianerInfo img{ width:100%; height:100%; border-radius:50%; display:block; clear:both;}
+    #SYContianername
+    {
+        display: block;
+        clear: both;
+        position: absolute;
+        left: 80px;
+        top: 26px;
+        color: rgba(225,225,225,1);
+        padding: 0px;
+        margin: 0px;
+    }
+    #SYContianernum
+    {
+        display: block;
+        clear: both;
+        position: absolute;
+        left: 80px;
+        top: 50px;
+        color: #fff;
+        text-align: left;
+        font-size: 20px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #SYContianerBtns
+    {
+        display: block;
+        clear: both;
+        width: 100px;
+        height: 36px;
+        line-height: 36px;
+        background: #F07D73;
+        color: #fff;
+        position: absolute;
+        bottom: 30px;
+        right: 12px;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+/***********************************************************************************************************
+*系统公告
+************************************************************************************************************/
+#NOTIContianer{ display:block; clear:both; padding:0px 12px; margin:0px auto; overflow:hidden;}
+#NOTIContianerInfo{ display:block; clear:both; background:#f2f2f2;position:relative; width:100%; height:32px; overflow:hidden;padding:0px;}
+#NOTIContianerInfo span{ position:absolute;left:8px;top:0px;height:32px; line-height:32px; display:block; clear:both; overflow:hidden;}
+#NOTIContianerInfo marquee{ position:absolute;left:70px;top:-1px; width:calc(100% - 80px); width:-webkit-calc(100% - 80px);width:-moz-calc(100% - 80px);height:32px; line-height:32px;}
+
+    #FRMMContianer
+    {
+        margin: 0px auto;
+        padding: 4px 12px;
+        color: #adadbb;
+    }
+    #FRMMContianerbody
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 2px 0px;
+    }
+    #FRMMContianer div.contianer
+    {
+        display: block;
+        clear: both;
+        height: 90px;
+        position: relative;
+        width: 50%;
+        overflow: hidden;
+    }
+    #FRMMContianer div.ico
+    {
+        position: absolute;
+        left: 8px;
+        top: 24px;
+        width: 46px;
+        height: 46px;
+    }
+    #FRMMContianer div.name
+    {
+        position: absolute;
+        left: 56px;
+        top: 23px;
+        color: #000000;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    #FRMMContianer div.remark
+    {
+        position: absolute;
+        left: 56px;
+        top: 48px;
+        color: #7f7f7f;
+        font-size: 12px;
+    }
+#FRMMContianer div.ico img{ width:30px; margin:5px auto; display:block; clear:both;}
+
+#HDContianer{ display:block; clear:both; width:100%; margin:0px;padding:0px; overflow:hidden;}
+#HDContianer div.items{ display:block; clear:both; width:100%; position:relative;margin:0px;padding:0px; height:76px; background:url(template/images/index_19.png) center right no-repeat #fff; background-size:14px 16px; background-position:96%}
+#HDContianer div.ico{ display:block; width:46px; height:46px; position:absolute;left:20px;top:12px;}
+#HDContianer div.ico img{ width:46px;}
+#HDContianer div.name{ color:#31c37c; font-weight:400; font-size:16px; position:absolute;top:14px;left:80px;}
+#HDContianer div.tips{ color:#999; font-weight:400; font-size:13px; position:absolute;top:40px;left:80px;}
+/********************************************************************************************************
+*显示红包样式信息
+**********************************************************************************************************/
+#FRMREDMaster{ display:block; clear:both; position:fixed; width:100%; height:100%;left:0px;top:0px; background:rgba(0,0,0,0.24); overflow:hidden; z-index:990;}
+#FRMREDContianer{ display:block; clear:both; width:80%; height:340px; position:absolute;left:50%;top:50%;background:url(template/images/ico_red_packer.png) center center no-repeat; background-size:cover;;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%); z-index:999;}
+#FRMREDContianerBox{ display:block; clear:both; width:90%; margin:0px auto; position:absolute;left:5%;top:54%; text-align:center;padding:0px;}
+#FRMREDContianerTitle{ display:block; clear:both;padding:4px 0px; color:#ffcf3c; font-size:16px; font-weight:500;}
+#FRMREDContianerTips{ display:block; clear:both;padding:0px 0px; color:#fff; font-size:13px; line-height:16px;}
+#FRMREDContianerBtns{ display:block; width:100%; background:#ffcf3c;height:46px; line-height:46px;color:#e72e16; font-size:15px; font-weight:500;}
+/********************************************************************************************************
+*显示邀请填写框数据信息
+**********************************************************************************************************/
+#FRMSHAREMaster{ display:block; clear:both; position:fixed; width:100%; height:100%;left:0px;top:0px; background:rgba(0,0,0,0.24); overflow:hidden; z-index:990;}
+#FRMSHAREContianer{display:block; clear:both; width:80%;padding:12px; position:absolute;left:50%;top:50%; background:#fff; background-size:cover;;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%); z-index:999;}
+#FRMSHAREContianerTitle{display:block; clear:both;padding:4px 0px; color:#000000; font-size:16px; font-weight:500; text-align:center;}
+#FRMSHAREParentID{ display:block; clear:both; background:#e6e6e6; border:#e6e6e6 solid 1px; width:100%;padding:6px 0px; text-align:center; margin:0px auto;height:30px; line-height:30px; font-size:16px;}
+#FRMSHAREContianerBtns{ display:block; clear:both; width:100%;padding:0px; margin:0px auto; position:relative; height:50px;}
+#FRMSHAREContianerBtns input[operate="shareConfirm"]{ display:block; width:48%; clear:both; position:absolute;left:26%;top:0px;height:40px; background:#e76256;color:#fff; border:#e76256 solid 1px;}
+#FRMSHAREContianerBtns input[operate="shareCancel"]{ display:block; width:48%; clear:both; position:absolute;right:0px;top:0px;height:40px; border:#e76256 solid 1px; background:#fff;color:#000;}
+
+    #FRMMContianerbody1
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 2px 0px;
+    }
+
+        #FRMMContianerbody1 div.contianer
+        {
+            display: block;
+            clear: both;
+            height: 80px;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #FRMMContianerbody1 div.ico
+        {
+            position: absolute;
+            left: 8px;
+            top: 18px;
+            width: 46px;
+            height: 46px;
+        }
+
+        #FRMMContianerbody1 div.name
+        {
+            position: absolute;
+            left: 56px;
+            top: 19px;
+            color: #000000;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        #FRMMContianerbody1 div.remark
+        {
+            position: absolute;
+            left: 56px;
+            top: 41px;
+            color: #7f7f7f;
+            font-size: 12px;
+        }    
+</style>
+</head>
+<body id="BODYContianer">
+<div id="HEADContianer">
+	<div id="BARContianer">
+		<span id="UCContianer"></span>
+		<span onClick="OpenFrame('home.aspx?token={ke.function.strtokey/}')" id="ALTContianer"></span>
+	</div>
+</div>
+<div style="display:block; clear:both; width:100%; margin:0px; font-size:0px;height:0px;"></div>
+<div id="SYContianer">
+	<div id="SYContianerbox">
+		<div id="SYContianerInfo"><img src="{ke.function.thumb/}" /></div>
+		<div id="SYContianername">我的收益</div>
+		<div id="SYContianernum">{ke.function.amount/}元</div>
+		<div onClick="OpenFrame('alipay.aspx?token={ke.function.strtokey/}')" id="SYContianerBtns">立即提现</div>
+	</div>
+</div>
+<div style="display:block; clear:both; width:100%; margin:0px; font-size:0px;height:6px;"></div>
+<div id="NOTIContianer">
+	<div onClick="OpenFrame('UserNotification.aspx?token={ke.function.strtokey/}')" id="NOTIContianerInfo">
+		<span>系统公告:</span>
+		<marquee direction="left" scrollamount="3">{ke.function.notification/}</marquee>
+	</div>
+</div>
+<div style="display:block; clear:both; width:100%; margin:0px; font-size:0px;height:0px;"></div>
+  <div id="FRMMContianer">
+      <div id="FRMMContianerbody">
+          <div onClick="OpenFrame('app.aspx?action=default&taskerModel=\u9ad8\u989d\u4efb\u52a1&token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/geoer.png) left center no-repeat; background-size: cover;">
+            <div class="ico"><img src="template/images/ico_index_ge.png" /></div>
+            <div class="name">高额任务</div>
+            <div class="remark">高额奖励在这里</div>
+          </div>
+          <div style="width: 3px; height: 100%;"></div>
+          <div onclick="OpenFrame('invited.aspx?token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/shoutu.png) left center no-repeat; background-size: cover;">
+              <div class="ico"><img src="template/images/ico_index_share.png" /></div>
+              <div class="name">收徒赚钱</div>
+              <div class="remark">邀请好友获奖励</div>
+          </div>
+      </div>
+      <div id="FRMMContianerbody">
+          <div onClick="OpenFrame('app.aspx?action=default&taskerModel=\u5feb\u901f\u4efb\u52a1&token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/kuaishu.png) left center no-repeat; background-size: cover;">
+            <div class="ico"><img src="template/images/ico_index_fask.png" /></div>
+            <div class="name">快速任务</div>
+            <div class="remark">快速完成领奖励</div>
+        </div>
+        <div style="width: 3px; height: 100%;"></div>
+        <div onClick="OpenFrame('app.aspx?action=default&taskerModel=\u622a\u56fe\u4efb\u52a1&token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/jietu.png) left center no-repeat;background-size: cover;">
+            <div class="ico"><img src="template/images/ico_index_hot.png" /></div>
+            <div class="name">截图任务</div>
+            <div class="remark">上传截图得奖励</div>
+        </div>
+      </div>
+      <div id="FRMMContianerbody1">
+        <div onClick="OpenFrame('amount.aspx?action=default&type=default&token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/zhanghu.png) left center no-repeat; background-size: cover;">
+            <div class="ico"><img src="template/images/ico_index_amount.png" /></div>
+            <div class="name">账户明细</div>
+            <div class="remark">收支多少看这里就知道啦！</div>
+        </div>
+      </div>
+    <!--   <div id="FRMMContianerbody1">
+        <div onClick="OpenFrame('sign.aspx?action=default&token={ke.function.strtokey/}')" class="contianer" style="background: url(template/images/qiandao.png) left center no-repeat; background-size: cover;">
+            <div class="ico"><img src="template/images/ico_index_sign.png" /></div>
+            <div class="name">每日签到</div>
+            <div class="remark">每日连续签到有奖励！</div>
+        </div>
+      </div> -->
+  </div>
+<div style="display: block; clear: both; width: 100%; margin: 126px auto 0px auto; text-align: center; clear: both; overflow: hidden; ">
+<img src="template/images/btnfot.png" style="width:86px;" />
+<div style="font-size:10px;color:#a6a6a6">Accuracy Precise Efficiently Fast Burst</div>
+</div>
+
+<div title="新手红包区域" {ke.function.showRookie/} id="FRMREDMaster">
+	<div id="FRMREDContianer">
+		<div id="FRMREDContianerBox">
+			<div id="FRMREDContianerTitle">新手红包</div>
+			<div style="display:block; clear:both; width:100%;font-size:0px;height:6px;"></div>
+			<div id="FRMREDContianerTips">恭喜您获得一个新手红包,邀请好友可获得更多奖励哦</div>
+			<div style="display:block; clear:both; width:100%;font-size:0px;height:15px;"></div>
+			<div onClick="RedReceive();" id="FRMREDContianerBtns">领取红包</div>
+		</div>
+	</div>
+</div>
+
+<div title="填写上级师父ID" {ke.function.showInvited/} id="FRMSHAREMaster">
+	<div id="FRMSHAREContianer">
+		<div id="FRMSHAREContianerTitle">填写师傅ID拜师</div>
+		<div style="display:block; clear:both; width:100%;font-size:0px;height:6px;"></div>
+		<input type="tel" id="FRMSHAREParentID" placeholder="请填写邀请ID" name="ParentID" />
+		<div style="display:block; clear:both; width:100%;font-size:0px;height:15px;"></div>
+		<div id="FRMSHAREContianerBtns">
+			<input type="button" onClick="shareConfirm();" operate="shareConfirm" value="确认" />
+            <!--<input type="button" onClick="shareCancel();" operate="shareCancel" value="我没有师傅" />-->
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
+<script language="javascript">
+/****************************************************************************************
+*确认邀请ID信息
+*****************************************************************************************/
+var shareConfirm = function()
+{
+	/************************************************************************************
+	*获取并验证邀请人ID的合法性
+	*************************************************************************************/
+	var ParentID = parseInt($("#FRMSHAREParentID").val()) || 0;
+	if(ParentID==undefined){ShowMessager({"text":"请填写邀请人ID"});return false;}
+	else if(ParentID==null){ShowMessager({"text":"请填写邀请人ID"});return false;}
+	else if(ParentID<=0){ShowMessager({"text":"请填写邀请人ID"});return false;}
+	else if(ParentID<=99999){ShowMessager({"text":"邀请人ID不合法,请重新填写"});return false;}
+	/************************************************************************************
+	*获取并验证邀请人ID的合法性
+	*************************************************************************************/
+	var options = {"url":"index.aspx?action=shareConfirm&token={ke.function.strtokey/}"};
+	options["data"]={"parentid":ParentID};
+	options["back"] = function(rspJson){
+		try{$("#FRMSHAREMaster").hide();}
+		catch(err){}
+		try{
+			ShowMessager({
+				"type":"success",
+				"text":"拜师成功",
+				"html":true
+			});
+		}catch(err){}
+	};
+	/**********************************************************************************
+	*开始发送请求数据信息
+	***********************************************************************************/
+	if(options!=undefined && options!=null 
+	&& options["url"]!=undefined && options["url"]!=null
+	&& options["url"]!=""){
+		try{getResponse(options);}
+		catch(err){}
+	};
+};
+/****************************************************************************************
+*放弃邀请ID信息
+*****************************************************************************************/
+var shareCancel = function()
+{
+	/************************************************************************************
+	*获取并验证邀请人ID的合法性
+	*************************************************************************************/
+	var options = {"url":"index.aspx?action=shareCancel&token={ke.function.strtokey/}"};
+	options["back"] = function(rspJson){
+		try{$("#FRMSHAREMaster").hide();}
+		catch(err){}
+	};
+	/**********************************************************************************
+	*开始发送请求数据信息
+	***********************************************************************************/
+	if(options!=undefined && options!=null 
+	&& options["url"]!=undefined && options["url"]!=null
+	&& options["url"]!=""){
+		try{getResponse(options);}
+		catch(err){}
+	};
+};
+/****************************************************************************************
+*领取新手红包奖励
+*****************************************************************************************/
+var RedReceive = function()
+{
+	var options = {"url":"index.aspx?action=rookie&token={ke.function.strtokey/}"};
+	options["back"] = function(rspJson){
+		try{$("#FRMREDMaster").hide();}
+		catch(err){}
+		try{
+			var strTemplate="";
+			strTemplate+="恭喜您获得红包奖励";
+			strTemplate+="<font style=\"color:#cd0000;margin:0px 4px;\">";
+			strTemplate+=""+rspJson["amount"]+"</font>";
+			strTemplate+="元";
+			ShowMessager({
+				"type":"success",
+				"text":strTemplate,
+				"html":true
+			});
+		}catch(err){}
+	};
+	/**********************************************************************************
+	*开始发送请求数据信息
+	***********************************************************************************/
+	if(options!=undefined && options!=null 
+	&& options["url"]!=undefined && options["url"]!=null
+	&& options["url"]!=""){
+		try{getResponse(options);}
+		catch(err){}
+	};
+}
+</script>

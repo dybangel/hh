@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>帮助中心</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+table td{ line-height:22px; font-size:12px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">交易系统</a>
+<a href="?action=content">内容管理</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">帮助中心 >> 交易系统</td>
+</tr>
+<tr operate="system" class="hback">
+<td>
+<h3>交易系统由三大模块构成</h3>
+<ul>
+<li>1、<a href="Invest.aspx" target="_blank">用户投资模块</a></li>
+<li>2、<a href="Alipay.aspx" target="_blank">用户提现模块</a></li>
+<li>3、<a href="Deal.aspx" target="_blank">投资提现配对模块</a></li>
+</ul>
+<div style="border-top:#ccc solid 1px;padding-top:5px;margin-top:5px; clear:both;"></div>
+<div>用户成功通过注册登录流程以后,首先进入投资模块(抢单),选择一个投资金额，进行<a href="Invest.aspx?action=add">投资</a></div>
+<div>用户完成一轮投资以后,将投资总额的百分比作为当前投资的收益，本金加收益完成即可使用<a href="Alipay.aspx?action=add">提现</a>模块功能,提现资金由投资用户提供</div>
+<div>用户与用户投资提现交易中会行程一个配对模式(交易号),每一个交易号的产生即说明有一个投资用户和提现用户共同组成,交易金额为投资与提现用户中的最小金额者,每一个交易号产生后，投资用户需要在指定的时间段以内向提现用户汇款(下线交易)，用户收到汇款以后即完成一轮交易。<a href="Deal.aspx?action=add">点击这里添加交易配对</a></div>
+</td>
+</tr>
+
+<tr>
+<td class="Base" colspan="4">帮助中心 >> 积分说明</td>
+</tr>
+<tr operate="system" class="hback">
+<td>
+用户完成投资后会产生一定数量的积分,通过积分可提升用户等级(获得跟多的收益)
+</td>
+</tr>
+
+<tr>
+<td class="Base" colspan="4">帮助中心 >> 诚信度说明</td>
+</tr>
+<tr operate="system" class="hback">
+<td>
+用户初始诚信度为100，每次交易失败（汇款延时或者未还款）,将扣除20的诚信度
+</td>
+</tr>
+
+<tr>
+<td class="Base" colspan="4">帮助中心 >> 动态钱包</td>
+</tr>
+<tr operate="system" class="hback">
+<td>
+1、用户可以通过分享收徒,收徒成功后徒弟每一轮投资上级用户都可以获得一定的动态收益,动态收益金额比例跟随当前上级用户等级波动,<a href="Group.aspx">点击这里查看用户等级</a><br/>
+2、动态钱包提现,动态钱包提现与静态钱包提现类似,提现资金由投资用户提供,动态钱包为周期性提现,用户注册时间为准，每过一个礼拜才可以提现一次。
+</td>
+</tr>
+
+</table>
+</body>
+</html>

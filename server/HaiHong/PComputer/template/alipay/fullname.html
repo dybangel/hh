@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>绑定微信</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css">
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/zepto.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">绑定微信</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div style="display:block;padding:12px 6px; background:#f8f8f8;color:#999">微信提现要进行资料绑定,请填写真实有效的资料</div>
+<form id="frm-formContianer" action="../api/alipay.aspx" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="savename" />
+<table width="100%" id="frm-input" border="0" cellspacing="0" cellpadding="0">
+  <tr class="hback">
+  	<td class="spacing"></td>
+    <td style="width:60px" class="name">微信账号</td>
+    <td class="value"><input type="text" class="inputtext" notkong="true" placeholder="请填写您的微信账号" name="strWechat" /></td>
+  </tr>
+  <tr class="hback">
+  	<td class="spacing"></td>
+    <td style="width:60px" class="name">真实姓名</td>
+    <td class="value"><input type="text" class="inputtext" notkong="true" placeholder="请填写您的名字" name="Fullname" /></td>
+  </tr>
+  <tr class="operback">
+    <td colspan="3"><input type="button" operate="submit" value="立即绑定" /></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+var SaveBack = function(){
+	try{
+		ShowResponse({
+			"type":"altRedirect",
+			"success":"true",
+			"tips":"微信资料绑定成功,现在可以开始提现了",
+			"url":"alipay.aspx?action=wechat"
+		});	
+	}catch(err){}
+}
+</script>

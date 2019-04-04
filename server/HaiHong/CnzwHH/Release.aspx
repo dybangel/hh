@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Release.aspx.cs" Inherits="Fooke.Web.Admin.Release" %>

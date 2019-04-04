@@ -1,0 +1,35 @@
+<div style="clear:both; width:100%; display:block; font-size:0px; height:50px;"></div>
+<div id="FOTContianer">
+	<div onclick="window.location='index.aspx'" {ke.if("{@menu/}"=="safecode")} class="current"{/ke.if} operate="menu">
+		<div class="name">首页</div>
+	</div>
+	<div onclick="window.location='app.aspx'" {ke.if("{@menu/}"=="app")} class="current"{/ke.if} operate="menu">
+		<div class="name">任务</div>
+	</div>
+	<div onclick="window.location='transaction.aspx'" {ke.if("{@menu/}"=="trans")} class="current"{/ke.if} operate="menu">
+		<div class="name">讨论</div>
+	</div>
+	<div onclick="window.location='money.aspx'" {ke.if("{@menu/}"=="money")} class="current"{/ke.if} operate="menu">
+		<div class="name">发现</div>
+	</div>
+	<div onclick="window.location='home.aspx'" {ke.if("{@menu/}"=="user")} class="current"{/ke.if} operate="menu">
+		<div class="name">我的</div>
+	</div>
+</div>
+<script language="javascript">
+try{
+	document.documentElement.addEventListener('touchstart', function (event) {
+	  if (event.touches.length > 1) {
+		event.preventDefault();
+	  }
+	}, false);
+	var lastTouchEnd = 0;
+	document.documentElement.addEventListener('touchend', function (event) {
+	  var now = Date.now();
+	  if (now - lastTouchEnd <= 300) {
+		event.preventDefault();
+	  }
+	  lastTouchEnd = now;
+	}, false);
+}catch(err){}
+</script>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>微信菜单</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">菜单管理</a>
+<a href="?action=add">添加菜单</a>
+<a class="current">编辑菜单</a>
+<a href="?action=to">更新菜单</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="menuid" value="{ke.function.menuid/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">微信菜单 >> 编辑菜单</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">菜单名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写菜单名称" value="{ke.function.menuname/}" notkong="true" name="MenuName" size="30" />
+{ke.function.isdisplay/}
+<span>菜单名称长度请限制在1-10个汉字之间</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">父级菜单</td>
+<td class="singlebtn">
+<select name="ParentID">
+<option value="0">作为一级菜单</option>
+{ke.function.options/}
+</select>
+<span>一级菜单最多3个，二级菜单最多5个</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">菜单动作</td>
+<td class="singlebtn">
+<select name="strRequest" id="frm-strRequest">
+{ke.function.action/}
+</select>
+<span>展示子菜单只适用于一级菜单</span>
+</td>
+</tr>
+
+<tr style="display:none" id="text" operate="hide" class="hback">
+<td class="tips" valign="top">回复内容</td>
+<td>
+<textarea style="width:460px;height:60px" class="inputtext" placeholder="请填写文本回复内容,支持连接代码" id="strDesc" name="strDesc" />{ke.function.strDesc/}</textarea>
+<br/>请填写文本回复内容,支持连接代码,400汉字以内
+</td>
+</tr>
+
+<tr  style="display:none" id="mater" operate="hide" class="hback">
+<td class="tips">选择素材</td>
+<td>
+<select name="MaterID">
+<option value="0">请选择一个素材</option>
+{ke.function.MaterList/}
+</select>
+没有素材？点击这里<a href="WeChatMater.aspx?action=add">添加</a>
+</td>
+</tr>
+
+<tr style="display:none" id="link" operate="hide" class="hback">
+<td class="tips">跳转地址</td>
+<td>
+<input type="text" placeholder="请填写完整的Url跳转地址，如http://www.my.com" name="strLinks" value="{ke.function.strLinks/}" class="inputtext" size="45" id="frm-links-txt" />
+<input type="button" class="button" id="frm-selector-links-btns" value="选取地址" />
+<span>请输入点击连接后跳转的Url地址</span>
+</td>
+</tr>
+
+<tr style="display:none" id="api" operate="hide" class="hback">
+<td class="tips">接口地址</td>
+<td>
+<input type="text" placeholder="请填写完整的Url地址，如http://www.my.com" name="APIurl" value="{ke.function.apiurl/}" class="inputtext" size="45" />
+<span>请填写接口APIUrl地址</span>
+</td>
+</tr>
+
+<tr id="txt" class="hback">
+<td class="tips">菜单排序</td>
+<td>
+<input type="text" name="SortID" value="{ke.function.sortid/}" class="inputtext" size="10" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<div title="选取地址【双击选择】" id="frm-selector-addlinks" class="dialog-box"></div>
+<script language="javascript" src="inc/BufferHelper.js"></script>
+<script language="javascript">
+$("#frm-selector-links-btns").click(function(){
+	$("#frm-selector-addlinks").SelectorLinks(function(links){
+		if(links!=undefined && links!=""){
+			$("#frm-links-txt").val(links);
+			$("#frm-selector-addlinks").dialog('close');
+		}
+	});
+});
+</script>
+<script language="javascript">
+    $(function () {
+        $("#frm-strRequest").change(function () {
+            setChange(this); ;
+        })
+    });
+    var setChange = function (obj) {
+        $("tr[operate=hide]").each(function () {
+            $(this).hide();
+        });
+        var val = $(obj).val();
+        $("tr#" + val).show("slow");
+    }
+    window.onload = function () {
+        try {
+           if($("#frm-strRequest")[0]!=undefined && $("#frm-strRequest")[0]!=null){
+				setChange($("#frm-strRequest")[0]); ;
+		   }
+        } catch (err) { }
+    }
+    $(function () {
+        $("select#selector").change(function () {
+            $("input[name=toUrl]").val(this.value);
+        })
+    })
+</script>
+
+
+

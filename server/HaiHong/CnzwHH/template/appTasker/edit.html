@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>计划任务</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<form id="frmForms" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="save" />
+<input type="hidden" name="appid" value="{ke.function.appid/}" />
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">应用名称</td>
+<td style="color:#cd0000; font-size:14px; font-weight:bold;">{ke.function.appname/}</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">开始时间</td>
+<td class="singlebtn">
+<input placeholder="请选择开始日期" size="12" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" value="{ke.function.starDate/}" name="StarDate" class="inputtext" /><span>任务开始执行时间</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">结束时间</td>
+<td class="singlebtn">
+<input placeholder="请选择开始日期" size="12" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" value="{ke.function.endDate/}" name="EndDate" class="inputtext" /><span>任务结束执行时间</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">执行间隔</td>
+<td class="singlebtn">
+<input placeholder="默认1440(1天)" size="12" type="text" value="{ke.function.Interval/}" name="Interval" class="inputtext" /><span>(单位分)相隔多少分钟执行一次(0=只执行一次)</span>
+</td>
+</tr>
+
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">投放数量</td>
+<td class="singlebtn">
+<input placeholder="纯数字" size="12" type="text" value="{ke.function.Kucun/}" name="Kucun" class="inputtext" /><span>计划内任务增加数量</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">奖励金额</td>
+<td class="singlebtn">
+<input placeholder="纯数字" size="12" type="text" value="{ke.function.Amount/}" name="Amount" class="inputtext" /><span>计划内任务奖励金额</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+
+<tr class="hback">
+<td style="background:#FFFFCC; line-height:22px;" colspan="2">
+<strong style="color:red">计划任务功能说明∶</strong>
+<br/>1、该功能按区段执行计划，同一个任务每天只支持，一次更新计划.<br/>
+2、计划任务执行时将任务剩余数量增至计划设置份数.同时也会将奖励金额同步为设置金额.
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

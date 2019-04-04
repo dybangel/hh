@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>处理提现申请</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{datetime}"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/ZeroClipboard.js"></script>
+<style type="text/css">
+font[ipay="0"]{ background:#CC0000;padding:6px 5px; color:#fff;}
+font[ipay="1"]{ background:#11952a;padding:6px 5px; color:#fff;}
+#frmContianer{ display:block; position:fixed; width:100%; height:100%; background:#f0f0f0; left:0px; bottom:0px; border-top:#ccc solid 1px;}
+#frmReplyContianer{ display:block; position:fixed; width:100%; height:60px;bottom:0px;}
+#frmContent{ width:100%; position:fixed;left:0px;top:0px;height:calc(100% - 64px);height:-moz-calc(100% - 64px);height:-webkit-calc(100% - 64px); background:#fff; border-bottom:#ccc solid 1px;}
+#strReply{ position:absolute; height:34px;top:8px; left:96px; width:-moz-calc(100% - 210px); width:calc(100% - 210px); width:-webkit-calc(100% - 210px);}
+#frmFileButton{ position:absolute;left:8px;top:8px; width:80px; height:50px;}
+#frmButton{ position:absolute;right:8px;top:8px; width:80px; height:50px;}
+</style>
+</head>
+<body>
+
+<!--<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td style="width:80px" class="tips">反馈用户</td>
+<td>{ke.function.nickname/}</td>
+<td class="tips">联系电话</td>
+<td>{ke.function.strMobile/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">反馈日期</td>
+<td>{ke.function.addtime.toDate(yyyy-MM-dd HH:mm)/}</td>
+<td class="tips">处理日期</td>
+<td>{ke.function.lastDate.toDate(yyyy-MM-dd HH:mm)/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">留言主题</td>
+<td colspan="3">{ke.function.strTitle/}</td>
+</tr>
+<tr class="hback">
+<td class="tips">留言内容</td>
+<td colspan="3">{ke.function.strContent/}</td>
+</tr>	
+<tr class="hback">
+<td class="tips">留言内容</td>
+<td colspan="3">
+</td>
+</tr>		
+</table>-->
+<div id="frmContianer">
+<iframe id="frmContent" name="frmContent" scrolling="yes" frameborder="0" src="Guest.aspx?action=list&GuestID={ke.function.GuestID/}" ></iframe>
+<div id="frmReplyContianer">
+<form id="FormContianer" action="?" enctype="multipart/form-data" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="saveimage" />
+<input type="hidden" name="GuestID" value="{ke.function.GuestID/}" />
+<input type="file" style="display:none" name="frmFile" accept="image/*" id="frmFile" />
+<input type="button" id="frmFileButton" onClick="$('#frmFile').click()" value="选择图片" />
+</form>
+<form id="FormContianerTo" action="Guest.aspx?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="listsave" />
+<input type="hidden" name="GuestID" value="{ke.function.GuestID/}" />
+<textarea class="inputtext" name="strReply" id="strReply" >{ke.function.strReply/}</textarea>
+<input type="button" id="frmButton" operate="submit" value="确认发送" />
+</form>
+</div>
+</div>
+</body>
+</html>
+<script language="javascript">
+var SaveBack = function(){
+	frmContent.location.reload();
+};
+/*******************************************************************************
+*监听网页事件函数信息
+********************************************************************************/
+$(function(){
+	$("#frmFile").change(function(event){
+		if(!window.FileReader){alert('未能支持图片上传,请更换您的浏览器');return false;}
+		if(!event){alert('发生未知错误,请刷新重试');return false;}
+		if(event.target.files==undefined){alert('未获取到上传文件信息!');return false;}
+		if(event.target.files.length<=0){alert('未获取到上传文件信息!');return false;}
+		if(event.target.files[0]==undefined){alert('未获取到上传文件信息!');return false;}
+		else if(event.target.files[0]==null){alert('未获取到上传文件信息!');return false;}
+		/***********************************************************************************
+		*楠岃瘉鏄惁鏈夐€夋嫨鏂囦欢
+		************************************************************************************/
+		var frmFile = event.target.files[0];
+		if(frmFile==undefined){alert('未获取到上传文件信息!');return false;}
+		else if(frmFile==null){alert('未获取到上传文件信息!');return false;}
+		else if(!frmFile.type.match('image.*')){alert('未获取到上传文件信息!');return false;}
+		/***********************************************************************************
+		*楠岃瘉涓婁紶鏂囦欢鏍煎紡
+		************************************************************************************/
+		try{
+			var fileName = frmFile["name"] || "";
+			if(fileName==undefined || fileName==""){alert('获取上传文件格式失败,请重试！');return false;}
+			var fileFlter = options["fileExc"] || "png|jpg|gif|bmp"; 
+			var fileTemp = fileName.split(".");
+			if(fileTemp.length<=0){alert('上传文件格式不合法,请上传指定的文件');return false;}
+			var fileExc = fileTemp[fileTemp.length-1] || "";
+			if(fileFlter.indexOf(fileExc)==-1){alert('获取文件后缀名格式错误,请重试');return false;}
+		}catch(err){}
+		/********************************************************************************
+		*楠岃瘉鍙岀┛鏂囦欢澶у皬
+		*********************************************************************************/
+		try{
+			var fileSize = parseInt(frmFile["size"]) || 0;
+			var maxSize = parseInt(options["fileSize"]) || 1024*1024;
+			if(fileSize>maxSize){alert('上传文件大小请限制在1M以内');return false;}
+		}catch(err){}
+		/***********************************************************************************
+		*开始上传文件
+		************************************************************************************/
+		try{ajaxSubmit($("#FormContianer")[0]);}catch(err){}
+	});
+});
+
+/********************************************************************************************
+*上传图片
+*********************************************************************************************/
+var StartUpload = function(theFile,back)
+{
+
+	var formData = new FormData();
+	if(theFile!=undefined && theFile!=null)
+	{formData.append("fileName",theFile);};
+	/*************************************************************************************************
+	* 鐢熸垚鎴浘
+	*************************************************************************************************/
+	try{
+		
+		formData.append('ishape',(parseInt(options['ishape']) || 1));
+		formData.append('sWidth',(parseInt(options['sWidth']) || 600));
+		formData.append('sHeight',(parseInt(options['sHeight']) || 750));
+	}catch(err){};
+	if(formData!=undefined && formData!=null 
+	&& theFile!=undefined && theFile!=null)
+	{
+		/********************************************************************************************
+		*缁欏嚭涓婁紶鍑嗗鎻愮ず
+		*********************************************************************************************/
+		var axOptions = {};
+		axOptions['url'] = options['url'] || 'SWFupload.aspx?action=start';
+		axOptions['type'] = 'POST';
+		axOptions['data'] = formData;
+		axOptions['dataType'] = 'json';
+		axOptions['async'] = false;
+		axOptions['contentType'] = false;
+		axOptions['processData'] = false;
+		axOptions['success'] = function(opt)
+		{
+			try{
+				if(!opt && typeof(opt)!='object'){alert('上传图片错误!');return false;}
+				if(!opt['success']){tipsMessage((opt['tips'] || '上传图片错误'));return false;}
+				else if(opt['success']!='true'){tipsMessage((opt['tips'] || '上传图片错误'));return false;}
+				else if(opt['url'] && opt['url']!='')
+				{
+					AddAlbum(opt['url']);
+					InsertAlbumEditor(opt['url']);
+					ShowLastAlbum();
+				}
+			}catch(err){}
+			return false;
+		};
+		axOptions['error'] = function(err){
+			tipsMessage('涓婁紶澶辫触');
+		};
+		/********************************************************************************************
+		*鍑嗗涓婁紶鏂囦欢
+		*********************************************************************************************/
+		if(jQuery!=undefined && jQuery!=null 
+		&& jQuery.ajax!=undefined && jQuery.ajax!=null 
+		&& axOptions!=undefined && axOptions!=null)
+		{
+			jQuery.ajax(axOptions);	
+		};
+	};
+};
+
+</script>

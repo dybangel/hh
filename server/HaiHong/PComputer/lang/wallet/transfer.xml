@@ -1,0 +1,30 @@
+﻿<language>
+<zh>
+<zh.发送>发送</zh.发送>
+<zh.可用余额>可用余额</zh.可用余额>
+<zh.等待释放>等待释放</zh.等待释放>
+<zh.冻结金额>冻结金额</zh.冻结金额>
+<zh.接收地址>接收地址</zh.接收地址>
+<zh.请填写接收钱包地址>请填写接收钱包地址</zh.请填写接收钱包地址>
+<zh.发送账户>发送账户</zh.发送账户>
+<zh.发送数量>发送数量</zh.发送数量>
+<zh.请填写发送数量>请填写发送数量</zh.请填写发送数量>
+<zh.交易密码>交易密码</zh.交易密码>
+<zh.请填写交易密码>请填写交易密码</zh.请填写交易密码>
+<zh.立即发送>立即发送</zh.立即发送>
+</zh>
+<en>
+<en.发送>Send</en.发送>
+<en.可用余额>Balance</en.可用余额>
+<en.等待释放>Release</en.等待释放>
+<en.冻结金额>Frozen</en.冻结金额>
+<en.接收地址>Receiving address</en.接收地址>
+<en.请填写接收钱包地址>Please fill in receiving wallet address</en.请填写接收钱包地址>
+<en.发送账户>Send account</en.发送账户>
+<en.发送数量>Send quantity</en.发送数量>
+<en.请填写发送数量>Quantity</en.请填写发送数量>
+<en.交易密码>Password</en.交易密码>
+<en.请填写交易密码>Your transaction password</en.请填写交易密码>
+<en.立即发送>Submit</en.立即发送>
+</en>
+</language>

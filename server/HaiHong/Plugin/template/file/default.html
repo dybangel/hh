@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择资源</title>
+</head>
+<link href="../inc/images/jqeury-ui.css" type="text/css" rel="stylesheet" />
+<script language="javascript" src="../inc/jQuery.js"></script>
+<script language="javascript" src="../inc/jQuery-ui.js"></script>
+<style type="text/css">
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent;}
+body{ font-size:12px; font-family:"宋体"; color:#444557;}
+#frm-search-box{ width:100%; position:fixed; width:100%;top:0px;left:0px;height:34px; background:#f0f0f0; border-bottom:#ccc solid 1px;}
+#frm-search-pos{ width:96%; margin:0px auto; margin-top:5px; height:24px; line-height:24px; overflow:hidden;}
+#frm-keywords-txt{height:22px; line-height:22px; border:#5a89d1 solid 1px; width:100px;padding:0px 4px;}
+#frm-start-date{height:22px; line-height:22px; border:#5a89d1 solid 1px; width:100px;padding:0px 4px;}
+#frm-end-date{height:22px; line-height:22px; border:#5a89d1 solid 1px; width:100px;padding:0px 4px;}
+#frm-submit-btns{ border:#5a89d1 solid 1px; background:#5a89d1; color:#fff;padding:3px 12px;}
+#frm-page-box{ position:fixed; width:100%; height:40px; background:#f00; left:0px;bottom:0px;}
+#frm-resources-box{ position:relative;top:40px; width:100%; height:100%; background:#f00;}
+</style>
+<body>
+<div id="frm-search-box">
+	<div id="frm-search-pos">
+		<input type="text" placeholder="按名称查找文件" id="frm-keywords-txt" name="keywords" />
+		<input type="text" placeholder="按日期查找文件" id="frm-start-date" name="startDate" />
+		<input type="text" placeholder="按日期查找文件" id="frm-end-date" name="startDate" />
+		<input type="button" id="frm-submit-btns" value="搜索" />
+	</div>
+</div>
+<div id="frm-resources-box">{ke.function.list/}</div>
+<div id="frm-page-box"></div>
+</body>
+</html>

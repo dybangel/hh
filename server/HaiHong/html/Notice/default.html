@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>系统公告-中农链</title>
+<meta name="description" content="中农链" />
+<meta name="keywords" content="中农链" />
+<meta name="application-name" content="中农链"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<link href="/member/template/images/style.css?date=2018-07-30 14:29:48" rel="stylesheet" type="text/css" >
+<link href="/member/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="/member/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="/member/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="/member/inc/jquery.js"></script>
+<script language="javascript" src="/member/inc/jquery.form.js"></script>
+<script language="javascript" src="/member/inc/forwork.js?2018-07-30 14:29:48"></script>
+<script language="javascript">
+try{
+	document.documentElement.addEventListener('touchstart', function (event) {
+	  if (event.touches.length > 1) {
+		event.preventDefault();
+	  }
+	}, false);
+	var lastTouchEnd = 0;
+	document.documentElement.addEventListener('touchend', function (event) {
+	  var now = Date.now();
+	  if (now - lastTouchEnd <= 300) {
+		event.preventDefault();
+	  }
+	  lastTouchEnd = now;
+	}, false);
+}catch(err){}
+</script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#fenyeContianer{ display:block; width:100%; border-top:#eee solid 1px; border-bottom:#eee solid 1px; margin:0px auto; clear:both;}
+#frmNewsList{ display:block; width:100%; background:#fff; clear:both;}
+#frmNewsList div.items{ clear:both; border-bottom:#efefef solid 1px;padding:10px 0px; text-align:left; width:98%; margin-left:2%; background:url("/member/template/images/index_18s.png") center right no-repeat; background-size:8px 12px; background-position:98%;}
+#frmNewsList div.items:last-child{ border:0px;}
+</style>
+</head>
+<body style="background:#f3f3f3">
+<a href="/html/Cooperation/default.html">新闻动态</a><a href="/html/Notice/default.html">系统公告</a>
+<li><a href="/items/items.aspx?action=show&showid=100003&classid=10011">特变电工工业园区智能微电网解决方案推动微能源网落</a></li><li><a href="/items/items.aspx?action=show&showid=100002&classid=10011">测试文档第三篇</a></li><li><a href="/items/items.aspx?action=show&showid=100001&classid=10011">这是一篇测试的文章信息</a></li><li><a href="/items/items.aspx?action=show&showid=100000&classid=10011">这是一篇测试的文章信息</a></li>
+
+<div id="frmNewsList">
+
+<div class="items" onclick="window.location='/items/items.aspx?action=show&showid=100003&classid=10011'">特变电工工业园区智能微电网解决方案推动微能源网落地应用</div>
+
+<div class="items" onclick="window.location='/items/items.aspx?action=show&showid=100000&classid=10011'">这是一篇测试的文章信息</div>
+
+</div>
+<div class="fenyePageBar" id="fenyePageBar" operate="fenyePageBar"><a>共4条数据,每页2条,当前第1页</a><a href="/html/Notice/default_1.html">首页</a><a href="javascript:void(0)">上一页</a><a href="/html/Notice/default_2.html">下一页</a><a href="/html/Notice/default_2.html">尾页</a><select onchange="window.location=this.value"><option value="/html/Notice/default_1.html" selected="selected">第1页</option><option value="/html/Notice/default_2.html">第2页</option></select></div>
+</body>
+</html>

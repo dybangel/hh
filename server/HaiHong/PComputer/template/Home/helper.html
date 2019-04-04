@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>帮助中心</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="config.aspx?{timestamp}"></script>
+<script language="javascript" src="inc/clipboard.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+#USERContianer{ display:block;clear:both;margin:0px auto;padding:12px; text-align:center;overflow:hidden;}
+#USERContianerBox{ display:block; clear:both; width:100%; margin:0px auto; position:relative; height:140px; background:#fff; border-radius:8px; overflow:hidden;color:#969696}
+#USERContianerTitle{ display:block; clear:both; position:absolute;left:12px;top:12px;color:#cccccc; font-size:20px; font-weight:300;}
+#ICOContainer{ display:block; clear:both; position:absolute;left:20px;top:20px; width:46px; height:46px; border-radius:50%; overflow:hidden; text-align:center;}
+#ICOContainer img{ width:100%; height:100%; display:block; clear:both; margin:0px auto; border-radius:50%;}
+#IDContianer{ display:block; clear:both; position:absolute;left:74px;top:20px; font-size:16px;color:#676767; font-family:Geneva, Arial, Helvetica, sans-serif; font-weight:400;}
+#ALIButton{ display:block; width:100px; background:#f9af9c;color:#fff; height:22px; line-height:20px; text-align:center; border-radius:16px; position:absolute;right:12px;top:20px;}
+#SYContianerFoter{ display:block; clear:both; position:absolute; left:74px;top:46px; font-size:12px;}
+#AMTContianer{ display:block; clear:both; position:absolute;left:0;top:86px; border-top:#efefef solid 1px; width:100%;}
+#AMTTXContianer{ display:block; clear:both; width:50%; position:absolute;left:0px;top:0px;}
+#AMTTDContianer{ display:block; clear:both; width:50%; position:absolute;right:0px;top:0px; border-left:#efefef solid 1px;}
+#AMTContianer span.name{ display:block;width:100%;padding:3px 0px; text-align:center;}
+#AMTContianer span.num{display:block;width:100%;padding:4px 0px; text-align:center;color:#f56638; font-family:Geneva, Arial, Helvetica, sans-serif;}
+
+#TABContianer{display:block;clear:both;margin:0px auto;padding:0px 12px; text-align:center;overflow:hidden;}
+#FRMMENUContianer{ width:100%; margin:0px auto; text-align:center; clear:both; border-collapse:collapse; border-spacing:0px 0px; background:#fff; overflow:hidden; border-radius:8px;}
+#FRMMENUContianer tr.hback{ border-bottom:#efefef solid 1px;}
+#FRMMENUContianer td{padding:8px 8px;}
+#FRMMENUContianer td.ico{padding:8px 0px; clear:both; width:46px; text-align:center;}
+#FRMMENUContianer img.ico{ display:block; clear:both; margin:0px auto;padding:0px;width:24px;}
+#FRMMENUContianer td.go{ background:url(template/images/FrmNext.png) center center no-repeat; width:40px; background-size:14px 18px;}
+#FRMMENUContianer td.name{ text-align:left;}
+
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">帮助中心</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:12px"></div>
+<div id="TABContianer">
+<table width="100%" id="FRMMENUContianer" border="0" cellspacing="0" cellpadding="0">
+  <tr onClick="OpenFrame('Single.aspx?identify=Faq')" class="hback">
+  	<td class="ico"><img class="ico" src="template/images/ico_helper_faq.png" /></td>
+	<td class="name">常见问题</td>
+    <td class="go"></td>
+  </tr>
+  <tr onClick="OpenFrame('Single.aspx?identify=service')" class="hback">
+  	<td class="ico"><img class="ico" src="template/images/ico_helper_service.png" /></td>
+	<td class="name">联系客服</td>
+    <td class="go"></td>
+  </tr>
+  <tr onClick="OpenFrame('Single.aspx?identify=about')" class="hback">
+  	<td class="ico"><img class="ico" src="template/images/ico_helper_about.png" /></td>
+	<td class="name">关于我们</td>
+    <td class="go"></td>
+  </tr>
+  
+  <tr onClick="OpenFrame('Single.aspx?identify=Business')" class="hback">
+  	<td class="ico"><img class="ico" src="template/images/ico_helper_business.png" /></td>
+	<td class="name">商务合作</td>
+    <td class="go"></td>
+  </tr>
+</table>
+</div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:12px"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加标签分类</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">标签管理</a>
+<a href="label/items.aspx?action=add">添加标签</a>
+<a href="?action=classlist">标签分类</a>
+<a href="?action=addclass" class="current">添加分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="FormContianer" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="addclassave" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">标签管理 >> 添加分类</td>
+</tr>
+<tr class="hback">
+<td class="tips">目录名称</td>
+<td>
+<input type="text" class="inputtext" value="" placeholder="请填写目录" name="className" notkong="true" size="20" />
+<span>标签分类方便管理标签</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">上级分类</td>
+<td>
+<select name="ParentID">
+<option value="0">系统根目录</option>
+{ke.function.options/}
+</select>
+<span>请选择标签目录的上级分类</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips" valign="top">描述信息</td>
+<td>
+<textarea style="width:450px;height:60px;" placeholder="用简短的信息说明分类存放标签类型" class="inputtext" name="Descrption"></textarea>
+</td>
+</tr>
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

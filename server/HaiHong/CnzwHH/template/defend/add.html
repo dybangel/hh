@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>数据维护</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/jquery.defend.js"></script>
+<style type="text/css">
+#frm-columns{-moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}
+#frm-columns a{padding:8px 12px;background: -ms-linear-gradient(top, #f4f4f4, #d1d5d0 8%);background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#f4f4f4), to(#d1d5d0));background: -moz-linear-gradient(top, #f4f4f4, #d1d5d0 8%); border-radius:2px; border:#afafba solid 1px; color:#444557; margin-left:8px; cursor:pointer; margin-top:8px; float:left;}
+#frm-columns a:hover{background: -ms-linear-gradient(top, #f4f4f4, #a0a0a0 8%);background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#f4f4f4), to(#a0a0a0));background: -moz-linear-gradient(top, #f4f4f4, #a0a0a0 8%);border:#a0a0a0 solid 1px;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">语句列表</a>
+<a href="?action=add" class="current">添加语句</a>
+<a href="?action=text">执行SQL语句</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="3">数据维护 >> 编辑语句</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">维护名称</td>
+<td colspan="2" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写数据维护语句名称" value="{ke.function.defendName/}" notkong="true" name="DefendName" size="30" />
+</td>
+</tr>
+
+<tr operate="system" class="hback" style="background:#f0f0f0">
+<td class="tips" valign="top">
+<div style="padding:3px 0px;">执行语句</div>
+<div style="padding:3px 0px">
+<select style="width:100px;" id="frm-table">
+	<option value="">选择数据表</option>
+	{ke.function.options/}
+</select>
+</div>
+<div style="padding:3px 0px"><input type="button" value="插入表名" id="frm-add" /></div>
+<div style="padding:3px 0px"><input type="button" value="查询语句" id="frm-select" /></div>
+<div style="padding:3px 0px"><input type="button" value="添加语句" id="frm-insert" /></div>
+<div style="padding:3px 0px"><input type="button" value="删除语句" id="frm-delete" /></div>
+<div style="padding:3px 0px"><input type="button" value="修改修改" id="frm-update" /></div>
+</td>
+<td style="width:700px;padding:0px; background:#fff;">
+<textarea id="frm-defendtext" style="width:690px;  font-family:'宋体'; font-size:14px; line-height:24px; height:290px;padding-left:10px; border:0px; border-radius:0px; color:#008080" name="defendText"  placeholder="这里执行数据维护语句,包括数据查询,更新删除等" class="inputtext">{ke.function.defendText/}</textarea>
+</td>
+<td valign="top" id="frm-columns"></td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="2">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

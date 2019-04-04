@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>添加广告位</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">广告位管理</a>
+<a href="?action=add">添加广告位</a>
+<a href="?action=childlist&advid={ke.function.advid/}">广告管理</a>
+<a href="?action=addlist&advid={ke.function.advid/}">添加广告</a>
+<a class="current">编辑广告</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=editListsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="advId" value="{ke.function.advid/}" />
+<input type="hidden" name="Id" value="{ke.function.Id/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">广告位管理 >> {ke.function.advertname/} >> 编辑广告</td>
+</tr>
+<tr class="hback">
+<td class="tips">广告名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext title" style="width:300px" placeholder="请填写广告名称" value="{ke.function.title/}" name="title" notkong="true" size="20" />
+{ke.function.isdisplay/}
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">连接地址</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" value="{ke.function.strlink/}" notkong="true" placeholder="请填写点击事件跳转地址" name="strLink" size="36" /><span>标准url格式,如http://www.my.com/</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">广告图片</td>
+<td>{ke.function.event/}</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">显示排序</td>
+<td>
+<input type="text" value="0" name="sortid" class="inputtext" size="5" />
+<span>排序数字越大显示越靠前</span></td>
+</tr>
+
+<tr class="hback">
+<td class="tips">广告描述</td>
+<td>
+<textarea name="intro" class="inputtext" style="width:460px;height:60px;">{ke.function.intro/}</textarea>
+<br><span style="padding:2px 0px;">描述内容请限制在150个汉字以内,简要说明广告位摆放位置，作用等</span></td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+$("select[name=modals]").change(function(){
+	$("#frm-template").val("{app}/inc/advert/"+this.value+".js")
+});
+</script>

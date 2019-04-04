@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>计划任务</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">计划任务</a>
+<a href="?action=add">添加计划</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+<script language="javascript">
+var ExecuteTasker = function(appId)
+{
+	try{
+		if($.messager!=undefined && $.messager!=null && typeof($.messager)=='object'
+		&& $.messager.confirm!=undefined && $.messager.confirm!=null
+		&& typeof($.messager.confirm)=="function")
+		{
+			$.messager.confirm('系统提示','你确定要执行当前的计划?',function(isConfirm){
+				if(isConfirm){window.location='appTasker.aspx?action=excute&appid='+appId+'';}
+			});	
+		}
+		else if(window.confirm!=undefined && window.confirm!=null 
+		&& typeof(window.confirm)=='function' 
+		&& window.confirm('你确定要执行当前的计划'))
+		{
+			window.location='appTasker.aspx?action=excute&appid='+appId+'';
+		}
+	}
+	catch(err){}
+}
+</script>

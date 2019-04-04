@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>反馈详情</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/> 
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="apple-touch-icon-precomposed" href="{app}/h5/template/images/icon58.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{app}/h5/template/images/icon72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{app}/h5/template/images/icon120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{app}/h5/template/images/icon144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="512x512" href="{app}/h5/template/images/icon512.png" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/jquery.feiyongdan.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<style type="text/css">
+*{moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+</style>
+</head>
+<body>
+<table width="100%" style="width:100%" border="0" cellspacing="1" cellpadding="3" id="frm-input">
+<tr class="xingmu">
+<th class="tips">留言反馈 >> 反馈详情</th>
+</tr>
+<tr class="hback">
+<td style="width:12px; background:#fff;">
+<div><h2>{ke.function.strTitle/}</h2></div>
+<div style="line-height:24px;">{ke.function.strContent/}</div>
+<div style="line-height:24px; text-align:right;">{ke.function.Addtime.toDate(yyyy-MM-dd HH:mm)/}</div>
+<hr style="clear:both; width:100%; border-top:#dfdfdf solid 1px; height:0px; font-size:0px; background:#fff;" />
+<div style="line-height:24px;color:#cd0000; font-weight:bold;">客服回复:</div>
+<div style="line-height:24px;">{ke.function.strReply.toDate(yyyy-MM-dd HH:mm)/}</div>
+<div style="line-height:24px; text-align:right;">{ke.function.lastDate.toDate(yyyy-MM-dd HH:mm)/}</div>
+</td>
+</tr>
+
+<tr class="operback">
+<td>
+<input type="button" onClick="history.go(-1);" value="返回上一页" class="buttons" />
+<input type="button" value="删除反馈" class="button" url="Guest.aspx?action=del&GuestID={ke.function.GuestID/}" operate="delete" />
+</td>
+</tr>
+</table>
+</body>
+</html>

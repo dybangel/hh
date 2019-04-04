@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>与{ke.function.nickname/}交谈</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/clipboard.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/Refresh/minirefresh.js?{timestamp}"></script>
+<style type="text/css">
+::-webkit-input-placeholder {color:#a9a9a9;font-size:12px; font-weight:100; text-decoration:none; outline:none}
+::-moz-placeholder {color:#a9a9a9; font-size:12px; font-weight:100; text-decoration:none; outline:none}
+::-ms-input-placeholder{color:#a9a9a9;font-size:12px; font-weight:100; text-decoration:none; outline:none}
+#MAINContianer{ display:block; clear:both; width:100%; margin:0px auto;padding:0px; overflow:hidden; border-radius:0px;}
+#frmContianer{ display:block; clear:both; width:100%; height:100%; overflow:scroll; overflow-x:hidden;padding:0px;margin:0px;-webkit-overflow-scrolling:touch;}
+#frmContianer table.rightContext{ display:block; clear:both;;padding:0px; border-collapse:separate; border-spacing:10px 0px; float:right;}
+#frmContianer table.rightContext td.head{width:46px; overflow:hidden; vertical-align:top;padding:4px;}
+#frmContianer table.rightContext img.heads{ width:46px; height:46px; border-radius:50%;}
+#frmContianer table.rightContext td.context{padding:8px 0px;}
+#frmContianer table.rightContext div.text{ background:#0ace97;padding:10px; border-radius:12px;color:#fff; position:relative;}
+#frmContianer table.rightContext div.text:after{content:"";position:absolute;right:-6px;top:10px;width: 0; height: 0;border-top: 8px solid transparent;border-left: 12px solid #0ace97;border-bottom: 8px solid transparent;}
+#frmContianer table.rightContext td.context img{max-width:140px;border-radius:0px; display:block; margin:0px auto;}
+
+#frmContianer table.leftContext{ display:block; clear:both;;padding:0px; border-collapse:separate; border-spacing:10px 0px; float:left;}
+#frmContianer table.leftContext td.head{width:46px; overflow:hidden; vertical-align:top;padding:4px;}
+#frmContianer table.leftContext img.heads{ width:46px; height:46px; border-radius:50%;}
+#frmContianer table.leftContext td.context{padding:8px 0px;}
+#frmContianer table.leftContext div.text{ background:#201b54;padding:10px; border-radius:12px;color:#fff; position:relative;}
+#frmContianer table.leftContext div.text:after{content:"";position:absolute;right:-6px;top:10px;width: 0; height: 0;border-top: 8px solid transparent;border-left: 12px solid #201b54;border-bottom: 8px solid transparent;}
+#frmContianer table.leftContext td.context img{max-width:140px;border-radius:0px; display:block; margin:0px auto;}
+
+#FRMWTEContianer{ display:block; clear:both; width:100%; margin:0px auto; padding:0px; height:60px; position:absolute;left:0px; bottom:0px; background:#302a6e; z-index:998;-webkit-overflow-scrolling:none;}
+#FRMSButton{ display:block; clear:both; width:20%; height:40px; background:#0ace97; border-radius:4px;color:#fff; position:absolute;top:10px;right:8px;}
+#FRMTValue{ display:block; clear:both; width:70%; height:40px; background:#fff; border-radius:4px;color:#333; position:absolute;top:10px;left:8px;padding:0px 4px;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">与{ke.function.nickname/}交谈</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="MAINContianer">
+	<div style="position:fixed; width:100%;height:calc(100% - 100px);height:-webkit-calc(100% - 100px);height:-moz-calc(100% - 100px);left:0px;top:50px;" id="minirefresh" class="minirefresh-wrap">
+		<div class="minirefresh-scroll">
+			<div id="frmContianer"></div>
+		</div>
+	</div>
+</div>
+<div id="FRMWTEContianer">
+	<input type="text" value="" id="FRMTValue" placeholder="请填写聊天内容" />
+	<input type="button" onClick="SaveContext();" value="发送" id="FRMSButton" />
+</div>
+</body>
+</html>
+<script language="javascript">
+var SaveContext = function(obj)
+{
+	var strValue = ((document.querySelector('#FRMTValue').value) || '');
+	if(strValue==undefined){ShowMessager({'text':'聊天内容不能为空！'});return false;}
+	else if(strValue==null){ShowMessager({'text':'聊天内容不能为空！'});return false;}
+	else if(strValue==""){ShowMessager({'text':'聊天内容不能为空！'});return false;}
+	else if(strValue.length<=0){ShowMessager({'text':'聊天内容不能为空！'});return false;}
+	
+	var strContext = "";
+	strContext+="<configurationRoot>";
+	strContext+="<text>"+strValue+"</text>";
+	strContext+="</configurationRoot>";
+	try{
+		getResponse({
+			"url":"../api/webchat.aspx?action=save",
+			"data":{
+				"userid":"{ke.function.userid/}",
+				"orderid":"{ke.request(orderid)/}",
+				"ordermode":"聊天咨询",
+				"strContent":strContext
+			},
+			"type":"post",
+			"back":function(rspJson){
+				try{document.querySelector('#FRMTValue').value="";}
+				catch(err){}
+				try{$('#frmContianer').append(rightContext(rspJson));}
+				catch(err){}
+				try{$("#frmContianer").scrollTop($("#frmContianer").height()+200);}
+				catch(err){}
+			}
+		});
+	}catch(err){}
+};
+var rightContext = function(rspJson)
+{
+	
+	var strTemplate='';
+	strTemplate+='<table class=\"rightContext\">';
+	strTemplate+='<tr>';
+	strTemplate+='<td class=\"context\">';
+	strTemplate+='<div class=\"text\">'+getContext(rspJson['strcontext'])+'</div>';
+	strTemplate+='</td>';
+	strTemplate+='<td class=\"head\">';
+	strTemplate+='<img class=\"heads\" src=\"'+rspJson['formthumb']+'\" />';
+	strTemplate+='</td>';
+	strTemplate+='</tr>';
+	strTemplate+='</table>';
+	strTemplate+='<div style=\"display:block;clear:both;width:100%;font-size:0px;height:8px;\"></div>';
+	return strTemplate;
+};
+var leftContext = function(rspJson)
+{
+	var strTemplate='';
+	strTemplate+='<table class=\"leftContext\"><tr>';
+	strTemplate+='<td class=\"head\"><img class=\"heads\" src=\"'+rspJson['formthumb']+'\" /></td>';
+	strTemplate+='<td class=\"context\"><div class=\"text\">'+getContext(rspJson['strcontext'])+'</div></td>';
+	strTemplate+='</tr></table>';
+	strTemplate+='<div style=\"display:block;clear:both;width:100%;font-size:0px;height:8px;\"></div>';
+	return strTemplate;
+};
+
+var getContext = function(strContext)
+{
+	
+	strContext = strContext.replace(/<configurationRoot>/g,"");
+	strContext = strContext.replace(/<\/configurationRoot>/g,"");
+	strContext = strContext.replace(/<text>/g,"<div>");
+	strContext = strContext.replace(/<\/text>/g,"</div>");
+	strContext = strContext.replace(/<image>/g,"<img src=");
+	strContext = strContext.replace(/<\/image>/g," />");
+	return strContext;
+}
+/*************************************************************************************
+*获取交易卖出信息
+**************************************************************************************/
+var GetHistory = function()
+{
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+		&& rspJson['result']!=undefined && rspJson['result']!=null){
+			$(rspJson['result']).each(function(j,json){
+				if(json["userid"]=="{ke.function.userid/}"){
+					strTemplate+=rightContext(json);
+				}else{
+					strTemplate+=leftContext(json);
+				}
+				
+			});
+		};
+		try{$('#frmContianer').html(strTemplate);}catch(err){}
+		try{$("#frmContianer").scrollTop($("#frmContianer").height()+200);}
+		catch(err){}
+	};
+	
+	getResponse({
+		"url":"../api/webchat.aspx?action=default&userid={ke.function.userid/}&orderid={ke.request(orderid)/}",
+		"back":function(rspJson){
+			showRender(rspJson,false);
+		}
+	});
+};
+
+window.onload = function()
+{
+	try{GetHistory();}
+	catch(err){}
+	var number = 30;
+	var timer = setInterval(function(){
+		if(number>=0){number=number-1;}
+		else{
+			try{clearInterval(timer);}
+			catch(err){}
+			try{GetHistory();}
+			catch(err){}
+			try{number = 30;}
+			catch(err){}
+		}
+	},1000);
+};
+</script>

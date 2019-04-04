@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>转盘抽奖参数设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="Rotary.aspx">抽奖记录</a>
+<a class="current">转盘抽奖参数设置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 转盘抽奖参数设置</td>
+<td class="Base" colspan="2">参数配置 >> 中奖概率设置</td>
+</tr>
+
+<tr class="hback">
+<td style="width:80px;" class="tips">开启转盘抽奖</td>
+<td  class="singlebtn">{ke.function.isOpen/}<span>关闭后用户将无法使用转盘功能</span></td>
+<td style="width:80px;"  rowspan="6" valign="top" class="tips">概率设置区域<br/><div style="color:#999; line-height:20px;">中奖概率说明:将所有的抽中概率组合成一个集合，每一区的中奖概率则是各自集合抽中概率所占比例，如果不想某一区中奖，则将该区域抽中概率设置为0，抽中概率数字越大，中奖率越高!</div></td>
+<td rowspan="6" style="padding:0px;width:500px;">
+{ke.function.strPoints/}
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">消费金额设置</td>
+<td class="singlebtn">
+<input notkong="true" type="text" placeholder="请填写消费金额列表" value="{ke.function.strMinimum/}" class="inputtext" name="strMinimum" id="strMinimum" style="width:300px" />
+<span>用户参与大转盘最低消费</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td valign="top" class="tips">抽奖次数设置<br/><div style="color:#999;padding:2px 0px;">请设置不同下注金额抽奖次数</div></td>
+<td valign="top" style="padding:0px;">
+{ke.function.muns/}
+</td>
+</tr>
+
+<tr class="hback">
+<td valign="top" class="tips">转盘抽奖说明</td>
+<td valign="top">
+<textarea class="inputtext" name="fmtDescrption" style="width:96%;height:260px;">{ke.function.fmtDescrption/}</textarea>
+<span>请填写转盘说明内容信息,将显示在用户抽奖界面,可说明抽奖规则，中奖金额等</span>
+</td>
+</tr>
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

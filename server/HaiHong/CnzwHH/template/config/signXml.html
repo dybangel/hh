@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>分享设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="sign.aspx?action=default">签到记录</a>
+<a href="sign.aspx?action=list">记录日志</a>
+<a href="sign.aspx?action=red">红包奖励</a>
+<a href="config.aspx?action=SignXml" class="current">签到参数设置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmContianer" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="4">参数配置 >> 签到设置</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">开启奖励</td>
+<td colspan="3" class="singlebtn">
+{ke.function.signOpen/}
+<span>关闭后签到功能将失效</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">红包数量</td>
+<td colspan="3" class="singlebtn">
+<input notkong="true" type="text" isnumeric="true" placeholder="纯数字" value="{ke.function.Rednumber/}" class="inputtext" name="Rednumber" id="Rednumber" size="10" />
+<span>连续签到用户获得红包总数量</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">红包金额</td>
+<td colspan="3" class="singlebtn">
+<input notkong="true" type="text" isnumeric="true" placeholder="纯数字" value="{ke.function.Redamount/}" class="inputtext" name="Redamount" id="Redamount" size="10" />
+<span>抢夺红包用户获得奖励</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

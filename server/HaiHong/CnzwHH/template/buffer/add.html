@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>外汇币种</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">系统缓存</a>
+<a href="?action=add" class="current">添加节点</a>
+<a href="?action=buffer">更新系统缓存</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">系统缓存 >> 添加节点</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">节点名称</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写节点名称如API服务器等" value="" notkong="true" name="bufferName" size="30" />
+{ke.function.isdisplay/}
+<span>请填写名称</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">节点地址</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写节点网络地址如http://127.0.0.1" value="" notkong="true" name="bufferUrl" size="30" />
+<span>(内网或外网可访问IP)</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" placeholder="填写纯数字" value="" notkong="true" name="SortID" size="10" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script id="frm-Template" type="text/template">
+<tr class="hback">
+<td width="380"><input type="text" notkong="true" placeholder="请填写卡类型名称" size="20" class="inputtext" name="listName" /></td>
+<td><img operate="remove" src="template/images/ico/jian.png" /></td>
+</tr>
+</script>
+<script language="javascript">
+$("img[operate=\"add\"]").click(function(){
+	var strTemplate = $("#frm-Template").html();
+	if(strTemplate!=undefined && strTemplate!=""){
+		$("#frm-tabs").append(strTemplate);
+		$("#frm-tabs").find("img[operate=remove]").click(function(){
+			$(this.parentNode.parentNode).remove();
+		});
+	};
+});
+</script>

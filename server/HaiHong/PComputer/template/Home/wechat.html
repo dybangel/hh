@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>绑定微信</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<style type="text/css">
+#FRMContianer{ display:block; clear:both;padding:12px; margin:0px auto; overflow:hidden;}
+#TIPSContianer{ display:block; clear:both; background:#fff;border-radius:8px;padding:10px; overflow:hidden;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">绑定微信</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<form id="formContianer" method="post" action="../api/user.aspx" onSubmit="return _doPost(this)">
+<input type="hidden" name="action" value="savewechat" />
+<input type="hidden" name="isAsyn" value="true" />
+<input type="hidden" name="token" value="{ke.function.strtokey/}" />
+<div id="FRMContianer">
+	<div id="TIPSContianer">
+		<div style="width:100%; margin:0px auto;">绑定微信后可直接使用提现到零钱功能</div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:10px;"></div>
+		<div style="display:block; clear:both; width:100%; font-size:12px;color:#666"><font color="#FF0000">步骤一∶</font>长按并存储一下二维码图片，打开微信扫一扫识别该二维码，关注{ke.function.wechatname/}。<br/>点击<font style="color:#ff0000">【获取验证码】</font>菜单,获得绑定验证码填写在下方文本框当中</div>
+		<div style="clear:both;padding:12px 0px; width:150px;height:150px; margin:0px auto; text-align:center;">
+			<img src="{ke.function.qrcode/}" width="100%" style="border:#ddd solid 1px;" />
+		</div>
+		<div style=" display:block; clear:both;text-align:center; line-height:16px; font-size:11px;color:#999;">
+			<div>若长按无效，请直接截屏</div>
+			<div>同样可以通过微信识别屏中的二维码</div>
+		</div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:10px;"></div>
+		<div style="display:block; clear:both; width:100%; font-size:12px;color:#666"><font color="#FF0000">步骤二∶</font>填写验证码绑定微信帐号</div>
+		<div style="display:block; clear:both; width:100%; font-size:0px; height:10px;"></div>
+		<div style="display:block; clear:both; width:100%; margin:0px auto;padding:4px 0px; text-align:center;"><input style="width:86%; margin:0px auto; border:#c0c0c0 solid 1px;height:40px; text-align:center; line-height:40px;padding:2px;color:#999;border-radius:3px; font-size:16px;" type="text" value="" notkong="true" id="AuthorizationKey" placeholder="填写微信验证码" name="AuthorizationKey" /></div>
+	</div>
+	
+	<div style="display:block; clear:both; width:100%; font-size:0px; height:20px;"></div>
+	<div><input  type="button" value="绑定微信" operate="submit"  /></div>
+	
+</div>
+</form>
+</body>
+</html>
+<script language="javascript">
+var SaveBack = function(){
+	window.location.reload();
+}
+</script>

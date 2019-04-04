@@ -1,0 +1,43 @@
+/**********************************************************************************************************************
+*商品布局模块,瀑布流模式布局
+***********************************************************************************************************************/
+#tiles {list-style-type: none;position: relative;margin: 0;padding: 0;}
+#tiles li {width:-webkit-calc(50% - 14px);width:calc(50% - 14px);width:-moz-calc(50% - 14px);background-color: #ffffff;border: 1px solid #dedede;border-radius: 2px;-moz-border-radius: 2px; -webkit-border-radius: 2px;display: none; cursor: pointer;padding: 4px;}
+
+#tiles li div.title{clear:both;padding:4px 0px; width:100%; margin:0px auto; text-align:left; color:#282828; font-size:14px;}
+#tiles li div.amount{clear:both;padding:3px 0px; width:100%; margin:0px auto; text-align:left; color:#282828; font-size:14px; position:relative; height:20px; background:#fefefe;}
+#tiles li div.amount span.num{ color:#FF6600; font-weight:600; font-size:18px; position:absolute;left:0px;top:0px;}
+#tiles li div.amount span.sale{ color:#666; font-size:13px; position:absolute;right:0px;top:3px;;}
+
+#tiles li.inactive {visibility: hidden;opacity: 0;}
+#tiles li img{display: block; max-width:100%;}
+.progress-bar {background-color: #0BC20B; height: 2px;position: absolute;top: 0;left: 0;right: 0;width: 0;box-shadow: 0 1px 3px rgba(11, 194, 11, 0.2);-webkit-transition: width 0.3s ease-out;-moz-transition: width 0.3s ease-out;  -o-transition: width 0.3s ease-out; transition: width 0.3s ease-out;}
+.wookmark-placeholder { border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;background-color: #eee; border: 1px solid #dedede;z-index: -1;}
+
+/**********************************************************************************************************************
+*列表式布局
+***********************************************************************************************************************/
+.goods-tabs{ width:100%; border:0px; clear:both; margin:0px auto; border-collapse:collapse;}
+.goods-tabs tr.items{ background:#fff;}
+.goods-tabs tr.items td.spacing{ width:10px;padding:0px !important; font-size:0px;}
+.goods-tabs tr.items td.thumb{ width:80px;padding:8px 4px; text-align:center; border-bottom:#f4f4f4 solid 1px;}
+.goods-tabs tr.items td.thumb img.img{ width:80px; max-height:120px; border:#f4f4f4 solid 1px;padding:2px; background:#fff;}
+.goods-tabs tr.items td.text{padding:8px 4px; vertical-align:top; border-bottom:#f4f4f4 solid 1px;}
+.goods-tabs tr.items td.text div.title{ clear:both;padding:3px; font-size:14px; color:#333; line-height:20px;}
+.goods-tabs tr.items td.text div.descrption{ clear:both; width:100%; position:relative; height:28px; color:#666;}
+.goods-tabs tr.items td.text div.descrption span.amt{ color:#FF6600; font-weight:bold; font-size:16px;}
+.goods-tabs tr.items td.text div.descrption span.num{ position:absolute; right:8px; font-size:13px; color:#999;}
+/**********************************************************************************************************************
+*拼版式布局
+***********************************************************************************************************************/
+.makeup-tabs{ width:100%; border:0px; clear:both; margin:0px auto; border-collapse:collapse;}
+.makeup-tabs tr.hback{}
+.makeup-tabs tr.hback td.items{ width:50%;padding:8px 6px; background:#fff; border-bottom:#f4f4f4 solid 1px;}
+.makeup-tabs tr.hback td.items:nth-child(2n){ border-left:#f4f4f4 solid 1px;}
+.makeup-tabs tr.hback td.items div.thumb{ width:100%; height:145px; clear:both; overflow:hidden; text-align:center; margin:0px auto;}
+.makeup-tabs tr.hback td.items div.thumb img{ height:135px; max-width:100%; border:#f4f4f4 solid 1px;padding:2px; background:#fff;}
+.makeup-tabs tr.hback td.items div.text{ clear:both; width:100%; margin:0px auto;padding:3px 0px;}
+.makeup-tabs tr.hback td.items div.title{ width:96%; max-height:40px; overflow:hidden; margin:0px auto; clear:both; padding:2px 2%; color:#666; text-align:center; background:#f9f9f9;}
+.makeup-tabs tr.hback td.items div.descrption{ clear:both; width:96%; margin:0px auto; position:relative; height:28px; color:#666;}
+.makeup-tabs tr.hback td.items div.descrption span.amt{position:absolute;left:2px; color:#FF6600;top:4px; font-weight:bold; font-size:16px;}
+.makeup-tabs tr.hback td.items div.descrption span.num{ position:absolute;top:4px; right:2px; font-size:13px; color:#999;}

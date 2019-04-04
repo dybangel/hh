@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>积分充值</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+.head{ background:#fcfcfc;}
+.head th{ height:32px; text-align:left; background:#f0f0f0; font-size:13px; font-weight:bold;padding-left:5px;}
+#frm-menu-bar{ position:relative; background:#f0f0f0;}
+#frm-menu-bar label{ background:#f0f0f0; height:29px; position:absolute; display:block; width:80px; text-align:center; line-height:29px;top:4px;left:6px; border-radius:5px  5px 0px 0px; border:#c0c9cf solid 1px; border-bottom:0px;moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none; cursor:pointer}
+#frm-menu-bar label:last-child{ position:absolute;left:92px;}
+#frm-menu-bar label.current{ background:#fff; color:#0e2d5f;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">诚信明细</a>
+<a class="current">添加诚信</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="3">诚信明细 >> 添加诚信 >> 选择用户</td>
+</tr>
+<tr operate="system" class="hback">
+<td valign="top" width="540" style="padding:0px; background:#f0f0f0">
+<iframe width="100%" id="frm-alipay-net" scrolling="auto" frameborder="0" height="500" src="user.aspx?action=stor"></iframe>
+</td>
+<td style="padding:0px; background:#f0f0f0" valign="top">
+<iframe width="100%" id="frm-add-net" scrolling="auto" frameborder="0" height="500"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+var FindUserCallBack = function(options){
+	if(options!=undefined && typeof(options)=='object'
+	&& options["userid"]!=undefined && options["userid"]!="")
+	{
+		$("#frm-add-net").attr("src","Faith.aspx?action=adddemo&userid="+options["userid"]);
+	}
+}
+</script>

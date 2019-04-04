@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>系统首页</title>
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+.menus a{padding:5px 12px; border:#78bcff solid 1px; background:#d9ecff; margin-right:5px; border-radius:3px;}
+.lottery_listx{ width:90%; margin:0px auto;}
+.list{ position:relative; width:30%; float:left; height:90px; border:#85b1dd solid 1px; overflow:hidden; margin-right:3%; margin-bottom:12px; margin-top:12px; border-radius:4px; background:#f2f8fe; }
+.list:hover{background:#add6ff; cursor:pointer;}
+.list div.imgs{ width:30%; height:90px; background:#add6ff; text-align:center; position:absolute;left:0px;top:0px;padding:5px 0px;}
+.list div.imgs img{ width:48px;height:48px; border:#85b1dd solid 1px; border-radius:5px; background:#f2f8fe;}
+.list div.imgs div.lotyname{ font-size:12px; font-weight:bold; color:#1e83ff}
+.list div.txt{ position:absolute;left:30%; width:70%;height:100px; border-left:#85b1dd solid 1px;}
+.list div.txt div.menus{ position:absolute;right:5px;bottom:5px; display:block; height:30px;}
+.list div.txt div.exp{ position:absolute;top:8px;left:8px;}
+.list div.txt div.exp font.e{ color:#3976cc; font-size:14px;}
+.list div.txt div.code{ position:absolute;left:8px;top:32px; color:#F00; font-family:"Times New Roman", Times, serif; font-size:18px;}
+</style>
+</head>
+<body class="rightBody">
+<div class="tips_menu_bar">
+<a href="javascript:void(0)" class="current">系统主页</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">后台管理系统 >> 系统首页</td>
+</tr>
+<tr class="hback">
+<td>
+您好<font style="color:#F00;font-weight:bold">{ke.function.adminName/}</font>欢迎您再回来！
+&nbsp;今天是<span id="dateTime"></span>
+<script charset="utf-8" language="javascript" src="inc/time.js"></script>
+</td>
+</tr>
+</table>
+<div style="height:8px;"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">数据统计</td>
+</tr>
+<tr class="hback">
+<td valign="top">
+</td>
+</tr>
+</table>
+
+<div style="height:8px;"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" width="50%">备忘录</td>
+<td class="Base">版权说明</td>
+</tr>
+<tr class="hback">
+<td valign="top">
+<form action="index.aspx?action=saveTo" method="post" />
+<textarea style="width:80%;height:80px;" class="inputtext" name="intro">{ke.function.strdesc/}</textarea>
+<br/>
+<input style="margin:0px;" type="submit" value="保存通讯录" class="button" />
+</form>
+</td>
+<td valign="top">
+
+</td>
+</tr>
+</table>
+</body>
+</html>

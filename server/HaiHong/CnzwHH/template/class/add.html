@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加栏目</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/class.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.config.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.all.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js?{timestamp}"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">栏目管理</a>
+<a href="?action=add" class="current">添加栏目</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+
+<form id="formContianer" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="save" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="operback">
+<td class="Base" operate="chContianer" colspan="4">
+<span class="current" text="system" operate="change">基本信息</span>
+<span text="other" operate="change">内容设置</span>
+</td>
+</tr>
+<tr operate="system" class="xingmu">
+<td colspan="4">以下内容为必选项目,请认真填写</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">栏目名称</td>
+<td colspan="3" class="singlebtn">
+<select operate="Channel" style="width:200px" name="ChannelID">
+<option name="0">请选择模型</option>
+{ke.function.channel/}
+</select>
+<input type="text" class="inputtext" value="" placeholder="请填写栏目名称" operate="convertChar" name="className" notkong="true" size="40" />
+{ke.function.isdisplay/}
+<span>分类栏目名称长度请限制在1-20个汉字以内</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">上级栏目</td>
+<td id="parent_box">
+<select name="ParentID">
+<option name="0">作为一级分类[根目录]</option>
+{ke.function.options/}
+</select>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:80px;" class="tips">栏目简写</td>
+<td>
+<input type="text" class="inputtext" placeholder="字母/数字/下划线" value="" id="Identify" name="Identify" notkong="true" size="20" />
+<span>栏目分类的英文名称或者汉字拼音</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">栏目页模版</td>
+<td>
+<input type="text" notkong="true" name="Template" size="30" id="Template" class="inputtext" value="{ke.function.template/}" placeholder="请选择内容页模版" />
+<input type="button" class="button" operate="chooseTemp" id="frm-selector-template" value="选择模版" />
+<span>前台呈现栏目页UI模版</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">内容页模版</td>
+<td>
+<input type="text" notkong="true" name="cTemplate" size="30" id="cTemplate" class="inputtext" value="{ke.function.ctemplate/}" placeholder="请选择内容页模版" />
+<input type="button" class="button"  operate="chooseTemp" id="frm-selector-template" value="选择模版" />
+<span>该栏目下内容页模版设置</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">运行模式</td>
+<td>
+<select name="isOper">
+<option value="0">动态aspx</option>
+<option value="1" style="color:#F00">伪静态(推荐模式)</option>
+<option value="2">栏目页动态，内容页静态</option>
+<option value="3">纯静态Html(生成静态物理文件)</option>
+</select>
+<span>运行模式表示当前栏目和文档的连接样式,支持生成静态html文件</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">显示排序</td>
+<td>
+<input type="text" class="inputtext center" value="0" name="SortID" isnumeric="true" notkong="true" size="8" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+<tr style="display:none" operate="other" class="xingmu">
+<td colspan="4">分类描述内容数据信息</td>
+</tr>
+<tr operate="other" style="display:none" class="hback">
+<td class="tips">关键词汇</td>
+<td colspan="3">
+<input type="text" placeholder="请填写栏目的关键词" class="inputtext" value="" name="Keywords" size="45" />
+<span>栏目SEO关键词，请限制在100个汉字以内</span>
+</td>
+</tr>
+
+<tr operate="other" style="display:none" class="hback">
+<td class="tips">栏目描述</td>
+<td colspan="3">
+<input type="text" placeholder="请填写栏目的描述" class="inputtext" value="" name="strDesc" size="60" />
+<span>栏目描述内容请限制在200个汉字以内</span>
+</td>
+</tr>
+
+<tr operate="other" style="display:none" class="hback">
+<td class="tips">栏目图片</td>
+<td colspan="3">{ke.function.file/}</td>
+</tr>
+
+<tr operate="other" style="display:none" class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">栏目内容</div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveBeyondPic" />远程存图</label></div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveThumbPic" />抓缩略图</label></div>
+<div style=" clear:both; line-height:28px;">
+第 <input type="number" name="PicIndex" id="PicIndex" class="inputtext center" min="1" max="10" style="width:22px" value="1" /> 张<br/>
+</div>
+</td>
+<td colspan="3" class="editorBox">
+<textarea name="intro" operate="ueditor" style=" display:none;width:650px;height:145px; border:#ccc solid 1px;" Id="content">{ke.function.content/}</textarea>
+<div style="width:760px;height:240px;" id="editor"></div>
+</td>
+</tr>
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
+<script language="javascript">
+window.editor = new UE.getEditor("editor");
+editor.ready(function() {
+   try{ editor.setContent(document.getElementById('content').value);}
+   catch(err){} 
+});
+</script>

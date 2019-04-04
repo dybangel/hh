@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户消息</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">消息列表</a>
+<a href="?action=add" class="current">添加消息</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">用户消息 >> 添加消息</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">消息名称</td>
+<td colspan="3" class="check_box">
+<input type="text" class="inputtext" placeholder="请填写消息名称" notkong="true" name="title" size="50" id="frm-title" /><span>消息名称长度请限制在50个汉字以内</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">接收对象</td>
+<td colspan="3" class="singlebtn">
+<select name="targetMode" id="frm-targetMode">
+<option value="0">为指定用户发送消息</option>
+<option value="2">为所有用户发送消息</option>
+</select>
+<span>请筛选短消息接收对象</span>
+</td>
+</tr>
+
+<tr id="frm-targetName-hback"  operate="system" class="hback">
+<td class="tips">接收用户</td>
+<td colspan="3" class="singlebtn">
+<input type="text" class="inputtext" id="frm-targetName" placeholder="请填写接收消息的用户帐号" name="targetName" size="50" value="{ke.function.targetName/}" />
+<input type="button" value="选择用户" class="button" id="frm-selector-btns" />
+</td>
+</tr>
+
+<tr>
+<td class="Base" colspan="4">消息内容</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td valign="top" class="tips">消息内容</td>
+<td colspan="3" class="singlebtn">
+<textarea name="Remark" class="inputtext" style="width:550px;height:60px;" placeholder="这里填写充值备注信息,长度600个汉字以内"></textarea>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+<div title="选择用户【双击选择】" class="dialog-box" id="frm-selector-user"></div>
+</body>
+</html>
+
+<script language="javascript" src="{app}/inc/jquery.city.js"></script>
+<script language="javascript">
+window.onload = function(){
+	$("#frm-frmCity-pan").areaLoader({"value":""},function(){});
+}
+</script>
+
+<script language="javascript">
+$("#frm-targetMode").change(function(){
+	switch(parseInt(this.value) || 0){
+		case 0:
+			$("#frm-targetName-hback").show("slow");
+			$("#frm-province-hback").hide("slow");
+		break;
+		case 1:
+			$("#frm-targetName-hback").hide("slow");
+			$("#frm-province-hback").show("slow");
+		break;
+		case 2:
+			$("#frm-targetName-hback").hide("slow");
+			$("#frm-province-hback").hide("slow");
+		break;
+	}
+});
+</script>
+
+<script language="javascript" src="inc/bufferhelper.js"></script>
+<script language="javascript">
+$(function(){
+	$("#frm-selector-btns").click(function(){
+		 $("#frm-selector-user").SelectorUser(function(thisJson){
+		 	var targetValue = $("#frm-targetName").val() || "";
+		 	if(thisJson!=undefined && typeof(thisJson)=='object' && thisJson["username"]!=undefined && thisJson["username"]!=""){
+			    var username =  thisJson["username"] || "";
+				if(targetValue.indexOf(username)!=-1){
+					
+				}else{
+					if(targetValue==""){targetValue=username;}
+					else{targetValue=targetValue+";"+username;}
+					$("#frm-targetName").val(targetValue);
+				}
+			}
+		 });
+	});
+});
+</script>

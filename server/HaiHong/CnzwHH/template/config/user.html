@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>用户基本参数设置</title>
+    <link href="template/images/style.css" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+    <script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a class="current">用户基本参数配置</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="frm-submit-forms" action="?action=save" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="configname" value="{ke.function.configName/}" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+            <tr class="change">
+                <td class="Base" operate="shrink" shrink="false" text="base" colspan="4">参数配置 >> 基本参数</td>
+            </tr>
+            <tr operate="base" class="hback">
+                <td style="width:80px" class="tips">注册新用户</td>
+                <td style="width:420px" class="singlebtn">
+                    {ke.function.isRegister/}
+                    <span>关闭以后新用户将无法注册</span>
+                </td>
+                <td style="width:80px" class="tips">新用户审核</td>
+                <td class="singlebtn">
+                    {ke.function.autoDisplay/}
+                    <span>设为管理员审核表示用户注册成功后需要等待审核才能正常使用</span>
+                </td>
+            </tr>
+
+            <tr operate="base" class="hback">
+                <td class="tips">多设备登陆</td>
+                <td class="singlebtn">
+                    {ke.function.thisNce/}
+                    <span>同一个帐号在多台设备登录</span>
+                </td>
+
+                <td class="tips">多账号注册</td>
+                <td class="singlebtn">
+                    {ke.function.thisDevice/}
+                    <span>同一台手机注册多个账号</span>
+                </td>
+            </tr>
+
+            <!--<tr operate="base" class="hback">
+            <td class="tips">注册邀请码</td>
+            <td class="singlebtn">
+            {ke.function.share/}
+            <span>注册时是否必须填写邀请码</span>
+            </td>
+            <td class="tips"></td>
+            <td class="singlebtn">
+            </td>
+            </tr>-->
+
+
+            <tr operate="base" class="hback">
+                <td class="tips" valign="top">黑名单地址<div style="color:#666;line-height:20px;">禁止以上IP地址登录系统,不同IP之间用“|”分开</div></td>
+                <td colspan="3" valign="top" class="singlebtn">
+                    <textarea class="inputtext" name="strBlack" style="width:560px; height:60px;">{ke.function.strBlack/}</textarea>
+                </td>
+            </tr>
+
+            <tr operate="base" class="hback">
+                <td class="tips" valign="top">收徒规则<div style="color:#666;line-height:20px;">编写收徒规则 换行直接用回车键</div></td>
+                <td colspan="3" valign="top" class="singlebtn">
+                    <textarea class="inputtext" name="invitedRule" style="width:560px; height:60px;">{ke.function.invitedRule/}</textarea>
+                </td>
+            </tr>
+
+            <tr class="change">
+                <td class="Base" operate="shrink" shrink="false" text="other" colspan="4">参数配置 >> 其他参数</td>
+            </tr>
+            <tr operate="base" class="hback">
+                <td class="tips">支付宝重复</td>
+                <td class="singlebtn">
+                    {ke.function.AliRepeat/}
+                    <span>允许后表示同支付宝可绑定多个账号</span>
+                </td>
+                <td class="tips">手机号重复</td>
+                <td class="singlebtn">
+                    {ke.function.MobileRepeat/}
+                    <span>允许后表示同手机号可绑定多个账号</span>
+                </td>
+            </tr>
+
+            <tr class="xingmu">
+                <td></td>
+                <td colspan="3">
+                    <input type="submit" operate="submit" value="确认保存" class="button" />
+                    <input type="button" value="返回上页" onclick="history.go(-1);" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

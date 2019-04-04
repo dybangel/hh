@@ -1,0 +1,50 @@
+﻿<language>
+<zh>
+<zh.交易>交易</zh.交易>
+<zh.可用余额>可用余额</zh.可用余额>
+<zh.冻结金额>冻结金额</zh.冻结金额>
+<zh.信用值>信用值</zh.信用值>
+<zh.高>高</zh.高>
+<zh.低>低</zh.低>
+<zh.出售>出售</zh.出售>
+<zh.最新成交记录>最新成交记录</zh.最新成交记录>
+<zh.买入>买入</zh.买入>
+<zh.单价>单价</zh.单价>
+<zh.数量>数量</zh.数量>
+<zh.合计>合计</zh.合计>
+<zh.交易密码>交易密码</zh.交易密码>
+<zh.忘记交易密码>忘记交易密码</zh.忘记交易密码>
+<zh.价格>价格</zh.价格>
+<zh.总量>总量</zh.总量>
+<zh.余量>余量</zh.余量>
+<zh.数据加载错误>数据加载错误</zh.数据加载错误>
+<zh.时间>时间</zh.时间>
+<zh.交易量>交易量</zh.交易量>
+<zh.总金额>总金额</zh.总金额>
+<zh.请求过程中发生错误>请求过程中发生错误</zh.请求过程中发生错误>
+</zh>
+<en>
+<en.交易>transaction</en.交易>
+<en.可用余额>Balance</en.可用余额>
+<en.冻结金额>Frozen</en.冻结金额>
+<en.信用值>Credit value</en.信用值>
+<en.高>High</en.高>
+<en.低>Low</en.低>
+<en.出售>Sell</en.出售>
+<en.最新成交记录>Transaction record</en.最新成交记录>
+<en.买入>Buy</en.买入>
+<en.单价>Unit price</en.单价>
+<en.数量>Quantity</en.数量>
+<en.合计>Total</en.合计>
+<en.交易密码>Transaction password</en.交易密码>
+<en.忘记交易密码>Forgot your transaction password</en.忘记交易密码>
+<en.价格>Price</en.价格>
+<en.总量>Total</en.总量>
+<en.余量>Balance</en.余量>
+<en.数据加载错误>Data loading error</en.数据加载错误>
+<en.时间>Time</en.时间>
+<en.交易量>Trading</en.交易量>
+<en.总金额>Total</en.总金额>
+<en.请求过程中发生错误>An error occurred during the request</en.请求过程中发生错误>
+</en>
+</language>

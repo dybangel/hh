@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>关键字回复</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">匹配回复</a>
+<a href="?action=add">添加回复</a>
+<a class="current">编辑回复</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="KeywordsID" value="{ke.function.KeywordsID/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">匹配回复 >> 添加回复</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">关键词汇</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" notkong="true" value="{ke.function.title/}" placeholder="请输入匹配关键词如:你好" name="title" size="30" />
+{ke.function.isdisplay/}
+<span>回复关闭以后将不再相应匹配事件</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">匹配模式</td>
+<td class="singlebtn">
+{ke.function.isMatch/}
+<span>模糊匹配用户回复内容中出现关键字就触发回复</span>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">回复类型</td>
+<td id="frm-restore-btn" class="singlebtn">
+{ke.function.Modal/}
+<span>文本回复只能回复纯文字，图文回复可带图片连接</span>
+</td>
+</tr>
+
+<tr id="frm-text-tr"  style="display:{ke.if('{ke.function.mode/}'<>'1')}none{/ke.if}" class="hback">
+<td class="tips" valign="top">回复内容</td>
+<td>
+<textarea style="width:460px;height:60px" class="inputtext" id="strDesc" name="strDesc" placeholder="填写文本回复内容,长度请限制在400汉字以内" />{ke.function.strdesc/}</textarea>
+<br/>文本回复内容,支持<font style="color:#0033FF">&lt;a&gt;跳转链接&lt;/a&gt;</font>
+</td>
+</tr>
+
+<tr id="frm-stuff-tr" style="display:{ke.if('{ke.function.mode/}'<>'0')}none{/ke.if}" operate="system" class="hback">
+<td class="tips">选择素材</td>
+<td>
+<select name="MaterID">
+<option value="0">请选择一个素材</option>
+{ke.function.MaterList/}
+</select>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("#frm-restore-btn").find("input[name=\"Modal\"]").click(function(){
+		if(this.value=="1"){$("#frm-text-tr").show();$("#frm-stuff-tr").hide();}
+		else{$("#frm-text-tr").hide("slow");$("#frm-stuff-tr").show("slow");}
+	});
+	
+});
+</script>
+

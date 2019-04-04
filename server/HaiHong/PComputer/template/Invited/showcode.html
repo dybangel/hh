@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>我的二维码</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<style type="text/css">
+#frmContianer{ display:block; width:220px;margin:0px auto;padding:8px; background:#fff; border-radius:8px; position:fixed;top:50%; left: 50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);}
+#frmContianer div.text{ display:block; clear:both; text-align:center;color:#9b9b9b;padding:0px 0px; margin:0px auto;}
+#HEADContianer{ display:block; clear:both;width:100%;height:50px;position:absolute;top:0px;left:0px; text-align:center;}
+#HEADContianer #frmThumb{ display:block; clear:both; text-align:center; width:46px; height:46px; border-radius:40px; margin:0px auto; border:#fff solid 3px;padding:0px; background:#fff; position:absolute;left:18px;top:10px;}
+#FRMShare{ display:block; clear:both; position:absolute;left:74px;top:18px;color:#333;}
+#frmText{ display:block; width:100%; text-align:center; color:#999; line-height:24px;}
+#frmImage{ clear:both; width:180px; height:180px; border-radius:12px;padding:2px; background:#fff;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1);"></div>
+	<div id="frm-headerName">我的二维码</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="frmContianer">
+	<div id="HEADContianer">
+		<div><img id="frmThumb" src="{ke.function.thumb/}" /></div>
+		<div id="FRMShare">
+			<div>昵称:{ke.function.nickname/}</div>
+			<div>邀请码:{ke.function.userid/}</div>
+		</div>
+	</div>
+	<div style="clear:both; width:100%; font-size:0px; height:60px;"></div>
+	<div id="frmText">
+		<div><img src="Invited.aspx?action=qrcode&UserID={ke.function.userid/}" id="frmImage" /></div>
+		<div style="clear:both; width:100%; font-size:0px; height:0px;"></div>
+		<div style="clear:both; width:100%;height:14px; font-size:12px; color:#999;padding:0px 0px;">长按存储二维码图片发送给好友</div>
+		<div style="clear:both; width:100%; font-size:12px; color:#999;padding:0px 0px;">或截屏发送给好友</div>
+	</div>
+</div>
+<div style="clear:both; width:100%; font-size:0px;height:10px;"></div>
+</body>
+</html>

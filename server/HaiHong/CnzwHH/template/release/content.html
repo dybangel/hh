@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>发布管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<style type="text/css">
+select{width:100%;padding:0px; border:#c3d6f6 solid 1px; border-radius:0px; background:#fefefe}
+select option{ display:block;padding:6px 6px; background:#FFF; border-bottom:#f4f4f4 solid 1px;}	
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">生成首页</a>
+<a href="?action=list">生成栏目</a>
+<a href="?action=single">生成单页</a>
+<a href="?action=context" class="current">生成内容</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">发布管理 >> 生成文档</td>
+</tr>
+<tr class="xingmu">
+<td style="padding:0px;" width="300" valign="top">
+<select multiple="multiple" onChange="if(this.value!=undefined && this.value!=null && this.value!=''){window.location='?action=context&channelid='+this.value;}" style="width:300px;height:240px" name="ChannelID">
+<option disabled value="0">选择模型</option>
+{ke.function.channel/}
+</select>
+</td>
+<td style="padding:0px;" valign="top">
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+<tr class="hback">
+<td class="tips">发布所有文档</td>
+<td valign="top">
+<form action="?action=refreContext" method='post'>
+<input type="hidden" name="ChannelID" value="{ke.function.channelid/}" />
+<input type="submit" style="margin:0px" class="button" value="发布文档" />
+</form>
+</td>
+</tr>
+
+
+<tr class="hback">
+<td class="tips">发布最新文档</td>
+<td valign="top">
+<form action="?action=refreContext" method='post'>
+<input type="hidden" name="ChannelID" value="{ke.function.channelid/}" />
+<input type="text" name="newTop" value="100" class="inputtext" size="10" /><input type="submit" class="button" value="发布文档" />
+</form>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips" valign="top">按照栏目发布</td>
+<td valign="top">
+<form action="?action=refreContext" method='post'>
+<input type="hidden" name="ChannelID" value="{ke.function.channelid/}" />
+<select multiple="multiple" style="width:320px;height:120px" name="ClassID">
+<option value="" disabled="disabled">请选择要发布的分类</option>
+{ke.function.class/}
+</select>
+<br/><input type="submit" style="margin:0px" class="button" value="发布文档" />
+</form>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

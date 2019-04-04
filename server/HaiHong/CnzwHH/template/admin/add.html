@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加资讯</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="admin.aspx?action=default">帐号管理</a>
+<a href="admin.aspx?action=add" class="current">添加帐号</a>
+<a href="admin.aspx?action=power">角色管理</a>
+<a href="admin.aspx?action=addpower">添加角色</a>
+<a href="admin.aspx?action=operate">操作日志</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=addsave" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="hback">
+<td class="Base" colspan="2">帐号管理 >> 添加帐号</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">登录账号</td>
+<td class="check_box">
+<input type="text" placeholder="请填写登录帐号" class="inputtext" name="adminname" notkong="true" id="sitename" size="30" />
+{ke.function.isLock/}<span>锁定以后将不允许此账号登录</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">系统角色</td>
+<td>
+<select name="PowerID">
+<option value="0">系统管理员（超级管理员）</option>
+{ke.function.PowerOption/}
+</select>
+<span>系统角色限定当前管理员拥有的操作权限</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">登录密码</td>
+<td>
+<input type="Password" placeholder="密码格式为数字+字母+下划线" name="Password" value="" notkong="true" class="inputtext" size="30"/>
+<span>请为登录账号设置一个管理密码，长度6-16位</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">确认密码</td>
+<td>
+<input type="Password" name="Password1" placeholder="请确认你输入的密码"  value="" notkong="true" class="inputtext" size="30"/>
+<span>请再次输入密码</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">多人登录</td>
+<td class="singlebtn">
+{ke.function.isMary/}
+<span>是否允许该管理员帐号在多个终端设备登录</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">登录地址</td>
+<td style="padding:0px;">
+	<table cellpadding="1" width="100%" border="0" class="table1" cellspacing="1">
+	<tr class="hback">
+	<td width="160" class="singlebtn">{ke.function.isMat/}</td>
+	<td width="60" class="xingmu">允许IP</td>
+	<td width="250" class="singlebtn">
+	<input type="text" name="effIP" placeholder="允许登录终端IP" value="" notkong="true" class="inputtext" size="20"/>
+	</td>
+	<td width="60" class="xingmu">验证密码</td>
+	<td class="singlebtn">
+	<input type="text" name="vPassword" placeholder="解锁登录终端密码" value="" notkong="true" class="inputtext" size="20"/>
+	<span>该用户允许登录的IP地址(<font color="#f00">该功能将限制指定的IP才允许登录</font>)</span>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="保存信息" class="button"/>
+<input type="button" operate="history" value="返回上一页" class="button"/>
+</td>
+</tr>
+
+</table>
+</form>
+
+</body>
+</html>

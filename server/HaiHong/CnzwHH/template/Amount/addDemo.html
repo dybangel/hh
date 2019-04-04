@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>账户金额充值</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<form id="frmForms" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="save" />
+<input type="hidden" name="userid" value="{ke.function.userid/}" />
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">充值用户</td>
+<td style="color:#cd0000; font-size:14px; font-weight:bold;">
+{ke.function.nickname/}({ke.function.username/})
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips">充值类型</td>
+<td class="singlebtn">
+<select name="Affairs">
+<option value="1">增加</option>
+<option value="0">扣除</option>
+</select>
+<input type="text" class="inputtext" placeholder="请填写纯数字" size="10" notkong="true" isnumeric="true" value="" name="amount" id="frm-amount" /><span>(单位元)</span>请填写充值金额
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:60px" class="tips" valign="top">备注信息</td>
+<td class="singlebtn">
+<textarea name="Remark" class="inputtext" style="width:450px;height:60px;"></textarea>
+<div>这里填写备注说明充值原因,限100个汉字</div>
+</td>
+</tr>
+
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+
+<tr class="hback">
+<td colspan="2" style="background:#FFFFCC; line-height:20px; border:#FF9900 solid 1px;">
+<strong style="color:#990000;">功能说明∶</strong>
+<br/>当前模块直接增加用户账户金额,可用于抢单区提现。
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

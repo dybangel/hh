@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>开始赚钱</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<link href="{app}/pcomputer/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/pcomputer/inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.js"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/response.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/zepto.js?{timestamp}"></script>
+<script type="text/javascript" charset="utf-8" src="{app}/pcomputer/inc/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{app}/pcomputer/inc/jquery.touchSlider.min.js"></script>
+{ke.function.config/}
+<style type="text/css">
+@font-face {font-family: SketchRockwell;src: url('template/images/font/font.otf');-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent;border:0px;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-overflow-scrolling: touch;-webkit-overflow-scrolling: auto;}
+html,body{font-family:"微软雅黑";color:#444557; font-size:14px;-webkit-overflow-scrolling:touch;width:100%;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;-moz-appearance:none; border:0px;}
+#BODYContianer{ margin:0px auto;padding:0px; background:url(template/images/body.png) top center no-repeat #ff4a4a;overflow:scroll;background-size: 100%;width: 100%;height: 100%;}
+#FRMTContianer{ display:block; clear:both;width:100%;overflow:hidden; text-align:center; margin:0px auto;}
+#FRMBContianer{ display:block; clear:both;text-align:center;padding:10px 15px; margin:0px auto;}
+#FRMBSTPContianer{ display:inline-block; clear:both; text-align:center;padding:8px 0px; color:#fff; background:url(template/images/wallet.png) left center no-repeat; background-size:16px;padding-left:20px;}
+#FRMBContianer div.items{ display:block; clear:both; width:100%; margin:0px auto; position:relative; height:60px;color:#ff5f5f; border-radius:4px; box-shadow:0px 3px 0px #ff5f5f;-webkit-box-shadow:0px 3px 0px #ff5f5f;-moz-box-shadow:0px 3px 0px #ff5f5f; background:#fff; position:relative;}
+#FRMBContianer div.items span.name{padding:2px 4px; border:#ff5f5f solid 1px; font-size:10px; border-radius:3px; position:absolute;left:8px;top:10px;}
+#FRMBContianer div.items span.process{border-radius:3px; position:absolute;left:66px;top:8px; font-family:SketchRockwell; font-size:20px;}
+#FRMBContianer div.items span.remark{padding:2px 0px;font-size:10px; border-radius:3px; position:absolute;left:66px;top:34px;}
+#FRMBContianer div.items2{ display:block; clear:both; width:100%; margin:0px auto; position:relative; height:36px;color:#fff; border-radius:4px;position:relative;}
+#FRMBContianer div.items2 span.name{padding:2px 4px; border:#fff solid 1px; font-size:10px; border-radius:3px; position:absolute;left:8px;top:10px;}
+#FRMBContianer div.items2 span.process{border-radius:3px; position:absolute;left:66px;top:8px; font-family:SketchRockwell; font-size:20px;}
+#FRMBPROCESSContianer{ display:block; clear:both; position:absolute; width:0%; height:63px; background:rgba(0,0,0,0.15);left:0px;top:0px; overflow:hidden; display:none;}
+
+#StarButton{ display:block; clear:both; width:80%; background:#fff; margin:0px auto;padding:0px; height:46px;color:#f0503e; font-size:24px;border-radius:4px; box-shadow:0px 3px 0px #1fa665;-webkit-box-shadow:0px 3px 0px #1fa665;;-moz-box-shadow:0px 3px 0px #1fa665; font-family:SketchRockwell;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
+#FRMMMaster{ display:block; clear:both; width:100%; height:100%; position:fixed;left:0px;top:0px; overflow:hidden; display:none;}
+/***********************************************************************************************
+*进入设置界面
+************************************************************************************************/
+#FRMSETUPMaster{ display:none; clear:both; position:fixed; width:100%; margin:0px auto; height:100%;left:0px;top:0px; background:rgba(0,0,0,0.4); overflow:hidden;-webkit-overflow-scrolling: touch; z-index:990;}
+#FRMSETUPContianer{ display:block; clear:both; width:80%; margin:0px auto;padding:12px 12px; position:absolute;left:50%;top:50%; background:#fff; overflow:hidden; border-radius:8px;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%); z-index:998;}
+/***********************************************************************************************
+*进入设置界面
+************************************************************************************************/
+.main_visual{height:245px;width:240px; margin:0px auto;;border-top:0px solid #d7d7d7;overflow:hidden;position:relative;}
+.main_image{height:205px;overflow:hidden;position:relative;width:240px;}
+.main_image ul{width:9999px;width:100%;height:205px;overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%;height:205px;}
+.main_image li span{display:block;width:100%;height:205px; clear:both;}
+.main_image li a{display:block;width:100%;height:205px;}
+.main_image li div.txt{ clear:both; text-align:center;padding:5px 0px; color:#333}
+.main_image li div.txt font.num{color:#F00; font-family:Arial, Helvetica, sans-serif; font-size:18px;}
+div.flicking_con{position:absolute;top:224px;left:40%;z-index:999;width:240px;height:21px;}
+div.flicking_con a{float:left;width:8px;height:8px;margin:0;padding:0; background:#dddddd; border-radius:50%;;display:block;text-indent:-1000px;; margin-right:5px;}
+div.flicking_con a.on{ background:#f6503c;}
+#btn_prev,#btn_next{z-index:11111;position:absolute;display:block;width:73px!important;height:74px!important;top:50%;margin-top:-37px;display:none;}
+.img_01{background:url(template/images/step_1.png) center center no-repeat; display:block;width:100%; height:205px; background-size:100% 100%; background-position:center}
+.img_02{background:url(template/images/step_2.png) center center no-repeat; display:block;width:100%; height:205px; background-size:100% 100%;}
+.img_03{background:url(template/images/step_3.png) center center no-repeat; display:block;width:100%; height:205px; background-size:100% 100%;}
+.img_04{background:url(template/images/step_4.png) center center no-repeat; display:block;width:100%; height:205px; background-size:100% 100%;}
+
+</style>
+</head>
+<body id="BODYContianer">
+<div style="display:block; clear:both; width:100%; font-size:0px;height:80px;"></div>
+<div id="FRMTContianer"><img src="template/images/logo.png" style="width:128px;" /></div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:10px;"></div>
+<div id="FRMBContianer">
+	<div id="FRMBSTPContianer">新用户完成以下步骤即可开始任务</div>
+	<div onClick="ShowDownload();" id="FRMBONEContianer" class="items">
+		<span class="name">第一步</span>
+		<span class="process">安装{ke.config(sitename)/}</span>
+		<span class="remark">最新版本{ke.config(iOSEdition,appXml)/}(已安装此版本用户请忽略)</span>
+		<div id="FRMBPROCESSContianer"></div>
+	</div>
+	<div style="display:block; clear:both; width:100%; font-size:0px;height:10px;"></div>
+	<div onClick="$('#FRMSETUPMaster').show();Slider();" id="FRMBONEContianer" class="items">
+		<span class="name">第二步</span>
+		<span class="process">进入设置</span>
+		<span class="remark">首次安装或更新后必须设置</span>
+	</div>
+	<div style="display:block; clear:both; width:100%; font-size:0px;height:20px;"></div>
+	<div id="FRMBONEContianer" class="items2">
+		<span class="name">第三步</span>
+		<span class="process">去桌面打开</span>
+	</div>
+	<div style="display:block; clear:both; width:100%; font-size:0px;height:16px;"></div>
+	<div id="FRMBONEContianer" class="items2">
+		<span class="name">第四步</span>
+		<span class="process">返回本页,自动登陆</span>
+	</div>
+</div>
+<div id="FRMSETUPMaster">
+	<div id="FRMSETUPContianer">
+		<div class="main_visual">
+			<div class="flicking_con" id="conThis"><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a></div>
+			<div class="main_image"><ul id="imgThis"><li class="img_01"></li><li class="img_02"></li><li class="img_03"></li><li class="img_04"></li></ul><a href="javascript:;" style="display:none;" id="btn_prev"></a><a href="javascript:;" style="display:none;" id="btn_next"></a>
+			</div>
+		</div>
+		<div style="display:block; clear:both; width:100%; margin:0px auto; font-size:0px;height:10px;"></div>
+		<div><input type="button" style="display:block; clear:both; width:100%; background:#31c37c;height:36px; border-radius:8px;color:#fff; font-size:14px;" onClick="$('#FRMSETUPMaster').hide();" value="关闭" /></div>
+	</div>
+</div>
+<div id="FRMMMaster"><img src="template/images/master.png" style="z-index:99; width:100%" /></div>
+</body>
+</html>
+<script language="javascript">
+var isSuccess = false;
+var ShowDownload = function()
+{
+	/****************************************************************************************************
+	*声明数据下载进入动画
+	*****************************************************************************************************/
+	var Progressbar = function(){
+		 var offectWidth = parseInt($("#FRMBONEContianer").width()) || 200;
+		 var processNum = 0;
+		 try{$("#FRMBPROCESSContianer").show();}
+		 catch(err){}
+		 var timer = setInterval(function(){
+		 	if(processNum<=100){
+				try{processNum=processNum+0.2;}catch(err){}
+				try{$("#FRMBPROCESSContianer").css({"width":processNum+"%"});}
+				catch(err){}
+			}
+			else{
+				try{clearInterval(timer);}catch(err){}
+				try{isSuccess=false;}catch(err){}
+				try{$("#FRMBPROCESSContianer").css({"width":"100%"});}
+				catch(err){}
+			}
+		 },30);
+	};
+	/****************************************************************************************************
+	*开始执行数据请求下载
+	*****************************************************************************************************/
+	if(window.thisConfig==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(window.thisConfig==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(typeof(window.thisConfig)!="object"){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strDeposit"]==undefined){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["strDeposit"]==null){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["strDeposit"]==""){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==undefined){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==null){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==""){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]=="true"){$("#FRMMMaster").show();return false;}
+	else if(thisConfig["IsQQ"]=="true"){$("#FRMMMaster").show();return false;}
+	{
+		try{window.location="itms-services://?action=download-manifest&url="+thisConfig["strDeposit"];}
+		catch(err){ShowMessager({"text":'下载失败,请联系客服!'});return false;}
+		if(isSuccess==false){
+			isSuccess = true;
+			try{Progressbar();}
+			catch(err){}
+		}
+	};
+};
+var Slider=function(){
+	try{$dragBln = false;
+	$(".main_image").touchSlider({
+		flexible : true,speed : 200,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e){$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");}
+	});
+	$(".main_image").bind("mousedown", function() {$dragBln = false;});
+	$(".main_image").bind("dragstart", function() {$dragBln = true;});
+	$(".main_image a").click(function(){if($dragBln) {return false;}});
+	timer = setInterval(function(){$("#btn_next").click();}, 5000);
+	$(".main_visual").hover(function(){clearInterval(timer);},function(){
+		timer = setInterval(function(){$("#btn_next").click();},5000);
+	});
+	$(".main_image").bind("touchstart",function(){clearInterval(timer);}).bind("touchend", function(){
+		timer = setInterval(function(){$("#btn_next").click();}, 5000);
+	});}catch(err){}
+};
+</script>
+
+<script language="javascript">
+/*****************************************************************************************
+*检测用户账号登陆信息
+******************************************************************************************/
+var getLogin=function()
+{
+	/****************************************************************************************************
+	*输出网页提示数据信息
+	*****************************************************************************************************/
+	var PutMessage = function(strMessage)
+	{
+		try{ShowMessager({"text":strMessage});return false;}
+		catch(err){}
+	};
+	/****************************************************************************************************
+	*开始执行数据请求下载
+	*****************************************************************************************************/
+	if(window.thisConfig==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(window.thisConfig==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(typeof(window.thisConfig)!="object"){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==""){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	/****************************************************************************************
+	*发送数据请求
+	*****************************************************************************************/
+	var getRequest = function()
+	{
+		var SendOption = {};
+		SendOption["url"]="http://127.0.0.1:"+thisConfig["strPort"]+"/login";
+		SendOption["dataType"]="jsonp";
+		SendOption["callback"]="callback";
+		SendOption["success"]=function(rspJson)
+		{
+			if(rspJson==undefined){PutMessage("获取数据通讯信息失败！");return false;}
+			else if(rspJson==null){PutMessage("获取数据通讯信息失败！");return false;}
+			else if(typeof(rspJson)!="object"){PutMessage("获取数据通讯信息失败！");return false;}
+			else if(rspJson["token"]==undefined){PutMessage("获取数据通讯信息失败！");return false;}
+			else if(rspJson["token"]==null){PutMessage("获取数据通讯信息失败！");return false;}
+			else if(rspJson["token"]==""){PutMessage("获取数据通讯信息失败！");return false;}
+			else{window.location='../pcomputer/index.aspx?token='+rspJson["token"];}
+		};
+		SendOption["error"]=function(){
+			
+		};
+		/****************************************************************************************
+		*验证请求数据的合法性
+		*****************************************************************************************/
+		if(SendOption==undefined){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption==null){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(typeof(SendOption)!="object"){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==undefined){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==null){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==""){PutMessage('构建数据请求错误,请重试！');return false;}
+		/****************************************************************************************
+		*验证ajax对象的合法性
+		*****************************************************************************************/
+		if(Zepto==undefined){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto==null){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(typeof(Zepto)!="function"){PutMessage('无法获取Zepto对象,Zepto包！');return false;}
+		else if(Zepto["ajax"]==undefined){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto["ajax"]==null){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto["ajax"]==""){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		/****************************************************************************************
+		*开始执行异步数据请求
+		*****************************************************************************************/
+		try{Zepto["ajax"](SendOption);}
+		catch(err){}
+	};
+	/****************************************************************************************
+	*开始执行异步数据请求
+	*****************************************************************************************/
+	try{getRequest();}
+	catch(err){}
+};
+/*****************************************************************************************
+*检测用户是否已经下载小助手
+******************************************************************************************/
+var getAssistant=function()
+{
+	/****************************************************************************************************
+	*输出网页提示数据信息
+	*****************************************************************************************************/
+	var PutMessage = function(strMessage)
+	{
+		try{ShowMessager({"text":strMessage});return false;}
+		catch(err){}
+	};
+	/****************************************************************************************************
+	*开始执行数据请求下载
+	*****************************************************************************************************/
+	if(window.thisConfig==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(window.thisConfig==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(typeof(window.thisConfig)!="object"){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strPort"]==""){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	
+	/****************************************************************************************
+	*重复发送数据请求
+	*****************************************************************************************/
+	var doRepeat = function()
+	{
+		try{
+			var tiemr = setTimeout(function(){
+				try{clearTimeout(tiemr);}
+				catch(err){}
+				try{getRequest();}
+				catch(err){}
+			},3000);
+		}catch(err){}
+	};
+	/****************************************************************************************
+	*发送数据请求
+	*****************************************************************************************/
+	var getRequest = function()
+	{
+		var SendOption = {};
+		SendOption["url"]="http://127.0.0.1:"+thisConfig["strPort"]+"/start";
+		SendOption["dataType"]="jsonp";
+		SendOption["callback"]="callback";
+		SendOption["success"]=function(){
+			try{getLogin();}catch(err){}
+		};
+		SendOption["error"]=function(){
+			try{doRepeat();}
+			catch(err){}
+		};
+		/****************************************************************************************
+		*验证请求数据的合法性
+		*****************************************************************************************/
+		if(SendOption==undefined){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption==null){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(typeof(SendOption)!="object"){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==undefined){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==null){PutMessage('构建数据请求错误,请重试！');return false;}
+		else if(SendOption["url"]==""){PutMessage('构建数据请求错误,请重试！');return false;}
+		/****************************************************************************************
+		*验证ajax对象的合法性
+		*****************************************************************************************/
+		if(Zepto==undefined){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto==null){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(typeof(Zepto)!="function"){PutMessage('无法获取Zepto对象,Zepto包！');return false;}
+		else if(Zepto["ajax"]==undefined){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto["ajax"]==null){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		else if(Zepto["ajax"]==""){PutMessage('无法获取Zepto对象,请引入Zepto包！');return false;}
+		/****************************************************************************************
+		*开始执行异步数据请求
+		*****************************************************************************************/
+		try{Zepto["ajax"](SendOption);}
+		catch(err){}
+	};
+	/****************************************************************************************
+	*开始执行异步数据请求
+	*****************************************************************************************/
+	try{getRequest();}
+	catch(err){}
+};
+
+window.onload = function(){
+	getAssistant();
+}
+
+</script>

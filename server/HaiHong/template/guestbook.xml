@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="gb2312"?>
+<guestbook date="2010-9-16 10:23:24" todaynum="0" yesterdaynum="0" maxdaynum="17" topicnum="23" postnum="31" maxonline="4" maxonlinedate="2010-8-22 20:33:43" totalusernum="2" newreguser="111111">
+	<template name="error1">
+		<![CDATA[
+   		<div class='errtips'>
+		  <div  class="tishixx">
+		       对不起,您没有进入本版面的权限.<br />本版面要求注册会员才可以查看!<br />
+			   <a href='javascript:ShowLogin()'><span>点此登录</span></a>或<a href='../?do=reg'><span>点此注册</span></a>新会员!
+		</div>
+		<div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+
+		</div>
+   ]]>
+	</template>
+	<template name="error2">
+		<![CDATA[
+   		<div class='errtips'>
+		<div class="tishixx">
+		   对不起,认证版面，只有特定的会员或是用户组才可以进入，您所在的用户组级别没有进入本版面的权限!<br /> 
+		   如果您还没有登录，请点此<a href='javascript:ShowLogin()'><span>登录</span></a>。如果已经登录无法进入请与本站管理员联系！
+		</div>
+		<div class="clear"></div>
+
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error3">
+		<![CDATA[
+   		<div class='errtips'>
+           <div class="tishixx">
+		     <strong>出错啦！</strong>
+			 <br />很抱歉，系统设置本站会员才可以发表！<br />
+			 <a href='javascript:ShowLogin()'><span>点此登录</span></a>或<a href='../?do=reg'><span>点此注册</span></a>新会员!
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+	   </div>
+	   <div class="clear"></div>
+   ]]>
+	</template>
+	<template name="error4">
+		<![CDATA[
+		<div class='errtips'>
+		 <div class="tishixx">很抱歉，本版面为认证版面，只有特定的认证会员或授权的用户级别才可以在此发帖。系统设定您所在的用户级别没有在此版面发表的权限!<br/>
+		  如果您还没有登录，请点此<a href='javascript:ShowLogin()'><span>登录</span></a>。如果已经登录无法进入请与本站管理员联系！
+		</div>
+		 <div class="clear"></div>
+
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+
+   ]]>
+	</template>
+	<template name="error5">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx">
+		  很抱歉，本版面要求用户达到{$Tips},才可以进入浏览或发帖。您当前可用{$CurrTips}！
+		</div>
+		 <div class="clear"></div>
+
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error6">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx">
+		  很抱歉，本版面限制每个用户每天只能发表<span>{$LimitPostNum}</span>个主题,您已在本版面发表了<span>{$PostNum}</span>个主题，请选择其它版面！
+		</div>
+		 <div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error7">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx">
+		  很抱歉，本版面限制新注册会员<span>{$Minutes}</span>分钟后才可以发帖,请选择其它版面浏览或发帖！
+		</div>
+		 <div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error8">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx"> 很抱歉，您在本论坛被锁定,请联系本站管理员！</div>
+		 <div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error9">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx"> 很抱歉，您没有编辑帖子的权限！<br/>可能原因：<br/>1、本版面设置不允许会员自己修改帖子；<br/>2、此帖子不是您发表的或是您所在的级别不够！</div>
+		 <div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="error10">
+		<![CDATA[
+		<div class='errtips' style='text-align:center;'>
+		 <div class="tishi">友情提示信息</div>
+		 <div class="tishixx"> 很抱歉，您没有搜索帖子的权限！<br/>如果您还没有登录，请点此<a href='javascript:ShowLogin()'><span>登录</span></a>,如果您还不是本站会员,请点此<a href='{#GetFullDomain}?do=reg'><span>注册</span></a>！</div>
+		 <div class="clear"></div>
+		 <div class="closebut"><a href="javascript:history.back()">返回上一页</a>   <a href="javascript:window.close()">关闭本页</a></div>
+		</div>
+   ]]>
+	</template>
+	<template name="boardclass">
+		<![CDATA[
+   		<table border="0" width="100%" style="margin-bottom:8px" align="center" class="glist" cellpadding="0" cellspacing="0">
+			<tr><td class="boardname"><a href="{$BoardUrl}">={$BoardName}=</a></td></tr>
+			<tr>
+			<td style='padding:5px'>
+			   <!--boardlist-->
+			</td>
+		   </tr>
+	  </table>
+   ]]>
+	</template>
+	<template name="board">
+		<![CDATA[
+		   <table width="99%" style="border-bottom:#efefef 1px dashed;margin-bottom:10px" align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="60" style="text-align:center"/>
+				  {IF:{$TodayNum}>0}
+				  <div class="photored"></div>
+				 {/If}
+				 {IF:{$TodayNum}=0}
+				  <div class="photogray"></div>
+				 {/If}
+				</td>
+				<td class="newlink">
+				<a href="{$BoardUrl}">『 {$BoardName} 』</a> (今日: {IF:{$TodayNum}>0}
+				  <span style="color:red">{$TodayNum}</span>
+				 {/If}
+				 {IF:{$TodayNum}=0}
+				  {$TodayNum}
+				 {/If})
+				<p class="intro">{$Intro}</p>
+				<span>版主：{$Master}  | 主题：{$TotalSubject}   |  帖数：{$TotalReply} </span></td>
+				<td class="newsub">{$NewTopic}<br />
+				    <span>{$LastPostUser}</span> {$LastPostTime}
+                </td>
+			</tr>		
+			</table>
+   ]]>
+	</template>
+</guestbook>

@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>开始赚钱</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="screen-orientation" content="portrait">
+<link href="{app}/pcomputer/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="{app}/pcomputer/inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/pcomputer/inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.js"></script>
+<script language="javascript" src="{app}/pcomputer/inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/response.js?{timestamp}"></script>
+<script language="javascript" src="{app}/pcomputer/inc/scroll.js?{timestamp}"></script>
+<script src="{app}/pcomputer/inc/fingerprint.js?{timestamp}"></script>
+{ke.function.config/}
+<style type="text/css">
+@font-face {font-family: SketchRockwell;src: url('template/images/font/font.otf');-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent;border:0px;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-overflow-scrolling: touch;-webkit-overflow-scrolling: auto;}
+html,body{font-family:"微软雅黑";color:#444557; font-size:14px;-webkit-overflow-scrolling:touch;width:100%;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;-moz-appearance:none; border:0px;}
+#BODYContianer{ display:block; clear:both;left:0px;top:0px; width:100%;height:100%; margin:0px auto;padding:0px; background:#ededed;overflow:scroll;}
+#FRMTContianer{ display:block; clear:both;width:100%;overflow:hidden; text-align:center; margin:0px auto; background:#ff5f5f;padding:40px 0px;}
+#FRMBContianer{ display:block; clear:both; width:100%;text-align:center;padding:0px; margin:0px auto; position:fixed; left:0px; bottom:0px; background:#fff;padding:10px 0px; overflow:hidden;}
+#StarButton{ display:block; clear:both; width:80%;background:#ff5f5f; margin:0px auto;padding:0px; height:46px;color:#fff; font-size:24px;border-radius:4px; box-shadow:0px 3px 0px #ff5f5f;-webkit-box-shadow:0px 3px 0px #ff5f5f;-moz-box-shadow:0px 3px 0px #ff5f5f; font-family:SketchRockwell;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
+#FRMMMaster{ display:block; clear:both; width:100%; height:100%; position:fixed;left:0px;top:0px; overflow:hidden; display:none; z-index:999}
+#FRMMContianer{ display:block; clear:both; width:100%; margin:0px auto;padding:0px;position:relative; background:#fff; position:relative; height:140px; z-index:99;}
+#FRMALIContianer{ display:block; width:80%; margin:0px auto; position:absolute;top:-20px; height:50px; background:#fff; border-radius:8px; box-shadow:0px 0px 3px 1px #f0f0f0;-webkit-box-shadow:0px 0px 3px 1px #f0f0f0;;-moz-box-shadow:0px 0px 3px 1px #f0f0f0;left:10%; text-align:center; line-height:50px;color:#151515; font-family:'楷体'; font-size:16px;}
+#FRMALIContianer span{ font-size:20px;color:#f0503e !important; margin:0px 4px;}
+#FRMMContianer table{ border-collapse:separate; border-spacing:10px; font-size:14px;}
+#FRMMContianer table div{ display:block; width:100%; text-align:center; padding:0px; margin:0px;}
+#FRMMContianer table div.ico img{ display:block; margin:0px auto; width:46px; height:46px;}
+#FRMMContianer table div.name{ display:block;color:#333333; font-size:13px;}
+#FRMMContianer table div.tips{ display:block;color:#999; font-size:12px;}
+#FRMSContianer{ display:block; clear:both; width:100%; margin:0px auto; padding:0px; height:300px; overflow:scroll; -webkit-overflow-scrolling: touch;overflow-scrolling: touch;-moz-overflow-scrolling: touch;}
+#FRMSContianer li.hback{ display:block; clear:both; background:#fff; border-radius:8px; height:70px; overflow:hidden; margin:0px auto; width:94%; position:relative;}
+#FRMSContianer li.hback div.ico{ position:absolute; width:46px; height:46px; overflow:hidden; position:absolute;left:10px;top:12px; border-radius:50%;}
+#FRMSContianer li.hback div.ico img{ width:100%;}
+#FRMSContianer li.hback div.textor{ display:block; clear:both; position:absolute;left:68px;top:16px;}
+#FRMSContianer li.hback div.textor div.value{ display:block; clear:both;padding:0px; color:#333333}
+#FRMSContianer li.hback div.textor div.tips{ display:block; clear:both;padding:0px; color:#999; font-size:12px;}
+#FRMSContianer li.hback div.date{ position:absolute;right:8px;color:#999999;top:24px;}
+</style>
+</head>
+<body id="BODYContianer">
+<div id="FRMTContianer">
+	<img src="template/images/logo.png" style="width:78px;" />
+</div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:0px;"></div>
+<div id="FRMMContianer">
+	<div id="FRMALIContianer">累计提现<span id="AMTTotal">0</span>元</div>
+	<div style="display:block; clear:both; width:100%; font-size:0px;height:36px;"></div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td>
+			<div class="ico"><img src="template/images/ico_default_03.png" /></div>
+			<div class="name">试玩app</div>
+			<div class="tips">轻松拿现金</div>
+		</td>
+		<td>
+			<div class="ico"><img src="template/images/ico_default_02.png" /></div>
+			<div class="name">邀请好友</div>
+			<div class="tips">一个任务两人赚钱</div>
+		</td>
+		<td>
+			<div class="ico"><img src="template/images/ico_default_01.png" /></div>
+			<div class="name">实时到账</div>
+			<div class="tips">提现秒到账</div>
+		</td>
+	  </tr>
+	</table>
+</div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:10px;"></div>
+<div id="FRMSContianer"></div>
+<div style="display:block; clear:both; width:100%; font-size:0px;height:60px;"></div>
+<div id="FRMMMaster"><img src="template/images/master.png" style="z-index:99; width:100%" /></div>
+
+<div id="FRMBContianer">
+	<input id="StarButton" onClick="ShowDownload();" type="button" value="开始赚钱" />
+</div>
+</body>
+</html>
+<script language="javascript">
+var ShowDownload = function()
+{
+	if(window.thisConfig==undefined){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(window.thisConfig==null){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(typeof(window.thisConfig)!="object"){ShowMessager({"text":'获取系统参数配置错误！'});return false;}
+	else if(thisConfig["strDeposit"]==undefined){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["strDeposit"]==null){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["strDeposit"]==""){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==undefined){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==null){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else if(thisConfig["IsMicroMessenger"]==""){ShowMessager({"text":'获取应用下载地址失败！'});return false;}
+	else
+	{
+		if(thisConfig["IsMicroMessenger"]=="true" 
+		|| thisConfig["IsQQ"]=="true")
+		{
+			$("#FRMMMaster").show();
+			return false;
+		}
+		else{
+			try{window.location="?action=start&uid={ke.request(uid).toInt()/}&key={ke.request(key).toString()/}";}
+			catch(err){ShowMessager({"text":'下载失败,请联系客服!'});return false;}
+		}
+	}
+};
+
+var getAlipay = function()
+{
+	
+	var showRender = function(rspJson){
+		var strTemplate = '<ul id=\"FRMSCROLL\">';
+		$(rspJson['result']).each(function(k,json){
+			strTemplate+='<li class=\"hback\">';
+			strTemplate+='<div class=\"ico\"><img src=\"'+json['thumb']+'\" /></div>';
+			strTemplate+='<div class=\"textor\">';
+			strTemplate+='<div class=\"value\">ID:'+json['userid']+'</div>';
+			strTemplate+='<div class=\"tips\">通过'+json['fokemode']+'了'+json['thisamount']+'元</div>';
+			strTemplate+='</div>';
+			strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+			strTemplate+='</li>';
+			strTemplate+='<li style=\"display:block;font-size:0px;height:10px;\"></li>';
+		});
+		strTemplate += '</ul>';
+		$("#FRMSContianer").html(strTemplate);
+		$('#FRMSContianer').myScroll({
+			speed: 50,
+			rowHeight:80
+		});
+
+	};
+	getResponse ({"url":"index.aspx?action=alipay","back":function(rspJson){
+		if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=='object'
+		&& rspJson['result']!=undefined && rspJson['result']!=null){
+			try{showRender(rspJson);}catch(err){}
+		}
+		try{$("#AMTTotal").html(rspJson['count']);}
+		catch(err){}
+	}});
+};
+window.onload = function(){
+	getAlipay();
+};
+</script>

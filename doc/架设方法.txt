@@ -1,0 +1,20 @@
+想好一个新APP名字：比如xx  并准备好图标
+准备一个新域名：比如 xx.xx.com
+申请域名SSL证书
+
+1.运行环境
+服务器系统：win2008 R2
+系统添加组件：IIS
+安装数据库：SQL Server2014企业版 下载地址：https://www.wlrjy.com/Soft/148905.html
+
+2.用新域名在IIS建立新网站（流程百度） 将源码解压放到网站根目录 将证书放到根目录
+
+3.SQL连接数据库位置 根目录\YangMaoKe\database
+
+4.在网站根目录找到 config.mobileconfig/yangmaoke.plist两个文件内的ymk.170ww.com改为新域名xx.xx.com;yangmaoke改为新APP名xx
+
+5.使用Xcode把根目录内的yangmaoke.ipa打开，将里面的ymk.170ww.com改为新域名xx.xx.com;170ww.com改为XX.com；图标文件修改为新APP图标，然后-打包-签名
+
+6.将打包签名后的yangmaoke.ipa改为新APP名xx.ipa放入根目录；将yangmaoke.plist改为新APP名xx.plist
+
+7.测试使用完成

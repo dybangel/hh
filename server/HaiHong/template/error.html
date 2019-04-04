@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>系统提示</title>
+<style type="text/css">
+*{margin:0px;padding:0px; list-style-type:0px;}
+.tips_table{ width:600px; margin:0px auto; background:#f0f0f0; font-size:12px;}
+.tips_table td.titles{ height:36px; font-weight:900; background:#fcfcfc}
+.tips_table td{background:#FFF;padding:5px 8px;}
+.bottomtool{ height:28px; text-align:right;}
+a{ color:#06F; text-decoration:none;}
+</style>
+</head>
+<body>
+<div style="height:120px"></div>
+<table border="0" cellpadding="3" cellspacing="1" class="tips_table">
+<tr><td class="titles" colspan="2">&nbsp;系统提示</td></tr>
+<tr>
+<td width="120" style="text-align:center"><img src="{app}/images/error.gif" /></td>
+<td style="height:100px;line-height:22px; vertical-align:top; text-align:left;">
+{ke.function.tips/}
+<br /><br />
+<div><a href="javascript:history.go(-1);">点击这里返回上一页</a></div>
+<div><a href="{app}/default.aspx">点击这里进入网站首页</a></div>
+</td>
+</tr>
+<tr><td colspan="2" class="bottomtool">
+<a href="javascript:Close();">关闭窗口</a>
+</td></tr>
+</table>
+</body>
+</html>

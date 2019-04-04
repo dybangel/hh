@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>栏目管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/class.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+<style type="text/css">
+td:nth-child(2){moz-user-select: -moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+</style>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">栏目管理</a>
+<a href="?action=add">添加栏目</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+{ke.function.list/}
+</body>
+</html>
+
+
+<script language="javascript">
+var SaveEditor = function(obj,classId){
+	try{
+		var value = parseInt($(obj).val()) || 0;
+		var url = "class.aspx?action=savest&classId="+classId+"&isOrder="+value+"&math="+Math.random();
+		if(value!=undefined && !isNaN(value) && url!=""){
+			$.ajax({url:url+"&value="+value+"",get:"get",success:function(strResponse){
+				if(strResponse!="success"){
+					$.messager.show({title:'系统提示',msg:strResponse});
+				}else{
+					$.messager.show({title:'系统提示',msg:'排序设置成功'});
+				}
+			}});
+		}
+	}catch(err){}
+}
+</script>

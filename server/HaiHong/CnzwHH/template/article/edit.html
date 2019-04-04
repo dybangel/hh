@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>编辑文章</title>
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.config.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/ueditor.all.js?{timestamp}"></script>
+<script language="javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js?{timestamp}"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default&channelid={ke.function.channelid/}">{ke.function.unitname/}管理</a>
+<a href="?action=add&channelid={ke.function.channelid/}">添加{ke.function.unitname/}</a>
+<a class="current">编辑{ke.function.unitname/}</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForm" action="Article.aspx" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="channelid" value="{ke.function.channelid/}" />
+<input type="hidden" name="ShowID" value="{ke.function.ShowID/}" />
+<input type="hidden" name="action" value="editsave" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="operback">
+<td class="Base" operate="chContianer" colspan="4">
+<span text="system" operate="change" class="current">基本信息</span>
+<span text="define" operate="change">自定义信息</span>
+<span text="other" operate="change">扩展信息</span>
+</td>
+</tr>
+<tr operate="system" class="xingmu">
+<td colspan="4">以下内容为文档常规内容信息,请根据具体要求填写</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">文档标题</td>
+<td class="singlebtn">
+<select name="TitleType">
+<option value="{ke.function.TitleType/}">默认</option>
+<option style="color:#F00;" value="图文">图文</option>
+<option style="color:#575757;" value="视频">视频</option>
+<option style="color:#ff7e00;" value="灌水">灌水</option>
+<option style="color:#007bee;" value="原创">原创</option>
+</select>
+<input type="text" placeholder="请填写标题,60个字符以内" class="inputtext" value="{ke.function.title/}" name="Title" notkong="true" style="width:360px" />
+<td class="tips">标题样式</td>
+<td class="singlebtn">
+<select name="Fontsize">
+<option value="{ke.function.Fontsize/}">默认字体</option>
+<option value="10">10号字体</option>
+<option value="12">12号字体</option>
+<option value="13">13号字体</option>
+<option value="14">14号字体</option>
+<option value="15">15号字体</option>
+<option value="16">16号字体</option>
+</select>
+<select name="FontModel">
+<option value="{ke.function.FontModel/}">默认样式</option>
+<option value="1">粗体</option>
+<option value="2">斜体</option>
+<option value="3">粗体+斜体</option>
+</select>
+<select name="TitleColor">
+<option value="{ke.function.TitleColor/}">默认颜色</option>
+<option style="background:#FF0000;color:#fff" value="#FF0000">FF0000</option>
+<option style="background:#FF00FF;color:#fff" value="#FF00FF">FF00FF</option>
+<option style="background:#0000FF;color:#fff" value="#0000FF">0000FF</option>
+<option style="background:#00FF00;color:#000" value="#00FF00">00FF00</option>
+<option style="background:#FFFF00;color:#000" value="#FFFF00">FFFF00</option>
+<option style="background:#00FFFF;color:#333" value="#00FFFF">00FFFF</option>
+<option style="background:#000000;color:#fff" value="#000000">000000</option>
+<option style="background:#333333;color:#fff" value="#333333">333333</option>
+<option style="background:#666666;color:#fff" value="#666666">666666</option>
+</select>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td style="width:80px" class="tips">栏目归档</td>
+<td style="width:480px" id="parent_box">
+<select style="width:240px;" name="classId">
+<option name="0">请选择文档分类</option>
+{ke.function.class/}
+</select>
+</td>
+<td style="width:80px" class="tips">选择属性</td>
+<td class="check_box">
+{ke.function.attr/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips" >文档来源</td>
+<td style="width:430px">
+<input type="text" class="inputtext" value="{ke.function.author/}" placeholder="作者" id="frm-Author" name="Author" style="width:140px;" />
+<select id="source_box" onChange="$('#frm-Author').val(this.value)">
+<option value="{ke.function.author/}">{ke.function.author/}</option>
+<option value="管理员">管理员</option>
+<option value="佚名">佚名</option>
+</select>
+</td>
+<td class="tips">文档来源</td>
+<td>
+<input type="text" class="inputtext" placeholder="来源" value="{ke.function.source/}" id="frm-source" name="source" style="width:120px;" />
+<select id="source_box" onChange="$('#frm-source').val(this.value)">
+<option value="原创">原创</option>
+<option value="新浪">新浪</option>
+<option value="网易">网易</option>
+<option value="搜狐">搜狐</option>
+<option value="百度">百度</option>
+<option value="网络资源">网络资源</option>
+</select>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">文档描述</td>
+<td class="check_box">
+<input type="text" class="inputtext" value="{ke.function.strDescrption/}" placeholder="文章内容描述信息,简短介绍,200个汉字以内" name="strDescrption" size="40" />
+<label class="current"><input type="checkbox" name="isDescrption" value="1" checked />获取内容</label>
+</td>
+<td class="tips">关键词汇</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.keywords/}" placeholder="SEO关键词,资讯关键词" name="Keywords" size="24" />
+<span>tag关键字,不同关键字用,分割</span>
+</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">文档图片</td>
+<td>{ke.function.Thumb/}</td>
+
+<td class="tips">跳转地址</td>
+<td>
+<input type="text" placeholder="标准网页地址http://www.xxx.com,120个字符内" class="inputtext" value="{ke.function.toUrl/}" id="toUrl" name="toUrl" size="45" />
+<span>若存在跳转地址,点击文档将直接跳转到指定的URL</span>
+</td>
+</tr>
+
+<tr operate="system"  class="hback">
+<td class="tips check_box" valign="top">
+<div style="padding:12px 0px; clear:both">页面内容</div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveBeyondPic" />远程存图</label></div>
+<div style="padding:12px 0px; clear:both"><label><input type="checkbox" value="1" name="SaveThumbPic" />抓缩略图</label></div>
+<div style=" clear:both; line-height:28px;">
+第 <input type="number" name="PicIndex" id="PicIndex" class="inputtext center" min="1" max="10" style="width:22px" value="1" /> 张<br/>
+</div>
+</td>
+<td colspan="3" class="editorBox">
+<textarea name="content" operate="ueditor" style=" display:none;width:650px;height:145px; border:#ccc solid 1px;" Id="content">{ke.function.content/}</textarea>
+<div style="width:760px;height:240px;" id="editor"></div>
+</td>
+</tr>
+
+<tr style="display:none;" operate="define" class="xingmu">
+<td colspan="4">
+以下为用户自定义字段信息,请按照具体需求填写自定义内容
+</td>
+</tr>
+{ke.function.define/}
+
+<tr class="xingmu">
+<td style=" background:#FFFFCC;color:#FF6600" colspan="4">
+以下内容为文档附加属性,如无必要请勿随意修改
+</td>
+</tr>
+<tr style="display:none" operate="other" class="hback">
+<td class="tips">点击次数</td>
+<td>
+<input type="text" class="inputtext center" value="{ke.function.Hits/}" name="Hits" size="8" />
+<span>设置该{ke.function.unitname/}点击率初始值,人为设置排行</span>
+</td>
+<td class="tips">推荐星级</td>
+<td>
+<select name="Star">
+<option value="{ke.function.star/}">默认{ke.function.star/}星</option>
+<option value="1">★</option>
+<option value="2">★★</option>
+<option value="3">★★★</option>
+<option value="4">★★★★</option>
+<option value="5">★★★★★</option>
+</select>
+<span>设置该{ke.function.unitname/}的推荐级别，最高五星</span>
+</td>
+</tr>
+<tr style="display:none" operate="other" class="hback">
+<td class="tips">文件名称</td>
+<td><input type="text" class="inputtext" placeholder="请填写文件地址" value="{ke.function.fileName/}" name="fileName" size="20" />
+<span>生成静态文件后文件相对物理地址</span>
+</td>
+<td class="tips">选择模版</td>
+<td>
+<input type="text" notkong="true" name="cTemplate" size="30" id="cTemplate" class="inputtext" value="{ke.function.cTemplate/}" placeholder="请选择内容页模版" />
+<input type="button" class="button" operate="chooseTemp" id="frm-selector-template" value="选择模版" />
+<span>{$Parents}表示该文档模版继承当前栏目的设置</span>
+</td>
+</tr>
+<tr style="display:none" operate="other" class="hback">
+<td class="tips">发布日期</td>
+<td colspan="3">
+<input type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="inputtext" value="{ke.function.addtime/}" name="Addtime" size="15" />
+<span>设置该文档添加日期</span></td>
+</tr>
+
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$("input[name=\"isTo\"]").click(function(){
+		if(this.checked){$("#frm-tourl-show").show("slow");}
+		else{$("#frm-tourl-show").hide("slow");}
+	});
+});
+</script>
+<script language="javascript">
+window.editor = new UE.getEditor("editor");
+editor.ready(function() {
+   try{ editor.setContent(document.getElementById('content').value);}
+   catch(err){} 
+});
+</script>

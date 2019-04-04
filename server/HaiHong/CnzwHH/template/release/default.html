@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户账变记录</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default" class="current">生成首页</a>
+<a href="?action=list">生成栏目</a>
+<a href="?action=single">生成单页</a>
+<a href="?action=context">生成内容</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForm" action="?" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="refreDefault" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="4">发布管理 >> 生成主页</td>
+</tr>
+
+<tr operate="other" class="hback">
+<td class="tips">说明信息</td>
+<td colspan="3" style="line-height:20px; background:#FFFFCC">
+首页生成文件存放于系统根目录下Index.html。<br/>
+若需要网站运行静态首页,请保证默认文档中Index.html保持在第一位
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td colspan="3">
+<input type="submit" value="确认生成" class="button"/>
+<input type="button" onClick="history.go(-1)" value="返回上一页" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

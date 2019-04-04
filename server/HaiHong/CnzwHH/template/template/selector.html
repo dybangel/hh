@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>模版管理</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/class.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="3" class="table" cellspacing="1" border="0">
+<tr class="hback">
+<td class="xingmu" colspan="3">
+<select style="width:350px" onChange="window.location='?action=stor&target={ke.function.target/}&dir='+this.value">
+{ke.function.Directory/}
+</select>
+</td>
+<td class="xingmu" width="120">
+<a href="?action=addf&dir={ke.function.thisdir/}&target={ke.function.target/}" title="添加子文件"><img src="template/images/ico/add.png" /></a>
+<a href="?action=stor&dir={ke.function.tempdir/}&target={ke.function.target/}" title="返回顶级目录"><img src="template/images/ico/protection.png" /></a>
+<a href="?action=stor&dir={ke.function.thisdir/}&target={ke.function.target/}" title="刷新网页"><img src="template/images/ico/refresh.png" /></a>
+</td>
+</tr>
+</table>
+<div id="frm-selector-box" style=" width:100%; height:370px; overflow:scroll; overflow-x:hidden; border-bottom:#ccc solid 1px;">{ke.function.list/}</div>
+</body>
+</html>
+<script language="javascript">
+$("tr[operate=dblselected]").dblclick(function(){
+try{
+	var url = $(this).attr("url");
+	if(url!="" && url!=undefined){
+		var targetObject = $(parent.document).find("#{ke.function.target/}");
+		$(targetObject).val(url);
+	}else{alert("发生未知错误，请返回重试！");return false;}
+	}catch(err){alert("发生未知错误，请返回重试！");return false;}
+	try{
+	if(parent.document.getElementById('frm-template-selector-box')!=null){
+		parent.CloseDialog("frm-template-selector-box");
+	}
+}catch(err){alert(err.message);}
+});
+</script>

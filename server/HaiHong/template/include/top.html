@@ -1,0 +1,30 @@
+<div id="frmDistop">
+	<div id="frmDistopMenu">
+		<div id="frmPovince">
+			<span style="position:absolute;top:16px;left:0px; font-family:Arial, Helvetica, sans-serif; font-weight:500; font-size:14px;">
+				{ke.config(sitename)/} 圆你开车梦想
+			</span>
+		</div>
+		<div id="frmDistopAcc">
+			<script language="javascript" src="{app}/member/login.aspx?action=define"></script>
+		</div>
+	</div>
+</div>
+<div style="clear:both; width:100%; height:50px; font-size:0px;"></div>
+<div id="frmHeader">
+	<div id="frmHeadermain">
+		<div id="frmLogo"><img src="{app}/template/images/logo.png" /></div>
+		<div id="frmMenuList">
+			<table width="100%" id="frmMenuTabs" border="0" cellspacing="1" cellpadding="3">
+			  <tr>
+				<td class="menuName {ke.if("{@menuaName/}"=="首页")} current {/ke.if}"><a href="{app}/Index.aspx">首页</a></td>
+				<td class="menuName {ke.if("{@menuaName/}"=="网点展示")} current {/ke.if}"><a href="{app}/items/list.aspx?classId=10012">网点展示</a></td>
+				<td class="menuName {ke.if("{@menuaName/}"=="新闻动态")} current {/ke.if}"><a href="{app}/items/list.aspx?classId=10000">新闻动态</a></td>
+				<td class="menuName"><a href="{app}/Member/eKaoshi.aspx">进入考试</a></td>
+				<td class="menuName {ke.if("{@menuaName/}"=="关于我们")} current {/ke.if}"><a href="{app}/items/single.aspx?Identify=about">关于我们</a></td>
+				<td class="menuName {ke.if("{@menuaName/}"=="联系我们")} current {/ke.if}"><a href="{app}/items/single.aspx?Identify=contact">联系我们</a></td>
+			  </tr>
+			</table>
+		</div>
+	</div>
+</div>

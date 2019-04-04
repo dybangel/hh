@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>分享设置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">分享设置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 分享设置</td>
+</tr>
+<tr class="hback">
+<td valign="top" class="tips">iOS分享文本</td>
+<td>
+<input type="text" name="iOSText" class="inputtext" placeholder="手机iOS终端分享文本内容,100字以内" value="{ke.function.iOSText/}" size="40" notkong="true" />
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">iOS分享图标</td>
+<td>
+{ke.function.iOSThumb/}
+</td>
+</tr>
+
+<tr class="hback">
+<td valign="top" class="tips">安卓分享文本</td>
+<td>
+<input type="text" name="AndroidText" class="inputtext" placeholder="手机安卓终端分享文本内容,100字以内" value="{ke.function.AndroidText/}" size="40" notkong="true" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">安卓分享图标</td>
+<td>
+{ke.function.AndroidThumb/}
+</td>
+</tr>
+
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 微信公众平台</td>
+</tr>
+<tr class="hback">
+<td class="tips">微信二维码</td>
+<td>
+{ke.function.wechat/}
+</td>
+</tr>
+
+<tr class="change">
+<td class="Base" colspan="2">参数配置 >> 分享积分奖励</td>
+</tr>
+<tr class="hback">
+<td class="tips">分享成功</td>
+<td>
+<input type="text" name="SharePoint" class="inputtext" placeholder="纯数字" value="{ke.function.SharePoint/}" size="10" isnumeric="true" notkong="true" /><span>用户成功分享后获得积分奖励</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td colspan="2">
+<input type="submit"  id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

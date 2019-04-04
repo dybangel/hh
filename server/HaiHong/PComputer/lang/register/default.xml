@@ -1,0 +1,34 @@
+﻿<language>
+<zh>
+<zh.用户注册>用户注册</zh.用户注册>
+<zh.请选择国籍>请选择国籍</zh.请选择国籍>
+<zh.手机号>手机号</zh.手机号>
+<zh.请输入手机号>请输入手机号</zh.请输入手机号>
+<zh.验证码>验证码</zh.验证码>
+<zh.短信验证码>短信验证码</zh.短信验证码>
+<zh.获取验证码>获取验证码</zh.获取验证码>
+<zh.登陆密码>登陆密码</zh.登陆密码>
+<zh.请设置密码>请设置密码</zh.请设置密码>
+<zh.确认密码>确认密码</zh.确认密码>
+<zh.请再次输入密码>请再次输入密码</zh.请再次输入密码>
+<zh.立即注册>立即注册</zh.立即注册>
+<zh.请填写您的用户名>请填写您的用户名</zh.请填写您的用户名>
+<zh.请选择代码区号>请选择代码区号</zh.请选择代码区号>
+</zh>
+<en>
+<en.用户注册>Signup</en.用户注册>
+<en.请选择国籍>Please select nationality</en.请选择国籍>
+<en.手机号>Account</en.手机号>
+<en.请输入手机号>Your phone number</en.请输入手机号>
+<en.验证码>Captcha</en.验证码>
+<en.短信验证码>SMS Captcha</en.短信验证码>
+<en.获取验证码>Get Captcha</en.获取验证码>
+<en.登陆密码>Password</en.登陆密码>
+<en.请设置密码>Setting password</en.请设置密码>
+<en.确认密码>Confirm password</en.确认密码>
+<en.请再次输入密码>Please enter your password again</en.请再次输入密码>
+<en.立即注册>Signup</en.立即注册>
+<en.请填写您的用户名>Your account</en.请填写您的用户名>
+<en.请选择代码区号>Area code</en.请选择代码区号>
+</en>
+</language>

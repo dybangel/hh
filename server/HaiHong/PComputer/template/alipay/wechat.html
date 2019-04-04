@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>提现到微信</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/Refresh/minirefresh.js?{timestamp}"></script>
+<style type="text/css">
+::-webkit-input-placeholder {color:#a9a9a9;font-size:12px; font-weight:100; text-decoration:none; outline:none}
+::-moz-placeholder {color:#a9a9a9; font-size:12px; font-weight:100; text-decoration:none; outline:none}
+::-ms-input-placeholder{color:#a9a9a9;font-size:12px; font-weight:100; text-decoration:none; outline:none}
+input[type="tel"]{padding:8px 0px; border:0px;background:transparent; font-size:24px;color:#31c37c; font-weight:bold; width:90%;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">提现到微信</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+<form id="frm-formContianer" action="../api/alipay.aspx" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="action" value="save" />
+<input type="hidden" name="FokeMode" value="微信提现" />
+<input type="hidden" name="passwordTo" id="PasswordTo" value="" />
+<input type="hidden" operate="submit" id="SUBButton" value="Submit" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" id="frm-input">
+<tr class="hback">
+<td style="padding:0px;" colspan="4">
+<div class="singleList">
+	<label style="border:0px;" operate="items">
+		<div class="ico"><img src="template/images/ic_alipay_yue.png" style="width:46px;" /></div>
+		<div class="name">账户收益余额</div>
+		<div class="tips" style="font-family:Verdana, Arial, Helvetica, sans-serif; color:#31c37c; font-size:18px;">
+			{ke.function.amount/}
+		</div>
+	</label>
+</div>
+</td>
+</tr>
+<tr class="hback">
+<td class="spacing"></td>
+<td class="name">真实姓名</td>
+<td class="value">{ke.function.fullname/}</td>
+</tr>
+<tr class="xingmu">
+<td></td>
+<td colspan="3">提现金额</td>
+</tr>
+<tr class="hback">
+<td></td>
+<td colspan="3">
+<input type="tel" notkong="true" class="inputtext" placeholder="请填写要提现的金额" id="frmAmount" name="Amount" value="" />
+</td>
+</tr>
+
+<tr class="operback">
+<td colspan="4"><input type="button" operate="ok" onClick="CFTransferirm()" value="立即提现" /></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+<script language="javascript">
+var CFTransferirm = function(obj)
+{
+	try{
+		var Amount = parseFloat(document.querySelector('#frmAmount').value) || 0;
+		if(Amount==undefined){ShowMessager({'text':'请填写提现金额！'});return false;}
+		else if(Amount==null){ShowMessager({'text':'请填写提现金额！'});return false;}
+		else if(Amount<=0){ShowMessager({'text':'请填写提现金额！'});return false;}
+		else{
+			/*****************************************************************************************************
+			*提现需要输入交易密码功能暂时屏蔽
+			******************************************************************************************************/
+			if(1==2){
+				var strTemplate = '<div>请输入交易密码</div>';
+				strTemplate+='<div>忘记交易密码?<a href=\"home.aspx?action=passwordto\">点击这里设置</a></div>';
+				ShowPrompt({
+					"title":"确认支付",
+					"text":strTemplate,
+					"html":true,
+					"inputType":"password",
+					"back":function(password){
+						if(password==undefined){ShowMessager({'text':'请填写交易密码！'});return false;}
+						else if(password==null){ShowMessager({'text':'请填写交易密码！'});return false;}
+						else if(password==''){ShowMessager({'text':'请填写交易密码！'});return false;}
+						else{
+							var timer = setTimeout(function(){
+								try{clearTimeout(timer);}catch(err){}
+								try{document.querySelector("#PasswordTo").value=password;}
+								catch(err){};
+								try{document.querySelector("#SUBButton").click();}
+								catch(err){}
+								
+							},1500);
+						}
+					}
+				});
+			}else{
+				try{document.querySelector("#SUBButton").click();}
+				catch(err){}
+			}
+		};
+	}catch(err){}
+};
+/***************************************************************************************
+*返回处理结果数据信息
+****************************************************************************************/
+var SaveBack = function(rspJson)
+{
+	try{
+		ShowResponse({
+			"type":"altRedirect",
+			"success":"true",
+			"tips":"提现申请已发出,请等待客服处理",
+			"url":"alipay.aspx?action=default"
+		});	
+	}catch(err){}
+};
+</script>

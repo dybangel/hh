@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>系统错误-{ke.config(sitename)/}</title>
+<style type="text/css">
+*{ margin:0px;padding:0px; list-style-type:none;}
+body{ font-size:12px; font-family:"宋体"; color:#444572;}
+#frm-tips-box{ width:460px; clear:both; margin:0px auto;background:#fff;; border:#5a89d1 solid 5px; z-index:100; position:relative;top:200px; border-radius:3px;}
+#frm-tips-title-box{ width:100%; border-bottom:#5a89d1 solid 1px; height:32px;height:30px;font-size:12px;font-weight:bold;color:#444557;line-height:30px;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fefefe), to(#f0f0f0));background: -moz-linear-gradient(top, #fefefe, #f0f0f0 8%); position:relative;padding:4px 0px;}
+#frm-tips-title-box span.name{ position:absolute;left:12px;}
+#frm-tips-descrption{ clear:both; width:100%; background:#fff;padding:20px 0px;}
+#frm-tips-footer-box{ height:36px; border-top:#5a89d1 solid 1px;padding:3px 0px; line-height:36px; background:#fefefe; text-align:center;}
+#frm-tips-footer-box a{ padding:8px 30px; border:#5a89d1 solid 1px; color:#5a89d1; text-decoration:none; border-radius:2px;background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fefefe), to(#f0f0f0));background: -moz-linear-gradient(top, #fefefe, #f0f0f0 8%);}
+#frm-masker-box{ position:fixed; width:100%; height:100%; left:0px;top:0px; background:rgba(100,100,100,0.55); z-index:1;}
+</style>
+</head>
+<body>
+<div id="frm-tips-box">
+	<div id="frm-tips-title-box"><span class="name">系统提醒</span></div>
+	<div id="frm-tips-descrption">
+		<div style="padding:5px 0px; width:90%; margin:0px auto;font-size:14px;">{ke.function.tips/}</div>
+		<div style="width:90%;padding:5px 0px;  margin:0px auto; clear:both;"><a style="text-decoration:none;" href="/">如果您的浏览器没有反应,请点击这里!</a></div>
+	</div>
+	<div id="frm-tips-footer-box">
+		<a href="{ke.function.trueUrl/}">确定</a>
+		<a href="{ke.function.falseUrl/}">取消</a>
+	</div>
+</div>
+<div id="frm-masker-box"></div>
+</body>
+</html>

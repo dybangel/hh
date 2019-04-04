@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+<link href="{app}/template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="{app}/template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="{app}/inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{app}/inc/jquery.js"></script>
+<script language="javascript" src="{app}/inc/jquery-ui.js"></script>
+<script language="javascript" src="{app}/inc/jquery.form.js"></script>
+<script language="javascript" src="{app}/inc/forwork.js"></script>
+<script language="javascript" src="{app}/inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <title>微信充值</title>
+    <style type="text/css">
+body{ background: #ebebeb; font-family:微软雅黑; }
+#frm-wechatpay-Balance{ width:96%; height:50px; line-height:50px; margin:0px auto;}
+#frm-wechatpay-Balance span{ color:#ff8400;}
+#frm-wechatpay-Balance span.Balance{ font-size:18px; font-weight:500;}
+#frm-amount-box{ width:96%; height:100px; margin:0px auto;}
+#frm-amount-box label{ display:block; height:40px; line-height:40px; width:30%; float:left; text-align:center; color:#222222; background:#fff; border:#fff solid 0px; position:relative; border-radius:4px; margin-left:2.5%; margin-bottom:10px; font-size:16px; font-family:"微软雅黑"}
+#frm-amount-box label.current{ border:#cc0000 solid 0px; color:#fff; background:#cc0000;}
+#frm-amount-box label input{ display:none;}
+#frm-amount{ border:#ccc solid 1px; height:32px;font-size:16px; font-family:Geneva, Arial, Helvetica, sans-serif; color:#CC0000; line-height:32px; border-radius:4px;padding-left:12px;}
+#frm-amount-tips{ width:100%; clear:both; height:40px; text-align:left; line-height:40px; font-size:16px;}
+#frm-amount-tips span{ color:#008df0;}
+#frm-amount-submit{ width:96%; height:50px; margin:0px auto; line-height:50px;}
+#frm-submit-btns-other{ width:100%; height:50px; color:#fff; font-size:16px; -webkit-appearance: none; font-family:"微软雅黑"; border-radius:6px;  background:#cc0000; border:0px;}
+.frm-buy{ width:96%; margin:0px auto; height:60px; line-height:60px; background:#fff;}
+#frm-amount-tips{ width:96%; height:50px; margin:0px auto; line-height:50px;}
+#frm-box-tips{ width:96%; margin:0px auto; margin-top:20px;}
+    </style>
+</head>
+<body>
+<form id="frm-submit-forms" action="?action=wsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="PaymentName" id="frm-payment-txt" value="微信付款" />
+    <div id="frm-wechatpay-Balance">
+        ￥:<span class="Balance">{ke.function.Balance/}</span><span>元</span>
+    </div>
+    <div id="frm-amount-box">
+        <label class="current">
+            <input checked="checked" type="radio" name="frmAmount" value="20" />20元</label>
+        <label>
+            <input type="radio" name="frmAmount" value="30" />30元</label>
+        <label>
+            <input type="radio" name="frmAmount" value="50" />50元</label>
+        <label>
+            <input type="radio" name="frmAmount" value="100" />100元</label>
+        <label>
+            <input type="radio" name="frmAmount" value="200" />200元</label>
+    </div>
+    <div style="position:absolute;left:520px;top:8px; display:none" id="frm-amount-pan">
+		<input type="text" id="frm-amount" name="amount" style="width:120px" value="20" placeholder="自定义" /> (元)
+		</div>
+    <div style="font-family: '微软雅黑'; font-size: 16px; width:96%; height:50px; margin:0px auto; line-height:50px; color: #222222;font-weight: 500;">充值方式</div>
+    <table class="frm-buy" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td style=" width:60px; text-align:center;">
+                <img style=" width:40px;" src="/template/images/wechatpay.jpg" />
+            </td>
+            <td>
+                微信支付
+            </td>
+            <td style=" width:30px;">
+                <img style=" width:20px;" src="/wechat/images/Select.png" />
+            </td>
+        </tr>
+    </table>
+    <div id="frm-amount-tips">
+        请确认您将充值<span>20</span>元
+    </div>
+    <div id="frm-amount-submit">
+		<input type="submit" id="frm-submit-btns-other" value="确认充值" class="button"/>
+	</div>
+    </form>
+    <div id="frm-box-tips">
+		<h3>温馨提示</h3>
+        <p>1、充值余额不能进行提现，请慎重选择充值的金额;</p>
+        <p>2、充值余额只能作为资料购买使用，不能作用于其他;如果充值完成后迟迟没有到账，建议您联系客服。</p>
+	</div>
+</body>
+</html>
+<script language="javascript">
+    $(function () {
+        $("#frm-payment-box").find(".items").click(function () {
+            try {
+                $("#frm-payment-box").find(".items").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            } catch (err) { }
+            try {
+                var PaymentName = $(this).attr("title") || "账户余额";
+                $("#frm-payment-txt").val(PaymentName);
+                
+            } catch (err) { }
+        });
+    });
+    $("#frm-amount-box").find("input[type=radio]").click(function () {
+        $("#frm-amount-box").find("label").each(function () {
+            $(this).removeClass("current");
+        });
+        if (this.checked) {
+            $(this).parent().addClass("current");
+            $("#frm-amount").val(this.value || 0);
+            $("#frm-amount-tips").find("span").html(this.value || 0)
+            if (this.value != NaN && this.value != "") {
+                $("#frm-amount-pan").hide('slow');
+            } else {
+                $("#frm-amount-pan").show('slow');
+            }
+        }
+    });
+</script>

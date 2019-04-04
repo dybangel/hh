@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>系统公告</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="inc/Refresh/minirefresh.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/response.js?{timestamp}"></script>
+<script language="javascript" src="inc/Refresh/minirefresh.js?{timestamp}"></script>
+<style type="text/css">
+#frmContianer{width:100%;margin:0px auto;padding:0px; border-collapse:collapse; border-spacing:0px 0px;clear:both;}
+#frmContianer div.hback{ display:block; clear:both; padding:8px 12px;overflow:hidden; color:#333}
+#frmContianer div.hback div.name{ display:block; clear:both; color:#333; line-height:24px; margin:0px;padding:0px;}
+#frmContianer div.hback div.date{ display:block; clear:both; text-align:right;color:#999; font-size:12px; border-bottom:#f5f5f5 solid 1px;padding:5px 3px;}
+/*******************************************************************************************************
+*暂无数据时显示模块信息
+*********************************************************************************************************/
+#frmNoneDetails{ clear:both; width:100%; text-align:center; margin:0px auto;}
+#frmNoneDetails div{ display:block; width:90%; margin:0px auto; text-align:center;padding:3px 0px;}
+#frmNoneDetails div img#frmImage{ display:block; width:200px; margin:0px auto;}
+#frmNoneDetails #frmBtn{ display:block; width:90%; margin:0px auto; padding:4px 0px;}
+#frmNoneDetails #frmBtn a{ display:block; width:96%; margin:0px auto; clear:both; text-align:center; height:42px; line-height:42px; border:#aaa solid 1px; border-radius:8px; color:#aaa; margin-bottom:10px;}
+#frmNoneDetails #frmBtn a.clsBtn{ color:#61bafe; border:#61bafe solid 1px; background:#fff;}
+</style>
+</head>
+<body>
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">系统公告</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+	<div id="minirefresh" class="minirefresh-wrap">
+		<div class="minirefresh-scroll">
+			<div id="frmContianer"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+<script language="javascript">
+var getNotification = function()
+{	
+	
+	var showRender = function(rspJson,isAppend)
+	{
+		var strTemplate = '';
+		if(rspJson!=undefined && rspJson!=null && typeof(rspJson)=="object"
+		&& rspJson['result']!=undefined && rspJson['result']!=null){
+			$(rspJson['result']).each(function(j,json){
+				strTemplate+='<div class=\"hback\">';
+				strTemplate+='<div class=\"remark\">'+json['strcontext']+'</div>';
+				strTemplate+='<div class=\"date\">'+json['addtime']+'</div>';
+				strTemplate+='</div>';
+			});
+		};
+		if(isAppend){$('#frmContianer').append(strTemplate);}
+		else{$('#frmContianer').html(strTemplate);}
+	}
+	try{
+		$("#minirefresh").JSONRefresh({
+			"url":"../api/UserNotification.aspx?action=default",
+			'success':function(rspJson,isAppend){
+				showRender(rspJson,isAppend);
+			}
+		});
+	}catch(err){}
+};
+window.onload = function(){
+	getNotification();
+};
+</script>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>绑定手机号</title>
+<meta name="description" content="{ke.config(siteDescrption)/}" />
+<meta name="keywords" content="{ke.config(sitekeywords)/}" />
+<meta name="application-name" content="{ke.config(sitename)/}"/>
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" >
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<link href="inc/sweet/sweetalert.css?{timestamp}" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/sweet/sweetalert.js?{timestamp}"></script>
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery.form.js?{timestamp}"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+</head>
+<body style="background:#f5f5f5">
+<div id="frm-header">
+	<div id="frm-headerHistory" onClick="history.go(-1)"></div>
+	<div id="frm-headerName">绑定手机号</div>
+	<div id="frm-headerMenu"></div>
+</div>
+<div id="frm-spacing"></div>
+<div id="MAINContianer">
+	<div style="display:block; clear:both; width:100%; font-size:0px;height:30px;"></div>
+	<div style="display:block; clear:both;padding:10px 0px; text-align:center;"><img style="width:66px" align="absbottom" src="template/images/ic_round_cb_select.png"></div>
+	<div style="display:block; clear:both;padding:10px 0px; text-align:center;">您当前已绑定手机号</div>
+	<div style="display:block; clear:both;padding:10px 0px; text-align:center;color:#cd0000; font-size:24px;">{ke.function.strmobile/}</div>
+	<div style="display:block; clear:both;padding:10px 0px;color:#999; font-size:12px; line-height:20px; text-align:center;">注：手机号绑定后将无法修改<br>若发现手机号绑定错误请联系客服</div>
+</div>
+</body>
+</html>

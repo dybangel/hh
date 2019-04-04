@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加银行卡</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="userid" value="{ke.function.userid/}" />
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+<tr class="xingmu">
+<td colspan="2">用户绑卡 >> 银行账户({ke.function.nickname/},ID:{ke.function.userid/})</td>
+</tr>
+<tr operate="unionpay" class="hback">
+<td class="tips">银行名称</td>
+<td>
+<input type="text" class="inputtext" name="BankName" id="frm-BankName" placeholder="请填写银行卡账号" size="30" value="" />
+<span>银行卡账号长度请限制在30个字符以内</span>
+</td>
+</tr>
+
+<tr operate="unionpay" class="hback">
+<td class="tips">银行卡号</td>
+<td>
+<input type="text" class="inputtext" name="BankAccount" id="frm-BankAccount" placeholder="请填写银行卡账号" size="30" value="" />
+<span>银行卡账号长度请限制在30个字符以内</span>
+</td>
+</tr>
+
+<tr operate="unionpay" class="hback">
+<td class="tips">持卡人姓名</td>
+<td>
+<input type="text" class="inputtext" name="HolderName" id="frm-HolderName" placeholder="务必真实有效,否则可能不到账" size="30" value="" />
+<span>请填写持卡人姓名,务必真实有效,否则不能到账</span>
+</td>
+</tr>
+
+<tr operate="unionpay" class="hback">
+<td class="tips">开户行名称</td>
+<td>
+<input type="text" class="inputtext" name="Branch" id="frm-Branch" placeholder="请填写开户行名称" size="30" value="" />
+<span>银行卡办卡网店名称,30个汉字以内</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认保存" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+<br/>
+</body>
+</html>

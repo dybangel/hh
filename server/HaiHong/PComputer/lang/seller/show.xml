@@ -1,0 +1,33 @@
+﻿<language>
+<zh>
+<zh.订单详情>订单详情</zh.订单详情>
+<zh.出售数量>出售数量</zh.出售数量>
+<zh.剩余数量>剩余数量</zh.剩余数量>
+<zh.出售单价>出售单价</zh.出售单价>
+<zh.订单总额>订单总额</zh.订单总额>
+<zh.回收订单>回收订单</zh.回收订单>
+<zh.回收提示>你确定要回收出售的订单,该操作不可逆?</zh.回收提示>
+</zh>
+<en>
+<en.订单详情>Details</en.订单详情>
+<en.出售数量>Sale num</en.出售数量>
+<en.剩余数量>Balance</en.剩余数量>
+<en.出售单价>Unit</en.出售单价>
+<en.订单总额>Amount</en.订单总额>
+<en.回收订单>Recovery</en.回收订单>
+<en.回收提示>If you are sure to recycle the order, the operation is irreversible.</en.回收提示>
+<en.返回上一页>History</en.返回上一页>
+<en.买家>Buyer</en.买家>
+<en.数量>Quantity</en.数量>
+<en.金额>Amount</en.金额>
+<en.等待付款>Wait payment</en.等待付款>
+<en.确认付款>Wait receipt</en.确认付款>
+<en.确认收款>Completed</en.确认收款>
+<en.买家投诉>Buyer complaint</en.买家投诉>
+<en.卖家投诉>Seller complaint</en.卖家投诉>
+<en.订单作废>Cancel</en.订单作废>
+<en.进行中>Have in hand</en.进行中>
+<en.已完成>Completed</en.已完成>
+<en.已撤回>Reclaimed</en.已撤回>
+</en>
+</language>

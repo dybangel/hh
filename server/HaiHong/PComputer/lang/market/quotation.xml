@@ -1,0 +1,20 @@
+﻿<language>
+<zh>
+<zh.行情>行情</zh.行情>
+<zh.交易>交易</zh.交易>
+<zh.单价>单价</zh.单价>
+<zh.成交量>成交量</zh.成交量>
+<zh.请求过程中发生错误>请求过程中发生错误</zh.请求过程中发生错误>
+</zh>
+<en>
+<en.行情>Quotes</en.行情>
+<en.交易>Transaction</en.交易>
+<en.单价>Unit price</en.单价>
+<en.成交量>Trading</en.成交量>
+<en.开>Open</en.开>
+<en.高>High</en.高>
+<en.量>Volume</en.量>
+<en.低>Low</en.低>
+<en.请求过程中发生错误>An error occurred during the request</en.请求过程中发生错误>
+</en>
+</language>

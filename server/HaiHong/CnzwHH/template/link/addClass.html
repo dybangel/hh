@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>添加分类</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">连接管理</a>
+<a href="?action=add">添加连接</a>
+<a href="?action=classlist">连接分类</a>
+<a href="?action=addclass" class="current">添加分类</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=addclasssave" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">友情连接 >> 添加分类</td>
+</tr>
+<tr class="hback">
+<td class="tips">分类名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext" placeholder="请填写分类名称" value="" name="className" notkong="true" size="20" />
+{ke.function.isdisplay/}
+<span>栏目分类请保持在1-20个字符以内</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">父级分类</td>
+<td>
+<select style="width:160px;" name="ParentID">
+<option value="0">作为一级分类</option>
+{ke.function.options/}
+</select>
+<span>一级分类为文档根目录</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">分类排序</td>
+<td>
+<input type="text" class="inputtext" value="0" name="isOrder" notkong="true" size="20" />
+<span>排序数字越大显示越靠前</span>
+</td>
+</tr>
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

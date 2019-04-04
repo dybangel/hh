@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="QRCode.aspx.cs" Inherits="Fooke.Web.API.QRCode" %>

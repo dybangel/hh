@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;" />
+<title>充值参数配置</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a class="current">充值参数配置</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="configname" value="{ke.function.configName/}" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr class="change">
+<td class="Base" colspan="4">参数配置 >> 充值参数配置</td>
+</tr>
+<tr class="hback">
+<td style="width:80px" class="tips">是否开启</td>
+<td style="width:360px" class="singlebtn">
+{ke.function.isOpen/}
+</td>
+<td style="width:80px" class="tips">充值次数</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.Timer/}" name="Timer" notkong="true" size="10" />
+<span>单个用户同一天允许充值次数,0为不限制次数</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">最低充值</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.MinNumber/}" name="MinNumber" notkong="true" size="10" />
+<span>单次充值最低金额</span>
+</td>
+<td class="tips">最高充值</td>
+<td>
+<input type="text" class="inputtext" value="{ke.function.MaxNumber/}" name="MaxNumber" notkong="true" size="10" />
+<span>用户单次充值上下限额度</span>
+</td>
+</tr>
+<tr class="change">
+<td class="Base" colspan="4">参数配置 >> 活动赠送</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">开启活动</td>
+<td class="singlebtn">{ke.function.isActivity/}<span>关闭后充值将不再赠送</span></td>
+<td class="tips">赠送方式</td>
+<td class="check_box">
+{ke.function.ActivityMode/}
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">金额列表</td>
+<td colspan="3"><input type="text" class="inputtext" placeholder="竖线分割" id="AmountList" style="width:320px;" name="AmountList" value="{ke.function.AmountList/}" />
+<input type="submit" value="更新等级" class="button"/>
+<span>请填写金额列表不同充值等级赠送额度不同</span></td>
+</tr>
+<tr class="hback">
+<td valign="top" class="tips">赠送金额<div style="color:#999; line-height:20px;">请填写充值等级赠送金额</div></td>
+<td colspan="3" style="padding:0px;">{ke.function.list/}</td>
+</tr>
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" operate="submit" value="确认保存" class="button"/>
+<input type="button" value="返回上页" onClick="history.go(-1);" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

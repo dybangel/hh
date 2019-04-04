@@ -1,0 +1,1 @@
+not find template:/inc/advert/focus.js

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>添加广告位</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">广告位管理</a>
+<a href="?action=add" class="current">添加广告位</a>
+<a href="?action=code">代码调用</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frm-submit-forms" action="?action=save" onSubmit="return _doPost(this)" method="post">
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr>
+<td class="Base" colspan="2">广告位管理 >> 添加广告位</td>
+</tr>
+<tr class="hback">
+<td class="tips">广告位名称</td>
+<td class="singlebtn">
+<input type="text" class="inputtext title" style="width:300px" placeholder="请填写广告位名称" value="{ke.function.title/}" name="AdvertName" notkong="true" size="20" />
+{ke.function.isdisplay/}
+<span>广告位名称可根据广告存放位置命名</span>
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">广告位模版</td>
+<td class="singlebtn">
+<select name="modals">
+{ke.function.advertmode/}
+</select>
+<input type="text" class="inputtext" id="frm-template" value="{app}/inc/advert/image.js" notkong="true" placeholder="请填写广告位模版" name="Template" size="36" />
+</td>
+</tr>
+<tr class="hback">
+<td class="tips">广告位尺寸</td>
+<td>
+<input type="text" value="{ke.function.width/}" name="width" class="inputtext" size="5" />
+*
+<input type="text" value="{ke.function.height/}" name="height" class="inputtext" size="5" />
+<span>广告位尺寸规模（宽*高）</span></td>
+</tr>
+
+<tr class="hback">
+<td class="tips">广告位描述</td>
+<td>
+<textarea name="intro" class="inputtext" style="width:460px;height:60px;"></textarea>
+<br><span style="padding:2px 0px;">描述内容请限制在150个汉字以内,简要说明广告位摆放位置，作用等</span></td>
+</tr>
+
+<tr class="xingmu">
+<td></td>
+<td>
+<input type="submit" id="frm-submit-btns" value="确认添加" class="button"/>
+<input type="reset" value="撤销" class="button"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<script language="javascript">
+$("select[name=modals]").change(function(){
+	$("#frm-template").val("{app}/inc/advert/"+this.value+".js")
+});
+</script>

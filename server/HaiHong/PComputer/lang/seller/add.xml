@@ -1,0 +1,29 @@
+﻿<language>
+<zh>
+<zh.出售>出售</zh.出售>
+<zh.可用余额>可用余额</zh.可用余额>
+<zh.冻结金额>冻结金额</zh.冻结金额>
+<zh.当前行情>当前行情</zh.当前行情>
+<zh.单价>单价</zh.单价>
+<zh.数量100整数>数量100整数</zh.数量100整数>
+<zh.合计>合计</zh.合计>
+<zh.手续费>手续费</zh.手续费>
+<zh.收款方式>收款方式</zh.收款方式>
+<zh.请选择收款银行卡>请选择收款银行卡</zh.请选择收款银行卡>
+</zh>
+<en>
+<en.出售>Sell</en.出售>
+<en.可用余额>Balance</en.可用余额>
+<en.冻结金额>Freezing</en.冻结金额>
+<en.当前行情>Quotation</en.当前行情>
+<en.单价>Unit</en.单价>
+<en.数量100整数>100</en.数量100整数>
+<en.合计>Total</en.合计>
+<en.手续费>Fees</en.手续费>
+<en.收款方式>Receivables</en.收款方式>
+<en.请选择收款银行卡>Please selected</en.请选择收款银行卡>
+<en.交易密码>Password</en.交易密码>
+<en.请填写交易密码>Transaction Password</en.请填写交易密码>
+<en.确认>Submit</en.确认>
+</en>
+</language>

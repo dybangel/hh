@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>管理员登录</title>
+<script language="javascript" src="inc/jQuery.js"></script>
+<script language="javascript" src="inc/jQuery-ui.js"></script>
+<script language="javascript" src="inc/jQuery.form.js"></script>
+<script language="javascript" src="inc/jQuery.forwork.js"></script>
+<link href="template/images/style.css" rel="stylesheet" type="text/css">
+<link href="inc/images/jquery-ui.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+*{margin:0px;padding:0px; list-style-type:none; }
+body{ margin:0px;padding:0px; font-size:12px; font-family:@宋体; color:#232323; background:url(template/images/login-body-bg.png) repeat-x;}
+#frm-header-box{ width:100%; height:80px; overflow:hidden;}
+#frm-body-box{ width:960px; margin:0px auto; height:600px; clear:both; position:relative;}
+#frm-login-box{ width:336px; height:367px; position:absolute;right:0px;top:0px; border-radius:2px;background:url(template/images/login-box-bg.png) no-repeat;}
+#frm-login-box h2{ clear:both; width:96%; height:40px; line-height:40px; margin:0px auto;}
+#frm-username-box{ position:absolute; width:250px;height:33px;left:40px;top:85px;}
+#frm-username-box input[type="text"]{ width:96%; border:#ccc solid 1px; border-radius:3px; height:33px; line-height:33px;padding:0px 5px; outline:none;}
+#frm-password-box{ position:absolute; width:250px;height:33px;left:40px;top:140px;}
+#frm-password-box input[type="password"]{ width:96%; border:#ccc solid 1px; border-radius:3px; height:33px; line-height:33px;padding:0px 5px; outline:none;}
+#frm-verify-box{ position:absolute; width:250px;height:33px;left:40px;top:190px;}
+#frm-verify-box input[type="text"]{border:#ccc solid 1px; border-radius:3px; height:33px; line-height:33px;padding:0px 5px; outline:none; position:absolute;left:0px; width:120px;}
+#frm-verify-code{ position:absolute;right:0px; width:100px;height:33px; border:#429ed1 solid 1px;}
+#frm-btn-box{ position:absolute; width:250px;height:46px;left:40px;top:250px;}
+#frm-btn-box input[type="button"]{border:#ccc solid 1px; border-radius:3px; height:46px; line-height:46px;padding:0px 5px; outline:none; position:absolute;left:0px; width:120px; background:#fd4e87; border:0px; font-size:18px; font-family:"宋体"; color:#fff; font-weight:bold;}
+#frm-btn-box input[type="reset"]{border:#ccc solid 1px; border-radius:3px; height:46px; line-height:46px;padding:0px 5px; outline:none; position:absolute;right:0px; width:120px; background:#1f83be; border:0px; font-size:18px; font-family:"宋体"; color:#fff; font-weight:bold;}
+#frm-login-logo{ background:url(template/images/login-logo.png) no-repeat center top; position:absolute;left:0px;top:80px; width:600px;height:600px;}
+#frm-footer{ text-align:center; width:100%;}
+#frm-footer a{ color:#232323; text-decoration:underline;}
+input[complate="true"]{ border:#f00 solid 1px !important;}
+#frm-tips-box{ width:250px; margin:0px; height:28px; position:absolute;left:40px;bottom:25px; line-height:28px; color:#f00; font-weight:900;}
+</style>
+</head>
+<body>
+<div id="frm-header-box"></div>
+<div id="frm-body-box">
+	<div id="frm-login-logo"></div> 
+    <div id="frm-login-box">
+	<form action="login.aspx" onSubmit="_doPost(this)" id="formContianer" method="post">
+		<input type="hidden" name="action" value="chk" />
+			<div id="frm-username-box"><input type="text" name="adminName" notkong="true" value="" placeholder="请输入用户名" char="请输入用户名" /></div>
+			<div id="frm-password-box"><input type="password" name="password" notkong="true" value="" placeholder="请输入登录密码" char="请输入登录密码" /></div>
+			<div id="frm-verify-box"><input type="text" name="verifycode" notkong="true" value="" placeholder="请输入验证码" char="请输入验证码" /><img title="看不清楚？点击刷新图片" onClick="this.src='../plugin/vcode.aspx?math='+Math.random()" style="cursor:pointer" id="frm-verify-code" src="../plugin/vcode.aspx" /></div>
+			<div id="frm-btn-box">
+			<input operate="submit" type="button" value="登录"  />
+			<input type="reset" id="frm-reset-btns" value="重置" />
+			</div>
+			<div id="frm-tips-box"></div>
+		</form>
+	</div>
+</div>
+<div id="frm-footer">
+	Copy Right 2014-2020 All Service 版权所有∶<a><!--{ke.config(sitename)/}-->多米积分墙</a>
+</div>
+</body>
+</html>

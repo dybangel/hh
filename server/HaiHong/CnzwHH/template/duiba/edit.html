@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>处理提现申请</title>
+<link href="template/images/style.css" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+<script language="javascript" src="inc/ZeroClipboard.js"></script>
+<style type="text/css">
+font[ipay="0"]{ background:#CC0000;padding:6px 5px; color:#fff;}
+font[ipay="1"]{ background:#11952a;padding:6px 5px; color:#fff;}
+</style>
+</head>
+<body>
+<form id="frm-submit-forms" action="?action=editsave" onSubmit="return _doPost(this)" method="post">
+<input type="hidden" name="Id" value="{ke.function.Id/}" />
+<input type="hidden" name="affairs" id="frm-affairs" value="0" />
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+<tr style="background:#FFFFCC;" operate="system" class="hback">
+<td colspan="4" style=" border-bottom:#FF6600 solid 2px;">
+<input type="button" affairs="1" operate="frm-dispose" value="确认兑换(订单完成)" class="button"/>
+<input type="button" affairs="100" operate="frm-dispose" value="订单作废(拒绝兑换)" class="button"/>
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">兑换单号</td>
+<td width="240" class="singlebtn">
+{ke.function.thisKey/}
+</td>
+<td class="tips">兑吧单号</td>
+<td class="singlebtn">
+{ke.function.biz/}
+</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">兑换积分</td>
+<td>{ke.function.amount/}</td>
+<td class="tips">兑换时间</td>
+<td class="singlebtn">{ke.function.addtime/}</td>
+</tr>
+
+<tr operate="system" class="hback">
+<td class="tips">兑换用户</td>
+<td>{ke.function.nickname/}</td>
+<td class="tips">用户编号</td>
+<td class="singlebtn">{ke.function.userid/}</td>
+</tr>
+<tr operate="system" class="hback">
+<td class="tips">备注信息</td>
+<td colspan="3">{ke.function.remark/}</td>
+</tr>
+</table>
+</form>
+<div id="frm-thumb-box" title="查看截图" class="dialog"></div>
+<div id="frm-invest-box" title="交易明细【投资交易】" class="dialog-box"></div>
+<div id="frm-alipay-box" title="交易明细【提现交易】" class="dialog-box"></div>
+</body>
+</html>
+<script language="javascript" src="inc/bufferhelper.js"></script>
+<script language="javascript">
+$("input[operate=\"frm-dispose\"]").click(function(){
+	var thisButton = this;
+	$.messager.confirm('系统提示','你确定要执行处理？',function(isOk){
+		if(isOk){
+			var affairs=parseInt($(thisButton).attr("affairs"));
+			if(affairs!=undefined && !isNaN(affairs)){
+				$("#frm-affairs").val(affairs);
+				if(thisButton.form!=undefined && thisButton.form!=null){
+					ajaxSubmit(thisButton.form)
+				}
+			}	
+			else{$.messager.alert('系统提示','发生未知错误，请刷新网页重试');return;}
+		}
+	});
+});
+/********************************************************************
+*查看截图
+*********************************************************************/
+$("#frm-thumb-btn").click(function(){
+	$("#frm-thumb-box").html("<div style=\"width:100%; text-align:center;padding-top:8px;\"><img id=\"frm-load-thumb\" src=\"{ke.function.thumb/}\" style=\"max-width:450px;max-height:350px;border:#ccc solid 1px;\" /></div>").dialog({width:500,height:400,modal:true});
+	$("#frm-thumb-box").find("img").error(function(){
+		$(this).attr("src","template/images/timg.jpg")
+	});
+});
+/********************************************************************
+*查看投资交易记录
+*********************************************************************/
+$("#frm-invest-btns").click(function(){
+	$("#frm-invest-box").moder("deal.aspx?action=stor&investid={ke.function.investid/}")
+});
+/********************************************************************
+*查看提现交易记录
+*********************************************************************/
+$("#frm-alipay-btns").click(function(){
+	$("#frm-alipay-box").moder("deal.aspx?action=stor&alipayId={ke.function.alipayId/}")
+});
+</script>

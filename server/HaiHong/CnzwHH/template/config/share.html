@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;" />
+    <title>分享设置</title>
+    <link href="template/images/style.css" rel="stylesheet" type="text/css" />
+    <link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="inc/jquery.js"></script>
+    <script language="javascript" src="inc/jquery-ui.js"></script>
+    <script language="javascript" src="inc/jquery.form.js"></script>
+    <script language="javascript" src="inc/forwork.js"></script>
+    <script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+    <script language="javascript" src="inc/WdatePicker.js"></script>
+    <script language="javascript" src="inc/pinyin.js"></script>
+</head>
+<body>
+    <div class="tips_menu_bar">
+        <a class="current">用户邀请奖励</a>
+    </div>
+    <div class="clear" id="FRMSpacing"></div>
+    <form id="frm-submit-forms" action="?action=save" onsubmit="return _doPost(this)" method="post">
+        <input type="hidden" name="configname" value="{ke.function.configName/}" />
+        <table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+            <tr class="change">
+                <td class="Base" colspan="4">参数配置 >> 邀请奖励</td>
+            </tr>
+            <tr class="hback">
+                <td style="width:80px" class="tips">获得奖励</td>
+                <td class="singlebtn" style="width:400px">
+                    {ke.function.isBonus/}
+                    <span>关闭后邀请无奖励</span>
+                </td>
+                <td style="width:80px" class="tips">邀请者获得</td>
+                <td>
+                    <input notkong="true" type="number" isnumeric="true" placeholder="单位元" value="{ke.function.SCAmount/}" class="inputtext" name="SCAmount" id="SCAmount" size="10" />
+                    <span>师父获得奖励</span>
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">下放模式</td>
+                <td class="singlebtn">
+                    {ke.function.shareModel/}
+                </td>
+                <td class="tips">新用户获得</td>
+                <td>
+                    <input notkong="true" type="number" isnumeric="true" placeholder="单位元" value="{ke.function.STAmount/}" class="inputtext" name="STAmount" id="STAmount" size="10" />
+                    <span>徒弟获得奖励</span>
+                </td>
+            </tr>
+
+            <tr class="change">
+                <td class="Base" colspan="4">参数配置 >> 任务提成</td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">开启提成</td>
+                <td class="singlebtn">
+                    {ke.function.isTask/}
+                    <span>关闭后用户完成任务上级无提成</span>
+                </td>
+                <td class="tips">提成次数</td>
+                <td>
+                    <input notkong="true" type="number" isnumeric="true" placeholder="填写纯数字" value="{ke.function.CTTimer/}" class="inputtext" name="CTTimer" id="CTTimer" size="10" />
+                    <span>同一个下级可获得提成次数</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">提成等级</td>
+                <td>
+                    <input notkong="true" type="number" isnumeric="true" placeholder="填写纯数字" value="{ke.function.RankLevel/}" class="inputtext" name="RankLevel" id="RankLevel" size="10" />
+                    <span>企业用户购买单个激活码费用</span>
+                </td>
+                <td class="tips">奖励模式</td>
+                <td class="singlebtn">
+                    {ke.function.TModel/}
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">奖励设置</td>
+                <td style="padding:0px; background:#f8f8f8" colspan="3">{ke.function.shareLevel/}</td>
+            </tr>
+
+            <tr class="change">
+                <td class="Base" colspan="4">参数配置 >> 级差提成</td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">开启提成</td>
+                <td class="singlebtn" colspan="4">
+                    {ke.function.isGradeTask/}
+                    <span>关闭后用户完成任务上级无提成</span>
+                </td>
+            </tr>
+
+            <tr class="hback">
+                <td class="tips">奖励设置</td>
+                <td style="padding:0px; background:#f8f8f8" colspan="3">&nbsp;
+                     邀请人数<font color="red">大于等于</font> <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGrade1/}" name="shareGrade1" notkong="true" type="text" class="inputtext" />
+                     提成奖励(%) <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGradeAMT1/}" name="shareGradeAMT1" notkong="true" type="text" class="inputtext" />&nbsp;
+                     邀请人数<font color="red">大于等于</font> <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGrade2/}" name="shareGrade2" notkong="true" type="text" class="inputtext" />
+                     提成奖励(%) <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGradeAMT2/}" name="shareGradeAMT2" notkong="true" type="text" class="inputtext" />
+                </td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">奖励设置</td>
+                <td style="padding:0px; background:#f8f8f8" colspan="3">
+                    &nbsp;
+                    邀请人数<font color="red">大于等于</font> <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGrade3/}" name="shareGrade3" notkong="true" type="text" class="inputtext" />
+                    提成奖励(%) <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGradeAMT3/}" name="shareGradeAMT3" notkong="true" type="text" class="inputtext" />&nbsp;
+                    邀请人数<font color="red">大于等于</font> <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGrade4/}" name="shareGrade4" notkong="true" type="text" class="inputtext" />
+                    提成奖励(%) <input style="width:80px;" placeholder="纯数字" value="{ke.function.shareGradeAMT4/}" name="shareGradeAMT4" notkong="true" type="text" class="inputtext" />
+                </td>
+            </tr>
+
+            <tr class="change">
+                <td class="Base" colspan="4">参数配置 >> 新手红包</td>
+            </tr>
+            <tr class="hback">
+                <td class="tips">开启红包</td>
+                <td class="singlebtn">
+                    {ke.function.isRookie/}
+                </td>
+                <td class="tips">红包金额</td>
+                <td>
+                    <input notkong="true" type="number" isnumeric="true" placeholder="填写纯数字" value="{ke.function.AmtRookie/}" class="inputtext" name="AmtRookie" id="AmtRookie" size="10" />
+                    <span>0为(0-2)元范围内随机</span>
+                </td>
+            </tr>
+            <tr class="xingmu">
+                <td></td>
+                <td colspan="3">
+                    <input type="submit" id="frm-submit-btns" value="确认保存" class="button" />
+                    <input type="reset" value="撤销" class="button" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

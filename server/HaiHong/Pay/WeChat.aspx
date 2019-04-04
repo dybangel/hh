@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WeChat.aspx.cs" Inherits="Fooke.Web.Pay.WeChat" %>

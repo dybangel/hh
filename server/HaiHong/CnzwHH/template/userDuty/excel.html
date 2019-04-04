@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>数据导出</title>
+<link href="template/images/style.css?{timestamp}" rel="stylesheet" type="text/css" />
+<link href="template/images/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+<link href="inc/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="inc/jquery.js"></script>
+<script language="javascript" src="inc/jquery-ui.js"></script>
+<script language="javascript" src="inc/jquery.form.js"></script>
+<script language="javascript" src="inc/forwork.js"></script>
+<script language="javascript" src="inc/jquery-easyui/jquery.easyui.min.js"></script>
+<script language="javascript" src="inc/WdatePicker.js"></script>
+</head>
+<body>
+<div class="tips_menu_bar">
+<a href="?action=default">任务记录</a>
+<a href="?action=excel" class="current">数据导出</a>
+<a href="?action=computer">数据统计</a>
+</div>
+<div class="clear" id="FRMSpacing"></div>
+<form id="frmForms" onSubmit="return _doPost(this);" action="userDuty.aspx" method="post">
+<input type="hidden" name="action" value="savexport" />
+<table width="99%" border="0" cellspacing="1" cellpadding="3" class="table">
+<tr><td colspan="4" class="Base">任务记录 >> 导出数据</td></tr>
+<tr class="hback">
+<td style="width:80px" class="tips">开始时间</td>
+<td style="width:200px">
+<input placeholder="请选择开始日期" size="20" onClick="WdatePicker()" type="text" value="{ke.function.StarDate/}" name="StarDate" class="inputtext" />
+</td>
+<td valign="top" style="width:80px" rowspan="5" class="tips">
+<div>导出字段</div>
+<div style="color:#999; line-height:20px;">选择需要导出的数据字段信息,按住(ctrl+鼠标)可多选</div>
+</td>
+<td rowspan="5" style="background:#fff" valign="top">
+<div style="height:200px;" id="strColums">
+<label><input type="checkbox" value="DutyID as 任务记录ID" name="strColumns" />任务记录ID</label>
+<label><input type="checkbox" value="DutyKey as 记录标识" name="strColumns" />记录标识</label>
+<label><input type="checkbox" value="UnionID as 联盟ID" name="strColumns" />联盟ID</label>
+<label><input type="checkbox" value="strUnion as 联盟名称" name="strColumns" />联盟名称</label>
+<label><input type="checkbox" value="UserID as 用户ID" name="strColumns" />用户ID</label>
+<label><input type="checkbox" value="Nickname as 用户昵称" name="strColumns" />用户昵称</label>
+<label><input type="checkbox" value="DeviceType as 设备类型" name="strColumns" />设备类型</label>
+<label><input type="checkbox" value="DeviceCode as 设备编号" name="strColumns" />设备编号(IDFA)</label>
+<label><input type="checkbox" value="AppID as 应用ID" name="strColumns" />应用ID</label>
+<label><input type="checkbox" value="Appname as 应用名称" name="strColumns" />应用名称</label>
+<label><input type="checkbox" value="strIP as IP地址" name="strColumns" />IP地址</label>
+<label><input type="checkbox" value="strCity as 归属城市" name="strColumns" />归属城市</label>
+<label><input type="checkbox" value="Points as 奖励积分" name="strColumns" />奖励积分</label>
+<label><input type="checkbox" value="Amount as 奖励金额" name="strColumns" />奖励金额</label>
+<label><input type="checkbox" value="Addtime as 完成时间" name="strColumns" />完成时间</label>
+</div>
+</td>
+</tr>
+</tr>
+
+<tr class="hback">
+<td class="tips">结束时间</td>
+<td>
+<input placeholder="请选择开始日期" size="20" onClick="WdatePicker()" type="text" value="{ke.function.EndDate/}" name="EndDate" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">选择渠道</td>
+<td>
+<input type="text" value="{ke.function.strUnion/}" placeholder="不填写表示所有渠道" size="20" name="strUnion" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">应用名称</td>
+<td>
+<input type="text" value="{ke.function.Appname/}" placeholder="导出app应用名称" size="20" name="Appname" class="inputtext" />
+</td>
+</tr>
+
+<tr class="hback">
+<td class="tips">所在城市</td>
+<td>
+<input type="text" value="{ke.function.strCity/}" placeholder="筛选任务完成城市" size="20" name="strCity" class="inputtext" />
+</td>
+</tr>
+
+
+<tr class="xingmu">
+<td class="tips"></td>
+<td colspan="3">
+<input type="submit" id="frmSubmit" value="导出数据" class="button" />
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

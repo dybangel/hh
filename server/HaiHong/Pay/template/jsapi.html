@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>确认付款</title>
+<meta name="keywords" content="{ke.config(sitekeywords)/}"/>
+<meta name="description" content="{ke.config(siteDescrption)/}"/>
+<script language="javascript" src="../inc/jquery.js"></script>
+<script language="javascript" src="../inc/jquery.form.js"></script>
+<script language="javascript" src="../inc/forwork.js"></script>
+<script language="javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<style type="text/css">
+*{ margin:0px;padding:0px; border:0px; outline:none;outline:0; list-style-type:none;list-style:none;-webkit-tap-highlight-color:transparent;}
+#frmAlertMaster{ display:none; width:100%;left:0px;top:0px; position:fixed;height:100%; background:rgba(0,0,0,0.15)}
+#frmAlertContianer{ width:90%; position:fixed;left:5%;top:100px;padding:0px; background:#fff; border-radius:3px; box-shadow:1px 1px 2px #999;}
+#frmAlertTitle{ padding:8px 10px; border-bottom:#eee solid 1px; display:block; clear:both; color:#0186d3; text-align:center;}
+#frmAlertText{padding:12px 10px; display:block; clear:both; color:#999; font-size:14px; text-align:center; line-height:24px;}
+#frmAlertButton{border-top:#eee solid 1px;padding:5px 0px;overflow:hidden;width:100%;clear:both; text-align:center;}
+#frmAlertOK{ height:32px; line-height:32px; border-radius:3px; width:145px; margin:0px auto; border:#0186d3 solid 1px; color:#0186d3}
+</style>
+</head>
+<body style="background:#fff;">
+<div id="frmAlertMaster">
+	<div id="frmAlertContianer">
+		<div id="frmAlertTitle">系统提示</div>
+		<div id="frmAlertText">用户已取消支付或支付过程中发生错误,点击确定将跳转到充值页面。</div>
+		<div id="frmAlertButton"><div onClick="history.go(-1);" id="frmAlertOK">确定</div></div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+/************************************************************************************
+*注册请求字段信息
+*************************************************************************************/
+var jsApiCall = function()
+{
+	try{
+	   WeixinJSBridge.invoke('getBrandWCPayRequest',{ke.function.parameter/},function(res){
+			if(res.err_msg == "get_brand_wcpay_request:ok" )
+			{window.location='redirect.aspx?action=success&rechid={ke.function.rechid/}';}
+			else{$("#frmAlertMaster").show();return false;;}
+	   });
+   }catch(err){}
+};
+/************************************************************************************
+*初始化加载内容
+*************************************************************************************/
+window.onload = function()
+{
+	try{
+		if(typeof(WeixinJSBridge) == "undefined"){
+			   if (document.addEventListener){document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);}
+			   else if (document.attachEvent){
+				   document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+				   document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+			   }
+		}else{jsApiCall(); }
+	}catch(err){}
+	/***************************************************************************
+	*关闭微信当中多余的按钮信息
+	****************************************************************************/
+	try{
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+			WeixinJSBridge.call('hideToolbar');
+			WeixinJSBridge.call('hideMenuItems');
+			WeixinJSBridge.call('hideOptionMenu');
+		});
+	}catch(err){}
+};
+
+</script>

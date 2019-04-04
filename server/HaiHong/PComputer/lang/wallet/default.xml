@@ -1,0 +1,20 @@
+﻿<language>
+<zh>
+<zh.钱包>钱包</zh.钱包>
+<zh.可用余额>可用余额</zh.可用余额>
+<zh.等待释放>等待释放</zh.等待释放>
+<zh.冻结金额>冻结金额</zh.冻结金额>
+<zh.钱包二维码>钱包二维码</zh.钱包二维码>
+<zh.钱包地址>钱包地址</zh.钱包地址>
+<zh.复制地址>复制地址</zh.复制地址>
+</zh>
+<en>
+<en.钱包>Wallet</en.钱包>
+<en.可用余额>Balance</en.可用余额>
+<en.等待释放>Release</en.等待释放>
+<en.冻结金额>Frozen</en.冻结金额>
+<en.钱包二维码>Wallet QRcode</en.钱包二维码>
+<en.钱包地址>Wallet address</en.钱包地址>
+<en.复制地址>Copy address</en.复制地址>
+</en>
+</language>

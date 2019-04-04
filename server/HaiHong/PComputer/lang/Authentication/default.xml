@@ -1,0 +1,14 @@
+﻿<language>
+<zh>
+<zh.身份认证>身份认证</zh.身份认证>
+<zh.证件类型>证件类型</zh.证件类型>
+<zh.证件编号>证件编号</zh.证件编号>
+<zh.真实姓名>真实姓名</zh.真实姓名>
+</zh>
+<en>
+<en.身份认证>Authentication</en.身份认证>
+<en.证件类型>certificate type</en.证件类型>
+<en.证件编号>Document number</en.证件编号>
+<en.真实姓名>Real Name</en.真实姓名>
+</en>
+</language>
