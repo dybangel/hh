@@ -1,0 +1,43 @@
+$ git init doc
+Initialized empty Git repository in F:/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc/.git/
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work
+$ cd doc
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ git config core.sparsecheckout true
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ dir
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ echo doc/* >> .git/info/sparse-checkout
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ git remote add origin https://github.com/dybangel/hh
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ git pull origin master
+remote: Enumerating objects: 3154, done.
+remote: Counting objects: 100% (3154/3154), done.
+remote: Compressing objects: 100% (2202/2202), done.
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+fatal: the remote end hung up unexpectedly
+fatal: early EOF
+fatal: index-pack failed
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ git remote add origin https://github.com/dybangel/hh/doc
+fatal: remote origin already exists.
+
+Administrator@PC-201810161540 MINGW64 /f/today/desk10月/工作梳理/项目管理/乾德实业/刷单/work/doc (master)
+$ git pull origin master
+remote: Enumerating objects: 3154, done.
+remote: Counting objects: 100% (3154/3154), done.
+remote: Compressing objects: 100% (2202/2202), done.
+remote: Total 3154 (delta 833), reused 3154 (delta 833), pack-reused 0
+Receiving objects: 100% (3154/3154), 52.86 MiB | 2.91 MiB/s, done.
+Resolving deltas: 100% (833/833), done.
+From https://github.com/dybangel/hh
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master

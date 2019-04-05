@@ -1,3 +1,16 @@
+保存用户
+exec [Stored_SaveUsers] @ParentID=N'0',@AuthorizationType=N'Define',@AuthorizationKey=N'DM70ca1db7-20ab-4c21-8e50-78f55b2edcbb',@DeviceType=N'iOS',@DeviceCode=N'4335CE56-CEB0-4760-ADCE-9FD332F9313B',@DeviceIdentifier=N'3bdae3d99f7d301a9d0aa227eaabc8ab34385d63',@DeviceModel=N'iPhone6',@DeviceChar=N'10.3.3',@MacChar=N'54:36:9b:2f:76:79',@strTokey=N'F317B5B75BC3811055ECB807',@UserName=N'DM19040522152710',@Password=N'7df621ac0f16ed886d368f1c',@PasswordTo=N'7df621ac0f16ed886d368f1c',@Nickname=N'HH58996778',@Thumb=N'/file/user/default.png',@strMobile=N'',@strEmail=N'',@strWeChat=N'',@Fullname=N'',@AlipayChar=N'',@Alipayname=N''
+
+
+
+拜师
+exec [Stored_FindMember] @UserID=N'100088'
+
+exec sp_executesql N'Update Fooke_User set ParentID=@ParentID where 1=1 and UserID=30018000',N'@ParentID nvarchar(6)',@ParentID=N'100088'
+
+exec [Stored_FindUserLogin] @strKey=N'F317B5B75BC3811055ECB807'
+
+
 任务列表exec [Stored_FindApplicationList] @UserID=N'300022240',@DeviceModel=N'安卓系统'
 返回用户信息 exec [Stored_FindUserLogin] @strKey=N'133292EF159E4D1082CDA02F'
 ???exec [Stored_FindUserTodayComputer] @UserID=N'300022240',@DateKey=N'20190404'
