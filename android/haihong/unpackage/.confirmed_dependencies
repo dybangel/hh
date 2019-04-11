@@ -1,0 +1,32 @@
+{
+  "index.html": {
+    "refer": [
+      "tasklist.html",
+      "userinfo.html"
+    ],
+    "resources": []
+  },
+  "tasklist.html": {
+    "refer": [
+      "taskdeatil.html"
+    ],
+    "resources": []
+  },
+  "userinfo.html": {
+    "refer": [
+      "history.html",
+      "helpcenter.html",
+      "contact.html",
+      "airplayreg.html",
+      "mobilereg.html"
+    ],
+    "resources": []
+  },
+  "indexnew.html": {
+    "refer": [
+      "userinfo.html",
+      "tasklist.html"
+    ],
+    "resources": []
+  }
+}
