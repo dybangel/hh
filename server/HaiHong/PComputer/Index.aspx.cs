@@ -15,7 +15,6 @@ namespace Fooke.Web.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             switch (strRequest)
             {
                 case "menu": strMenu(); Response.End(); break;
@@ -75,16 +74,16 @@ namespace Fooke.Web.Member
             /**************************************************************************************
              * 指纹方式获取用户邀请？
              * ************************************************************************************/
-            string strFinger = RequestHelper.GetRequest("strFinger").toString();
-            if (new Fooke.Function.String(MemberRs["ParentID"].ToString()).cInt() <= 0
-            && new Fooke.Function.String(MemberRs["shareCancel"].ToString()).cInt() <= 0
-            && RequestHelper.GetRequest("Fingerprint").toString() != "false")
-            {
-                if (string.IsNullOrEmpty(strFinger)) { ShowFinger(); Response.End(); }
-                else if (strFinger.Length <= 0) { ShowFinger(); Response.End(); }
-                else if (strFinger.Length <= 5) { ShowFinger(); Response.End(); }
-                else if (strFinger.Length >= 30) { ShowFinger(); Response.End(); }
-            }
+            //string strFinger = RequestHelper.GetRequest("strFinger").toString();
+            //if (new Fooke.Function.String(MemberRs["ParentID"].ToString()).cInt() <= 0
+            //&& new Fooke.Function.String(MemberRs["shareCancel"].ToString()).cInt() <= 0
+            //&& RequestHelper.GetRequest("Fingerprint").toString() != "false")
+            //{
+            //    if (string.IsNullOrEmpty(strFinger)) { ShowFinger(); Response.End(); }
+            //    else if (strFinger.Length <= 0) { ShowFinger(); Response.End(); }
+            //    else if (strFinger.Length <= 5) { ShowFinger(); Response.End(); }
+            //    else if (strFinger.Length >= 30) { ShowFinger(); Response.End(); }
+            //}
             /**************************************************************************************
              * 统计用户今日收益信息
              * ************************************************************************************/
@@ -152,7 +151,7 @@ namespace Fooke.Web.Member
          * **********************************************************************************************************/
         #region 填写邀请人处理信息
         /// <summary>
-        /// 领取新手红包
+        /// 邀请人处理信息
         /// </summary>
         protected void ShareConfirm()
         {

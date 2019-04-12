@@ -69,7 +69,8 @@ namespace Fooke.Web.Admin
             strText.Append("<td width=\"100\">金额支出</td>");
             strText.Append("<td width=\"100\">任务数量</td>");
             strText.Append("<td width=\"100\">任务奖励</td>");
-            strText.Append("<td width=\"100\">分享奖励</td>");
+            strText.Append("<td width=\"100\">推广分成</td>");
+            strText.Append("<td width=\"100\">级差奖励</td>");
             strText.Append("</tr>");
             /******************************************************************************************
              * 构建分页查询条件
@@ -114,6 +115,7 @@ namespace Fooke.Web.Admin
                 strText.AppendFormat("<td>{0} </td>", Rs["Dutynumber"]);
                 strText.AppendFormat("<td>{0} </td>", Rs["DutyAmount"]);
                 strText.AppendFormat("<td>{0} </td>", Rs["ShareAmount"]);
+                strText.AppendFormat("<td>{0} </td>", Rs["GradeAmount"]);
                 strText.AppendFormat("</tr>");
             }
             strText.Append("<tr class=\"pager\">");
@@ -231,7 +233,8 @@ namespace Fooke.Web.Admin
             strText.Append("<td width=\"100\">金额支出</td>");
             strText.Append("<td width=\"100\">任务数量</td>");
             strText.Append("<td width=\"100\">任务奖励</td>");
-            strText.Append("<td width=\"100\">分享奖励</td>");
+            strText.Append("<td width=\"100\">推广分成</td>");
+            strText.Append("<td width=\"100\">级差奖励</td>");
             strText.Append("</tr>");
             /********************************************************************************************
              * 否建分页查询语句条件
@@ -261,6 +264,7 @@ namespace Fooke.Web.Admin
                 strText.AppendFormat("<td>{0} </td>", Rs["Dutynumber"]);
                 strText.AppendFormat("<td>{0} </td>", Rs["DutyAmount"]);
                 strText.AppendFormat("<td>{0} </td>", Rs["ShareAmount"]);
+                strText.AppendFormat("<td>{0} </td>", Rs["GradeAmount"]);
                 strText.AppendFormat("</tr>");
             }
             /*******************************************************************************************
@@ -280,6 +284,7 @@ namespace Fooke.Web.Admin
                 strText.AppendFormat("<td>{0} </td>", TotalRs["Dutynumber"]);
                 strText.AppendFormat("<td>{0} </td>", TotalRs["DutyAmount"]);
                 strText.AppendFormat("<td>{0} </td>", TotalRs["ShareAmount"]);
+                strText.AppendFormat("<td>{0} </td>", TotalRs["GradeAmount"]);
                 strText.AppendFormat("</tr>");
             }
             strText.Append("<tr class=\"pager\">");

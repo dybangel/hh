@@ -503,7 +503,7 @@ namespace Fooke.Web.Admin
             string Processname = RequestHelper.GetRequest("Processname", false).ToString();
             if (string.IsNullOrEmpty(Processname)) { this.ErrorMessage("请填写应用进程名称！"); Response.End(); }
             else if (Processname.Length <= 1) { this.ErrorMessage("应用进程名称长度不能少于2个字符！"); Response.End(); }
-            else if (Processname.Length >= 60) { this.ErrorMessage("应用进程名称长度不能超过60个字符！"); Response.End(); }
+            else if (Processname.Length >= 60) { /*this.ErrorMessage("应用进程名称长度不能超过60-506个字符！"); Response.End();*/ }
             /*******************************************************************************************************
             * 获取应用图片LOGO地址
             * *****************************************************************************************************/
@@ -725,7 +725,7 @@ namespace Fooke.Web.Admin
             string Processname = RequestHelper.GetRequest("Processname",false).ToString();
             if (string.IsNullOrEmpty(Processname)) { this.ErrorMessage("请填写应用进程名称！"); Response.End(); }
             else if (Processname.Length <= 1) { this.ErrorMessage("应用进程名称长度不能少于2个字符！"); Response.End(); }
-            else if (Processname.Length >= 60) { this.ErrorMessage("应用进程名称长度不能超过60个字符！"); Response.End(); }
+            else if (Processname.Length >= 60) { /*this.ErrorMessage("应用进程名称长度不能超过60-728个字符！"); Response.End(); */}
             /*******************************************************************************************************
             * 获取应用图片LOGO地址
             * *****************************************************************************************************/

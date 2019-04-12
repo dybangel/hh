@@ -12,13 +12,41 @@ namespace Fooke.Web.Member
 {
     public partial class App : Fooke.Code.UserHelper
     {
+    	public string Gtaskmode=RequestHelper.GetRequest("taskerModel", true).toString();
+    	public string nortasktemp="template/app/show.html";
+    	public string wakeuptemp="template/app/showup.html";
+    	public string Gdetailtemplate="";
         protected void Page_Load(object sender, EventArgs e)
         {
+        	//Server.Transfer("weihu/index.html"); 
+        	Gtaskmode =RequestHelper.GetRequest("taskerModel", true).toString();
+             
+             //过滤器
+             // if("唤醒任务"==Gtaskmode ||"u5524u9192u4EFBu52A1"==Gtaskmode){
+             //   // Response.Write("<script>alert(strtokey='"+MemberRs["strTokey"] +"')</script>");
+             //    showconsole("111"+Gtaskmode);
+             //    if(MemberRs["strTokey"].toString()!="F8828E99CBFDF5C7A48D3A02"){
+             //  //  Response.Write("<script>console.log(strtokey='"+MemberRs["strTokey"] +"')</script>");
+             //    Response.End();
+             //    }
+             // }
+
+        	if("u5524u9192u4EFBu52A1"==Gtaskmode){
+
+        		Gdetailtemplate=wakeuptemp;
+              
+        	}else{
+        		Gdetailtemplate=nortasktemp;
+        	}
+        	
             switch (strRequest)
             {
                 case "show": ShowDetails(); Response.End(); break;
                 default: strDefault(); Response.End(); break;
             }
+        }
+        protected void showconsole(string str){
+         Response.Write("<script>console.log('this is console.log:"+str+"');</script>");
         }
         /// <summary>
         /// 默认加载任务列表数据
@@ -43,10 +71,14 @@ namespace Fooke.Web.Member
                 strResponse = Master.Start(strResponse, new Fooke.SimpleMaster.Function((funName) =>
                 {
                     string strValue = string.Empty;
+                    	
                     switch (funName.ToLower())
                     {
                         case "showInvited": strValue = display; break;
-                        default: try { strValue = MemberRs[funName].ToString(); }
+                        default: try { 
+                        	strValue = MemberRs[funName].ToString();
+                        	
+                        	 }
                             catch { } break;
                     }
                     return strValue;
@@ -114,7 +146,8 @@ namespace Fooke.Web.Member
             if (new Fooke.Function.String(MemberRs["DeviceType"].ToString()).toString("define") != "android")
             {
                 Fooke.SimpleMaster.SimpleMaster Master = new SimpleMaster.SimpleMaster();
-                string strResponse = Master.Reader("template/app/show.html");
+                string strResponse = Master.Reader(Gdetailtemplate);
+               
                 strResponse = Master.Start(strResponse, new Fooke.SimpleMaster.Function((funName) =>
                 {
                     string strValue = string.Empty;
@@ -126,6 +159,7 @@ namespace Fooke.Web.Member
                     }
                     return strValue;
                 }));
+              //   Response.Write("<script>console.log('123');</script>");
                 Response.Write(strResponse);
                 Response.End();
             }
