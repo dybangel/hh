@@ -13,9 +13,11 @@ namespace Fooke.Web.Admin
     public partial class Application : Fooke.Code.AdminHelper
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { //Response.Write("<sciprt>document.getElementsByName('isKeyword')[0].parentElement.className=\"current\"</script>");
+
             switch (strRequest)
             {
+
                 case "edit": this.VerificationRole("应用管理"); Update(); Response.End(); break;
                 case "add": this.VerificationRole("应用管理"); Add(); Response.End(); break;
                 case "editsave": this.VerificationRole("应用管理"); SaveUpdate(); Response.End(); break;
@@ -27,6 +29,7 @@ namespace Fooke.Web.Admin
                 case "stor":  SelectorList(); Response.End(); break;
                 case "default": this.VerificationRole("应用管理"); strDefault(); Response.End(); break;
             }
+            
         }
        
         /// <summary>
