@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>提现</title>
+<link rel="stylesheet" type="text/css" href="css/hui.css" />
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<script src="js/doT.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/myfun.js"></script>
+</head>
+<body>
+		<style>
+		h1{
+			    padding: 0px 90px 0px 38px!important;
+		}
+	</style>
+<header class="hui-header">
+    <div id="hui-back" class="event_close"></div>
+    <h1>提现</h1>
+</header>
+<div class="hui-wrap">
+	
+  
+    
+    <div class="hui-list" style="margin-top:22px;">
+        <a class="event_alipay_tixian">
+    		<div class="hui-list-icons">
+    			<img src="img/index/alipay.png" />
+    		</div>
+    		<div class="hui-list-text">
+    			支付宝提现
+    			<div class="hui-list-info">
+    				查看 <span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+		</a>
+		<!--<a class="event_weixin_tixian">
+    		<div class="hui-list-icons">
+    			<img src="img/index/weichat.png" />
+    		</div>
+    		<div class="hui-list-text">
+    			微信提现
+    			<div class="hui-list-info">
+    				查看 <span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+    	</a>-->
+    </div>
+   
+    <!--<div class="hui-list" style="margin-top:22px;">
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');" style="height:auto; height:80px; padding-bottom:8px;">
+    		<div class="hui-list-icons" style="width:110px; height:80px;">
+    			<img src="../img/list/home.png" style="width:66px; margin:0px; border-radius:50%;" />
+    		</div>
+    		<div class="hui-list-text" style="height:79px; line-height:79px;">
+    			Hcoder.net
+    			<div class="hui-list-info">
+    				<span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+    	</a>
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-text">
+    			账户余额 : 1000元 | 积分 : 2000
+    		</div>
+    	</a>
+    </div>-->
+</div>
+
+</body>
+<script>
+//回调检测是否设置了支付宝
+function Stored_FindMember(data){
+	console.log("this is stored_findmember callback");
+	printobj(data[0]);
+	//没有绑定支付宝 
+	var datas={"Amount":data[0]['Amount'],"AlipayChar":data[0]['AlipayChar'],"Alipayname":data[0]['Alipayname'],'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
+		
+	if(""==data[0]['AlipayChar']){
+		
+		openwin_plus("./airplayreg.html",datas);
+	}else{
+		openwin_plus("./tixiandeatil.html",datas);
+	}
+}
+function plusReady(){
+Gmainview = plus.webview.getWebviewById(Gmainviewid);
+Glistview =plus.webview.getWebviewById('tasklist.html')
+Gdeatilview = plus.webview.getWebviewById('taskdeatil.html');
+getvalue_plus();
+　mui.init({
+ 　　　　　　　　swipeBack: true, //启用右滑关闭功能
+　　　　　　　　beforeback: function(){//监听物理返回按键的方法
+　　　　　　　　//获得列表界面的webview
+ 　　　　　　　//　var list = plus.webview.getWebviewById('list');
+　　　　　　　　//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+ 　　　　　　　　mui.fire(Gmainview,'Listener',{
+				action:"refresh"
+				});
+　　　　　　　　//返回true，继续页面关闭逻辑
+　　　　　　　　return true;
+　　　　　　　　}
+　　　　　　});
+
+mui("body").on("tap", ".event_close",function() {
+mui.fire(Gmainview,'Listener',{
+	action:"refresh"
+	});
+ closeme();
+});
+
+mui("body").on("tap",".event_alipay_tixian",function(){
+
+	par=" @DeviceType=N'"+DeviceType+"',@DeviceIdentifier=N'"+DeviceIdentifier+"'"
+	getjson('Stored_FindMember',par);
+
+//	var data={'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
+//	
+//	console.log("GAlipayChar is:"+GAlipayChar);
+//	if(""==GAlipayChar){
+//	//去绑定支付宝	
+//	openwin_plus("./airplayreg.html",data);
+//	}else{
+//	//openwin_plus("./tixiandeatil.html",data);
+//	}
+	
+
+});	
+
+}
+		mui.ready(function () {
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			};
+})  
+</script>
+</html>

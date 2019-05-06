@@ -16,7 +16,7 @@
 		}
 	</style>
 <header class="hui-header">
-    <div id="hui-back"></div>
+    <div id="hui-back" class="event_close"></div>
     <h1>用户中心</h1>
 </header>
 <div class="hui-wrap">
@@ -26,17 +26,17 @@
     			<img src="img/list/home.png" style="width:66px; margin:0px; border-radius:50%;">
     		</div>
     		<div class="hui-list-text" style="height:79px; line-height:79px;">
-    			<div class="hui-list-text-content">
-    				Hcoder.net
+    			<div class="hui-list-text-content event_nickname">
+    				昵称: 
     			</div>
     			<div class="hui-list-info">
     				<span class="hui-icons hui-icons-right"></span>
     			</div>
     		</div>
     	</a>
-    	<a href="javascript:hui.toast('Hello Hcoder UI !');">
-    		<div class="hui-list-text">
-    			账户余额 : 1000元 | 积分 : 2000
+    	<a >
+    		<div class="hui-list-text event_amount">
+    			账户余额 : 
     		</div>
     	</a>
     </div>
@@ -83,8 +83,8 @@
            	</li>
            	<li class="event_helpcenter">
             	<a href="javascript:void(0);">
-            		<div class="hui-list-icons">
-		    			<img src="img/list/lishi.png">
+            		<div class="hui-list-icons ">
+		    			<img src="img/index/start.png">
 		    		</div>
 		    		<div class="hui-list-text">
 		    			帮助中心
@@ -94,10 +94,10 @@
 		    		</div>
             	</a>
            	</li>
-           	 	<li class="event_lianxi">
+           	 	<!--<li class="event_lianxi">
             	<a href="javascript:void(0);">
             		<div class="hui-list-icons">
-		    			<img src="img/list/lishi.png">
+		    			<img src="img/index/dialog.png">
 		    		</div>
 		    		<div class="hui-list-text">
 		    			联系我们
@@ -106,8 +106,8 @@
 		    			</div>
 		    		</div>
             	</a>
-           	</li>
-           	 	<li>
+           	</li>-->
+           	 	<!--<li>
             	<a href="javascript:void(0);">
             		<div class="hui-list-icons">
 		    			<img src="img/list/lishi.png">
@@ -119,7 +119,7 @@
 		    			</div>
 		    		</div>
             	</a>
-           	</li>
+           	</li>-->
            	 	<!--<li>
             	<a href="javascript:void(0);">
             		<div class="hui-list-icons">
@@ -134,9 +134,9 @@
             	</a>
            	</li>-->
            	 	<li class="event_airplayreg">
-            	<a href="javascript:void(0);">
+            	<a >
             		<div class="hui-list-icons">
-		    			<img src="img/list/lishi.png">
+		    			<img src="img/index/alipay.png">
 		    		</div>
 		    		<div class="hui-list-text">
 		    			绑定支付宝
@@ -157,21 +157,67 @@
 
 <script type="text/javascript" src="js/hui.js" charset="UTF-8"></script>
 <script>
+window.addEventListener('Listener',function(event){
+ 		var action=event.detail.action;
+ 		if("refresh"==action){	
+ 			$('.event_nickname')[0].innerHTML="昵称: "+event.detail.nickname;
+ 			//console.log(event.detail.nickname);
+
+ 		}
+ 			
+ 	})
+function Stored_FindMember(data){
+	//printobj(data[0]);
+	Amount=data[0]["Amount"];
+	UserID=data[0]["UserID"];
+	$('.event_nickname')[0].innerHTML="昵称: "+GNickname;
+	$('.event_amount')[0].innerHTML="账户余额 : "+Amount+"元";
+}
+
 function plusReady(){ 
+	Gmainview = plus.webview.getWebviewById(Gmainviewid);
+Glistview =plus.webview.getWebviewById('./tasklist.html')
+Gdeatilview = plus.webview.getWebviewById('./taskdeatil.html');
+getvalue_plus();
+　mui.init({
+ 　　　　　　　　swipeBack: true, //启用右滑关闭功能
+　　　　　　　　beforeback: function(){//监听物理返回按键的方法
+　　　　　　　
+ 　　　　　　　　mui.fire(Gmainview,'Listener',{
+				action:"refresh"
+				});
+　　　　　　　　//返回true，继续页面关闭逻辑
+　　　　　　　　return true;
+　　　　　　　　}
+　　　　　　});
+//exec [Stored_FindMember] @UserID=N'30008344'
+getjson("Stored_FindMember","@UserID=N'"+UserID+"'");
+
+mui("body").on("tap", ".event_close",function() {
+mui.fire(Gmainview,'Listener',{
+	action:"refresh"
+	});
+ closeme();
+});
+
+mui("body").on("tap",".event_nickname",function(){
+var data={'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
+openwin_plus("nicknamechange.html",data);	
+});
 //getjson('getinfo|template','memberid=123&pid=asdf');
 mui("body").on("tap",".event_history",function(){
-var data={'asdf':'asdf'};
+var data={'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
 openwin_plus("history.html",data);
 });
 
 mui("body").on("tap",".event_mobilereg",function(){
-var data={'asdf':'asdf'};
+var data={'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
 openwin_plus("mobilereg.html",data);
 });
 
 mui("body").on("tap",".event_airplayreg",function(){
-var data={'asdf':'asdf'};
-openwin_plus("airplayreg.html",data);
+var data={'UserID':UserID,'DeviceType':DeviceType,'GNickname':GNickname,'DeviceCode':DeviceCode,'MacChar':MacChar,'strIP':strIP,'cityname':cityname,'strTokey':strTokey};
+	openwin_plus("airplayreg.html",data);
 });
 mui("body").on("tap",".event_helpcenter",function(){
 var data={'asdf':'asdf'};

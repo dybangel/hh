@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+	
+		
+		<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
+		<style type="text/css">
+#bcid {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	bottom: 44px;
+	text-align: center;
+}
+.tip {
+	color: #FFFFFF;
+	font-weight: bold;
+	text-shadow: 0px -1px #103E5C;
+}
+footer {
+	width: 100%;
+	height: 44px;
+	position: absolute;
+	bottom: 0px;
+	line-height: 44px;
+	text-align: center;
+	color: #FFF;
+}
+.fbt {
+	width: 50%;
+	height: 100%;
+	background-color: #FFCC33;
+	float: left;
+}
+.fbt:active {
+  	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+		</style>
+		<script src="js/doT.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/myfun.js"></script>
+	</head>
+	<body style="background-color: #000000;">
+		<div id="bcid">
+			<div style="height:40%"></div>
+			<p class="tip">...载入中...</p>
+		</div>
+		<footer>
+			<div class="fbt" onclick="restart()">退      出</div>
+			<div class="fbt" onclick="scanPicture()">从相册选择二维码</div>
+		</footer>
+	</body>
+<script type="text/javascript">
+var ws=null,wo=null;
+var scan=null,domready=false;
+
+// H5 plus事件处理
+//document.addEventListener("pause", function(){  
+//  console.log('切换到后台');  
+//  //do something....  
+//}, false);
+ 
+//mui.init({
+//　　　　swipeBack: true, //启用右滑关闭功能
+// 　　　　beforeback: function(){//监听物理返回按键的方法
+// 	   console.log("beforeback .................");
+// 	  plus.runtime.restart();
+//　　　　　　　　//获得列表界面的webview
+////　　　　　　　　var list = plus.webview.getWebviewById('list');
+////　　　　　　　　//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+////　　　　　　　　mui.fire(list,'refresh');
+////　　　　　　　　//返回true，继续页面关闭逻辑
+//// 　　　　　　　　return true;
+//　　　　　　　　}
+//　　　　　　});
+//function restart(){
+//	plus.runtime.restart();
+//}
+
+
+//
+function restart(){
+	plus.runtime.restart();
+}
+//新函数
+function startRecognize() {
+		try {
+			var filter = [plus.barcode.QR];
+			//自定义的扫描控件样式
+			var styles = {
+				frameColor : "#29E52C",
+				scanbarColor : "#29E52C",
+				background : ""
+			}
+			//扫描控件构造
+			if(scan == null){
+				scan = new plus.barcode.Barcode('bcid', filter, styles);
+				scan.onmarked = onmarked;
+				scan.onerror = onerror;
+			}
+			scan.start();
+			//打开关闭闪光灯处理
+			var flag = false;
+			document.getElementById("turnTheLight").addEventListener('tap',
+					function() {
+						if (flag == false) { // 打开
+							scan.setFlash(true);
+							flag = true;
+							$("#turnTheLight").text("关闭闪光灯");
+						} else { //关闭
+							scan.setFlash(false);
+							flag = false;
+							$("#turnTheLight").text("打开闪光灯");
+						}
+					});
+		} catch (e) {
+			//alert("出现错误啦:\n" + e);
+		}
+	};
+	function onerror(e) {
+		//alert(e);
+		plus.nativeUI.alert("Failed: " + e.message);
+	}
+	function onmarked(type, result) {
+		result = result.replace(/\n/g, '');
+		 if(Number(result.indexOf("hhstr="))==Number(-1)){
+     	alert("非激活二维码！无法识别");
+     	plus.runtime.restart();
+     }
+		var arr=result.split("=");
+		console.log("scan result is:"+arr[1]);
+		setItemFun("localsn",arr[1]);
+        setItemFun("localuuid",localuuid);
+		plus.runtime.restart();
+
+		
+	}
+//新函数结束
+function plusReady(){
+　mui.init({
+ 　　　　　　　　swipeBack: true, //启用右滑关闭功能
+　　　　　　　　beforeback: function(){//监听物理返回按键的方法
+　　　　　　　plus.runtime.restart();
+ 　　　　　　　　
+　　　　　　　　//返回true，继续页面关闭逻辑
+　　　　　　　　return true;
+　　　　　　　　}
+　　　　　　});
+startRecognize();
+getvalue_plus();
+
+}
+
+mui.ready(function () {
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			};
+})
+// 监听DOMContentLoaded事件
+document.addEventListener('DOMContentLoaded', function(){
+	domready=true;
+	plusReady();
+}, false);
+// 二维码扫描成功
+function onmarkedthumb(type, result, file){
+    switch(type){
+    	case plus.barcode.QR:
+    	type = 'QR';
+    	break;
+    	case plus.barcode.EAN13:
+    	type = 'EAN13';
+    	break;
+    	case plus.barcode.EAN8:
+    	type = 'EAN8';
+    	break;
+    	default:
+    	type = '其它'+type;
+    	break;
+    }
+    result = result.replace(/\n/g, '');
+    console.log(result.indexOf("hhstr=")); 
+    if(Number(result.indexOf("hhstr="))==Number(-1)){
+     	alert("非激活二维码！无法识别");
+     	plus.runtime.restart();
+     }
+    var arr=result.split("=");
+   console.log("thumb is:"+result+" localuuid"+localuuid);
+   setItemFun("localsn",arr[1]);
+   setItemFun("localuuid",localuuid);
+   plus.runtime.restart();
+  //  wo.evalJS("scaned('"+ type +"','"+ result +"','"+ file +"');");
+   // back();
+   // ws.hide();
+   // scan.start();
+    //ws.scan();
+}
+// 从相册中选择二维码图片 
+function scanPicture(){
+    plus.gallery.pick(function(path){
+	    plus.barcode.scan(path,onmarkedthumb,function(error){
+			plus.nativeUI.alert('无法识别此图片');
+		});
+    }, function(err){
+        console.log('Failed: '+err.message);
+    });
+}
+</script>
+</html>

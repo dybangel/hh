@@ -1,4 +1,10 @@
 {
-    "server": "http://47.105.204.2:81",
+	"mainviewid":"HBuilder",
+	"server":"http://47.105.204.2:81",
+	"imgserver":"http://47.105.204.2",
+	"servervm":"http://192.168.0.101:84", 
+	"imgservervm":"http://192.168.0.101:80",
+    "servervm2": "http://192.168.123.28:84",
+    "imgservervm2":"http://192.168.123.28:80",
     "port": "3301"
 }

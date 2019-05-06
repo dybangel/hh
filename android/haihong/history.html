@@ -19,6 +19,24 @@
 		h1{
 			    padding: 0px 90px 0px 38px!important;
 		}
+		.myblock1{
+			color: rgba(85,85,85,1);
+    font-size: 0.90rem;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+		}
+		.myblock2{
+			color: rgba(85,85,85,1);
+    font-size: 0.65rem;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+		}
+		.myp{
+			    margin-top: -2rem;
+		}
+		.my-red{
+			color:#f75945;
+		}
 	</style>
 <header class="hui-header">
     <div id="hui-back" class="event_close"></div>
@@ -40,46 +58,99 @@
             </div>
             <div class="hui-tab-body">
                 <div class="hui-tab-body-items">
-                    <div class="hui-tab-item hui-list">
-                          <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">第1个选项卡对应内容，凑几个字。</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">习近平对新闻工作者提出4点希望</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">李克强访问圣彼得堡总理见17国领导人</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">英媒:释法系香港终结的开始 外交部:谢绝干涉</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">英媒:释法系香港终结的开始 外交部:谢绝干涉</div></a>
+                    <div class="hui-tab-item hui-list" id="sql_getall_container">
+                	<!--<div class="hui-img-list-content hui-list-text" style="display: block;">
+                        <h2><font class="myblock1">标题内容....</font></h2>
+                        <p class="myp"><font class="myblock2">power by hcoder.net</font></p>
+                   </div>--> 
+                       
+  						
+                    </div>
+                    <div class="hui-tab-item hui-list" id="sql_gettask_container">
+                      
+                    </div>
+                    <div class="hui-tab-item hui-list" id="sql_xuetu_container">
+                      
                     </div>
                     <div class="hui-tab-item hui-list">
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">第2个选项卡对应内容，凑几个字。</div></a>
-                          <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">习近平对新闻工作者提出4点希望</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">李克强访问圣彼得堡总理见17国领导人</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">英媒:释法系香港终结的开始 外交部:谢绝干涉</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">西安地铁三号线乘车全攻略：也有“区间车”</div></a>
-                    </div>
-                    <div class="hui-tab-item hui-list">
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">第3个选项卡对应内容，凑几个字。</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">习近平对新闻工作者提出4点希望</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">李克强访问圣彼得堡总理见17国领导人</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">英媒:释法系香港终结的开始 外交部:谢绝干涉</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">西安地铁三号线乘车全攻略：也有“区间车”</div></a>
-                    </div>
-                    <div class="hui-tab-item hui-list">
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">第4个选项卡对应内容，凑几个字。</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">习近平对新闻工作者提出4点希望</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">李克强访问圣彼得堡总理见17国领导人</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">英媒:释法系香港终结的开始 外交部:谢绝干涉</div></a>
-                        <a href="javascript:hui.toast('Hello Hcoder UI !');"><div class="hui-list-text">西安地铁三号线乘车全攻略：也有“区间车”</div></a>
+            
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script id="sql_getall_template" type="text/x-dot-template">
+{{##def.httphead = function() {
+		return Gimgserver+"/";
+		}#}}  
+ 
+{{ for (var i=0;i<it.length;i++) { }}
+<div class="hui-img-list-content hui-list-text" style="display: block;">
+                        <h2><font class="myblock1">{{=it[i].Remark}}</font></h2><a></a>
+                        <p class="myp"><font class="myblock2">{{=it[i].Addtime}}</font></p>
+</div>
+{{ } }}
+</script>
+<!--<a ><div class="hui-list-text">{{=it[i].Remark}}<span style="font-size: 10px;color: #B0B0B0;">{{=it[i].Addtime}}</span></div></a>
+-->
+<script id="sql_gettask_template" type="text/x-dot-template">
+{{##def.httphead = function() {
+		return Gimgserver+"/";
+	}#}}  
+{{ for (var i=0;i<it.length;i++) { }}
+<div class="hui-img-list-content hui-list-text" style="display: block;">
+                        <h2><font class="myblock1">完成任务<font class="my-red">{{=it[i].Appname}}</font>，获得{{=it[i].Amount}}元</font></h2><a></a>
+                        <p class="myp"><font class="myblock2">{{=it[i].Addtime}}</font></p>
+</div>
+
+{{ } }}
+</script>
+<!--<a ><div class="hui-list-text">完成任务{{=it[i].Appname}}，获得{{=it[i].Amount}}元<span style="font-size: 10px;color: #B0B0B0;">{{=it[i].Addtime}}</span></div></a>
+-->
+<script id="sql_xuetu_template" type="text/x-dot-template">
+{{##def.httphead = function() {
+		return Gimgserver+"/";
+	}#}}  
+{{ for (var i=0;i<it.length;i++) { }}
+<div class="hui-img-list-content hui-list-text" style="display: block;">
+                        <h2><font class="myblock1">{{=it[i].Remark}}</font></h2><a></a>
+                        <p class="myp"><font class="myblock2">{{=it[i].Addtime}}</font></p>
+</div>
+{{ } }}
+</script>
+<!--<a ><div class="hui-list-text">{{=it[i].Remark}}<span style="font-size: 10px;color: #B0B0B0;">{{=it[i].Addtime}}</span></div></a>
+-->
 <script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/hui-tab.js" type="text/javascript"></script>
 <script type="text/javascript">
 hui.tab('.hui-tab');
 </script>
 <script>
+function sql_getall(data){
+//printobj(data[0]);
+}
+function sql_xuetu(data){
+	console.log("++++++++++++++++++++++++");
+	printobj(data[0]);
+}
 function plusReady(){ 
+getvalue_plus();
+var sql="&sql=select * from (select row_number() over(order by Id desc) as rowNumber,* from (    select List.Id,List.strKey,List.Mode,List.UserID,List.Nickname,List.FormID,List.Formname,    List.Amount,List.Balance,List.Remark,List.Addtime,List.Affairs,    ISNULL(Foke.Thumb,'/file/user/default.png') as thumb    from Fooke_Amount as List left join Fooke_User as Foke on     Foke.UserID = List.FormID) as FokeApps where 1=1  ";
+sql+=" and UserID="+UserID+") as newtTable where rowNumber >0 and rowNumber <=10";
+
+getjson("sql_getall|template|append",sql);
+
+
+sql="&sql=select * from (select row_number() over(order by DutyID desc) as rowNumber,* from Fooke_UserDuty where 1=1  and UserID="+UserID+") as newtTable where rowNumber >0 and rowNumber <=10";
+getjson("sql_gettask|template",sql);
+
+
+sql="&sql=select * from (select row_number() over(order by Id desc) as rowNumber,* from (    select List.Id,List.strKey,List.Mode,List.UserID,List.Nickname,List.FormID,List.Formname,    List.Amount,List.Balance,List.Remark,List.Addtime,List.Affairs,    ISNULL(Foke.Thumb,'/file/user/default.png') as thumb    from Fooke_Amount as List left join Fooke_User as Foke on     Foke.UserID = List.FormID) as FokeApps where 1=1 ";
+sql+=" and UserID="+UserID+" and Mode in ('邀请奖励','任务提成')) as newtTable where rowNumber >0 and rowNumber <=10"
+console.log("sql is:"+sql);
+getjson("sql_xuetu|template",sql);
+
 //getjson('getinfo|template','memberid=123&pid=asdf');
 mui("body").on("tap",".event_kuaisu",function(){
 var data={'asdf':'asdf'};

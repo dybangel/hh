@@ -1,7 +1,8 @@
 <html lang="zh" class="pixel-ratio-2 retina ios ios-9 ios-9-1 ios-gt-8 ios-gt-7 ios-gt-6 watch-active-state" style="font-size: 32px;">
 	<head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+
 	<meta charset="UTF-8">
-	<meta name="keywords" content="PP红包,疯狂赚钱,麦肯券,pphongbao">
+	<meta name="keywords" content="海虹,疯狂赚钱,麦肯券,海虹">
 	<meta name="description" content="">
     <!-- <meta name="viewport" content="width=320, user-scalable=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,8 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no email=no">
     <meta name="apple-touch-fullscreen" content="yes">
-    <link rel="apple-touch-icon" href="http://img.pphongbao.com/public/app/img/index/logo.png">
-    <link rel="apple-touch-icon-precomposed" href="http://img.pphongbao.com/public/app/img/index/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="apple-touch-icon-precomposed" href="images/logo.png">
 	<title>海虹</title>
 	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
 <!--	<link rel="stylesheet" type="text/css" href="css/iconfont.css">-->
@@ -58,13 +59,16 @@
         // window.port = 10091;
         window.copy_content = '';
 	</script>-->
-<script src="http://api.geetest.com/get.php?callback=geetest_1554233092850"></script>
+<!--<script src="http://api.geetest.com/get.php?callback=geetest_1554233092850"></script>-->
 <style>
 	@font-face{font-family:uc-nexus-iconfont;
 	src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}
 </style>
 
 </head>
+<script>
+
+</script>
 <body class="global-web framework7-root">
 	<div class="statusbar-overlay"></div>
 	<!-- Views -->
@@ -86,9 +90,9 @@
           <div class="navbar-inner navbar-on-left">
             <div class="left sliding" style="transform: translate3d(-25px, 0px, 0px);">
               <a class="index-setting" href="/index.php/index/other" onclick="_hmt.push(['_trackEvent', '首页', '顶部账户']);">
-                <img src="http://img.pphongbao.com/public/app/img/index/index-setting.png"></a>
+                <img src="images/index-setting.png"></a>
             </div>
-            <img class="index-logo-nav center" src="http://img.pphongbao.com/public/app/img/index/index-logo-nav0221.png" style="left: -67.5px;"></div>
+            <img class="index-logo-nav center" src="images/index-logo-nav0221.png" style="left: -67.5px;"></div>
           <div class="navbar-inner pp-tab fasttask navbar-on-center">
             <div class="left1 sliding event_close"  >
               <a href="#" class="back link icon-only">
@@ -105,7 +109,7 @@
 <div class="pages">
 	<!-- Page, data-page contains page name-->
 	<div class="page" data-page="fastdetail" >
-        <!--<div class="fasttask-wifi">
+        <div class="fasttask-wifi">
             <div class="mask" onClick="hidePop('.fasttask-wifi')"></div>
             <div class="content">
                 <div class="fasttask-wifi-close">
@@ -113,18 +117,18 @@
                     <div class="line"></div>
                 </div>
                 <img src="http://img.pphongbao.com/public/app/img/fasttask/ding.png">
-                <p>请在相同网络下完成任务。即如果使用4G开始任务，需要在4G下打开App提交审核；如果打开WiFi开始任务，需要在WiFi下打开App提交审核。</p>
-                <div class="btn" onClick="hidePop('.fasttask-wifi')">我知道了</div>
+                <p>恭喜！领取奖励成功</p>
+                <div class="btn event_close" >我知道了</div>
             </div>
         </div>
-        <div class="fasttask-money-pop">
+        <div class="fasttask-money-pop" style=" background: none repeat scroll 0 0 rgba(0,0,0,.85);">
             <div class="mask"></div>
             <div class="content">
                 <p class="p1">恭喜！达成小目标！</p>
                 <p class="money">+<span class="fasttask-money-text"></span>元</p>
-                <div class="operation">
-                    <div class="go-invite">分享赚钱</div>
-                    <div class="go-back">继续赚钱</div>
+                <div class="operation" style="margin-top: 2rem;margin-left: 1.5rem;">
+                    <!--<div class="go-invite">分享赚钱</div>-->
+                    <div class="go-back event_close">继续赚钱</div>
                 </div>
             </div>
         </div>
@@ -139,15 +143,18 @@
                 <p>正在打开，请稍等（<span class="download-cutdown-time"></span>s）</p>
             </div>
         </div>
-		-->
+		
 			
 		<!-- Scrollable page content-->
 
 		<div class="page-content fastdetail page-fast-detail" data-wifiType="0">
 				<div class="desc">
 	     			<div class="partin-info pp-flex">
-                        <div class="money"><span class="add">+</span><span class="ff-ppnum">0.88</span><span class="unit">元</span></div>
-						<div class="time">剩余时间：<span class="countdown" data-interval="1000" data-expireTime="1554714833000"><i class="i">00</i>分<i class="s">00</i>秒</span></div>
+                        <div class="money">
+                        	<span class="add">+</span>
+                        	<span class="ff-ppnum"></span>
+                        	<span class="unit">元</span></div>
+						<div class="time">剩余时间：<span class="countdown" data-interval="1000" data-expireTime="1554714833000"><i class="i"></i> <i id="DaoInterval" class="s">30秒</i></span></div>
 	     			</div>
 	     		</div>
 	     		<div class="split"></div>
@@ -156,56 +163,24 @@
 					<i class="icon"></i>
 					<h3>任务步骤</h3>
 				</div>
-				<div class="container-list">
+				<div id="Stored_FindApplication_container" class="container-list">
                     <div class="step-title">
-                        <img src="http://img.pphongbao.com/public//app/img/fasttask_detail/coin.png">
+                        <img src="images/coin.png">
                         <div class="text">完成下列2步 获得奖励</div>
                     </div>
                     <div>
                     </div>
 				
-								                				<div class="step-item">
-                            <div class="dot">
-                                <span></span>
-                            </div>
-                            <div class="item-content">
-                                <div class="step-num">
-                                    <div class="line"></div>
-                                    <p>第一步</p>
-                                </div>
-                                <div class="search">
-                                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/27/8a/5f/278a5f0b-4736-b477-fcad-0719d7e66bed/AppIcon-0-1x_U007emarketing-0-85-220-10.png/180x180bb.png">
-                                    <div>
-
-                                        <p class="detail">搜索关键词<span>魔幻</span></p>
-                                        <p class="rank">App Store 排名第 <span>4</span> 位</p>
-                                    </div>
-                                </div>
-                                <div class="copy" copy_word="魔幻">复制关键词</div>
-                            </div>
-                        </div>												
-                            <div class="step-item">
-                                <div class="dot">
-                                    <span></span>
-                                </div>
-                                <div class="item-content">
-                                    <div class="step-num">
-                                        <div class="line"></div>
-                                        <p>第二步</p>
-                                    </div>
-
-                                    <p class="operation">打开App，试玩3分钟【iOS10及以上用户必须允许网络接入，否则奖励不到账】，然后点击【领取奖励】，完成任务。</p>
-                                    <div class="disabled down open-app">打开App</div>
-                                </div>
-                            </div>
-
 
 
 				</div>
 			</div>
-            <div class="operation-btn">
-                <div id="submit-button" class="disabled confirm enable" onClick="submitFast($$('#fastdetail-container'))">领取奖励</div>                                <div class="giveup" onClick="giveupTask($$('#fastdetail-container'))" >放弃任务</div>            </div>
-		</div>
+<!--<div class="operation-btn">
+        <div id="submit-button" Appname="{{=it[i].Appname}}" AppKey="{{=it[i].AppKey}}" Amount="{{=it[i].Amount}}" class=" confirm enable event_finish" >领取奖励</div>-->    <!--disabled  -->  
+      
+      <!--<div class="giveup" onClick="giveupTask($$('#fastdetail-container'))" >放弃任务</div>         
+</div>-->
+</div>
         <div class="copy-model">
             <div class="mask"></div>
             <div class="pop-main">
@@ -220,7 +195,7 @@
         <div class="detail-network-hint">
             <div class='mask' onclick="hidePop('.detail-network-hint')"></div>
             <div class="pop-content">
-                <img src="http://img.pphongbao.com/public/app/img/fasttask/ding.png">
+                <img src="images/ding.png">
                 <p class="hint-title"></p>
                 <p class="hint-title"></p>
                                 <div class="btn" onclick="hidePop('.detail-network-hint')">我知道了</div>
@@ -230,7 +205,7 @@
 </div>
 
        <div class="safari-private-mode">
-                <img class="bg-img" src="http://img.pphongbao.com/public/app/img/index/safari-private-mode.png" alt="">
+                <img class="bg-img" src="images/safari-private-mode.png" alt="">
             </div>
 		</div>
 	</div> 
@@ -274,17 +249,228 @@
 <div class="uc-video-toolbar" style="top: 513.094px; right: 0px;">
 	
 </div>
+<script id="Stored_FindApplication_template" type="text/x-dot-template">
+{{##def.httphead = function() {
+		return Gimgserver+"/";
+		}#}}  
+
+{{ for (var i=0;i<it.length;i++) { }}
+			<div class="step-item">
+                            <div class="dot">
+                                <span></span>
+                            </div>
+                            <div class="item-content">
+                                <div class="step-num">
+                                    <div class="line"></div>
+                                    <p>第一步</p>
+                                </div>
+                                <div class="search">
+                                    <img src="{{#def.httphead()}}{{=it[i].Thumb}}">
+                                    <div>
+
+                                        <p class="detail">安装<span>{{=it[i].strKeyword}}</span></p>
+                                       <!-- <p class="rank">App Store 排名第 <span>4</span> 位</p>-->
+                                    </div>
+                                </div>
+                                <div class="copy event_download" strInstall="{{=it[i].strInstall}}" copy_word="">下载安装 </div>
+                            </div>
+                        </div>												
+			<div class="step-item">
+                                <div class="dot">
+                                    <span></span>
+                                </div>
+                                <div class="item-content">
+                                    <div class="step-num">
+                                        <div class="line"></div>
+                                        <p>第二步</p>
+                                    </div>
+
+                                    <p class="operation">打开App，试玩3分钟【必须允许网络接入，否则奖励不到账】，然后点击【领取奖励】，完成任务。</p>
+                                <!-- disabled -->  <div AppKey="{{=it[i].AppKey}}" Packername="{{=it[i].Packername}}" class="disabled down open-app event_open">打开App</div>
+                                </div>
+                            </div>
+
+<div class="operation-btn">
+        <div id="submit-button" Appname="{{=it[i].AppName}}" AppKey="{{=it[i].AppKey}}" Amount="{{=it[i].Amount}}" class=" disabled confirm enable event_finish" >领取奖励</div>    <!--disabled  -->                 
+        <div class="giveup event_close" >放弃任务</div>            
+</div>
+</div>
+{{ } }}
+</script>
+<!--下载进度条相关js mui的-->
+
+
 <script>
+function downloadcb(){
+	//alert("2222this is callback");
+	$('.event_open').removeClass("disabled");
+	//console.log("1111111this is callback");
+}
+
+function Stored_FindApplication(data){
+//执行抢到任务
+//exec [Stored_SaveApplicationSession] 
+//console.log(data[0]['AppKey']);
+$('.ff-ppnum')[0].innerHTML=data[0]['Amount'];
+HAppKey=data[0]['AppKey'];
+HAppName=data[0]['AppName'];
+HAmount=data[0]['Amount'];
+getjson("Stored_SaveApplicationSession","@UserID=N'"+UserID+"',@AppID=N'"+AppID+"',@AppKey=N'"+data[0]['AppKey']+"'");
+}
+function Stored_FindAppDown(data){
+//	alert("data[0]['status'] is"+data[0]['status']);
+	if("undefined"==typeof(data[0]['status'])){
+		//说明有数据了
+		//alert("有令牌了");
+	}else{
+		////如果令牌不存在
+		//alert("没有这个令牌");
+	//	  console.log("HAppKey is:"+HAppKey+"GNickname="+GNickname+"AppID is:"+AppID+"AppName is:"+HAppName+"AppKey is:"+HAppKey+" DeviceCode is:"+DeviceCode+" MacChar is:"+MacChar+" HAmount is:"+HAmount);
+   var par="@strToken=N'"+HAppKey+"',@UserID=N'"+UserID+"',@Nickname=N'"+GNickname+"',@AppID=N'"+AppID+"',@Appname=N'"+HAppName+"',@AppKey=N'"+HAppKey+"',";
+   par+="@AppModel=N'1',@UnionModel=N'无渠道',@DeviceType=N'Android',@DeviceCode=N'"+DeviceCode+"',@MacChar=N'"+MacChar+"',@Amount=N'"+HAmount+"',@strIP=N'"+strIP+"',@cityname=N'"+cityname+"',@strInstall=N'1',";
+   par+="@strEdition=N'12.1.3',@strNetwork=N'2',@isBreak=N'0'";
+//console.log("par is:"+par);
+   getjson("Stored_SaveAppDown",par);
+	}
+//	if("NULL"==data[0]['status']){
+//	  // 保存下载状态
+//// exec [Stored_SaveAppDown] 
+//
+//	}else{
+//		
+//		
+//	}
+		
+}
+function Stored_SaveFinishDown(data){
+	console.log("this is stored_savefindsdown callback");
+	//http://192.168.0.101:84/api.aspx?action=ticheng&amount=2&userid=30010792&username=dyb
+	var par="&amount="+HAmount+"&userid="+UserID+"&username="+GNickname+"";
+	console.log(par);
+	getjson("ticheng",par);
+	//显示奖励弹窗
+	$('.fasttask-money-pop').css("display","block");
+	$('.fasttask-money-text')[0].innerHTML=HAmount;
+}
+function enableLJ(){
+	console.log("this is enableLJ");
+	$('.event_finish').removeClass("disabled");
+}
+function disabledLJ(){
+$('.event_finish').addClass("disabled");	
+}
+function DaoInterval(){
+	  var setTime;
+        $(document).ready(function(){
+            var time=20;
+            setTime=setInterval(function(){
+                if(time<=0){
+                    clearInterval(setTime); 
+                    enableLJ();
+                    $('.event_finish')[0].innerHTML="领取奖励";
+                    return;
+                }
+                
+                time--;
+                //mui.toast(time);
+                $('#DaoInterval')[0].innerHTML=time;
+                $('.event_finish')[0].innerHTML="领取奖励"+"("+time+")";
+            },1000);
+        });
+}
 function plusReady(){ 
-//getjson('getinfo|template','memberid=123&pid=asdf');
-mui("body").on("tap",".event_kuaisu",function(){
-var data={'asdf':'asdf'};
-openwin_plus("./tasklist.html",data);
+getvalue_plus();
+
+
+Gmainview = plus.webview.getWebviewById(Gmainviewid);
+Glistview =plus.webview.getWebviewById('./tasklist.html')
+Gdeatilview = plus.webview.getWebviewById('./taskdeatil.html');
+　mui.init({
+ 　　　　　　　　swipeBack: true, //启用右滑关闭功能
+　　　　　　　　beforeback: function(){//监听物理返回按键的方法
+　　　　　　　　//获得列表界面的webview
+ 　　　　　　　//　var list = plus.webview.getWebviewById('list');
+　　　　　　　　//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+ 　　　　　　　　mui.fire(Glistview,'refresh');
+　　　　　　　　//返回true，继续页面关闭逻辑
+　　　　　　　　return true;
+　　　　　　　　}
+　　　　　　});
+	//exec [Stored_FindApplication] @AppID=N'100068'	
+getjson('Stored_FindApplication|template|append'," @AppID=N'"+AppID+"'");
+
+mui("body").on("tap",".event_download",function(){
+strInstall=this.getAttribute('strInstall');
+downloadWgt(strInstall,"downloadcb()");
+$('.event_open').removeClass("disabled");
+//console.log("http://192.168.0.102:84/api.aspx?"+"@UserID=N'"+UserID+"',@strToken=N'"+HAppKey+"'"+"&action=Stored_FindAppDown");
+getjson("Stored_FindAppDown","@UserID=N'"+UserID+"',@strToken=N'"+HAppKey+"'");
+//制作下载令牌看看下没下载++++++++++++++++++++++++++++++++++++++++++++++++
+  // exec [Stored_FindAppDown] 
 });
-mui("body").on("tap", ".event_close",
-        function() {
-          closeme();
+mui("body").on("tap", ".event_close",function() {
+
+
+mui.fire(Glistview,'Listener',{
+	action:"refresh"
+	});
+ closeme();
 });
+
+mui("body").on("tap", ".event_open",function() {
+  Packername=this.getAttribute('Packername');
+ // alert(Packername);
+ var install_state= checkapp(Packername);
+ if(0==install_state){
+ 	alert('请完成下载安装');
+ }else{
+ 	//alert('ok');
+ 	openapp(Packername,"enableLJ","disabledLJ");
+ 	//判断app是否打开了
+ 	//如果打开了，开始倒计时，倒计时完成，打开领取奖励
+ 	DaoInterval();
+ 	//var AppKey=this.getAttribute('AppKey');
+ 	//alert("appkey="+AppKey+" appid="+AppID+" userid="+UserID);
+ 	//开始任务状态
+ 	//exec [Stored_SaveApplicationSession]
+	//var par=" @UserID=N'"+UserID+"',@AppID=N'"+AppID+"',@AppKey=N'"+AppKey+"'";
+//	console.log("exec [Stored_SaveApplicationSession] "+par);
+	//getjson("Stored_SaveApplicationSession",par);
+ }
+});
+
+
+ 
+mui("body").on("tap", ".event_finish",function() {
+//alert("a");
+var AppName=this.getAttribute('AppName');
+var AppKey=this.getAttribute('AppKey');
+var Amount=this.getAttribute('Amount');
+var timestamp = (new Date()).getTime();
+//exec [Stored_FindAppDown] @UserID=N'30008344',@strToken=N'F47251A306250AEF15C4AC3C'
+//var par=" @UserID=N'"+UserID+"',@strToken=N'"+timestamp+"'";
+//console.log("exec [Stored_FindAppDown] "+par);
+//getjson("Stored_FindAppDown",par);
+
+//exec [Stored_SaveAppDown]
+//par=" @strToken=N'"+timestamp+"',@UserID=N'"+UserID+"',@Nickname=N'"+GNickname+"',@AppID=N'"+AppID+"',@Appname=N'"+AppName+"',@AppKey=N'"+AppKey+"',@AppModel=N'1',@UnionModel=N'无渠道',";
+//par+="@DeviceType=N'"+DeviceType+"',";
+//par+="@DeviceCode=N'"+DeviceCode+"',@MacChar=N'"+MacChar+"',@Amount=N'"+Amount+"',";
+//par+="@strIP=N'"+strIP+"',@cityname=N'"+cityname+"',@strInstall=N'1',@strEdition=N'12.1.4',@strNetwork=N'2',@isBreak=N'0'";
+//console.log("exec [Stored_SaveAppDown]"+par);
+//getjson("Stored_SaveAppDown",par);
+
+
+
+
+par=" @UserID=N'"+UserID+"',@Nickname=N'"+GNickname+"',@AppID=N'"+AppID+"',@Appname=N'"+AppName+"',";
+par +="@AppKey=N'"+AppKey+"',@DeviceType=N'"+DeviceType+"',@DeviceCode=N'"+DeviceCode+"',@MacChar=N'"+MacChar+"',";
+par +="@Amount=N'"+Amount+"',@strIP=N'"+strIP+"',@cityname=N'"+cityname+"'";
+console.log("exec [Stored_SaveFinishDown]"+par);
+getjson("Stored_SaveFinishDown",par);
+});
+
+
 }
 	mui.ready(function () {
 			if(window.plus){

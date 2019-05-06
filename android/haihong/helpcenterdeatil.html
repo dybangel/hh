@@ -1,0 +1,74 @@
+<html><head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HUI</title>
+<link rel="stylesheet" type="text/css" href="css/hui.css">
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<script src="js/doT.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/myfun.js"></script>
+<style type="text/css">
+body{background:#FFF;}
+.line{height:20px;}
+</style>
+
+</head>
+<body>
+	<style>
+		.hui-header h1{
+			    padding: 0px 90px 0px 38px!important;
+		}
+	</style>
+<header class="hui-header">
+    <div id="hui-back" class="event_close"></div>
+    <h1>帮助中心</h1>
+</header>
+<div class="hui-wrap">
+	<!--<div class="line"></div>
+	<div class="hui-title">
+		通用标题
+	</div>
+	<div class="line"></div>
+	<div class="hui-title hui-primary-txt">
+		通用标题 + More
+		<div class="hui-more"><a href="javascript:hui.toast('more...')">More...</a></div>
+	</div>
+	<div class="line"></div>
+	<div class="hui-center-title">
+		<h1>居中的标题</h1>
+	</div>
+	<div class="line"></div>-->
+	<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<!--<div class="hui-common-title-txt">带有修饰的标题</div>-->
+		<div class="hui-common-title-line"></div>
+	</div>
+	<div class="hui-content" style="padding:10px;">
+		<!--<h2>文本段落演示</h2>
+		是啊，春风十里不及你。后来，你们单位的事太多，我陪着你回到了你的宿舍。-->
+		<p class="event_deatil"></p>
+	</div>
+</div>
+
+<script src="js/hui.js" type="text/javascript" charset="utf-8">
+	
+</script>
+<script>
+function plusReady(){ 
+getvalue_plus();
+$('.event_deatil')[0].innerHTML=strDescrption;
+//getjson('getinfo|template','memberid=123&pid=asdf');
+mui("body").on("tap",".event_close",function(){
+closeme();
+});
+}
+	mui.ready(function () {
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			};
+})
+</script>
+<div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>

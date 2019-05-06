@@ -34,11 +34,11 @@
         </div>-->
         <div class="hui-form-items">
             <div class="hui-form-items-title">支付宝账号</div>
-            <input type="number" class="hui-input" placeholder="如：1889088..." name="phonenum" />
+            <input type="number" class="hui-input event_AlipayChar" placeholder="如：1889088..." name="phonenum" />
         </div>
          <div class="hui-form-items">
             <div class="hui-form-items-title">支付宝昵称</div>
-            <input type="number" class="hui-input" placeholder="" name="phonenum" />
+            <input type="text" class="hui-input event_Alipayname" placeholder="" name="phonenum" />
         </div>
         <!--<div class="hui-form-items">
             <div class="hui-form-items-title">登录密码</div>
@@ -87,7 +87,7 @@
                 <textarea placeholder="备注..." name="note"></textarea>
             </div>
         </div>-->
-        <button type="button" class="hui-button hui-button-large hui-primary" style="margin-top:15px;    width: 70%;
+        <button type="button" class="hui-button hui-button-large hui-primary event_tijiao" style="margin-top:15px;    width: 70%;
     margin-left: 15%">提交</button>
     </form>
 </div>
@@ -121,11 +121,38 @@ function showSelectRes(_selfBtn){
 }
 </script>
 <script>
+function Stored_FindMember(data){
+	printobj(data[0]);
+	AlipayChar=data[0]["AlipayChar"];
+	Alipayname=data[0]["Alipayname"];
+	if(AlipayChar==""){
+		console.log("手机号没有设置");
+		
+	}else{
+		$('.event_AlipayChar').val(AlipayChar);
+		$('.event_Alipayname').val(Alipayname);
+		$('.event_tijiao').css('display','none');
+	}
+}
+function sql_upalipaychar(data){
+	console.log("this is sql_upalipaychar callback");
+	location.reload();
+}
 function plusReady(){ 
+getvalue_plus();
+getjson("Stored_FindMember","@UserID=N'"+UserID+"'");
 //getjson('getinfo|template','memberid=123&pid=asdf');
-mui("body").on("tap",".event_kuaisu",function(){
-var data={'asdf':'asdf'};
-openwin_plus("./tasklist.html",data);
+mui("body").on("tap",".event_tijiao",function(){
+var AlipayChar=$('.event_AlipayChar').val();
+var Alipayname=$('.event_Alipayname').val();
+if(AlipayChar==""||Alipayname==""){
+	mui.toast("手机号和昵称不能为空");
+	return;
+}
+
+var sql="&sql=UPDATE Fooke_User SET AlipayChar = '"+AlipayChar+"', Alipayname = '"+Alipayname+"' WHERE (UserID = '"+UserID+"')";
+console.log(sql);
+getjson("sql_upalipaychar",sql);
 });
 mui("body").on("tap", ".event_close",
         function() {

@@ -18,14 +18,60 @@
       "helpcenter.html",
       "contact.html",
       "airplayreg.html",
-      "mobilereg.html"
+      "mobilereg.html",
+      "nicknamechange.html"
     ],
     "resources": []
   },
   "indexnew.html": {
     "refer": [
       "userinfo.html",
+      "tasklist.html",
+      "barcode_scan.html",
+      "tixianlist.html",
+      "mobilereg.html",
+      "readnews.html",
+      "share/index.html",
+      "share/readnews.html",
+      "share.html",
+      "xinshoujiaocheng.html",
+      "share/fenxiang2.html",
+      "readtoutiao.html"
+    ],
+    "resources": []
+  },
+  "barcode_scan.html": {
+    "refer": [
+      "indexnew.html"
+    ],
+    "resources": []
+  },
+  "mobilereg.html": {
+    "refer": [
       "tasklist.html"
+    ],
+    "resources": []
+  },
+  "tixianlist.html": {
+    "refer": [
+      "tixiandeatil.html",
+      "airplayreg.html"
+    ],
+    "resources": []
+  },
+  "share.html": {
+    "resources": [
+      "share/index.html",
+      "share/fenxiang2.html"
+    ],
+    "refer": [
+      "share/index.html"
+    ]
+  },
+  "helpcenter.html": {
+    "refer": [
+      "tasklist.html",
+      "helpcenterdeatil.html"
     ],
     "resources": []
   }

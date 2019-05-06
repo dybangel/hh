@@ -29,8 +29,8 @@
 		<div class="hui-common-title-line"></div>
 	</div>-->
     <div class="hui-list" style="">
-    	<ul>
-    		<li>
+    	<ul id="sql_helpcenter_container">
+    		<!--<li>
     			<a href="javascript:hui.toast('Hello Hcoder UI !');">
 		    		<div class="hui-list-text">普通文字列表</div>
 		    	</a>
@@ -46,7 +46,7 @@
 		    			</div>
 		    		</div>
 		    	</a>
-    		</li>
+    		</li>-->
     	</ul>
     </div>
     <!--<div class="hui-common-title" style="margin-top:28px;">
@@ -100,13 +100,37 @@
     </div>-->
 
 </div>
-<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
+<script id="sql_helpcenter_template" type="text/x-dot-template">
+{{##def.httphead = function() {
+		return Gimgserver+"/";
+	}#}}  
+{{ for (var i=0;i<it.length;i++) { }}
+<li class="event_deatil" des="{{=it[i].strDescrption}}">
+    			<a href="javascript:hui.toast('Hello Hcoder UI !');">
+		    		<div class="hui-list-text">
+		    			<div class="hui-list-text-content">
+		    			{{=it[i].Title}}
+		    			</div>
+		    			<div class="hui-list-info">
+		    				查看 <span class="hui-icons hui-icons-right"></span>
+		    			</div>
+		    		</div>
+		    	</a>
+    		</li>
+ {{ } }}
+</script>
 <script>
 function plusReady(){ 
+//select * from (select row_number() over(order by isTop desc,ShowID Desc) as rowNumber,ShowID,ChannelID,classId,className,Title,strDescrption,Thumb,isDisplay,isTop,isRec,isHot,isBook,isTo,Addtime,Hits from Fooke_Article where 1=1  and classId = 10000 and isDisplay=1) as newtTable where rowNumber >0 and rowNumber <=10
+var sql="&sql=select * from (select row_number() over(order by isTop desc,ShowID Desc) as rowNumber,ShowID,ChannelID,classId,className,Title,strDescrption,Thumb,isDisplay,isTop,isRec,isHot,isBook,isTo,Addtime,Hits from Fooke_Article where 1=1  and classId = 10000 and isDisplay=1) as newtTable where rowNumber >0 and rowNumber <=10";
+getjson("sql_helpcenter|template",sql);
+
 //getjson('getinfo|template','memberid=123&pid=asdf');
-mui("body").on("tap",".event_kuaisu",function(){
-var data={'asdf':'asdf'};
-openwin_plus("./tasklist.html",data);
+mui("body").on("tap",".event_deatil",function(){
+var des=this.getAttribute("des");
+//alert(des);
+var data={'strDescrption':des}; 
+openwin_plus("helpcenterdeatil.html",data);
 });
 
 mui("body").on("tap", ".event_close",

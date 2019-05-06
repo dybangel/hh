@@ -4,7 +4,7 @@ body {
 
 @font-face {
     font-family: ppnum;
-    src: url(http://img.pphongbao.com/public/app/fonts/DIN.ttf);
+    src: url(./fonts/DIN.ttf);
     font-weight: 400;
     font-style: normal
 }
@@ -166,7 +166,7 @@ i.icon.icon-back {
 i.icon.icon-refresh {
     width: 5px;
     height: 5px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/nav-icon-refresh@3x.png)!important
+    background-image: url(../images/nav-icon-refresh@3x.png)!important
 }
 
 .navbar .center {
@@ -181,7 +181,7 @@ i.icon.icon-refresh {
 }
 
 .icon-refresh {
-    background: url(http://img.pphongbao.com/public/app/img/index/icon-reload.png) no-repeat center;
+    background: url(../images/icon-reload.png) no-repeat center;
     width: 25px;
     height: 25px;
     background-size: 25px auto
@@ -345,7 +345,7 @@ ul li {
 .fasttask-invite.modal .modal-inner .header {
     width: 100%;
     height: 5.00000320rem;
-    background: url(http://img.pphongbao.com/public/app/img/index/fasttask-invite-bg.png) no-repeat center;
+    background: url(../images/fasttask-invite-bg.png) no-repeat center;
     background-size: 102% auto
 }
 
@@ -755,7 +755,7 @@ html {
     height: 22px;
     line-height: 22px;
     margin-top: 4px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice.gif);
+    background-image: url(../images/notice.gif);
     background-size: auto 100%;
     display: block;
     background-repeat: no-repeat;
@@ -1077,19 +1077,19 @@ html {
 }
 
 .list-row .list-col .rocket-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/index-icon-rocket@3x.png)
+    background-image: url(../images/index-icon-rocket@3x.png)
 }
 
 .list-row .list-col .ufo-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/index-icon-gold@3x.png)
+    background-image: url(../images/index-icon-gold@3x.png)
 }
 
 .list-row .list-col .finance-icon {
-    background-image: url(https://cdn.qimai.cn/banner/201803/0ca5ddea526bc5ff953aeaee8b9ef8d5.png)
+    background-image: url(../images/0ca5ddea526bc5ff953aeaee8b9ef8d5.png)
 }
 
 .list-row .list-col .invite-icon {
-    background-image: url(https://cdn.qimai.cn/ppidcard/201803/6365b5e8ca27a51baa185774152d2f6d.png)
+    background-image: url(../images/6365b5e8ca27a51baa185774152d2f6d.png)
 }
 
 .god-list {
@@ -1143,19 +1143,19 @@ html {
 }
 
 .union-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-union-task-new.png)
+    background-image: url(../images/icon-union-task-new.png)
 }
 
 .shop-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-shop-new.png)
+    background-image: url(../images/icon-shop-new.png)
 }
 
 .oneshop-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-oneshop-new.png)
+    background-image: url(../images/icon-oneshop-new.png)
 }
 
 .user-icon {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-user-new.png)
+    background-image: url(../images/icon-user-new.png)
 }
 
 .task-list {
@@ -1281,7 +1281,7 @@ html {
 .task-list ul .phone .crown {
     width: 23px;
     height: 24px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-crown.png);
+    background-image: url(../images/icon-crown.png);
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -1323,7 +1323,7 @@ html {
     position: relative;
     top: 50%;
     margin-top: -6px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-arrow.png);
+    background-image: url(../images/0ca5ddea526bc5ff953aeaee8b9ef8d5.png);
     background-size: 100%;
     background-repeat: no-repeat
 }
@@ -1414,7 +1414,7 @@ html {
 .login-alert .alert-box.gain-hongbao {
     width: 8.480000636rem;
     height: 8.280000621rem;
-    background: url(http://img.pphongbao.com/public/app/img/index/gain-hongbao-bg-new.png) no-repeat;
+    background: url(../images/gain-hongbao-bg-new.png) no-repeat;
     background-size: 100%;
     padding: 0
 }
@@ -1483,14 +1483,14 @@ html {
 .login-alert .notice-alert .notice-head {
     width: 100%;
     height: 250px;
-    background: url(http://img.pphongbao.com/public/app/img/index/notice-invite.png) no-repeat;
+    background: url(../images/notice-invite.png) no-repeat;
     background-size: 100%
 }
 
 .login-alert .notice-alert .button-ok {
     width: 200px;
     height: 60px;
-    background: url(http://img.pphongbao.com/public/app/img/index/notice-invite-ok.png) no-repeat;
+    background: url(../images/notice-invite-ok.png) no-repeat;
     background-size: 100%
 }
 
@@ -1500,7 +1500,7 @@ html {
     right: 0;
     width: 30px;
     height: 30px;
-    background: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel.png) no-repeat;
+    background: url(../images/notice-invite-cancel.png) no-repeat;
     background-size: 100%
 }
 
@@ -1518,7 +1518,7 @@ html {
 .login-alert .notice-alert.notice-alert-907 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-907.png);
+    background-image: url(../images/notice-alert-bg-907.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1529,7 +1529,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1544,7 +1544,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1558,7 +1558,7 @@ html {
 .login-alert .notice-alert.notice-alert-907 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 32px;
@@ -1572,7 +1572,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1589,7 +1589,7 @@ html {
 .login-alert .notice-alert.notice-alert-921 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-921.png);
+    background-image: url(../images/notice-alert-bg-921.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1600,7 +1600,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1615,7 +1615,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1629,7 +1629,7 @@ html {
 .login-alert .notice-alert.notice-alert-921 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 43px;
@@ -1643,7 +1643,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1660,7 +1660,7 @@ html {
 .login-alert .notice-alert.notice-alert-928 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-928.png);
+    background-image: url(../images/notice-alert-bg-928.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1671,7 +1671,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1686,7 +1686,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1700,7 +1700,7 @@ html {
 .login-alert .notice-alert.notice-alert-928 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 43px;
@@ -1714,7 +1714,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1731,7 +1731,7 @@ html {
 .login-alert .notice-alert.notice-alert-1012 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1012.png);
+    background-image: url(../images/notice-alert-bg-1012.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1742,7 +1742,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1757,7 +1757,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1771,7 +1771,7 @@ html {
 .login-alert .notice-alert.notice-alert-1012 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 43px;
@@ -1785,7 +1785,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1802,7 +1802,7 @@ html {
 .login-alert .notice-alert.notice-alert-1014 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1014.png?1);
+    background-image: url(../images/notice-alert-bg-1014.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1813,7 +1813,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1828,7 +1828,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1842,7 +1842,7 @@ html {
 .login-alert .notice-alert.notice-alert-1014 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 66px;
@@ -1856,7 +1856,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1873,7 +1873,7 @@ html {
 .login-alert .notice-alert.notice-alert-1026 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1026.png?1);
+    background-image: url(../images/notice-alert-bg-1026.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1883,7 +1883,7 @@ html {
 .login-alert .notice-alert.notice-alert-1026 .button-ok {
     width: 130px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-1026.png?1);
+    background-image: url(../images/notice-alert-button-ok-1026.png?1);
     z-index: 10;
     position: absolute;
     bottom: 35px;
@@ -1897,7 +1897,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1914,7 +1914,7 @@ html {
 .login-alert .notice-alert.notice-alert-1102 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1102.png);
+    background-image: url(../images/notice-alert-bg-1102.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1925,7 +1925,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1940,7 +1940,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -1954,7 +1954,7 @@ html {
 .login-alert .notice-alert.notice-alert-1102 .button-ok {
     width: 128px;
     height: 33px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-1102.png?1);
+    background-image: url(../images/notice-alert-button-ok-1102.png?1);
     z-index: 10;
     position: absolute;
     bottom: 35px;
@@ -1968,7 +1968,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -1985,7 +1985,7 @@ html {
 .login-alert .notice-alert.notice-alert-1108 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1108.png);
+    background-image: url(../images/notice-alert-bg-1108.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -1996,7 +1996,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2011,7 +2011,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2025,7 +2025,7 @@ html {
 .login-alert .notice-alert.notice-alert-1108 .button-ok {
     width: 68px;
     height: 68px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-1108.png?1);
+    background-image: url(../images/notice-alert-button-ok-1108.png?1);
     z-index: 10;
     position: absolute;
     bottom: 35px;
@@ -2039,7 +2039,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2056,7 +2056,7 @@ html {
 .login-alert .notice-alert.notice-alert-1111 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1111.png);
+    background-image: url(../images/notice-alert-bg-1111.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2067,7 +2067,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2082,7 +2082,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2096,7 +2096,7 @@ html {
 .login-alert .notice-alert.notice-alert-1111 .button-ok {
     width: 128px;
     height: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-820.png);
+    background-image: url(../images/notice-alert-button-ok-820.png);
     z-index: 10;
     position: absolute;
     bottom: 32px;
@@ -2110,7 +2110,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2127,7 +2127,7 @@ html {
 .login-alert .notice-alert.notice-alert-1116 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1116.png);
+    background-image: url(../images/notice-alert-bg-1116.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2138,7 +2138,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2153,7 +2153,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2181,7 +2181,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2198,7 +2198,7 @@ html {
 .login-alert .notice-alert.notice-alert-1123 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1123.png);
+    background-image: url(../images/notice-alert-bg-1123.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2209,7 +2209,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2224,7 +2224,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2252,7 +2252,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2269,7 +2269,7 @@ html {
 .login-alert .notice-alert.notice-alert-1204 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1204.png);
+    background-image: url(../images/notice-alert-bg-1204.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2280,7 +2280,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2295,7 +2295,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2323,7 +2323,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2340,7 +2340,7 @@ html {
 .login-alert .notice-alert.notice-alert-1231 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-1231.png);
+    background-image: url(../images/notice-alert-bg-1231.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2351,7 +2351,7 @@ html {
     display: block;
     position: absolute;
     left: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2366,7 +2366,7 @@ html {
     display: block;
     position: absolute;
     right: 50%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-start.png);
+    background-image: url(../images/notice-alert-start.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 13;
@@ -2394,7 +2394,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2411,7 +2411,7 @@ html {
 .login-alert .notice-alert.notice-alert-160208 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160208.png);
+    background-image: url(../images/notice-alert-bg-160208.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2429,7 +2429,7 @@ html {
 .login-alert .notice-alert.notice-alert-160208 .button-ok {
     width: 60px;
     height: 75px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-button-ok-160208.png);
+    background-image: url(../images/notice-alert-button-ok-160208.png);
     z-index: 10;
     position: absolute;
     bottom: 10px;
@@ -2445,7 +2445,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2462,7 +2462,7 @@ html {
 .login-alert .notice-alert.notice-alert-160210 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160210.png);
+    background-image: url(../images/notice-alert-bg-160210.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2494,7 +2494,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2511,7 +2511,7 @@ html {
 .login-alert .notice-alert.notice-alert-160314 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160314.png);
+    background-image: url(../images/notice-alert-bg-160314.png);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2543,7 +2543,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2560,7 +2560,7 @@ html {
 .login-alert .notice-alert.notice-alert-bg-160329 .notice-head {
     width: 250px;
     height: 316px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160329.png?1);
+    background-image: url(../images/notice-alert-bg-160329.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2592,7 +2592,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 117px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2609,7 +2609,7 @@ html {
 .login-alert .notice-alert.notice-alert-bg-160408 .notice-head {
     width: 7.8125rem;
     height: 10.1875rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160408.png?1);
+    background-image: url(../images/notice-alert-bg-160408.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2641,7 +2641,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2659,7 +2659,7 @@ html {
     position: relative;
     width: 7.8125rem;
     height: 9.875rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160501.png?1);
+    background-image: url(../images/notice-alert-bg-160501.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2691,7 +2691,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2717,7 +2717,7 @@ html {
     position: relative;
     width: 7.8125rem;
     height: 9.875rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160501-open.png?1);
+    background-image: url(../images/notice-alert-bg-160501-open.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2749,7 +2749,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2788,7 +2788,7 @@ html {
     position: relative;
     width: 7.8125rem;
     height: 9.875rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160502.png?1);
+    background-image: url(../images/notice-alert-bg-160502.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2820,7 +2820,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2851,7 +2851,7 @@ html {
     position: relative;
     width: 7.8125rem;
     height: 9.875rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160505.png?1);
+    background-image: url(../images/notice-alert-bg-160505.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2883,7 +2883,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2915,7 +2915,7 @@ html {
     position: relative;
     width: 7.34375rem;
     height: 8.90625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160531.png?1);
+    background-image: url(../images/notice-alert-bg-160531.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -2947,7 +2947,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -2988,7 +2988,7 @@ html {
     position: relative;
     width: 7.90625rem;
     height: 9.90625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-alert-bg-160808.png?1);
+    background-image: url(../images/notice-alert-bg-160808.png?1);
     background-size: 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -3020,7 +3020,7 @@ html {
     top: -40px;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -3078,7 +3078,7 @@ html {
     top: -.9375rem;
     left: 50%;
     margin-left: 3.65625rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-invite-cancel-qixi.png);
+    background-image: url(../images/notice-invite-cancel-qixi.png);
     background-size: 41%;
     background-position: center;
     border: 2px solid #d4d4d4;
@@ -3202,7 +3202,7 @@ html {
 .index-widget-addestop .adddesktop-con .adddesktop .appicon {
     width: 46px;
     height: 46px;
-    background: url(http://img.pphongbao.com/public/app/img/index/logo-border.png) no-repeat;
+    background: url(../images/logo-border.png) no-repeat;
     margin-right: 6px;
     display: inline-block;
     background-size: 46px 46px;
@@ -3220,15 +3220,15 @@ html {
 }
 
 .index-widget-addestop .ucaddbg {
-    background: url(http://img.pphongbao.com/public/app/img/index/ucaddbg.png) no-repeat
+    background: url(../images/ucaddbg.png) no-repeat
 }
 
 .index-widget-addestop .iphoneaddbg {
-    background: url(http://img.pphongbao.com/public/app/img/index/iphoneaddbg.png) no-repeat
+    background: url(../images/iphoneaddbg.png) no-repeat
 }
 
 .index-widget-addestop .ios7addbg {
-    background: url(http://img.pphongbao.com/public/app/img/index/icon-iosaddbg.png) no-repeat
+    background: url(../images/icon-iosaddbg.png) no-repeat
 }
 
 .index-widget-addestop .adddesktop-con .adddesktop .txt {
@@ -3262,7 +3262,7 @@ html {
     margin: 0 auto;
     width: 11px;
     height: 12px;
-    background: url(http://img.pphongbao.com/public/app/img/index/adddestop_close.png) no-repeat 0 0;
+    background: url(../images/adddestop_close.png) no-repeat 0 0;
     background-size: 11px 12px
 }
 
@@ -3276,67 +3276,67 @@ html {
 }
 
 .other-list i.icon.icon-user {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-user.png)
+    background-image: url(../images/icon-user.png)
 }
 
 .other-list i.icon.icon-phone {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-phone.png)
+    background-image: url(../images/icon-phone.png)
 }
 
 .other-list i.icon.icon-passwd {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-pwd.png)
+    background-image: url(../images/icon-pwd.png)
 }
 
 .other-list i.icon.icon-wechat-bind {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-wechat-bind.png)
+    background-image: url(../images/icon-wechat-bind.png)
 }
 
 .other-list i.icon.icon-level {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-level.png)
+    background-image: url(../images/icon-level.png)
 }
 
 .other-list i.icon.icon-message {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-message.png)
+    background-image: url(../images/icon-message.png)
 }
 
 .other-list i.icon.icon-transcripts {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-transcripts.png)
+    background-image: url(../images/icon-transcripts.png)
 }
 
 .other-list i.icon.icon-share {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-share.png)
+    background-image: url(../images/icon-share.png)
 }
 
 .other-list i.icon.icon-about {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-about.png)
+    background-image: url(../images/icon-about.png)
 }
 
 .other-list i.icon.icon-notice {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-notice.png)
+    background-image: url(../images/icon-notice.png)
 }
 
 .other-list i.icon.icon-find {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-find.png)
+    background-image: url(../images/icon-find.png)
 }
 
 .other-list i.icon.icon-qa {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-qa.png)
+    background-image: url(../images/icon-qa.png)
 }
 
 .other-list i.icon.icon-oneshop-buy-log {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-oneshop-buy-log.png?2)
+    background-image: url(../images/icon-oneshop-buy-log.png?2)
 }
 
 .other-list i.icon.icon-oneshop-prized-log {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-oneshop-prized-log.png?2)
+    background-image: url(../images/icon-oneshop-prized-log.png?2)
 }
 
 .other-list i.icon.icon-oneshop-address {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-oneshop-address.png?2)
+    background-image: url(../images/icon-oneshop-address.png?2)
 }
 
 .other-list i.icon.icon-changjianwenti {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-changjianwenti.png);
+    background-image: url(../images/icon-changjianwenti.png);
     width: 20px;
     height: 20px;
     margin-left: 4px;
@@ -3386,7 +3386,7 @@ html {
 i.icon.icon-invite-top {
     width: 87px;
     height: 29px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-invite-top.png)
+    background-image: url(../images/icon-invite-top.png)
 }
 
 .invite .header .swiper-container {
@@ -3985,15 +3985,15 @@ i.icon.icon-invite-top {
 }
 
 .invite-type-icon-1 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-type-1.png)
+    background-image: url(../images/invite-new0726-invite-type-1.png)
 }
 
 .invite-type-icon-2 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-type-2.png)
+    background-image: url(../images/invite-new0726-invite-type-2.png)
 }
 
 .invite-type-icon-3 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-type-3.png)
+    background-image: url(../images/invite-new0726-invite-type-3.png)
 }
 
 .invite-new0726 .invite-chat {
@@ -4224,7 +4224,7 @@ i.icon.icon-invite-top {
     width: 30px;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-top-title.png);
+    background-image: url(../images/invite-new0726-invite-top-title.png);
     margin-top: 0;
     margin-right: 8px
 }
@@ -4270,15 +4270,15 @@ i.icon.icon-invite-top {
 }
 
 .invite-top-1 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-top-1.png)
+    background-image: url(../images/invite-new0726-invite-top-1.png)
 }
 
 .invite-top-2 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-top-2.png)
+    background-image: url(../images/invite-new0726-invite-top-2.png)
 }
 
 .invite-top-3 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new0726-invite-top-3.png)
+    background-image: url(../images/invite-new0726-invite-top-3.png)
 }
 
 .invite-new0726 .list-block .swiper-wrapper:before {
@@ -4316,7 +4316,7 @@ i.icon.icon-invite-top {
 }
 
 .invite-new1805 .invite-head {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-head-bg.jpg);
+    background-image: url(../images/invite-new1805-head-bg.jpg);
     background-size: auto 100%;
     padding: 0;
     color: #fff;
@@ -4328,7 +4328,7 @@ i.icon.icon-invite-top {
 .invite-new1805 .invite-head .title {
     width: 9.44rem;
     height: 1.493333rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-title.png);
+    background-image: url(../images/invite-new1805-title.png);
     background-size: 100% auto;
     margin: .133333rem auto 0
 }
@@ -4337,13 +4337,13 @@ i.icon.icon-invite-top {
     position: relative;
     width: 8.573333rem;
     height: 8.213333rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-desc.png);
+    background-image: url(../images/invite-new1805-desc.png);
     background-size: 100% 100%;
     margin: .866667rem auto 0
 }
 
 .invite-new1805 .invite-head .desc.daren {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-desc-15.png)
+    background-image: url(../images/invite-new1805-desc-15.png)
 }
 
 .invite-new1805 .invite-head .desc .button {
@@ -4420,15 +4420,15 @@ i.icon.icon-invite-top {
 }
 
 .invite-new1805 .invite-method .method-list .icon.invite-type-icon-1 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-invite-type-1.png)
+    background-image: url(../images/invite-new1805-invite-type-1.png)
 }
 
 .invite-new1805 .invite-method .method-list .icon.invite-type-icon-2 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-invite-type-2.png)
+    background-image: url(../images/invite-new1805-invite-type-2.png)
 }
 
 .invite-new1805 .invite-method .method-list .icon.invite-type-icon-3 {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-invite-type-3.png)
+    background-image: url(../images/invite-new1805-invite-type-3.png)
 }
 
 .invite-new1805 .invite-method .method-list .item-title {
@@ -4448,7 +4448,7 @@ i.icon.icon-invite-top {
     width: 10rem;
     height: 1.213333rem;
     top: -1.213333rem;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-new1805-divider.png);
+    background-image: url(../images/invite-new1805-divider.png);
     background-size: 100% 100%
 }
 
@@ -5163,7 +5163,7 @@ i.icon.icon-invite-top {
 }
 
 .fasttask .fasttask-notice .icon-notice {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/notice-red.gif);
+    background-image: url(../images/notice-red.gif);
     background-size: auto 100%;
     background-repeat: no-repeat;
     display: inline-block;
@@ -5310,7 +5310,7 @@ i.icon.icon-invite-top {
 }
 
 .fasttask .list-block .item-content.empty {
-    background: url(http://img.pphongbao.com/public/app/img/fasttask/empty.png) no-repeat;
+    background: url(../images/empty.png) no-repeat;
     background-size: 1.95rem 1.57rem;
     background-position: 75% center
 }
@@ -6936,7 +6936,7 @@ html.ios-gt-8 .list-block li.media-item .item-title,html.ios-gt-8 .list-block.me
     height: 360px;
     overflow: hidden;
     background-color: #fffce0;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-why-head-bg.png);
+    background-image: url(../images/invite-why-head-bg.png);
     background-repeat: no-repeat;
     background-size: 100%
 }
@@ -6945,7 +6945,7 @@ html.ios-gt-8 .list-block li.media-item .item-title,html.ios-gt-8 .list-block.me
     width: 320px;
     height: 225px;
     margin: 0 auto;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/user-disciple-level-header.png);
+    background-image: url(../images/user-disciple-level-header.png);
     background-repeat: no-repeat;
     background-size: 100%;
     position: relative;
@@ -7094,7 +7094,7 @@ html.ios-gt-8 .list-block li.media-item .item-title,html.ios-gt-8 .list-block.me
     border-radius: 100%;
     top: -110px;
     margin-top: 35px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/disciple-level-head-bg.png);
+    background-image: url(../images/disciple-level-head-bg.png);
     background-size: 320px auto;
     background-repeat: no-repeat;
     background-position: center 64px;
@@ -7200,7 +7200,7 @@ html.ios-gt-8 .list-block li.media-item .item-title,html.ios-gt-8 .list-block.me
 .user-discipleTop-list .item-after {
     font-size: 16px;
     color: #df453d;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-gold.png);
+    background-image: url(../images/icon-gold.png);
     background-repeat: no-repeat;
     background-size: auto 15px;
     background-position: left 3px;
@@ -7348,7 +7348,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .about-logo {
     width: 75px;
     height: 75px;
-    background: url(http://img.pphongbao.com/public/app/img/index/logo.png) center no-repeat;
+    background: url(../images/logo.png) center no-repeat;
     background-size: 100% 100%;
     text-indent: -9999px;
     border-radius: 5px;
@@ -7514,7 +7514,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     width: 100%;
     overflow: hidden;
     background-color: #fffce0;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-why-head-bg.png);
+    background-image: url(../images/invite-why-head-bg.png);
     background-repeat: no-repeat;
     background-size: 100%
 }
@@ -7523,7 +7523,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     width: 320px;
     height: 289px;
     margin: 0 auto;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-why-head-top.png);
+    background-image: url(../images/invite-why-head-top.png);
     background-repeat: no-repeat;
     background-size: 100%;
     position: relative;
@@ -7604,7 +7604,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .inviteWhy.inviteWhat .top {
     height: 276px;
-    background-image: url(http://img.pphongbao.com/public/app/img/index/invite-what-head-top.png)
+    background-image: url(../images/invite-what-head-top.png)
 }
 
 .inviteWhy.inviteWhat .head .middle p {
@@ -7635,15 +7635,15 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .icon.icon-wechat {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-wechat.png)
+    background-image: url(../images/icon-wechat.png)
 }
 
 .icon.icon-weibo {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-weibo.png)
+    background-image: url(../images/icon-weibo.png)
 }
 
 .icon.icon-qq {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/icon-qq.png)
+    background-image: url(../images/icon-qq.png)
 }
 
 .inviteWhy.inviteWhat .content .title {
@@ -8132,7 +8132,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .task-submit-image a {
     width: .687rem;
     height: .687rem;
-    background: url(http://img.pphongbao.com/public/images/close.png) no-repeat;
+    background: url(../images/close.png) no-repeat;
     display: block;
     background-size: .687rem .687rem;
     position: absolute;
@@ -8472,47 +8472,47 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .my-preg .preg-head .vip-text0 {
-    background: url(http://img.pphongbao.com/public/images/VIP-0.png) no-repeat
+    background: url(../images/VIP-0.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text1 {
-    background: url(http://img.pphongbao.com/public/images/VIP-1.png) no-repeat
+    background: url(../images/VIP-1.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text2 {
-    background: url(http://img.pphongbao.com/public/images/VIP-2.png) no-repeat
+    background: url(../images/VIP-2.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text3 {
-    background: url(http://img.pphongbao.com/public/images/VIP-3.png) no-repeat
+    background: url(../images/VIP-3.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text4 {
-    background: url(http://img.pphongbao.com/public/images/VIP-4.png) no-repeat
+    background: url(../images/VIP-4.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text5 {
-    background: url(http://img.pphongbao.com/public/images/VIP-5.png) no-repeat
+    background: url(../images/VIP-5.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text6 {
-    background: url(http://img.pphongbao.com/public/images/VIP-6.png) no-repeat
+    background: url(../images/VIP-6.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text7 {
-    background: url(http://img.pphongbao.com/public/images/VIP-7.png) no-repeat
+    background: url(../images/VIP-7.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text8 {
-    background: url(http://img.pphongbao.com/public/images/VIP-8.png) no-repeat
+    background: url(../images/VIP-8.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text9 {
-    background: url(http://img.pphongbao.com/public/images/VIP-9.png) no-repeat
+    background: url(../images/VIP-9.png) no-repeat
 }
 
 .my-preg .preg-head .vip-text10 {
-    background: url(http://img.pphongbao.com/public/images/VIP-10.png) no-repeat
+    background: url(../images/VIP-10.png) no-repeat
 }
 
 .my-preg .preg-head div span {
@@ -8550,7 +8550,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .my-preg .content ul li .exper {
     width: .656rem;
-    background-image: url(http://img.pphongbao.com/public/images/rank-v.png);
+    background-image: url(../images/rank-v.png);
     background-repeat: no-repeat;
     background-size: .562rem .516rem;
     font-size: .656rem;
@@ -9798,7 +9798,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     display: inline-block;
     width: 30px;
     height: 24.4px;
-    background-image: url(http://img.pphongbao.com/public/images/wechat.png);
+    background-image: url(../images/wechat.png);
     background-size: auto 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -9824,7 +9824,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     width: .63rem;
     height: .75rem;
     margin: 0 auto;
-    background: url(http://img.pphongbao.com/public/app/img/index/zhima-icon.png) no-repeat;
+    background: url(../images/zhima-icon.png) no-repeat;
     background-position: center center;
     background-size: cover
 }
@@ -9894,13 +9894,13 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .zhima-page .success .icon {
-    background: url(http://img.pphongbao.com/public/app/img/index/zhima-success.png) no-repeat;
+    background: url(../images/zhima-success.png) no-repeat;
     background-position: center center;
     background-size: cover
 }
 
 .zhima-page .fail .icon {
-    background: url(http://img.pphongbao.com/public/app/img/index/zhima-fail.png) no-repeat;
+    background: url(../images/zhima-fail.png) no-repeat;
     background-position: center center;
     background-size: cover
 }
@@ -10337,7 +10337,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .index-adv-fixed .bg-img {
     width: 100%;
     height: 100%;
-    background: url(http://img.pphongbao.com/public/app/img/index_new/bg-img.png) no-repeat;
+    background: url(../images/bg-img.png) no-repeat;
     animation: a 1s steps(15) infinite both;
     background-size: cover
 }
@@ -10375,7 +10375,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-invite {
-    background: url(http://img.pphongbao.com/public/app/img/invite/invite-bg.png) no-repeat #de424a;
+    background: url(../images/invite-bg.png) no-repeat #de424a;
     background-size: cover;
     position: relative
 }
@@ -10812,7 +10812,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .page-content.invite-new {
     padding: 0 0 .56rem 0;
-    background: url(http://img.pphongbao.com/public/app/img/invite/invite-bg2.png) no-repeat;
+    background: url(../images/invite-bg2.png) no-repeat;
     background-size: 100%
 }
 
@@ -10941,7 +10941,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .invite-new .current-info .bg-img {
     width: 9.2rem;
     height: 6.29rem;
-    background: url(http://img.pphongbao.com/public/app/img/invite/invite-sanjiao.png) no-repeat #fff;
+    background: url(../images/invite-sanjiao.png) no-repeat #fff;
     background-size: 100% 100%;
     margin: .142rem auto 0;
     position: relative;
@@ -11423,7 +11423,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     left: 50%;
     transform: translate(-50%,-50%);
     position: absolute;
-    background: url(http://img.pphongbao.com/public/app/img/index_new/index-redpacket.png) no-repeat;
+    background: url(../images/index-redpacket.png) no-repeat;
     background-size: 100% 100%;
     text-align: center
 }
@@ -11636,7 +11636,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-withdraw .withdraw-type .item .type-active {
-    background: url(http://img.pphongbao.com/public/app/img/withdraw/gou.png) no-repeat #f94c43;
+    background: url(../images/gou.png) no-repeat #f94c43;
     background-size: .33rem .25rem;
     background-position: center center;
     border-color: #f94c43
@@ -13465,7 +13465,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-verify-idcard .verify-type .type-check .item .type-active {
-    background: url(http://img.pphongbao.com/public/app/img/withdraw/gou.png) no-repeat #f94c43;
+    background: url(../images/gou.png) no-repeat #f94c43;
     background-size: .33rem .25rem;
     background-position: center center;
     border-color: #f94c43
@@ -14003,7 +14003,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .fasttask-money-pop .content {
     width: 8.27rem;
     height: 7rem;
-    background: url(http://img.pphongbao.com/public/app/img/fasttask/fasttask-money.png) no-repeat;
+    background: url(../images/fasttask-money.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
     left: 50%;
@@ -14181,12 +14181,12 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-question .strategy .strategy-play {
-    background: url(http://img.pphongbao.com/public/app/img/faq/btn1.png) no-repeat;
+    background: url(../images/btn1.png) no-repeat;
     background-size: 100% 100%
 }
 
 .page-question .strategy .strategy-money {
-    background: url(http://img.pphongbao.com/public/app/img/faq/btn2.png) no-repeat;
+    background: url(../images/btn2.png) no-repeat;
     background-size: 100% 100%
 }
 
@@ -14406,12 +14406,12 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-other .other-list .item-content .item-inner {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/right-small.png);
+    background-image: url(../images/right-small.png);
     background-size: 6px 10px
 }
 
 .page-other .other-list .user-name .item-content .item-inner {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/right-big.png);
+    background-image: url(../images/right-big.png);
     background-size: 10px 18px
 }
 
@@ -14550,31 +14550,31 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .other-list i.icon.other-icon-account {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-account.png)
+    background-image: url(../images/other-icon-account.png)
 }
 
 .other-list i.icon.other-icon-wx {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-wx.png)
+    background-image: url(../images/other-icon-wx.png)
 }
 
 .other-list i.icon.other-icon-income {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-income.png)
+    background-image: url(../images/other-icon-income.png)
 }
 
 .other-list i.icon.other-icon-qa {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-qa.png)
+    background-image: url(../images/other-icon-qa.png)
 }
 
 .other-list i.icon.other-icon-in {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-in.png)
+    background-image: url(../images/other-icon-in.png)
 }
 
 .other-list i.icon.other-icon-find {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-find.png)
+    background-image: url(../images/other-icon-find.png)
 }
 
 .other-list i.icon.other-icon-cut {
-    background-image: url(http://img.pphongbao.com/public/app/img/index/other-icon-cut.png)
+    background-image: url(../images/other-icon-cut.png)
 }
 
 .page-changeAccount .tips {
@@ -14776,7 +14776,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-newyear .content-bg {
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/bg1.png),url(http://img.pphongbao.com/public/app/img/activity/new_year/bg2.png),#cc213f no-repeat;
+    background: url(../images/bg1.png),url(../images/bg2.png),#cc213f no-repeat;
     background-size: 100%;
     text-align: center;
     padding-top: 1.51rem;
@@ -14799,7 +14799,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .page-newyear .description {
     width: 8.32rem;
     height: 1.1rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/border.png) no-repeat;
+    background: url(../images/border.png) no-repeat;
     background-size: 100% 100%;
     margin: .67rem auto 0;
     font-size: .36rem;
@@ -14879,7 +14879,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .page-newyear .round-detail .frame1 {
     width: 9.09rem;
     height: 5.31rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/frame1-0128.png) no-repeat;
+    background: url(../images/frame1-0128.png) no-repeat;
     background-size: 100%;
     margin: .61rem auto 0;
     position: relative
@@ -14983,7 +14983,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     width: 9.08rem;
     height: 7.96rem;
     margin: .69rem auto 0;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/frame3.png) no-repeat;
+    background: url(../images/frame3.png) no-repeat;
     background-size: 100%;
     padding-top: .92rem
 }
@@ -15008,7 +15008,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
     width: 9.08rem;
     height: 22.07rem;
     margin: .69rem auto 0;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/frame2.png) no-repeat;
+    background: url(../images/frame2.png) no-repeat;
     background-size: 100%;
     padding-top: .92rem
 }
@@ -15154,7 +15154,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .page-newyear .round-detail .frame2 .rank-list li .ranking {
     width: .5rem;
     height: .5rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/rect.png) no-repeat;
+    background: url(../images/rect.png) no-repeat;
     background-size: 100%
 }
 
@@ -15275,7 +15275,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-newyear-rule .content-bg {
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/bg1.png),url(http://img.pphongbao.com/public/app/img/activity/new_year/bg2.png),#cc213f no-repeat;
+    background: url(../images/bg1.png),url(../images/bg2.png),#cc213f no-repeat;
     background-size: 100%;
     text-align: center;
     padding-top: 1.51rem;
@@ -15298,7 +15298,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .page-newyear-rule .description {
     width: 8.32rem;
     height: 1.1rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/border.png) no-repeat;
+    background: url(../images/border.png) no-repeat;
     background-size: 100% 100%;
     margin: .67rem auto 0;
     font-size: .36rem;
@@ -15320,7 +15320,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 .page-newyear-rule .detail {
     width: 8.97rem;
     height: 31rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/rule-bg-0128.png) no-repeat;
+    background: url(../images/rule-bg-0128.png) no-repeat;
     background-size: 100%;
     margin: .87rem auto 0;
     padding-top: 1.5rem
@@ -15340,7 +15340,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .page-newyear-rule .detail .rule-title1::before {
     content: '';
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/line.png) no-repeat;
+    background: url(../images/line.png) no-repeat;
     background-size: 100% 100%;
     width: .92rem;
     height: .2rem;
@@ -15351,7 +15351,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .page-newyear-rule .detail .rule-title1::after {
     content: '';
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/line.png) no-repeat;
+    background: url(../images/line.png) no-repeat;
     background-size: 100% 100%;
     width: .92rem;
     height: .2rem;
@@ -15439,7 +15439,7 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 
 .page-newyear-rule .detail .rule-detail .rule-title2::before {
     content: '';
-    background: url(http://img.pphongbao.com/public/app/img/activity/new_year/rule-rect.png) no-repeat;
+    background: url(../images/rule-rect.png) no-repeat;
     background-size: 100% 100%;
     width: .45rem;
     height: .45rem;
@@ -16091,7 +16091,7 @@ html.with-statusbar-overlay .framework7-root .statusbar-overlay {
 .page-drainage .page-content .current-detail .cutdown-time {
     width: 6.7rem;
     height: .77rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/activity201903/bg2.png) no-repeat;
+    background: url(../images/bg2.png) no-repeat;
     background-size: cover;
     margin: 0 auto
 }
@@ -16182,7 +16182,7 @@ html.with-statusbar-overlay .framework7-root .statusbar-overlay {
     content: '';
     width: .7rem;
     height: .15rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/activity201903/left-dot.png) no-repeat;
+    background: url(../images/left-dot.png) no-repeat;
     background-size: contain;
     position: absolute;
     top: 50%;
@@ -16194,7 +16194,7 @@ html.with-statusbar-overlay .framework7-root .statusbar-overlay {
     content: '';
     width: .7rem;
     height: .15rem;
-    background: url(http://img.pphongbao.com/public/app/img/activity/activity201903/right-dot.png) no-repeat;
+    background: url(../images/right-dot.png) no-repeat;
     background-size: contain;
     position: absolute;
     top: 50%;

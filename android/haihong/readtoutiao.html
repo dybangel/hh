@@ -1,0 +1,118 @@
+<html><head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HUI 列表</title>
+<link rel="stylesheet" type="text/css" href="css/hui.css">
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+	<script type="text/javascript" src="js/doT.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/myfun.js"></script>
+<!--<style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}
+</style>-->
+</head>
+<body>
+	<style>
+		h1{
+			    padding: 0px 90px 0px 38px!important;
+		}
+	</style>
+<header class="hui-header">
+	 
+    <div id="hui-back" class="event_close"></div>
+    <h1>海虹阅读</h1>
+</header>
+<div class="hui-wrap">
+	<!--<div class="hui-common-title" style="margin-top:15px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">普通文字列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>-->
+   
+    <!--<div class="hui-common-title" style="margin-top:28px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">带有图标的列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>-->
+    <!--<div class="hui-list" style="margin-top:22px;">
+        <a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-icons">
+    			<img src="../img/list/home.png">
+    		</div>
+    		<div class="hui-list-text">
+    			主页
+    			<div class="hui-list-info">
+    				查看 <span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+		</a>
+		<a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-icons">
+    			<img src="../img/list/sc.png">
+    		</div>
+    		<div class="hui-list-text">
+    			收藏
+    		</div>
+    	</a>
+    </div>
+    <div class="hui-common-title" style="margin-top:28px;">
+		<div class="hui-common-title-line"></div>
+		<div class="hui-common-title-txt">组合列表</div>
+		<div class="hui-common-title-line"></div>
+	</div>
+    <div class="hui-list" style="margin-top:22px;">
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');" style="height:auto; height:80px; padding-bottom:8px;">
+    		<div class="hui-list-icons" style="width:110px; height:80px;">
+    			<img src="../img/list/home.png" style="width:66px; margin:0px; border-radius:50%;">
+    		</div>
+    		<div class="hui-list-text" style="height:79px; line-height:79px;">
+    			Hcoder.net
+    			<div class="hui-list-info">
+    				<span class="hui-icons hui-icons-right"></span>
+    			</div>
+    		</div>
+    	</a>
+    	<a href="javascript:hui.toast('Hello Hcoder UI !');">
+    		<div class="hui-list-text">
+    			账户余额 : 1000元 | 积分 : 2000
+    		</div>
+    	</a>
+    </div>-->
+
+</div>
+
+<script>
+mui.init({ 
+	//示例打开百度,进行加载 
+	subpages:[{ url:"https://m.toutiao.com/?W2atIF=1",
+				id:"abc",
+				styles:{
+					  top: '45px',
+                      bottom: '0px',
+				} 
+	}] 
+})
+
+function plusReady(){ 
+	//plus.webview.getWebviewById("abc").setStyle({top:'300px'}); 
+	var ws=plus.webview.getWebviewById("abc");
+	printobj(ws);
+
+//getjson('getinfo|template','memberid=123&pid=asdf');
+//$('.abs_m').css("display":"none");
+
+
+mui("body").on("tap", ".event_close",
+        function() {
+          closeme();
+});
+}
+	mui.ready(function () {
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			};
+})
+</script>
+<div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>

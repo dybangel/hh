@@ -1,0 +1,193 @@
+<html lang="en">
+ <head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0"> 
+  <meta charset="UTF-8" /> 
+  <title>手机app通用模板邀请好友赢取现金红包专题页面模板</title> 
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" /> 
+  <meta content="yes" name="apple-mobile-web-app-capable" /> 
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+  <meta content="telephone=no" name="format-detection" /> 
+  <link href="css/style.css" rel="stylesheet" type="text/css" /> 
+  <style>@font-face{font-family:uc-nexus-iconfont;src:url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'),url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')}</style>
+ </head> 
+ <script src="../js/mui.min.js"></script>
+   <script src="../js/jquery.min.js"></script>
+   <script src="../js/myfun.js"></script>
+ <body> 
+  <!--
+
+* 17素材vip建站专区模块代码
+* 详尽信息请看官网：http://www.17sucai.com/pins/vip
+*
+* Copyright , 温州易站网络科技有限公司版权所有
+*
+* 请尊重原创，未经允许请勿转载。
+* 在保留版权的前提下可应用于个人或商业用途
+
+--> 
+  <section class="aui-flexView"> 
+   <section class="aui-scrollView"> 
+    <div class="aui-invitation-head"> 
+    </div> 
+    <div class="aui-invitation-content"> 
+     <div class="aui-invitation-item"> 
+      <div class="aui-invitation-title"> 
+       <h2>NO.1 重礼</h2> 
+      </div> 
+      <div class="aui-coupon-body"> 
+       <h2>&nbsp;<em></em> </h2> 
+      </div> 
+      <div class="aui-coupon-text"> 
+       <p>邀请徒弟越多，享受收益越大</p> 
+       <span>轻轻松松就能赚钱</span> 
+      </div> 
+     </div> 
+     <div class="aui-invitation-item"> 
+      <div class="aui-invitation-title"> 
+       <h2>NO.2 重礼</h2> 
+      </div> 
+      <div class="aui-coin-img" id="qrcode" qrcode="http://www.baid.com/index.php?store_code=37020201000001&time=20191212111111" class="qrcode"> 
+       <!--<img src="images/coin.png" alt="" /> -->
+      </div> 
+      <div class="aui-coupon-text"> 
+       <p>立刻发送自己的邀请码给朋友</p> 
+       <span class="event_yaoqingma">你的邀请码是：3333333</span> 
+      </div> 
+     </div> 
+    </div> 
+   </section> 
+   <!--<footer class="aui-footer aui-footer-fixed" data-ydui-actionsheet="{target:'#actionSheet',closeElement:'#cancel'}"> 
+    <a href="javascript:;" class="aui-tabBar-item"> <span class="aui-tabBar-item-text">邀请徒弟</span> </a> 
+   </footer> -->
+  </section> 
+  <div class="m-actionsheet" id="actionSheet"> 
+   <div class="aui-show-box"> 
+    <div class="aui-show-box-title aui-footer-flex"> 
+     <div class="b-line aui-coll-share-box"> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-wx.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        微信好友
+       </div> </a> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-pyq.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        朋友圈
+       </div> </a> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-qq.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        QQ
+       </div> </a> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-kj.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        QQ空间
+       </div> </a> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-txw.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        腾讯微博
+       </div> </a> 
+      <a href="javascript:;" class="aui-coll-share-item"> 
+       <div class="aui-coll-share-img"> 
+        <img src="images/icon-wb.png" alt="" /> 
+       </div> 
+       <div class="aui-coll-share-text">
+        新浪微博
+       </div> </a> 
+     </div> 
+     <div class="aui-coll-cancel"> 
+      <a href="javascript:;" id="cancel" class="">取消 </a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript" defer="" async="" src="https://track.uc.cn/uaest.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/layer.js"></script> 
+  <script type="text/javascript">
+
+
+		function b() {
+			t = parseInt(x.css('top'));
+			y.css('top', '25px');
+			x.animate({
+				top: t - 25 + 'px'
+			}, 'slow');
+			if (Math.abs(t) == h - 25) {
+				y.animate({
+					top: '0px'
+				}, 'slow');
+				z = x;
+				x = y;
+				y = z;
+			}
+			setTimeout(b, 3000);
+		}
+		$(document).ready(function() {
+			$('.swap').html($('.news_li').html());
+			x = $('.news_li');
+			y = $('.swap');
+			h = $('.news_li li').length * 25;
+			setTimeout(b, 3000);
+		})
+	</script> 
+  <div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;">
+   <div id="trans-tooltip">
+    <div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-top.png&quot;);"></div>
+    <div id="tip-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-top.png&quot;) repeat-x;"></div>
+    <div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-top.png&quot;);"></div>
+    <div id="tip-right" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right.png&quot;) repeat-y;"></div>
+    <div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-right-bottom.png&quot;);"></div>
+    <div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-bottom.png&quot;) repeat-x;"></div>
+    <div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left-bottom.png&quot;);"></div>
+    <div id="tip-left" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-left.png&quot;);"></div>
+    <div id="trans-content"></div>
+   </div>
+   <div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-bottom.png&quot;);"></div>
+   <div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkepelhgbcgmhhmcmpfkjmchccjblkd/imgs/map/tip-arrow-top.png&quot;);"></div>
+  </div>
+
+  <script src="../js/qrcode.js"></script>
+<script>
+
+function makeCode () {     
+var qrcode = new QRCode('qrcode', {
+    width : 130,
+    height : 130,
+    colorDark: '#223'
+
+});
+    var code = document.getElementById("qrcode").getAttribute('qrcode');
+    qrcode.makeCode(code);
+}
+
+
+function plusReady(){
+getvalue_plus();
+var UserID=plus.webview.currentWebview().UserID;
+console.log("this is fenxiang2 userid is:"+UserID);
+$('.event_yaoqingma')[0].innerHTML="你的邀请码："+UserID;
+$('#qrcode')[0].setAttribute("qrcode",UserID);
+makeCode();
+}
+	mui.ready(function () {
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			};
+})	
+</script>
+ </body>
+</html>
