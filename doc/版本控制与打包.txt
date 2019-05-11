@@ -1,0 +1,25 @@
+download代码
+F:\phpStudy2016\WWW\fanhaoyue
+
+海虹代码
+F:\phpStudy2016\WWW\delhubliderx\haihong\haihong
+
+api代码
+虚拟机C:\www\api\api
+
+激活
+http://download.dqu360.com/download/#/home?hhstr=duxiaomi4
+http://127.0.0.1/qrcode-create-tool/
+http://127.0.0.1/qrcodecreator/
+http://127.0.0.1/QR-code/
+https://github.com/mjixiang/tools
+http://download.dqu360.com/download/#/home
+http://download.dqu360.com:81/hh.apk?hhstr=123123123
+1、生成序列号写入数据库  http://coolaf.com/tool/rd
+前INSERT INTO Fooke_licence(fsn, fuuid)VALUES ('
+后', '');
+
+2、序列号与网址拼接
+前http://download.dqu360.com:81/download#home?hhstr=
+
+3、拼接后的字符生成二维码 http://www.cathkid.com/
